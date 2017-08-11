@@ -1,0 +1,35 @@
+{
+  "name": "dusty",
+  "version": "0.1.0",
+  "description": "A small library of functional operators",
+  "main": "dusty.js",
+  "dependencies": {
+    "eslint": "^4.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhershman1/dustyjs.git"
+  },
+  "keywords": [
+    "dusty",
+    "functional",
+    "library",
+    "operators",
+    "helpers",
+    "utils",
+    "utilities",
+    "utility"
+  ],
+  "author": "Dustin Hershman",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/dhershman1/dustyjs/issues"
+  },
+  "homepage": "https://github.com/dhershman1/dustyjs#readme"
+}
