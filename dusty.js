@@ -1,3 +1,5 @@
+import equal from './internals/equal';
+
 /*
  * A simple utility library for anti-mutation data setup
  */
@@ -30,11 +32,7 @@ export const isFunction = x => Object.prototype.toString.call(x) === '[object Fu
  * @param  {Argument}  x The value to run our check against
  * @return {Boolean}   Returns a boolean based on our check
  */
-export const isArguments = x => {
-	const {toString} = Object.prototype;
-
-	return toString.call(x) === '[object Arguments]';
-};
+export const isArguments = x => Object.prototype.toString.call(x) === '[object Arguments]';
 
 /**
  * Checks if the value is a null value
@@ -63,6 +61,21 @@ export const isNumber = x => Object.prototype.toString.call(x) === '[object Numb
  * @return {Boolean}   Returns the boolean after testing our value
  */
 export const isString = x => Object.prototype.toString.call(x) === '[object String]';
+
+/**
+ * Checks if the value is a RegExp String
+ * @param  {String}  x The value to check
+ * @return {Boolean}   Returns the boolean after testing our value
+ */
+export const isRegExp = x => Object.prototype.toString.call(x) === '[object RegExp]';
+
+/**
+ * Takes and compares to items
+ * @param  {Any} a First item to compare
+ * @param  {Any} b Second item to compare
+ * @return {Boolean} Returns the boolean after running our comparison check
+ */
+export const isEqual = (a, b) => equal(a, b);
 
 /**
  * Remove an item from a certain point in the index
@@ -188,7 +201,7 @@ export const last = x => nth(-1, x);
  */
 export const not = x => !x;
 
-export const empty = x => { // eslint-disable-line
+export const empty = x => { // eslint-disable-line complexity
 	if (!isNull(x)) {
 		if (isFunction(x.empty)) {
 			return x.empty();
@@ -208,7 +221,7 @@ export const empty = x => { // eslint-disable-line
 
 		if (isArguments(x)) {
 			(function emptyArgs() {
-				return arguments; // eslint-disable-line
+				return arguments; // eslint-disable-line prefer-rest-params
 			}());
 		}
 	}
@@ -225,7 +238,7 @@ export const type = x => {
 	if (isNull(x)) {
 		return 'Null';
 	}
-	if (x === undefined) { // eslint-disable-line
+	if (x === undefined) { // eslint-disable-line no-undefined
 		return 'Undefined';
 	}
 
@@ -245,5 +258,5 @@ export const identical = (a, b) => {
 	}
 
 	// NaN === NaN
-	return a !== a && b !== b; // eslint-disable-line
+	return a !== a && b !== b; // eslint-disable-line no-self-compare
 };

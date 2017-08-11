@@ -6,7 +6,7 @@ const identityTypeCheck = (a, b) => identical(a, b) || typeof a === typeof b;
 
 const nullCheck = (a, b) => a === null || b === null;
 
-export const equals = (a, b, stackA, stackB) => { // eslint-disable-line
+export const equal = (a, b, stackA, stackB) => { // eslint-disable-line
 	if (identityTypeCheck(a, b)) {
 		return true;
 	}
@@ -51,7 +51,7 @@ export const equals = (a, b, stackA, stackB) => { // eslint-disable-line
 			break;
 		case 'Map':
 		case 'Set':
-			if (!equals(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
+			if (!equal(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
 				return false;
 			}
 			break;
@@ -93,7 +93,7 @@ export const equals = (a, b, stackA, stackB) => { // eslint-disable-line
 	while (idx >= 0) {
 		const key = keysA[idx];
 
-		if (!(Object.prototype.hasOwnProperty.call(key, b) && equals(b[key], a[key], stackA, stackB))) {
+		if (!(Object.prototype.hasOwnProperty.call(key, b) && equal(b[key], a[key], stackA, stackB))) {
 			return false;
 		}
 		idx -= 1;
