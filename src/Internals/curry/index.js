@@ -1,5 +1,5 @@
 
-import isPlaceholder from './isPlaceholder';
+import isPlaceholder from '../isPlaceholder';
 
 const curry = (length, recieved, fn, ...args) => { // eslint-disable-line
 	return function() { // eslint-disable-line

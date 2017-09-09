@@ -1,12 +1,12 @@
-import {identical, type} from '../dusty';
-import arrayFromIterator from './array-from-iterator';
-import functionName from './function-name';
+import {identical, type} from '../../index.js';
+import arrayFromIterator from '../array-from-iterator';
+import functionName from '../function-name';
 
 const identityTypeCheck = (a, b) => identical(a, b) || typeof a === typeof b;
 
 const nullCheck = (a, b) => a === null || b === null;
 
-export const equal = (a, b, stackA, stackB) => { // eslint-disable-line
+const equal = (a, b, stackA, stackB) => { // eslint-disable-line
 	if (identityTypeCheck(a, b)) {
 		return true;
 	}
@@ -103,3 +103,5 @@ export const equal = (a, b, stackA, stackB) => { // eslint-disable-line
 
 	return true;
 };
+
+export default equal;
