@@ -71,7 +71,9 @@ export const isRegExp = x => Object.prototype.toString.call(x) === '[object RegE
  * @param  {Any} b Second item to compare
  * @return {Boolean} Returns the boolean after running our comparison check
  */
-export const isEqual = (a, b) => equal(a, b);
+export const isEqual = (a, b) => equal(a, b, [], []);
+
+export const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop);
 
 /**
  * Remove an item from a certain point in the index

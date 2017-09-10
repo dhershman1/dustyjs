@@ -14,7 +14,9 @@
   },
   "scripts": {
     "rollup": "rollup -c",
-    "test": "rollup --config rollup.config.tests.js && tape src/tests/tests.umd.js"
+    "pretest": "rollup -c",
+    "test": "tape src/tests/main.js | tap-spec",
+    "test:equals": "rollup -c && tape src/tests/equals.js | tap-spec"
   },
   "repository": {
     "type": "git",

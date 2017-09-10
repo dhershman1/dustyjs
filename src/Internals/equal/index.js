@@ -1,14 +1,16 @@
-import {identical, type} from '../../index.js';
+import {has, identical, type} from '../../index.js';
 import arrayFromIterator from '../array-from-iterator';
 import functionName from '../function-name';
-
-const identityTypeCheck = (a, b) => identical(a, b) || typeof a === typeof b;
 
 const nullCheck = (a, b) => a === null || b === null;
 
 const equal = (a, b, stackA, stackB) => { // eslint-disable-line
-	if (identityTypeCheck(a, b)) {
+	if (identical(a, b)) {
 		return true;
+	}
+
+	if (type(a) !== type(b)) {
+		return false;
 	}
 
 	if (nullCheck(a, b)) {
@@ -93,7 +95,7 @@ const equal = (a, b, stackA, stackB) => { // eslint-disable-line
 	while (idx >= 0) {
 		const key = keysA[idx];
 
-		if (!(Object.prototype.hasOwnProperty.call(key, b) && equal(b[key], a[key], stackA, stackB))) {
+		if (!(has(key, b) && equal(b[key], a[key], stackA, stackB))) {
 			return false;
 		}
 		idx -= 1;

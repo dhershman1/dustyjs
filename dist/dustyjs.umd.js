@@ -1,10 +1,129 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('../../../../../../../src/internals/equal.js')) :
-	typeof define === 'function' && define.amd ? define(['exports', '../../../../../../../src/internals/equal.js'], factory) :
-	(factory((global.DustyJS = {}),global.equal));
-}(this, (function (exports,equal) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.DustyJS = {})));
+}(this, (function (exports) { 'use strict';
 
-equal = equal && equal.hasOwnProperty('default') ? equal['default'] : equal;
+var arrayFromIterator = iter => {
+	const list = [];
+	let next = '';
+
+	while (!(next = iter.next()).done) {
+		list.push(next.value);
+	}
+
+	return list;
+};
+
+var functionName = f => {
+	const match = String(f).match(/^function (\w*)/);
+
+	return match == null ? '' : match[1]; // eslint-disable-line
+};
+
+const nullCheck = (a, b) => a === null || b === null;
+
+const equal = (a, b, stackA, stackB) => { // eslint-disable-line
+	if (identical(a, b)) {
+		return true;
+	}
+
+	if (type(a) !== type(b)) {
+		return false;
+	}
+
+	if (nullCheck(a, b)) {
+		return false;
+	}
+
+	switch (type(a)) {
+		case 'Arguments':
+		case 'Array':
+		case 'Object':
+			if (typeof a.constructor === 'function' &&
+				functionName(a.constructor) === 'Promise') {
+
+				return a === b;
+			}
+			break;
+		case 'Boolean':
+		case 'Number':
+		case 'String':
+			if (!(typeof a === typeof b && identical(a.valueOf(), b.valueOf()))) {
+				return false;
+			}
+			break;
+		case 'Date':
+			if (!identical(a.valueOf(), b.valueOf())) {
+				return false;
+			}
+			break;
+		case 'Error':
+			return a.name === b.name && a.message === b.message;
+		case 'RegExp':
+			if (!(a.source === b.source &&
+						a.global === b.global &&
+						a.ignoreCase === b.ignoreCase &&
+						a.multiline === b.multiline &&
+						a.sticky === b.sticky &&
+						a.unicode === b.unicode)) {
+				return false;
+			}
+			break;
+		case 'Map':
+		case 'Set':
+			if (!equal(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
+				return false;
+			}
+			break;
+		case 'Int8Array':
+		case 'Uint8Array':
+		case 'Uint8ClampedArray':
+		case 'Int16Array':
+		case 'Uint16Array':
+		case 'Int32Array':
+		case 'Uint32Array':
+		case 'Float32Array':
+		case 'Float64Array':
+			break;
+		case 'ArrayBuffer':
+			break;
+		default:
+			return false;
+	}
+
+	const keysA = Object.keys(a);
+
+	if (keysA.length !== Object.keys(b).length) {
+		return false;
+	}
+
+	let idx = stackA.length - 1;
+
+	while (idx >= 0) {
+		if (stackA[idx] === a) {
+			return stackB[idx] === b;
+		}
+		idx -= 1;
+	}
+
+	stackA.push(a);
+	stackB.push(b);
+	idx = keysA.length - 1;
+
+	while (idx >= 0) {
+		const key = keysA[idx];
+
+		if (!(has(key, b) && equal(b[key], a[key], stackA, stackB))) {
+			return false;
+		}
+		idx -= 1;
+	}
+	stackA.pop();
+	stackB.pop();
+
+	return true;
+};
 
 /**
  * Verifies if the value is of type array
@@ -77,7 +196,9 @@ const isRegExp = x => Object.prototype.toString.call(x) === '[object RegExp]';
  * @param  {Any} b Second item to compare
  * @return {Boolean} Returns the boolean after running our comparison check
  */
-const isEqual = (a, b) => equal(a, b);
+const isEqual = (a, b) => equal(a, b, [], []);
+
+const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop);
 
 /**
  * Remove an item from a certain point in the index
@@ -271,6 +392,7 @@ exports.isNumber = isNumber;
 exports.isString = isString;
 exports.isRegExp = isRegExp;
 exports.isEqual = isEqual;
+exports.has = has;
 exports.removeAtIndex = removeAtIndex;
 exports.appendAtIndex = appendAtIndex;
 exports.extend = extend;
