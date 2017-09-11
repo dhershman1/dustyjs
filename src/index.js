@@ -88,10 +88,7 @@ export const isEqual = (a, b) => equal(a, b, [], []);
  * @param  {Array} x The array in question
  * @return {Array}     returns the modified array back
  */
-export const removeAtIndex = (i, x) => [
-	...x.slice(0, i),
-	...x.slice(i + 1)
-];
+export const removeAtIndex = (i, x) => [...x.slice(0, i), ...x.slice(i + 1)];
 
 /**
  * Add an item to an array within a certain index of the array
@@ -100,11 +97,7 @@ export const removeAtIndex = (i, x) => [
  * @param  {Array} x  The array in question
  * @return {Array}      Returns the modified array
  */
-export const appendAtIndex = (i, t, x) => [
-	...x.slice(0, i),
-	t,
-	...x.slice(i + 1)
-];
+export const appendAtIndex = (i, t, x) => [...x.slice(0, i), t, ...x.slice(i + 1)];
 
 /**
  * Combines objects into a single object
@@ -199,6 +192,11 @@ export const last = x => nth(-1, x);
  */
 export const not = x => !x;
 
+/**
+ * Empties out the items of the sent value
+ * @param  {*} x The item to empty
+ * @return {*} Returns the empty item
+ */
 export const empty = x => _empty(x);
 
 /**
