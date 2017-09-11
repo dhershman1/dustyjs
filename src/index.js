@@ -1,3 +1,4 @@
+import _empty from './internals/empty';
 import equal from './internals/equal';
 
 /**
@@ -66,14 +67,20 @@ export const isString = x => Object.prototype.toString.call(x) === '[object Stri
 export const isRegExp = x => Object.prototype.toString.call(x) === '[object RegExp]';
 
 /**
+ * Determines if the object has a property
+ * @param  {String} prop The prop to look for
+ * @param  {Object} obj The Object we are searching
+ * @return {Boolean} Returns based on if the prop is found or not
+ */
+export const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop);
+
+/**
  * Takes and compares to items
  * @param  {Any} a First item to compare
  * @param  {Any} b Second item to compare
  * @return {Boolean} Returns the boolean after running our comparison check
  */
 export const isEqual = (a, b) => equal(a, b, [], []);
-
-export const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop);
 
 /**
  * Remove an item from a certain point in the index
@@ -113,13 +120,6 @@ export const extend = (...args) => args.reduce((acc, x) => {
 
 	return acc;
 }, {});
-
-/**
- * Generates a random number based on the max sent in
- * @param  {Number} x The max our random number can go to
- * @return {Number}     Returns the random number
- */
-export const randomNumber = x => Math.floor(Math.random() * x);
 
 /**
  * Clones the object sent in (Hard Clone)
@@ -199,33 +199,7 @@ export const last = x => nth(-1, x);
  */
 export const not = x => !x;
 
-export const empty = x => { // eslint-disable-line complexity
-	if (!isNull(x)) {
-		if (isFunction(x.empty)) {
-			return x.empty();
-		}
-
-		if (isArray(x)) {
-			return [];
-		}
-
-		if (isString(x)) {
-			return '';
-		}
-
-		if (isObject(x)) {
-			return {};
-		}
-
-		if (isArguments(x)) {
-			(function emptyArgs() {
-				return arguments; // eslint-disable-line prefer-rest-params
-			}());
-		}
-	}
-
-	return 0;
-};
+export const empty = x => _empty(x);
 
 /**
  * Finds the type of the sent value
@@ -258,3 +232,9 @@ export const identical = (a, b) => {
 	// NaN === NaN
 	return a !== a && b !== b; // eslint-disable-line no-self-compare
 };
+
+/**
+ * Placeholder value, used to set placeholder in arguments
+ * @type {Object}
+ */
+export const d__ = {'@@functional/placeholder': true}; // eslint-disable-line no-underscore-dangle
