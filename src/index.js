@@ -2,6 +2,14 @@ import _empty from './internals/empty';
 import equal from './internals/equal';
 
 /**
+ * Create a curried function
+ * @param  {Function} f The function we will be running
+ * @param  {Any} args extra args to apply if needed
+ * @return {Any} Returns based on the function sent in
+ */
+export const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more);
+
+/**
  * Verifies if the value is of type array
  * @param  {Array} x The value to check
  * @return {Boolean}   Returns the boolean depending on the result
@@ -81,6 +89,8 @@ export const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop
  * @return {Boolean} Returns the boolean after running our comparison check
  */
 export const isEqual = (a, b) => equal(a, b, [], []);
+
+export const isEmpty = x => x !== null && isEqual(x, _empty(x));
 
 /**
  * Remove an item from a certain point in the index
@@ -236,3 +246,54 @@ export const identical = (a, b) => {
  * @type {Object}
  */
 export const d__ = {'@@functional/placeholder': true}; // eslint-disable-line no-underscore-dangle
+
+/**
+ * Find items based on index
+ * @param  {Function} f The function to use to check items
+ * @param  {Array} x The array to sift through
+ * @return {Any} Returns the value found or false if nothing is found
+ */
+export const findIndex = (f, x) => {
+	const len = x.length;
+	let idx = 0;
+
+	while (idx < len) {
+		if (f(x[idx])) {
+			return x[idx];
+		}
+
+		idx += 1;
+	}
+
+	return false;
+};
+
+/**
+ * Fund items based on keys
+ * @param  {Function} f The function to use to check items
+ * @param  {Array} x The array to sift through
+ * @return {Any} Returns the value found or false if nothing is found
+ */
+export const findKeys = (f, x) => {
+	let prop = '';
+
+	for (prop in x) {
+		if (f(x[prop])) {
+			return x[prop];
+		}
+	}
+
+	return false;
+};
+
+/**
+ * Find an item based on the function sent in and its list
+ * @type {Any} Returns either the found item, or false if nothing is found
+ */
+export const find = curry((f, x) => {
+	if (isObject(x)) {
+		return findKeys(f, x);
+	}
+
+	return findIndex(f, x);
+});

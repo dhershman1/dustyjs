@@ -1,6 +1,6 @@
-import {isArguments, isArray, isFunction, isNull, isObject, isString} from '../../index.js';
+import {curry, isArguments, isArray, isFunction, isNull, isObject, isString} from '../../index.js';
 
-export default x => { // eslint-disable-line complexity
+export default curry(x => { // eslint-disable-line complexity
 	if (!isNull(x)) {
 		if (isFunction(x.empty)) {
 			return x.empty();
@@ -26,4 +26,4 @@ export default x => { // eslint-disable-line complexity
 	}
 
 	return 0;
-};
+});

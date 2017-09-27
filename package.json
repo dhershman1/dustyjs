@@ -16,7 +16,9 @@
     "rollup": "rollup -c",
     "pretest": "rollup -c",
     "test": "tape src/tests/main.js | tap-spec",
-    "test:equals": "rollup -c && tape src/tests/equals.js | tap-spec"
+    "test:equals": "rollup -c && tape src/tests/equals.js | tap-spec",
+    "test:empty": "rollup -c && tape src/tests/empty.js | tap-spec",
+    "test:curry": "rollup -c && tape src/tests/curry.js | tap-spec"
   },
   "repository": {
     "type": "git",

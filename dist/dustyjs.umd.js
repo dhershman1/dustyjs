@@ -4,6 +4,32 @@
 	(factory((global.DustyJS = {})));
 }(this, (function (exports) { 'use strict';
 
+var _empty = x => { // eslint-disable-line complexity
+	if (!isNull(x)) {
+		if (isFunction(x.empty)) {
+			return x.empty();
+		}
+
+		if (isArray(x)) {
+			return [];
+		}
+
+		if (isString(x)) {
+			return '';
+		}
+
+		if (isObject(x)) {
+			return {};
+		}
+
+		if (isArguments(x)) {
+			
+		}
+	}
+
+	return 0;
+};
+
 var arrayFromIterator = iter => {
 	const list = [];
 	let next = '';
@@ -21,18 +47,14 @@ var functionName = f => {
 	return match == null ? '' : match[1]; // eslint-disable-line
 };
 
-const nullCheck = (a, b) => a === null || b === null;
+const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b);
 
 const equal = (a, b, stackA, stackB) => { // eslint-disable-line
 	if (identical(a, b)) {
 		return true;
 	}
 
-	if (type(a) !== type(b)) {
-		return false;
-	}
-
-	if (nullCheck(a, b)) {
+	if (nullTypeCheck(a, b)) {
 		return false;
 	}
 
@@ -125,6 +147,11 @@ const equal = (a, b, stackA, stackB) => { // eslint-disable-line
 	return true;
 };
 
+// import _curry from './internals/curry';
+// export const curry = (length, fn) => _curry(length, [], fn);
+
+const curry = (f, ...args) => (f.length <= args.length) ? f(...args) : (...more) => curry(f, ...args, ...more);
+
 /**
  * Verifies if the value is of type array
  * @param  {Array} x The value to check
@@ -191,6 +218,14 @@ const isString = x => Object.prototype.toString.call(x) === '[object String]';
 const isRegExp = x => Object.prototype.toString.call(x) === '[object RegExp]';
 
 /**
+ * Determines if the object has a property
+ * @param  {String} prop The prop to look for
+ * @param  {Object} obj The Object we are searching
+ * @return {Boolean} Returns based on if the prop is found or not
+ */
+const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop);
+
+/**
  * Takes and compares to items
  * @param  {Any} a First item to compare
  * @param  {Any} b Second item to compare
@@ -198,18 +233,13 @@ const isRegExp = x => Object.prototype.toString.call(x) === '[object RegExp]';
  */
 const isEqual = (a, b) => equal(a, b, [], []);
 
-const has = (prop, obj) => Object.prototype.hasOwnProperty.call(obj, prop);
-
 /**
  * Remove an item from a certain point in the index
  * @param  {Number} i   The index number to remove from
  * @param  {Array} x The array in question
  * @return {Array}     returns the modified array back
  */
-const removeAtIndex = (i, x) => [
-	...x.slice(0, i),
-	...x.slice(i + 1)
-];
+const removeAtIndex = (i, x) => [...x.slice(0, i), ...x.slice(i + 1)];
 
 /**
  * Add an item to an array within a certain index of the array
@@ -218,11 +248,7 @@ const removeAtIndex = (i, x) => [
  * @param  {Array} x  The array in question
  * @return {Array}      Returns the modified array
  */
-const appendAtIndex = (i, t, x) => [
-	...x.slice(0, i),
-	t,
-	...x.slice(i + 1)
-];
+const appendAtIndex = (i, t, x) => [...x.slice(0, i), t, ...x.slice(i + 1)];
 
 /**
  * Combines objects into a single object
@@ -238,13 +264,6 @@ const extend = (...args) => args.reduce((acc, x) => {
 
 	return acc;
 }, {});
-
-/**
- * Generates a random number based on the max sent in
- * @param  {Number} x The max our random number can go to
- * @return {Number}     Returns the random number
- */
-const randomNumber = x => Math.floor(Math.random() * x);
 
 /**
  * Clones the object sent in (Hard Clone)
@@ -324,31 +343,12 @@ const last = x => nth(-1, x);
  */
 const not = x => !x;
 
-const empty = x => { // eslint-disable-line complexity
-	if (!isNull(x)) {
-		if (isFunction(x.empty)) {
-			return x.empty();
-		}
-
-		if (isArray(x)) {
-			return [];
-		}
-
-		if (isString(x)) {
-			return '';
-		}
-
-		if (isObject(x)) {
-			return {};
-		}
-
-		if (isArguments(x)) {
-			
-		}
-	}
-
-	return 0;
-};
+/**
+ * Empties out the items of the sent value
+ * @param  {*} x The item to empty
+ * @return {*} Returns the empty item
+ */
+const empty = x => _empty(x);
 
 /**
  * Finds the type of the sent value
@@ -382,6 +382,13 @@ const identical = (a, b) => {
 	return a !== a && b !== b; // eslint-disable-line no-self-compare
 };
 
+/**
+ * Placeholder value, used to set placeholder in arguments
+ * @type {Object}
+ */
+const d__ = {'@@functional/placeholder': true}; // eslint-disable-line no-underscore-dangle
+
+exports.curry = curry;
 exports.isArray = isArray;
 exports.isObject = isObject;
 exports.isFunction = isFunction;
@@ -391,12 +398,11 @@ exports.isElement = isElement;
 exports.isNumber = isNumber;
 exports.isString = isString;
 exports.isRegExp = isRegExp;
-exports.isEqual = isEqual;
 exports.has = has;
+exports.isEqual = isEqual;
 exports.removeAtIndex = removeAtIndex;
 exports.appendAtIndex = appendAtIndex;
 exports.extend = extend;
-exports.randomNumber = randomNumber;
 exports.deepClone = deepClone;
 exports.clone = clone;
 exports.mean = mean;
@@ -407,6 +413,7 @@ exports.not = not;
 exports.empty = empty;
 exports.type = type;
 exports.identical = identical;
+exports.d__ = d__;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
