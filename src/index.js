@@ -15,7 +15,7 @@ export const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...
  * @return {Boolean}   Returns the boolean depending on the result
  */
 export const isArray = Array.isArray || function isArray(x) {
-	return Object.prototype.toString.call(x) === '[object Array]';
+  return Object.prototype.toString.call(x) === '[object Array]';
 };
 
 /**
@@ -115,13 +115,13 @@ export const replaceAtIndex = (i, t, x) => [...x.slice(0, i), t, ...x.slice(i + 
  * @return {Object}      Returns the combined object
  */
 export const extend = (...args) => args.reduce((acc, x) => {
-	let key = '';
+  let key = '';
 
-	for (key in x) {
-		acc[key] = x[key];
-	}
+  for (key in x) {
+    acc[key] = x[key];
+  }
 
-	return acc;
+  return acc;
 }, {});
 
 /**
@@ -137,11 +137,11 @@ export const deepClone = x => JSON.parse(JSON.stringify(x));
  * @return {Object}     Returns the shallow clone of the object
  */
 export const clone = x => {
-	if (!isObject(x)) {
-		return x;
-	}
+  if (!isObject(x)) {
+    return x;
+  }
 
-	return isArray(x) ? x.slice() : extend(x);
+  return isArray(x) ? x.slice() : extend(x);
 };
 
 /**
@@ -150,10 +150,10 @@ export const clone = x => {
  * @return {Number}   Returns the mean avg of the numbers
  */
 export const mean = (...x) => {
-	const l = x.length;
-	const t = x.reduce((a, v) => a + v);
+  const l = x.length;
+  const t = x.reduce((a, v) => a + v);
 
-	return t / l;
+  return t / l;
 };
 
 /**
@@ -163,18 +163,18 @@ export const mean = (...x) => {
  * @return {Array}      Returns an array of numbers consisting of the range
  */
 export const range = (from, to) => {
-	if (!isNumber(from) && !isNumber(to)) {
-		throw new TypeError('Both arguments to range must be numbers');
-	}
-	const result = [];
-	let n = from;
+  if (!isNumber(from) && !isNumber(to)) {
+    throw new TypeError('Both arguments to range must be numbers');
+  }
+  const result = [];
+  let n = from;
 
-	while (n < to) {
-		result.push(n);
-		n += 1;
-	}
+  while (n < to) {
+    result.push(n);
+    n += 1;
+  }
 
-	return result;
+  return result;
 };
 
 /**
@@ -184,9 +184,9 @@ export const range = (from, to) => {
  * @return {String|Number}        Returns the value of the found index
  */
 export const nth = (offset, list) => {
-	const idx = offset < 0 ? list.length + offset : offset;
+  const idx = offset < 0 ? list.length + offset : offset;
 
-	return isString(list) ? list.charAt(idx) : list[idx];
+  return isString(list) ? list.charAt(idx) : list[idx];
 };
 
 /**
@@ -215,14 +215,14 @@ export const empty = x => _empty(x);
  * @return {String}   Returns the string of the value type
  */
 export const type = x => {
-	if (isNull(x)) {
-		return 'Null';
-	}
-	if (x === undefined) { // eslint-disable-line no-undefined
-		return 'Undefined';
-	}
+  if (isNull(x)) {
+    return 'Null';
+  }
+  if (x === undefined) { // eslint-disable-line no-undefined
+    return 'Undefined';
+  }
 
-	return Object.prototype.toString.call(x).slice(8, -1);
+  return Object.prototype.toString.call(x).slice(8, -1);
 };
 
 /**
@@ -232,13 +232,13 @@ export const type = x => {
  * @return {Boolean}   Returns a boolean based on the check
  */
 export const identical = (a, b) => {
-	if (a === b) {
-		// +0 !== -0
-		return a !== 0 || 1 / a === 1 / b;
-	}
+  if (a === b) {
+    // +0 !== -0
+    return a !== 0 || 1 / a === 1 / b;
+  }
 
-	// NaN === NaN
-	return a !== a && b !== b; // eslint-disable-line no-self-compare
+  // NaN === NaN
+  return a !== a && b !== b; // eslint-disable-line no-self-compare
 };
 
 /**
@@ -254,18 +254,18 @@ export const d__ = {'@@functional/placeholder': true}; // eslint-disable-line no
  * @return {Any} Returns the value found or false if nothing is found
  */
 export const findIndex = (f, x) => {
-	const len = x.length;
-	let idx = 0;
+  const len = x.length;
+  let idx = 0;
 
-	while (idx < len) {
-		if (f(x[idx])) {
-			return x[idx];
-		}
+  while (idx < len) {
+    if (f(x[idx])) {
+      return x[idx];
+    }
 
-		idx += 1;
-	}
+    idx += 1;
+  }
 
-	return false;
+  return false;
 };
 
 /**
@@ -275,15 +275,15 @@ export const findIndex = (f, x) => {
  * @return {Any} Returns the value found or false if nothing is found
  */
 export const findKeys = (f, x) => {
-	let prop = '';
+  let prop = '';
 
-	for (prop in x) {
-		if (f(x[prop])) {
-			return x[prop];
-		}
-	}
+  for (prop in x) {
+    if (f(x[prop])) {
+      return x[prop];
+    }
+  }
 
-	return false;
+  return false;
 };
 
 /**
@@ -291,9 +291,9 @@ export const findKeys = (f, x) => {
  * @type {Any} Returns either the found item, or false if nothing is found
  */
 export const find = curry((f, x) => {
-	if (isObject(x)) {
-		return findKeys(f, x);
-	}
+  if (isObject(x)) {
+    return findKeys(f, x);
+  }
 
-	return findIndex(f, x);
+  return findIndex(f, x);
 });
