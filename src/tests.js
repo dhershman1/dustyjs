@@ -70,3 +70,25 @@ test('Test replaceAtIndex()', t => {
 
   t.deepEqual(result, [0, 1, 10, 3]);
 });
+
+test('Test omit()', t => {
+  t.deepEqual(dusty.omit('test', {
+    test: 1,
+    cool: 2,
+    cat: 'Mew!'
+  }), {
+    cool: 2,
+    cat: 'Mew!'
+  });
+
+  t.deepEqual(dusty.omit(['cool', 'test'], {
+    test: 1,
+    cool: 2,
+    cat: 'Mew!'
+  }), {
+    cat: 'Mew!'
+  });
+
+  t.deepEqual(dusty.omit('cool', ['cool', 'cat', 'cool']), ['cat']);
+  t.deepEqual(dusty.omit(['cool', 'test'], ['cool', 'cat', 'cool', 'test', 'bobby']), ['cat', 'bobby']);
+});

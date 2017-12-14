@@ -269,7 +269,7 @@ export const findIndex = (f, x) => {
 };
 
 /**
- * Fund items based on keys
+ * Find items based on keys
  * @param  {Function} f The function to use to check items
  * @param  {Array} x The array to sift through
  * @return {Any} Returns the value found or false if nothing is found
@@ -297,3 +297,37 @@ export const find = curry((f, x) => {
 
   return findIndex(f, x);
 });
+
+/**
+ * Create a new Array/Object by omitting the requested values
+ * @param  {String} key The key(s) in which to omit from the data
+ * @param  {Object} x The array or object to search through
+ * @return {Object} Returns the newly created data without the omitted values
+ */
+export const omit = (key, x) => {
+  if (Array.isArray(x)) {
+    return x.filter(val => {
+      if (Array.isArray(key)) {
+        return key.indexOf(val) === -1;
+      }
+
+      return key !== val;
+    });
+  }
+
+  const keys = Object.keys(x);
+
+  return keys.reduce((acc, prop) => {
+    if (Array.isArray(key) && key.indexOf(prop) === -1) {
+      acc[prop] = x[prop];
+
+      return acc;
+    }
+
+    if (!Array.isArray(key) && key !== prop) {
+      acc[prop] = x[prop];
+    }
+
+    return acc;
+  }, {});
+};
