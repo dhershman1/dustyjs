@@ -107,7 +107,7 @@ export const removeAtIndex = (i, x) => [...x.slice(0, i), ...x.slice(i + 1)];
  * @param  {Array} x  The array in question
  * @return {Array}      Returns the modified array
  */
-export const appendAtIndex = (i, t, x) => [...x.slice(0, i), t, ...x.slice(i + 1)];
+export const replaceAtIndex = (i, t, x) => [...x.slice(0, i), t, ...x.slice(i + 1)];
 
 /**
  * Combines objects into a single object

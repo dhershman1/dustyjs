@@ -1,10 +1,10 @@
-import {has, identical, type} from '../../index.js';
+import { has, identical, type } from '../../index.js';
 import arrayFromIterator from '../array-from-iterator';
 import functionName from '../function-name';
 
 const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b);
 
-const equal = (a, b, stackA, stackB) => { // eslint-disable-line
+const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
 	if (identical(a, b)) {
 		return true;
 	}
