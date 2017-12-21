@@ -1,4 +1,5 @@
-import {isArguments, isArray, isFunction, isNull, isObject, isString} from '../../index.js';
+import {isArray, isFunction, isNull, isObject, isString} from '../../index.js';
+import isArguments from '../isArguments';
 
 export default x => { // eslint-disable-line complexity
   if (!isNull(x)) {

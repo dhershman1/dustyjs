@@ -34,25 +34,11 @@ export const isObject = x => Object.prototype.toString.call(x) === '[object Obje
 export const isFunction = x => Object.prototype.toString.call(x) === '[object Function]';
 
 /**
- * Determine if the value is part of an argument type or not
- * @param  {Argument}  x The value to run our check against
- * @return {Boolean}   Returns a boolean based on our check
- */
-export const isArguments = x => Object.prototype.toString.call(x) === '[object Arguments]';
-
-/**
  * Checks if the value is a null value
  * @param  {Object}  x The object to test against
  * @return {Boolean}     Returns a boolean based on the check
  */
 export const isNull = x => x === null;
-
-/**
- * Verifies the sent in value is an element
- * @param  {Object}  x The Item to Verify
- * @return {Boolean}      Returns true or false depending on if the value is an element
- */
-export const isElement = x => Boolean(x && x.nodeType === 1);
 
 /**
  * Checks if the value is a Number
@@ -262,7 +248,9 @@ export const __ = {'@@functional/placeholder': true}; // eslint-disable-line no-
 
 /**
  * Find an item based on the function sent in and its list
- * @type {Any} Returns either the found item, or false if nothing is found
+ * @param  {Function} f The function used/called during the find
+ * @param  {Object} x The list we want to search through
+ * @return {Any} Returns either the found item, or false if nothing is found
  */
 export const find = (f, x) => {
   if (isObject(x)) {

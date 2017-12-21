@@ -1,5 +1,5 @@
 {
-  "name": "dustyjs",
+  "name": "dusty-fns",
   "version": "0.1.0",
   "description": "A small library of functional operators inspired by Ramda",
   "main": "src/index.js",
