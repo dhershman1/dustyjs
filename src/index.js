@@ -1,3 +1,4 @@
+import { findIndex, findKeys } from './internals/find';
 import _empty from './internals/empty';
 import equal from './internals/equal';
 
@@ -150,8 +151,17 @@ export const clone = x => {
  * @return {Number}   Returns the mean avg of the numbers
  */
 export const mean = (...x) => {
-  const l = x.length;
-  const t = x.reduce((a, v) => a + v);
+  let l = x.length;
+  let t = 0;
+
+  if (l === 1 && isArray(x)) {
+    const [y] = x;
+
+    l = y.length;
+    t = y.reduce((a, v) => a + v, 0);
+  } else {
+    t = x.reduce((a, v) => a + v, 0);
+  }
 
   return t / l;
 };
@@ -163,30 +173,33 @@ export const mean = (...x) => {
  * @return {Array}      Returns an array of numbers consisting of the range
  */
 export const range = (from, to) => {
-  if (!isNumber(from) && !isNumber(to)) {
-    throw new TypeError('Both arguments to range must be numbers');
-  }
-  const result = [];
+  const r = [];
+  let t = to;
   let n = from;
 
-  while (n < to) {
-    result.push(n);
+  if (!to) {
+    n = 0;
+    t = from;
+  }
+
+  while (n < t) {
+    r.push(n);
     n += 1;
   }
 
-  return result;
+  return r;
 };
 
 /**
  * Returns the nth element of the given list or string.
- * @param  {Number} offset How much to offset the value
- * @param  {String|Array} list   The Array or list to crawl through
+ * @param  {Number} o How much to offset the value
+ * @param  {String|Array} x   The Array or list to crawl through
  * @return {String|Number}        Returns the value of the found index
  */
-export const nth = (offset, list) => {
-  const idx = offset < 0 ? list.length + offset : offset;
+export const nth = (o, x) => {
+  const idx = o < 0 ? x.length + o : o;
 
-  return isString(list) ? list.charAt(idx) : list[idx];
+  return isString(x) ? x.charAt(idx) : x[idx];
 };
 
 /**
@@ -245,58 +258,19 @@ export const identical = (a, b) => {
  * Placeholder value, used to set placeholder in arguments
  * @type {Object}
  */
-export const d__ = {'@@functional/placeholder': true}; // eslint-disable-line no-underscore-dangle
-
-/**
- * Find items based on index
- * @param  {Function} f The function to use to check items
- * @param  {Array} x The array to sift through
- * @return {Any} Returns the value found or false if nothing is found
- */
-export const findIndex = (f, x) => {
-  const len = x.length;
-  let idx = 0;
-
-  while (idx < len) {
-    if (f(x[idx])) {
-      return x[idx];
-    }
-
-    idx += 1;
-  }
-
-  return false;
-};
-
-/**
- * Find items based on keys
- * @param  {Function} f The function to use to check items
- * @param  {Array} x The array to sift through
- * @return {Any} Returns the value found or false if nothing is found
- */
-export const findKeys = (f, x) => {
-  let prop = '';
-
-  for (prop in x) {
-    if (f(x[prop])) {
-      return x[prop];
-    }
-  }
-
-  return false;
-};
+export const __ = {'@@functional/placeholder': true}; // eslint-disable-line no-underscore-dangle
 
 /**
  * Find an item based on the function sent in and its list
  * @type {Any} Returns either the found item, or false if nothing is found
  */
-export const find = curry((f, x) => {
+export const find = (f, x) => {
   if (isObject(x)) {
     return findKeys(f, x);
   }
 
   return findIndex(f, x);
-});
+};
 
 /**
  * Create a new Array/Object by omitting the requested values
