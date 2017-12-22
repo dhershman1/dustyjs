@@ -7,7 +7,7 @@ import {
   isObject,
   isRegExp,
   isString
-} from './index';
+} from '../index';
 import test from 'ava';
 
 test('Test isArray()', t => {

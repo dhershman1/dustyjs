@@ -4,6 +4,8 @@
 
 A lightweight simple library that takes **heavy** influence from Ramda
 
+Supports Modern browsers and IE 9+
+
 ## How To
 
 > Currently does not live on npm on its way
