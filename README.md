@@ -8,7 +8,7 @@ Supports Modern browsers and IE 9+
 
 ## Why
 
-Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. This small library is about 5KB (4.31KB) in size, but it also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome! And a lot of the inpiration behind my own.
+Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. This small library is about 5KB (4.31KB) in size, but it also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own.
 
 This is more of a personal setup that can also be used freely by the public if they desire.
 
