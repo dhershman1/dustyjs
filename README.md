@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/dusty-fns.svg?style=flat)](https://www.npmjs.com/package/dusty-fns) [![Downloads](https://img.shields.io/npm/dm/dusty-fns.svg?style=flat)](https://www.npmjs.com/package/dusty-fns) [![dependencies Status](https://david-dm.org/dhershman1/dustyjs/status.svg)](https://david-dm.org/dhershman1/dustyjs) [![devDependencies Status](https://david-dm.org/dhershman1/dustyjs/dev-status.svg)](https://david-dm.org/dhershman1/dustyjs?type=dev) [![Build Status](https://travis-ci.org/dhershman1/dustyjs.svg?branch=master)](https://travis-ci.org/dhershman1/dustyjs)
+[![npm](https://img.shields.io/npm/v/dusty-fns.svg?style=flat)](https://www.npmjs.com/package/dusty-fns) [![Downloads](https://img.shields.io/npm/dm/dusty-fns.svg?style=flat)](https://www.npmjs.com/package/dusty-fns) [![dependencies Status](https://david-dm.org/dhershman1/dustyjs/status.svg)](https://david-dm.org/dhershman1/dustyjs) [![devDependencies Status](https://david-dm.org/dhershman1/dustyjs/dev-status.svg)](https://david-dm.org/dhershman1/dustyjs?type=dev)
 
 # Dusty.js (dusty-fns)
 
