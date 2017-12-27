@@ -6,6 +6,10 @@ A lightweight simple library that takes **heavy** influence from Ramda
 
 Supports Modern browsers and IE 9+
 
+## Changelog
+
+You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/master/CHANGELOG.md
+
 ## Why
 
 Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. This small library is about 5KB (4.31KB) in size, but it also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own.
