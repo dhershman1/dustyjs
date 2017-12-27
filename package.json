@@ -2,7 +2,7 @@
   "name": "dusty-fns",
   "version": "0.1.2",
   "description": "A small library of functional operators inspired by Ramda",
-  "main": "dist/dusty-fns.umd.js",
+  "main": "dusty-fns.umd.js",
   "devDependencies": {
     "eslint": "4.4.1",
     "rollup": "0.49.3",

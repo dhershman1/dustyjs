@@ -15,6 +15,6 @@ export default {
   output: {
     name: 'dusty',
     format: 'umd',
-    file: 'dist/dusty-fns.umd.js'
+    file: 'dusty-fns.umd.js'
   }
 };
