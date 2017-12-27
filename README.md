@@ -83,29 +83,24 @@ const coolFunc = (a, b, c) => {
 	return c;
 }
 
-coolFunc('Test', __, 'Cool');
-// Output: 'Cool'
+coolFunc('Test', __, 'Cool'); // => 'Cool'
 ```
 
 ## clone
 
-Shallow Clone of an object passed in
+Shallow Clone of an object or array that is passed in
 
 ### Arguments
 
-- `obj` - The item to clone
+- `x` - The item to clone
 
 ### Usage
 
 ```js
 import { clone } from 'dusty-fns';
 
-const test = {
-	a: 1
-};
-
-clone(test);
-// Output: {a: 1}
+clone({ a: 1 }); // => { a: 1 }
+clone([1, 2, 3]); // => [1, 2, 3]
 ```
 
 ## curry
@@ -148,8 +143,8 @@ const newObj = deepClone(test);
 
 newObj.b = 2;
 
-console.log(test); // Output: {a: 1, b: 1}
-console.log(newObj); // Output: {a: 1, b: 2}
+console.log(test); // => {a: 1, b: 1}
+console.log(newObj); // => {a: 1, b: 2}
 ```
 
 ## extend
@@ -202,12 +197,15 @@ Find an item using the function passed in and it's list
 import { find } from 'dusty-fns';
 
 find(val => val === 1, [2, 32, 1]); // => 1
+
 find(({val}) => val === 1, [{val: 2}, {val: 32}, {val: 1}]); // => {val: 1}
+
 find(val => val === 1, {
     testing: 2,
     thing: 3,
     other: 1
   }); // => 1
+
 find(({inner}) => inner === 1, {
     testing: {
       inner: 2
@@ -239,8 +237,7 @@ const test = {
 	cool: 1
 };
 
-has('cool', test);
-//Output: true
+has('cool', test); // => true
 ```
 
 ## identical
@@ -281,8 +278,7 @@ Uses the built in is Array function if it is available, returns true if item is 
 ```js
 import { isArray } from 'dusty-fns';
 
-isArray(['test']);
-// Output: true
+isArray(['test']); // => true
 ```
 
 ## isEmpty
@@ -317,12 +313,10 @@ Checks if the object is indeed an object
 ```js
 import { isEqual } from 'dusty-fns';
 
-isEqual({}, {});
-// Output: true
-isEqual({a: 1}, {a: 2});
-// Output: false
-isEqual(NaN, 'NaN');
-//Output: false
+isEqual({}, {}); // => true
+isEqual([1], [1]); // => true
+isEqual({ a: 1 }, { a: 2 }); // => false
+isEqual(NaN, 'NaN'); // => false
 ```
 
 ## isFunction
@@ -389,8 +383,7 @@ Checks if the object is indeed an object
 ```js
 import { isObject } from 'dusty-fns';
 
-isObject({test: 'yes'});
-// Output: true
+isObject({test: 'yes'}); // => true
 ```
 
 ## isRegExp

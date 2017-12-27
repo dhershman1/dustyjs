@@ -119,16 +119,20 @@ export const extend = (...args) => args.reduce((acc, x) => {
 export const deepClone = x => JSON.parse(JSON.stringify(x));
 
 /**
- * Shallow clone an object
+ * Shallow clone an object or array
  * @param  {Object} x The object that should be cloned
  * @return {Object}     Returns the shallow clone of the object
  */
 export const clone = x => {
-  if (!isObject(x)) {
-    return x;
+  if (isObject(x)) {
+    return extend(x);
   }
 
-  return isArray(x) ? x.slice() : extend(x);
+  if (isArray(x)) {
+    return x.slice();
+  }
+
+  return x;
 };
 
 /**
