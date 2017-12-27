@@ -16,6 +16,7 @@
   },
   "scripts": {
     "rollup": "rollup -c",
+    "prepare": "rollup -c",
     "test:watch": "ava --watch",
     "test": "ava"
   },
@@ -28,7 +29,7 @@
   },
   "ava": {
     "files": [
-      "src/**/tests.js",
+      "src/internals/**/tests.js",
       "src/tests/*.js"
     ],
     "source": [
