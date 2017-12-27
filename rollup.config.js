@@ -5,7 +5,7 @@ import uglify from 'rollup-plugin-uglify';
 export default {
   input: 'src/index.js',
   onwarn: warning => {
-    console.warn(warning);
+    console.warn(warning); // eslint-disable-line
   },
   plugins: [
     resolve(),

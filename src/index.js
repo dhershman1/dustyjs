@@ -8,7 +8,7 @@ import equal from './internals/equal';
  * @param  {Any} args extra args to apply if needed
  * @return {Any} Returns based on the function sent in
  */
-export const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more);
+export const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more); // eslint-disable-line
 
 /**
  * Verifies if the value is of type array
