@@ -13,8 +13,8 @@ export default {
     uglify()
   ],
   output: {
-    name: 'DustyJS',
+    name: 'dusty',
     format: 'umd',
-    file: 'dist/dustyjs.umd.js'
+    file: 'dist/dusty-fns.umd.js'
   }
 };

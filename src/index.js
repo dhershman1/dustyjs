@@ -267,9 +267,9 @@ export const find = (f, x) => {
  * @return {Object} Returns the newly created data without the omitted values
  */
 export const omit = (key, x) => {
-  if (Array.isArray(x)) {
+  if (isArray(x)) {
     return x.filter(val => {
-      if (Array.isArray(key)) {
+      if (isArray(key)) {
         return key.indexOf(val) === -1;
       }
 
@@ -280,13 +280,13 @@ export const omit = (key, x) => {
   const keys = Object.keys(x);
 
   return keys.reduce((acc, prop) => {
-    if (Array.isArray(key) && key.indexOf(prop) === -1) {
+    if (isArray(key) && key.indexOf(prop) === -1) {
       acc[prop] = x[prop];
 
       return acc;
     }
 
-    if (!Array.isArray(key) && key !== prop) {
+    if (!isArray(key) && key !== prop) {
       acc[prop] = x[prop];
     }
 

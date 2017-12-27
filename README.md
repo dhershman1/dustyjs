@@ -1,16 +1,72 @@
-# Dusty.js
-
-> On the dusty road of JavaScript, functional libraries will always be there for us
+# Dusty.js (dusty-fns)
 
 A lightweight simple library that takes **heavy** influence from Ramda
 
 Supports Modern browsers and IE 9+
 
+## Why
+
+Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. This small library is about 5KB (4.31KB) in size, but it also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome! And a lot of the inpiration behind my own.
+
+This is more of a personal setup that can also be used freely by the public if they desire.
+
 ## How To
 
-> Currently does not live on npm on its way
+Standard module system
+
+```js
+import dusty from 'dusty-fns';
+
+dusty.isObject({});
+```
+
+Common JS
+
+```js
+const dusty = require('dusty-fns');
+
+dusty.isObject({});
+```
+
+Through the browser
+
+```html
+<script src="path/to/location/dist/dusty-fns.umd.js"></script>
+<script>
+  dusty.isObject({});
+</script>
+```
 
 ## Methods
+
+- [__](#__)
+- [clone](#clone)
+- [curry](#curry)
+- [deepClone](#deepclone)
+- [extend](#extend)
+- [empty](#empty)
+- [find](#find)
+- [has](#has)
+- [identical](#identical)
+- [isArray](#isarray)
+- [isEmpty](#isempty)
+- [isEqual](#isequal)
+- [isFunction](#isfunction)
+- [isNull](#isnull)
+- [isNumber](#isnumber)
+- [isObject](#isobject)
+- [isRegExp](#isregexp)
+- [isString](#isstring)
+- [last](#last)
+- [mean](#mean)
+- [not](#not)
+- [nth](#nth)
+- [omit](#omit)
+- [range](#range)
+- [removeAtIndex](#removeatindex)
+- [replaceAtIndex](#replaceatindex)
+- [type](#type)
+
 
 ## __
 
@@ -29,7 +85,7 @@ coolFunc('Test', __, 'Cool');
 // Output: 'Cool'
 ```
 
-## clone(obj)
+## clone
 
 Shallow Clone of an object passed in
 
@@ -50,14 +106,14 @@ clone(test);
 // Output: {a: 1}
 ```
 
-## curry(f, ...args)
+## curry
 
 Creates curried functions
 
 ### Arguments
 
 - `f` - The running function
-- `...args` - extra arguments to apply if needed
+- `args` - extra arguments to apply if needed
 
 ### Usage
 
@@ -68,7 +124,7 @@ const add = curry((a, b, c) => a + b + c);
 const results = add(2)(4)(10); // => 16
 ```
 
-## deepClone(obj)
+## deepClone
 
 Deep clones a value to a brand new value 1 to 1 clone
 
@@ -94,13 +150,13 @@ console.log(test); // Output: {a: 1, b: 1}
 console.log(newObj); // Output: {a: 1, b: 2}
 ```
 
-## extend(...args)
+## extend
 
 Combines the given objects into a single object by extending them
 
 ### Arguments
 
-- `...args` - The obejcts we want to combine
+- `args` - The obejcts we want to combine
 
 ### Usage
 
@@ -110,7 +166,7 @@ import { extend } from 'dusty-fns';
 extend({ test: 1 }, { again: 2 }); // => { test: 1, again: 2 }
 ```
 
-## empty(x)
+## empty
 
 Empties out the given item and returns a brand new of the same type
 
@@ -129,7 +185,7 @@ empty('Hello'); // => ''
 empty(1); // => 0
 ```
 
-## find(f, x)
+## find
 
 Find an item using the function passed in and it's list
 
@@ -163,7 +219,7 @@ find(({inner}) => inner === 1, {
   }); // => { inner: 1 }
 ```
 
-## has(prop, obj)
+## has
 
 Validates that the object contains the supplied property
 
@@ -185,7 +241,7 @@ has('cool', test);
 //Output: true
 ```
 
-## identical(a, b)
+## identical
 
 Checks to see if the items provided are identical (That they refrence the same memory)
 
@@ -210,7 +266,7 @@ identical(0, -0); // => false
 identical(NaN, NaN) // => true
 ```
 
-## isArray(a)
+## isArray
 
 Uses the built in is Array function if it is available, returns true if item is indeed an array
 
@@ -227,7 +283,7 @@ isArray(['test']);
 // Output: true
 ```
 
-## isEmpty(a)
+## isEmpty
 
 Checks to see if the provided value is empty or not
 
@@ -245,7 +301,7 @@ isEmpty([]) // => true
 isEmpty('') // => true
 ```
 
-## isEqual(a, b)
+## isEqual
 
 Checks if the object is indeed an object
 
@@ -267,7 +323,7 @@ isEqual(NaN, 'NaN');
 //Output: false
 ```
 
-## isFunction(a)
+## isFunction
 
 Checks if the provided item is a function or not
 
@@ -284,7 +340,7 @@ isFunction(function() { return true; }); // => true
 isFunction(() => {}); // => true
 ```
 
-## isNull(a)
+## isNull
 
 Checks if the provided item is null or not
 
@@ -301,7 +357,7 @@ isNull(null); // => true
 isNull(1) // => false
 ```
 
-## isNumber(a)
+## isNumber
 
 Checks if the provided item is a number or not
 
@@ -318,7 +374,7 @@ isNumber('1'); // => false
 isNumber(1) // => true
 ```
 
-## isObject(a)
+## isObject
 
 Checks if the object is indeed an object
 
@@ -335,7 +391,7 @@ isObject({test: 'yes'});
 // Output: true
 ```
 
-## isRegExp(a)
+## isRegExp
 
 Checks if the provided item is a regex type or not
 
@@ -353,7 +409,7 @@ isRegExp(/1/g) // => true
 isRegExp(new RegExp(/1/, 'g')) // => true
 ```
 
-## isString(a)
+## isString
 
 Checks if the provided item is a String type or not
 
@@ -370,7 +426,7 @@ isString('1'); // => true
 isString(1); // => false
 ```
 
-## last(x)
+## last
 
 Grabs the last index of an item
 
@@ -388,13 +444,13 @@ last('abc'); // => c
 last([]) // => undefined
 ```
 
-## mean(...x)
+## mean
 
 Get the mean of a set of numbers
 
 ### Arguments
 
-- `...x` - Set of numbers or an array of numbers
+- `x` - Set of numbers or an array of numbers
 
 ### Usage
 
@@ -405,7 +461,7 @@ mean(1, 2, 3, 2); // => 2
 mean([1, 2, 3, 2]); // => 2
 ```
 
-## not(x)
+## not
 
 Returns the `!` of the argument passed in
 
@@ -424,7 +480,7 @@ not(1); // => false
 not(0); // => true
 ```
 
-## nth(o, x)
+## nth
 
 Returns the nth element of the given list or string
 
@@ -445,7 +501,7 @@ nth(-1, list); // => 4
 nth(-99, list); // => undefined
 ```
 
-## omit(key, x)
+## omit
 
 Create a new Array/Object by omitting the requested values
 
@@ -472,7 +528,7 @@ omit('cool', list2); // => ['cat', 'test', 'bobby']
 omit(['cool', 'cat'], list2); // => ['test', 'bobby']
 ```
 
-## range(from, to)
+## range
 
 Create an array range from start to finish
 
@@ -490,7 +546,7 @@ range(1, 5); // => [1, 2, 3, 4]
 range(5); // => [0, 1, 2, 3, 4]
 ```
 
-## removeAtIndex(i, x)
+## removeAtIndex
 
 Remove an item from an array at a certain index
 
@@ -510,7 +566,7 @@ removeAtIndex(1, list); // => [1, 3, 4, 5]
 removeAtIndex(-1, list); // => [1, 2, 3, 4]
 ```
 
-## replaceAtIndex(i, t, x)
+## replaceAtIndex
 
 Add an item to an array at a certain index point of that array
 
@@ -530,7 +586,7 @@ const list = [1, 2, 3, 4];
 replaceAtIndex(0, 'brown', list); // => ['brown', 2, 3, 4]
 ```
 
-## type(a)
+## type
 
 Finds the type of the argument passed in
 
