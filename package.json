@@ -1,6 +1,6 @@
 {
   "name": "dusty-fns",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A small library of functional operators inspired by Ramda",
   "main": "dusty-fns.umd.js",
   "devDependencies": {
