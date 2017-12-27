@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/dusty-fns.svg?style=flat)](https://www.npmjs.com/package/dusty-fns) [![Downloads](https://img.shields.io/npm/dm/dusty-fns.svg?style=flat)](https://www.npmjs.com/package/dusty-fns) [![dependencies Status](https://david-dm.org/dhershman1/dusty-fns/status.svg)](https://david-dm.org/dhershman1/dusty-fns) [![devDependencies Status](https://david-dm.org/dhershman1/dusty-fns/dev-status.svg)](https://david-dm.org/dhershman1/dusty-fns?type=dev) [![Build Status](https://travis-ci.org/dhershman1/dusty-fns.svg?branch=master)](https://travis-ci.org/dhershman1/dusty-fns)
+
 # Dusty.js (dusty-fns)
 
 A lightweight simple library that takes **heavy** influence from Ramda
