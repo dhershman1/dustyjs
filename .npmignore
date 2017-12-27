@@ -3,7 +3,6 @@ changelog.md
 src/tests/
 src/internals/**/tests.js
 rollup.config.js
-src/
 .eslintrc.js
 .eslintignore
 .gitignore
