@@ -6,6 +6,7 @@
 - You can now access each method individually if desired using `dusty-fns/methodName`
   - Example: `import isEmpty from 'dusty-fns/isEmpty';`
 - Added Unit tests for `last` & `not` functions
+- Cleaned up Dev Dependency list
 
 ## v0.1.4
 
