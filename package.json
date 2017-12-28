@@ -17,6 +17,7 @@
   "scripts": {
     "prepare": "webpack",
     "clean": "node scripts/clean.js",
+    "postpublish": "npm run clean",
     "test:watch": "ava --watch",
     "test": "ava"
   },
