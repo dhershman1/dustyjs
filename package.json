@@ -1,6 +1,6 @@
 {
   "name": "dusty-fns",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A small library of functional operators inspired by Ramda",
   "main": "main/index.js",
   "devDependencies": {
@@ -10,7 +10,7 @@
     "babel-register": "6.26.0",
     "buble-loader": "0.4.1",
     "del": "3.0.0",
-    "eslint": "4.4.1",
+    "eslint": "4.14.0",
     "globby": "7.1.1",
     "webpack": "3.10.0"
   },

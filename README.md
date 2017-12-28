@@ -14,7 +14,7 @@ You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/mast
 
 Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. This small library is about 5KB (4.31KB) in size, but it also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own.
 
-This is more of a personal setup that can also be used freely by the public if they desire.
+You can pull specific functionality from the module to use where it's needed so you limit the amount of code you bring in from a library thanks to tree shaking, and code splitting the library down.
 
 ## How To
 
@@ -37,9 +37,40 @@ dusty.isObject({});
 Through the browser
 
 ```html
-<script src="path/to/location/dist/dusty-fns.umd.js"></script>
+<script src="path/to/node_modules/dusty-fns/main/index.js"></script>
 <script>
   dusty.isObject({});
+</script>
+```
+
+## Split Methods
+
+Each method is importable by itself or desturctured from the main object. The benefit to being split up and importable individually is this helps out with tree shaking and only using the functionality you need at that time.
+
+Examples:
+
+Standard module system
+
+```js
+import isObject from 'dusty-fns/isObject';
+
+isObject({});
+```
+
+Common JS
+
+```js
+const isObject = require('dusty-fns/isObject');
+
+isObject({});
+```
+
+Through your browser
+
+```html
+<script src="path/to/node_modules/dusty-fns/isObject/index.js"></script>
+<script>
+  isObject({});
 </script>
 ```
 
@@ -73,7 +104,6 @@ Through the browser
 - [replaceAtIndex](#replaceatindex)
 - [type](#type)
 
-
 ## __
 
 Used as a placeholder value for argument lists
@@ -81,7 +111,7 @@ Used as a placeholder value for argument lists
 ### Usage
 
 ```js
-import { __ } from 'dusty-fns';
+import __ from 'dusty-fns/__';
 
 const coolFunc = (a, b, c) => {
 	return c;
@@ -101,7 +131,7 @@ Shallow Clone of an object or array that is passed in
 ### Usage
 
 ```js
-import { clone } from 'dusty-fns';
+import clone from 'dusty-fns/clone';
 
 clone({ a: 1 }); // => { a: 1 }
 clone([1, 2, 3]); // => [1, 2, 3]
@@ -119,7 +149,7 @@ Creates curried functions
 ### Usage
 
 ```js
-import { curry } from 'dusty-fns';
+import curry from 'dusty-fns/curry';
 
 const add = curry((a, b, c) => a + b + c);
 const results = add(2)(4)(10); // => 16
@@ -136,7 +166,7 @@ Deep clones a value to a brand new value 1 to 1 clone
 ### Usage
 
 ```js
-import { deepClone } from 'dusty-fns';
+import deepClone from 'dusty-fns/deepClone';
 
 const test = {
 	a: 1,
@@ -162,7 +192,7 @@ Combines the given objects into a single object by extending them
 ### Usage
 
 ```js
-import { extend } from 'dusty-fns';
+import extend from 'dusty-fns/extend';
 
 extend({ test: 1 }, { again: 2 }); // => { test: 1, again: 2 }
 ```
@@ -178,7 +208,7 @@ Empties out the given item and returns a brand new of the same type
 ### Usage
 
 ```js
-import { empty } from 'dusty-fns';
+import empty from 'dusty-fns/empty';
 
 empty({test: 1}); // => {}
 empty([1]); // => []
@@ -198,7 +228,7 @@ Find an item using the function passed in and it's list
 ### Usage
 
 ```js
-import { find } from 'dusty-fns';
+import find from 'dusty-fns/find';
 
 find(val => val === 1, [2, 32, 1]); // => 1
 
@@ -235,7 +265,7 @@ Validates that the object contains the supplied property
 ### Usage
 
 ```js
-import { has } from 'dusty-fns';
+import has from 'dusty-fns/has';
 
 const test = {
 	cool: 1
@@ -256,7 +286,7 @@ Checks to see if the items provided are identical (That they refrence the same m
 ### Usage
 
 ```js
-import { identical } from 'dusty-fns';
+import identical from 'dusty-fns/identical';
 
 const o = {};
 
@@ -280,7 +310,7 @@ Uses the built in is Array function if it is available, returns true if item is 
 ### Usage
 
 ```js
-import { isArray } from 'dusty-fns';
+import isArray from 'dusty-fns/isArray';
 
 isArray(['test']); // => true
 ```
@@ -296,7 +326,7 @@ Checks to see if the provided value is empty or not
 ### Usage
 
 ```js
-import { isEmpty } from 'dusty-fns';
+import isEmpty from 'dusty-fns/isEmpty';
 
 isEmpty({}) // => true
 isEmpty([]) // => true
@@ -315,7 +345,7 @@ Checks if the object is indeed an object
 ### Usage
 
 ```js
-import { isEqual } from 'dusty-fns';
+import isEqual from 'dusty-fns/isEqual';
 
 isEqual({}, {}); // => true
 isEqual([1], [1]); // => true
@@ -334,7 +364,7 @@ Checks if the provided item is a function or not
 ### Usage
 
 ```js
-import { isFunction } from 'dusty-fns';
+import isFunction from 'dusty-fns/isFunction';
 
 isFunction(function() { return true; }); // => true
 isFunction(() => {}); // => true
@@ -351,7 +381,7 @@ Checks if the provided item is null or not
 ### Usage
 
 ```js
-import { isNull } from 'dusty-fns';
+import isNull from 'dusty-fns/isNull';
 
 isNull(null); // => true
 isNull(1) // => false
@@ -368,7 +398,7 @@ Checks if the provided item is a number or not
 ### Usage
 
 ```js
-import { isNumber } from 'dusty-fns';
+import isNumber from 'dusty-fns/isNumber';
 
 isNumber('1'); // => false
 isNumber(1) // => true
@@ -385,7 +415,7 @@ Checks if the object is indeed an object
 ### Usage
 
 ```js
-import { isObject } from 'dusty-fns';
+import isObject from 'dusty-fns/isObject';
 
 isObject({test: 'yes'}); // => true
 ```
@@ -401,7 +431,7 @@ Checks if the provided item is a regex type or not
 ### Usage
 
 ```js
-import { isRegExp } from 'dusty-fns';
+import isRegExp from 'dusty-fns/isRegExp';
 
 isRegExp('1'); // => false
 isRegExp(/1/g) // => true
@@ -419,7 +449,7 @@ Checks if the provided item is a String type or not
 ### Usage
 
 ```js
-import { isString } from 'dusty-fns';
+import isString from 'dusty-fns/isString';
 
 isString('1'); // => true
 isString(1); // => false
@@ -436,7 +466,7 @@ Grabs the last index of an item
 ### Usage
 
 ```js
-import { last } from 'dusty-fns';
+import last from 'dusty-fns/last';
 
 last([0, 1, 2]); // => 2
 last('abc'); // => c
@@ -454,7 +484,7 @@ Get the mean of a set of numbers
 ### Usage
 
 ```js
-import { mean } from 'dusty-fns';
+import mean from 'dusty-fns/mean';
 
 mean(1, 2, 3, 2); // => 2
 mean([1, 2, 3, 2]); // => 2
@@ -471,7 +501,7 @@ Returns the `!` of the argument passed in
 ### Usage
 
 ```js
-import { not } from 'dusty-fns';
+import not from 'dusty-fns/not';
 
 not(true); // => false
 not(false); // => true
@@ -491,7 +521,7 @@ Returns the nth element of the given list or string
 ### Usage
 
 ```js
-import { nth } from 'dusty-fns';
+import nth from 'dusty-fns/nth';
 
 const list = [1, 2, 3, 4];
 
@@ -512,7 +542,7 @@ Create a new Array/Object by omitting the requested values
 ### Usage
 
 ```js
-import { omit } from 'dusty-fns';
+import omit from 'dusty-fns/omit';
 
 const list = {
     test: 1,
@@ -539,7 +569,7 @@ Create an array range from start to finish
 ### Usage
 
 ```js
-import { range } from 'dusty-fns';
+import range from 'dusty-fns/range';
 
 range(1, 5); // => [1, 2, 3, 4]
 range(5); // => [0, 1, 2, 3, 4]
@@ -557,7 +587,7 @@ Remove an item from an array at a certain index
 ### Usage
 
 ```js
-import { removeAtIndex } from 'dusty-fns';
+import removeAtIndex from 'dusty-fns/removeAtIndex';
 
 const list = [1, 2, 3, 4, 5];
 
@@ -578,7 +608,7 @@ Add an item to an array at a certain index point of that array
 ### Usage
 
 ```js
-import { replaceAtIndex } from 'dusty-fns';
+import replaceAtIndex from 'dusty-fns/replaceAtIndex';
 
 const list = [1, 2, 3, 4];
 
@@ -596,7 +626,7 @@ Finds the type of the argument passed in
 ### Usage
 
 ```js
-import { type } from 'dusty-fns';
+import type from 'dusty-fns/type';
 
 type({}); // => 'Object'
 type([]); // => 'Array'
