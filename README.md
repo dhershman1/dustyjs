@@ -2,7 +2,7 @@
 
 # Dusty.js (dusty-fns)
 
-A lightweight simple library that takes **heavy** influence from Ramda
+A lightweight simple library that takes **heavy** influence from [Ramda](http://ramdajs.com/)
 
 Supports Modern browsers and IE 9+
 
