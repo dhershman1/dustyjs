@@ -7,6 +7,7 @@
   - Example: `import isEmpty from 'dusty-fns/isEmpty';`
 - Added Unit tests for `last` & `not` functions
 - Cleaned up Dev Dependency list
+- Fixed an alphabetize error in the readme
 
 ## v0.1.4
 

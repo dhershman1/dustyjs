@@ -80,8 +80,8 @@ Through your browser
 - [clone](#clone)
 - [curry](#curry)
 - [deepClone](#deepclone)
-- [extend](#extend)
 - [empty](#empty)
+- [extend](#extend)
 - [find](#find)
 - [has](#has)
 - [identical](#identical)
@@ -181,22 +181,6 @@ console.log(test); // => {a: 1, b: 1}
 console.log(newObj); // => {a: 1, b: 2}
 ```
 
-## extend
-
-Combines the given objects into a single object by extending them
-
-### Arguments
-
-- `args` - The obejcts we want to combine
-
-### Usage
-
-```js
-import extend from 'dusty-fns/extend';
-
-extend({ test: 1 }, { again: 2 }); // => { test: 1, again: 2 }
-```
-
 ## empty
 
 Empties out the given item and returns a brand new of the same type
@@ -214,6 +198,22 @@ empty({test: 1}); // => {}
 empty([1]); // => []
 empty('Hello'); // => ''
 empty(1); // => 0
+```
+
+## extend
+
+Combines the given objects into a single object by extending them
+
+### Arguments
+
+- `args` - The obejcts we want to combine
+
+### Usage
+
+```js
+import extend from 'dusty-fns/extend';
+
+extend({ test: 1 }, { again: 2 }); // => { test: 1, again: 2 }
 ```
 
 ## find
