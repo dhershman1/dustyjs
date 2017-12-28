@@ -95,6 +95,7 @@ module.exports = {
 		}],
 
 		/* Stylistic Issues */
+		'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
 		'array-bracket-spacing': ['error'],
 		'block-spacing': ['error'],
 		'brace-style': ['error', '1tbs'],

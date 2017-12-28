@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.0
+
+- Switch over to a webpack build
+- You can now access each method individually if desired using `dusty-fns/methodName`
+  - Example: `import isEmpty from 'dusty-fns/isEmpty';`
+- Added Unit tests for `last` & `not` functions
+
 ## v0.1.4
 
 - Made the `README` a bit more consistant
