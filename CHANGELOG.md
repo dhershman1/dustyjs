@@ -4,7 +4,7 @@
 
 - Fix Build so it doesn't include the `_internals` functionality
 - Add the main `src` folder to the the npm ignore since it isn't needed in prod
-- Stopped using two different transpilers since we use `babel` with `ava` with it with `webpack` to
+- Stopped using two different transpilers since we use `babel` with `ava` use it with `webpack` to
 
 ## v0.2.0
 
