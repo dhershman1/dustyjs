@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 const findEntries = () => {
   const results = {};
-  const paths = globby.sync(['src/*.js', 'src/**/index.js', '!src/_internals']);
+  const paths = globby.sync(['src/*/index.js', '!src/_internals']);
 
   paths.forEach(p => {
     const { name, dir } = path.parse(p);
@@ -47,8 +47,13 @@ module.exports = {
     rules: [
       {
         test: /.js$/,
-        loaders: 'buble-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['babel-preset-env']
+          }
+        }
       }
     ]
   }

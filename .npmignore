@@ -1,7 +1,5 @@
-changelog.md
 .travis.yml
-src/tests/
-src/internals/**/tests.js
+src/
 rollup.config.js
 webpack.config.js
 .eslintrc.js
