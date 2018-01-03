@@ -1,1 +1,30 @@
-module.exports = {"clone":"require(./clone)","curry":"require(./curry)","deepClone":"require(./deepClone)","empty":"require(./empty)","extend":"require(./extend)","find":"require(./find)","has":"require(./has)","identical":"require(./identical)","isArray":"require(./isArray)","isEmpty":"require(./isEmpty)","isEqual":"require(./isEqual)","isFunction":"require(./isFunction)","isNull":"require(./isNull)","isNumber":"require(./isNumber)","isObject":"require(./isObject)","isRegExp":"require(./isRegExp)","isString":"require(./isString)","last":"require(./last)","mean":"require(./mean)","not":"require(./not)","nth":"require(./nth)","omit":"require(./omit)","range":"require(./range)","removeAtIndex":"require(./removeAtIndex)","replaceAtIndex":"require(./replaceAtIndex)","type":"require(./type)","__":"require(./__)"}
+
+
+module.exports = {
+  clone: require('./clone/index.js').default,
+  curry: require('./curry/index.js').default,
+  deepClone: require('./deepClone/index.js').default,
+  empty: require('./empty/index.js').default,
+  extend: require('./extend/index.js').default,
+  find: require('./find/index.js').default,
+  has: require('./has/index.js').default,
+  identical: require('./identical/index.js').default,
+  isArray: require('./isArray/index.js').default,
+  isEmpty: require('./isEmpty/index.js').default,
+  isEqual: require('./isEqual/index.js').default,
+  isFunction: require('./isFunction/index.js').default,
+  isNull: require('./isNull/index.js').default,
+  isNumber: require('./isNumber/index.js').default,
+  isObject: require('./isObject/index.js').default,
+  isRegExp: require('./isRegExp/index.js').default,
+  isString: require('./isString/index.js').default,
+  last: require('./last/index.js').default,
+  mean: require('./mean/index.js').default,
+  not: require('./not/index.js').default,
+  nth: require('./nth/index.js').default,
+  omit: require('./omit/index.js').default,
+  range: require('./range/index.js').default,
+  removeAtIndex: require('./removeAtIndex/index.js').default,
+  replaceAtIndex: require('./replaceAtIndex/index.js').default,
+  type: require('./type/index.js').default
+};

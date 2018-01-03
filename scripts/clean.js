@@ -4,11 +4,11 @@ const del = require('del');
 
 const fileList = fs.readdirSync(path.join(__dirname, '..'));
 
-const specialCases = ['.git', '.gitignore', '.npmignore', 'node_modules', 'src', 'scripts'];
+const ignoredFiles = ['.git', '.gitignore', '.npmignore', 'node_modules', 'src', 'scripts'];
 const results = fileList.filter(f => {
   const { ext, name } = path.parse(f);
 
-  return !ext && specialCases.indexOf(name) === -1;
+  return !ext && ignoredFiles.indexOf(name) === -1;
 });
 
 del(results).then(() => {

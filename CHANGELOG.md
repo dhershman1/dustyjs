@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.3
+
+- Actual Fix for Webpack bug.
+- Made the auto generation script cleaner
+
 ## v0.2.2
 
 - Fix for webpack issues when bringing in entire library object
