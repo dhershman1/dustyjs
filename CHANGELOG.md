@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2
+
+- Fix for webpack issues when bringing in entire library object
+
 ## v0.2.1
 
 - Fix Build so it doesn't include the `_internals` functionality
