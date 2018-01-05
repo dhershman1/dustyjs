@@ -1,7 +1,10 @@
 /**
- * Clones the object sent in (Hard Clone)
+ * @description Clones the object sent in (Hard Clone)
  * @param  {Object} x The object we want to get cloned
  * @return {Object}     Returns the cloned object back
+ *
+ * @example
+ * const cloned = deepClone({ test: 1 }) // => { test: 1 }
  */
 const deepClone = x => JSON.parse(JSON.stringify(x));
 

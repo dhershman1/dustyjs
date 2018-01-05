@@ -1,9 +1,13 @@
 import isArray from '../isArray';
 
 /**
- * Get the mean of a set of numbers
+ * @description Get the mean of a set of numbers
  * @param  {Number|Array} x An amount of numbers or array of numbers
  * @return {Number}   Returns the mean avg of the numbers
+ *
+ * @example
+ * const avg = mean(1, 2, 3, 2); // => 2
+ * const avg = mean([1, 2, 3, 2]); // => 2
  */
 const mean = (...x) => {
   let l = x.length;

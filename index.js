@@ -2,6 +2,7 @@
 
 module.exports = {
   clone: require('./clone/index.js').default,
+  compress: require('./compress/index.js').default,
   curry: require('./curry/index.js').default,
   deepClone: require('./deepClone/index.js').default,
   empty: require('./empty/index.js').default,

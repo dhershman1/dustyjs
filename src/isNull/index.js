@@ -1,7 +1,10 @@
 /**
- * Checks if the value is a null value
+ * @description Checks if the value is a null value
  * @param  {Object}  x The object to test against
  * @return {Boolean}     Returns a boolean based on the check
+ *
+ * @example
+ * const nu = isNull(null); // => true
  */
 const isNull = x => x === null;
 

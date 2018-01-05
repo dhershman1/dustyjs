@@ -6,6 +6,8 @@ A lightweight simple library that takes **heavy** influence from [Ramda](http://
 
 Supports Modern browsers and IE 9+
 
+Check out the documentation here: [Docs](https://dusty-demos.herokuapp.com/dusty-fns)
+
 ## Changelog
 
 You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/master/CHANGELOG.md

@@ -1,10 +1,14 @@
 import isArray from '../isArray';
 
 /**
- * Create a new Array/Object by omitting the requested values
+ * @description Create a new Array/Object by omitting the requested values
  * @param  {String} key The key(s) in which to omit from the data
  * @param  {Object} x The array or object to search through
  * @return {Object} Returns the newly created data without the omitted values
+ *
+ * @example
+ * const obj = omit('test', { test: '3432', thing: 123 }); // => { thing: 123 }
+ * const arr = omit(['a', 'b'], { a: 1, b: 2, c: 3}); // => { c: 3 }
  */
 const omit = (key, x) => {
   if (isArray(x)) {

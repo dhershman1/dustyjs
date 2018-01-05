@@ -1,8 +1,11 @@
 /**
- * Performs a check to see if the items are identical in the sense that they reference the same memory
+ * @description Performs a check to see if the items are identical in the sense that they reference the same memory
  * @param  {Any} a The first value to compare
  * @param  {Any} b The second value to compare
  * @return {Boolean}   Returns a boolean based on the check
+ *
+ * @example
+ * const obj = identical(NaN, NaN); // => true
  */
 const identical = (a, b) => {
   if (a === b) {

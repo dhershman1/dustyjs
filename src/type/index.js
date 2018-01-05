@@ -1,9 +1,12 @@
 import isNull from '../isNull';
 
 /**
- * Finds the type of the sent value
+ * @description Finds the type of the sent value
  * @param  {Any} x The value to test
  * @return {String}   Returns the string of the value type
+ *
+ * @example
+ * const obj = type({}) // => 'Object'
  */
 const type = x => {
   if (isNull(x)) {

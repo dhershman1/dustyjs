@@ -1,9 +1,12 @@
 import isEmpty from '../isEmpty';
 
 /**
- * Takes an object and compresses it down removing falsy and empty values
+ * @description Takes an object and compresses it down removing falsy and empty values
  * @param  {Object} x The Object to compress
  * @return {Object} Returns a new object without the unwanted values
+ *
+ * @example
+ * const obj = compress({ thing: '', test: 1 }); // => { test: 1 }
  */
 const compress = x => {
   const r = {};
