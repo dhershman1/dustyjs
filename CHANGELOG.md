@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.2
+
+- Fix build so that the files are present (Not sure what happened)
+
 ## v0.3.1
 
 - Fixed: Docs setup for personal documentation automation
