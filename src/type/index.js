@@ -6,7 +6,15 @@ import isNull from '../isNull';
  * @return {String}   Returns the string of the value type
  *
  * @example
- * const obj = type({}) // => 'Object'
+ * type({}); // => 'Object'
+ * type([]); // => 'Array'
+ * type(null); // => 'Null'
+ * type(undefined); // => 'Undefined'
+ * type('hi'); // => 'String'
+ * type(1); // => 'Number'
+ * type(/1/g); // => 'RegExp'
+ * type(new Date()); // => 'Date'
+ * type(true); // => 'Boolean'
  */
 const type = x => {
   if (isNull(x)) {

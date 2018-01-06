@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.3.0
+
+- Added: `fuzzySearch` method
+- Added: `compress` method
+- Updated Readme to point to the documentation site
+- Some tweaks to the documentations
+
 ## v0.2.3
 
 - Actual Fix for Webpack bug.

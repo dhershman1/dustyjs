@@ -15,7 +15,7 @@ const listFns = () => {
     }));
 };
 
-const writeDocs = fileObj => fs.writeFileSync('docs.json', JSON.stringify(fileObj));
+const writeDocs = fileObj => fs.writeFileSync('docs.js', `export default ${JSON.stringify(fileObj)}`);
 
 const generateUsage = name => ({
   'commonjs': {
