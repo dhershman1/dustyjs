@@ -18,12 +18,12 @@ const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
  * @name fuzzySearch
  * @description Fuzzy search setup to look find things fast and effective
  * @param  {String} h The value to search for
- * @param  {Any} n The Item to search
- * @return {Any} Returns an Array, String or Object based on whats sent in with the values found
+ * @param  {String} n The Item to search
+ * @return {Boolean} Returns a boolean determined by if the value is found or not by the search
  *
  * @example
- * const obj = fuzzySearch({thing: 2, val: 'test'}, 'te'); // => { val: 'test' }
- * const arr = fuzzySearch(['test', 'thing'], 'te'); // => ['test']
+ * const results = fuzzySearch('test', 'te'); // => true
+ * const results = fuzzySearch('testing', 'dog'); // => false
  */
 const fuzzySearch = (h, n) => {
   const hLen = h.length;
