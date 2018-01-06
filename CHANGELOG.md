@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.1
+
+- Fixed: Docs setup for personal documentation automation
+
 ## v0.3.0
 
 - Added: `fuzzySearch` method

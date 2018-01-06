@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "description": "A small library of functional operators inspired by Ramda",
   "main": "./index.js",
+  "files": [
+    "docs.js"
+  ],
   "devDependencies": {
     "ava": "0.24.0",
     "babel": "6.23.0",
