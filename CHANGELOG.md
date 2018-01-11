@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.3
+
+- Added: `flatten` function added which can flatten an array of arrays to a single array
+- Improved: `omit` function to be more performant
+
 ## v0.3.2
 
 - Fix build so that the files are present (Not sure what happened)
