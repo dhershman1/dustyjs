@@ -8,6 +8,8 @@ module.exports = {
   empty: require('./empty/index.js').default,
   extend: require('./extend/index.js').default,
   find: require('./find/index.js').default,
+  first: require('./first/index.js').default,
+  flatten: require('./flatten/index.js').default,
   fuzzySearch: require('./fuzzySearch/index.js').default,
   has: require('./has/index.js').default,
   identical: require('./identical/index.js').default,
