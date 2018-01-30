@@ -2,6 +2,7 @@ import nth from '../nth';
 
 /**
  * @description Grabs the first index of a passed array or string
+ * @param  {Array|String} x The list or string we want to use
  * @return {Any} Returns whatever was the first piece of our array
  *
  * @example
