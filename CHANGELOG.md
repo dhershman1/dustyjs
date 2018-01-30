@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.1
+
+- Fix: Documentation generation
+- Improved: `flatten` function for a cleaner design
+
 ## v0.4.0
 
 - Added: `flatten` function which can flatten an array of arrays to a single array
