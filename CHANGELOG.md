@@ -1,9 +1,11 @@
 # Changelog
 
-## v0.3.3
+## v0.4.0
 
-- Added: `flatten` function added which can flatten an array of arrays to a single array
-- Improved: `omit` function to be more performant
+- Added: `flatten` function which can flatten an array of arrays to a single array
+- Added: `first` function which pulls the first value from an array or string
+- Improved: `omit` function to stop breaking linter rules
+- Changed: Some test organization
 
 ## v0.3.2
 
