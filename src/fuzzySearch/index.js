@@ -14,8 +14,6 @@ const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
   return true;
 };
 
-// This is a comment!
-
 /**
  * @name fuzzySearch
  * @description Fuzzy search setup to look find things fast and effective
