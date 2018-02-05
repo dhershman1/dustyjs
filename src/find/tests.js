@@ -9,10 +9,10 @@ test('Test base functionality', t => {
 });
 
 test('Test array of objects functionality', t => {
-  const result = find(({val}) => val === 1, [{val: 2}, {val: 32}, {val: 1}]);
+  const result = find(({ val }) => val === 1, [{ val: 2 }, { val: 32 }, { val: 1 }]);
 
   t.truthy(result);
-  t.deepEqual(result, {val: 1});
+  t.deepEqual(result, { val: 1 });
 });
 
 test('Test object functionality', t => {
@@ -41,4 +41,25 @@ test('Test nested object functionality', t => {
 
   t.truthy(result);
   t.deepEqual(result, {inner: 1});
+});
+
+test('Test curried find', t => {
+  const finder = find(({ val }) => val === 1);
+  const result = finder([{ val: 2 }, { val: 32 }, { val: 1 }]);
+  const deeperResults = finder([
+    { val: 2 },
+    { val: 32 },
+    {
+      val: 1,
+      thing: 2
+    },
+    { val: 1 }
+  ]);
+
+  t.truthy(result);
+  t.deepEqual(result, { val: 1 });
+  t.deepEqual(deeperResults, {
+    val: 1,
+    thing: 2
+  });
 });

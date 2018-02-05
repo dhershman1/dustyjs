@@ -25,3 +25,11 @@ test('Test edge case type', t => {
   t.falsy(identical(0, -0));
   t.truthy(identical(NaN, NaN));
 });
+
+test('Test curried identical', t => {
+  const i = identical(NaN);
+
+  t.truthy(i(NaN));
+  t.falsy(i({}));
+  t.falsy(i(0));
+});

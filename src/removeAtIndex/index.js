@@ -1,3 +1,5 @@
+import curry from '../curry';
+
 /**
  * @description Remove an item from a certain point in the index
  * @param  {Number} i   The index number to remove from
@@ -5,8 +7,13 @@
  * @return {Array}     returns the modified array back
  *
  * @example
- * const test = removeAtIndex(2, [0, 1, 2, 3]); // => [0, 1, 3]
+ * const test = removeAtIndex(2, [1, 2, 3, 4]); // => [1, 2, 4]
+ *
+ * // This is also a curried method
+ *
+ * const remover = removeAtIndex(2);
+ * const test = remover([1, 2, 3, 4]); // => [1, 2, 4]
  */
-const removeAtIndex = (i, x) => [...x.slice(0, i), ...x.slice(i + 1)];
+const removeAtIndex = curry((i, x) => [...x.slice(0, i), ...x.slice(i + 1)]);
 
 export default removeAtIndex;

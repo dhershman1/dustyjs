@@ -1,3 +1,5 @@
+import curry from '../curry';
+
 /**
  * @description Performs a check to see if the items are identical in the sense that they reference the same memory
  * @param  {Any} a The first value to compare
@@ -6,8 +8,13 @@
  *
  * @example
  * const obj = identical(NaN, NaN); // => true
+ *
+ * // Identical is also curried
+ *
+ * const test = identical(NaN); // => Gives back a function
+ * test(NaN); // => true
  */
-const identical = (a, b) => {
+const identical = curry((a, b) => {
   if (a === b) {
     // +0 !== -0
     return a !== 0 || 1 / a === 1 / b;
@@ -15,6 +22,6 @@ const identical = (a, b) => {
 
   // NaN === NaN
   return a !== a && b !== b; // eslint-disable-line no-self-compare
-};
+});
 
 export default identical;

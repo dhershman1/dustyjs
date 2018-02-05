@@ -14,3 +14,10 @@ test('Test string functionality', t => {
   t.is(nth(3, 'abc'), '');
   t.is(nth(0, 'abc'), 'a');
 });
+
+test('Test curried nth', t => {
+  const third = nth(2);
+
+  t.is(third([1, 2, 3, 4]), 3);
+  t.is(third('abcd'), 'c');
+});
