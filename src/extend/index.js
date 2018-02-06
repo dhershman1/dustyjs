@@ -8,14 +8,15 @@
  * @example
  * const obj = extend({ test: 1 }, { thing: 2 }); // => { test: 1, thing: 2 }
  */
-const extend = (...args) => args.reduce((acc, x) => {
-  let key = '';
+const extend = (...args) =>
+  args.reduce((acc, x) => {
+    let key = '';
 
-  for (key in x) {
-    acc[key] = x[key];
-  }
+    for (key in x) {
+      acc[key] = x[key];
+    }
 
-  return acc;
-}, {});
+    return acc;
+  }, {});
 
 export default extend;

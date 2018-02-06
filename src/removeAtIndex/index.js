@@ -16,6 +16,7 @@ import curry from '../curry';
  * const remover = removeAtIndex(2);
  * const test = remover([1, 2, 3, 4]); // => [1, 2, 4]
  */
-const removeAtIndex = curry((i, x) => [...x.slice(0, i), ...x.slice(i + 1)]);
+const removeAtIndex = curry((i, x) =>
+  [...x.slice(0, i), ...x.slice(i + 1)]);
 
 export default removeAtIndex;

@@ -9,7 +9,8 @@ import curry from '../curry';
  * @param {*} x The value to test
  * @return {Boolean}
  */
-const is = curry((Ctor, x) => (x !== null && x.constructor === Ctor) || x instanceof Ctor);
+const is = curry((Ctor, x) =>
+  (x !== null && x.constructor === Ctor) || x instanceof Ctor);
 
 
 export default is;

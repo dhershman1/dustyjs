@@ -24,6 +24,7 @@ import curry from '../curry';
  * const val = index(10);
  * const test = val([1, 2, 3]); // => [1, 2, 10]
  */
-const replaceAtIndex = curry((i, t, x) => [...x.slice(0, i), t, ...x.slice(i + 1)]);
+const replaceAtIndex = curry((i, t, x) =>
+  [...x.slice(0, i), t, ...x.slice(i + 1)]);
 
 export default replaceAtIndex;
