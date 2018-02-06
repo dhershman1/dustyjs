@@ -8,6 +8,8 @@
   - **NOTE** This is meant to replace the `isX` simple functions see issue [#9](https://github.com/dhershman1/dustyjs/issues/9) for more info
   - However these functions have not been removed yet, but will in the full `v1.0.0` release
 - Added: `prepend` function which is curried
+- Added: `defaults` function which is curried
+- Added: `juxt` function which is technically curried (Required curry)
 - Added: `since` to jsdoc blocks
 - Added `sig` to jsdoc blocks
 - Changed: `fuzzySearch` is now curried

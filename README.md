@@ -16,6 +16,10 @@ Dusty.js came about because I wanted to mess around with some functional helpers
 
 You can pull specific functionality from the module to use where it's needed so you limit the amount of code you bring in from a library thanks to tree shaking, and code splitting the library down.
 
+## Unit Tests
+
+Each function has a set of `Basic Functionality` tests, these MUST be passing in order for the functionality to be determined working and before we add any more tests to work with additional functionality.
+
 ## How To
 
 Standard module system
