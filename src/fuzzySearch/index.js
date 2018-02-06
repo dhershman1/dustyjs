@@ -1,3 +1,5 @@
+import curry from '../curry';
+
 const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
   outer: for (let i = 0, j = 0; i < nLen; i++) {
     const nch = n.charCodeAt(i);
@@ -24,8 +26,13 @@ const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
  * @example
  * const results = fuzzySearch('test', 'te'); // => true
  * const results = fuzzySearch('testing', 'dog'); // => false
+ *
+ * // search is also curried
+ *
+ * const searcher = fuzzySearch('test');
+ * const results = searcher('te'); // => true
  */
-const fuzzySearch = (h, n) => {
+const fuzzySearch = curry((h, n) => {
   const hLen = h.length;
   const nLen = n.length;
 
@@ -41,6 +48,6 @@ const fuzzySearch = (h, n) => {
     nLen,
     hLen
   });
-};
+});
 
 export default fuzzySearch;

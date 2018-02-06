@@ -7,3 +7,11 @@ test('Basic Functionality', t => {
   t.falsy(fuzzySearch('testing', 'dog'));
   t.truthy(fuzzySearch('cast', 'ca'));
 });
+
+test('Test curried functionality', t => {
+  const searcher = fuzzySearch('cartwheel');
+
+  t.truthy(searcher('twl'));
+  t.falsy(searcher('dog'));
+  t.truthy(searcher('cat'));
+});
