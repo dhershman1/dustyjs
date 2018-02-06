@@ -1,6 +1,7 @@
 import curry from '../curry';
 
 /**
+ * @name replaceAtIndex
  * @since v0.1.0
  * @sig Number -> a -> [b] -> [c]
  * @description Add an item to an array within a certain index of the array
@@ -24,7 +25,5 @@ import curry from '../curry';
  * const val = index(10);
  * const test = val([1, 2, 3]); // => [1, 2, 10]
  */
-const replaceAtIndex = curry((i, t, x) =>
+export default curry((i, t, x) =>
   [...x.slice(0, i), t, ...x.slice(i + 1)]);
-
-export default replaceAtIndex;

@@ -3,6 +3,7 @@ import curry from '../curry';
 import filter from '../filter';
 
 /**
+ * @name reject
  * @since v0.5.0
  * @sig Filterable f => (a → Boolean) → f a → f a
  * @description
@@ -24,6 +25,4 @@ import filter from '../filter';
  * rejecter([1, 2, 3, 4]); // => [1, 3]
  * rejecter({ a: 1, b: 2, c: 3, d: 4 }); // => { a: 1, c: 3 }
  */
-const reject = curry((fn, list) => filter(complement(fn), list));
-
-export default reject;
+export default curry((fn, list) => filter(complement(fn), list));

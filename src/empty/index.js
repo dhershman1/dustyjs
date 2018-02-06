@@ -1,6 +1,7 @@
 import _empty from '../_internals/empty';
 
 /**
+ * @name empty
  * @since v0.1.0
  * @sig a -> a
  * @description Empties out the items of the sent value
@@ -12,6 +13,4 @@ import _empty from '../_internals/empty';
  * const arr = empty([1, 2, 3]); // => []
  * const str = empty('test'); // => ''
  */
-const empty = x => _empty(x);
-
-export default empty;
+export default x => _empty(x);

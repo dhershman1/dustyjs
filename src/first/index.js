@@ -1,6 +1,7 @@
 import nth from '../nth';
 
 /**
+ * @name first
  * @since v0.4.0
  * @sig [a] -> a | Undefined
  * @description Grabs the first index of a passed array or string
@@ -11,6 +12,4 @@ import nth from '../nth';
  * const arr = first([1, 3]); // => 1
  * const str = first('abc'); // => 'a'
  */
-const first = x => nth(0, x);
-
-export default first;
+export default x => nth(0, x);

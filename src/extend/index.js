@@ -1,4 +1,5 @@
 /**
+ * @name extend
  * @since v0.1.0
  * @sig {k: v} -> {k: v} -> {k: v}
  * @description Create a new object from the provided objects in the parameters
@@ -8,7 +9,7 @@
  * @example
  * const obj = extend({ test: 1 }, { thing: 2 }); // => { test: 1, thing: 2 }
  */
-const extend = (...args) =>
+export default (...args) =>
   args.reduce((acc, x) => {
     let key = '';
 
@@ -18,5 +19,3 @@ const extend = (...args) =>
 
     return acc;
   }, {});
-
-export default extend;

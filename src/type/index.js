@@ -1,6 +1,7 @@
 import isNull from '../isNull';
 
 /**
+ * @name type
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Finds the type of the sent value
@@ -18,7 +19,7 @@ import isNull from '../isNull';
  * type(new Date()); // => 'Date'
  * type(true); // => 'Boolean'
  */
-const type = x => {
+export default x => {
   if (isNull(x)) {
     return 'Null';
   }
@@ -28,5 +29,3 @@ const type = x => {
 
   return Object.prototype.toString.call(x).slice(8, -1);
 };
-
-export default type;

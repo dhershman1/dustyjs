@@ -1,4 +1,5 @@
 /**
+ * @name juxt
  * @since v0.5.0
  * @sig (a, b, …, m) → n → ((a, b, …, m) → [n])
  * @description Applies the provided function and turns them into a single function you can use on a value
@@ -10,7 +11,5 @@
  *
  * getRange(3, 4, 9, -3); // => [-3, 9]
  */
-const juxt = (...fns) =>
+export default (...fns) =>
   (...x) => fns.map(f => f(...x));
-
-export default juxt;

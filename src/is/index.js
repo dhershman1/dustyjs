@@ -1,6 +1,7 @@
 import curry from '../curry';
 
 /**
+ * @name is
  * @since v0.5.0
  * @sig (* -> {*}) -> a -> Boolean
  * @description
@@ -9,8 +10,5 @@ import curry from '../curry';
  * @param {*} x The value to test
  * @return {Boolean}
  */
-const is = curry((Ctor, x) =>
+export default curry((Ctor, x) =>
   (x !== null && x.constructor === Ctor) || x instanceof Ctor);
-
-
-export default is;

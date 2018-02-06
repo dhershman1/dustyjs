@@ -1,6 +1,7 @@
 import isEmpty from '../isEmpty';
 
 /**
+ * @name compress
  * @since v0.3.0
  * @sig {a} -> {b}
  * @description Takes an object and compresses it down removing falsy and empty values
@@ -10,7 +11,7 @@ import isEmpty from '../isEmpty';
  * @example
  * const obj = compress({ thing: '', test: 1 }); // => { test: 1 }
  */
-const compress = x => {
+export default x => {
   const r = {};
 
   for (const p in x) {
@@ -23,5 +24,3 @@ const compress = x => {
 
   return r;
 };
-
-export default compress;

@@ -1,4 +1,5 @@
 /**
+ * @name flatten
  * @since v0.4.0
  * @sig [a] -> [b]
  * @description Flattens an array to a single level
@@ -10,7 +11,5 @@
  * const results = flatten([1, 2, [3, 4], 5, [6, [7, 8, [9, [10, 11], 12]]]]);
  * // => [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
  */
-const flatten = list =>
+export default list =>
   list.reduce((acc, x) => acc.concat(Array.isArray(x) ? flatten(x) : x), []);
-
-export default flatten;

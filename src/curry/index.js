@@ -1,4 +1,5 @@
 /**
+ * @name curry
  * @since v0.1.0
  * @sig (* -> a) -> (* -> a)
  * @description Create a curried function
@@ -11,6 +12,4 @@
  * add(1)(2); // => 3
  * add(1, 2); // => 3
  */
-const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more); // eslint-disable-line
-
-export default curry;
+export default (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more); // eslint-disable-line

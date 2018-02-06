@@ -1,4 +1,5 @@
 /**
+ * @name isObject
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Verifies the item is an object
@@ -8,6 +9,4 @@
  * @example
  * const obj = isObject({}); // => true
  */
-const isObject = x => Object.prototype.toString.call(x) === '[object Object]';
-
-export default isObject;
+export default x => Object.prototype.toString.call(x) === '[object Object]';

@@ -1,6 +1,7 @@
 import isArray from '../isArray';
 
 /**
+ * @name mean
  * @since v0.1.0
  * @sig
  * (...Number) -> Number
@@ -13,7 +14,7 @@ import isArray from '../isArray';
  * const avg = mean(1, 2, 3, 2); // => 2
  * const avg = mean([1, 2, 3, 2]); // => 2
  */
-const mean = (...x) => {
+export default (...x) => {
   let l = x.length;
   let t = 0;
 
@@ -28,5 +29,3 @@ const mean = (...x) => {
 
   return t / l;
 };
-
-export default mean;

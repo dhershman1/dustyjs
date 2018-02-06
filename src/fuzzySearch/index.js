@@ -34,7 +34,7 @@ const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
  * const searcher = fuzzySearch('test');
  * const results = searcher('te'); // => true
  */
-const fuzzySearch = curry((h, n) => {
+export default curry((h, n) => {
   const hLen = h.length;
   const nLen = n.length;
 
@@ -51,5 +51,3 @@ const fuzzySearch = curry((h, n) => {
     hLen
   });
 });
-
-export default fuzzySearch;

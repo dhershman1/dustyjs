@@ -1,4 +1,5 @@
 /**
+ * @name range
  * @since v0.1.0
  * @sig Number -> Number -> [Number]
  * @description Create an array range from start to end
@@ -10,7 +11,7 @@
  * const test = range(3, 7); // => [3, 4, 5, 6]
  * const test = range(3); // => [0, 1, 2];
  */
-const range = (from, to) => {
+export default (from, to) => {
   const r = [];
   let t = to;
   let n = from;
@@ -27,5 +28,3 @@ const range = (from, to) => {
 
   return r;
 };
-
-export default range;

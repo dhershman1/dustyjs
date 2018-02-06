@@ -2,6 +2,7 @@ import curry from '../curry';
 import isEqual from '../isEqual';
 
 /**
+ * @name contains
  * @since v0.5.0
  * @sig a → [a] → Boolean
  * @description
@@ -21,7 +22,7 @@ import isEqual from '../isEqual';
  *
  * checker([1, 2, 3]); // => true
  */
-const contains = curry((a, list) => {
+export default curry((a, list) => {
   let idx = 0;
   const len = list.length;
 
@@ -35,5 +36,3 @@ const contains = curry((a, list) => {
 
   return false;
 });
-
-export default contains;

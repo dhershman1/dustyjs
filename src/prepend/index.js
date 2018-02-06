@@ -1,6 +1,7 @@
 import curry from '../curry';
 
 /**
+ * @name prepend
  * @since v0.5.0
  * @sig a -> [a] -> [a]
  * @description Returns a new list with the provided value at the front of the given list
@@ -17,6 +18,4 @@ import curry from '../curry';
  *
  * third([1, 2, 3, 4, 5]); // => 3
  */
-const prepend = curry((x, list) => [x, ...list]);
-
-export default prepend;
+export default curry((x, list) => [x, ...list]);

@@ -1,4 +1,5 @@
 /**
+ * @name isRegExp
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Checks if the value is a RegExp String
@@ -8,6 +9,4 @@
  * @example
  * const reg = isRegExp(/\w/g); // => true
  */
-const isRegExp = x => Object.prototype.toString.call(x) === '[object RegExp]';
-
-export default isRegExp;
+export default x => Object.prototype.toString.call(x) === '[object RegExp]';

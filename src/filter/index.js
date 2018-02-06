@@ -2,6 +2,7 @@ import curry from '../curry';
 import reduce from '../_internals/reduce';
 
 /**
+ * @name filter
  * @since v0.5.0
  * @sig Filterable f => (a → Boolean) → f a → f a
  * @description Filter through a filterable data piece using the provided function
@@ -22,6 +23,4 @@ import reduce from '../_internals/reduce';
  * filterer([1, 2, 3, 4]); // => [2, 4]
  * filterer({ a: 1, b: 2, c: 3, d: 4 }); // => { b: 2, d: 4 }
  */
-const filter = curry((fn, list) => reduce(fn, list));
-
-export default filter;
+export default curry((fn, list) => reduce(fn, list));

@@ -1,4 +1,5 @@
 /**
+ * @name isString
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Checks if the value is a String
@@ -8,6 +9,4 @@
  * @example
  * const str = isString('test'); // => true
  */
-const isString = x => Object.prototype.toString.call(x) === '[object String]';
-
-export default isString;
+export default x => Object.prototype.toString.call(x) === '[object String]';

@@ -1,4 +1,5 @@
 /**
+ * @name not
  * @since v0.1.0
  * @sig * -> Boolean
  * @description Returns boolean based on if the value is not
@@ -8,6 +9,4 @@
  * @example
  * const reverse = not(true); // => false
  */
-const not = x => !x;
-
-export default not;
+export default x => !x;

@@ -13,7 +13,7 @@ import isObject from '../isObject';
  * const obj = clone({things: 1}); // => { things: 1 }
  * const arr = clone([1, 2, 3]); // => [1, 2, 3]
  */
-const clone = x => {
+export default x => {
   if (isObject(x)) {
     return extend(x);
   }
@@ -24,5 +24,3 @@ const clone = x => {
 
   return x;
 };
-
-export default clone;

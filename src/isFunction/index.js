@@ -1,4 +1,5 @@
 /**
+ * @name isFunction
  * @since 0.1.0
  * @sig a -> Boolean
  * @description Determines if the value is a function
@@ -8,6 +9,4 @@
  * @example
  * const fun = isFunction(() => ''); // => true
  */
-const isFunction = x => Object.prototype.toString.call(x) === '[object Function]';
-
-export default isFunction;
+export default x => Object.prototype.toString.call(x) === '[object Function]';

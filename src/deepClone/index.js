@@ -1,4 +1,5 @@
 /**
+ * @name deepClone
  * @since v0.1.0
  * @sig {*} -> {*}
  * @description Clones the object sent in (Hard Clone)
@@ -8,6 +9,4 @@
  * @example
  * const cloned = deepClone({ test: 1 }) // => { test: 1 }
  */
-const deepClone = x => JSON.parse(JSON.stringify(x));
-
-export default deepClone;
+export default x => JSON.parse(JSON.stringify(x));

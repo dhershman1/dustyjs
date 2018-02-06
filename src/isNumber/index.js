@@ -1,4 +1,5 @@
 /**
+ * @name isNumber
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Checks if the value is a Number
@@ -8,6 +9,4 @@
  * @example
  * const num = isNumber(1); // => true
  */
-const isNumber = x => Object.prototype.toString.call(x) === '[object Number]';
-
-export default isNumber;
+export default x => Object.prototype.toString.call(x) === '[object Number]';

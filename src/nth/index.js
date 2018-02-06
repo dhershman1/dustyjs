@@ -2,6 +2,7 @@ import curry from '../curry';
 import isString from '../isString';
 
 /**
+ * @name nth
  * @since v0.1.0
  * @sig
  * Number -> [a] -> a | Undefined
@@ -20,10 +21,8 @@ import isString from '../isString';
  *
  * third([1, 2, 3, 4, 5]); // => 3
  */
-const nth = curry((o, x) => {
+export default curry((o, x) => {
   const idx = o < 0 ? x.length + o : o;
 
   return isString(x) ? x.charAt(idx) : x[idx];
 });
-
-export default nth;

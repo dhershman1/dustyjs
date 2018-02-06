@@ -2,6 +2,7 @@ import _empty from '../_internals/empty';
 import isEqual from '../isEqual';
 
 /**
+ * @name isEmpty
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Determines if the entered value is empty or not
@@ -14,6 +15,4 @@ import isEqual from '../isEqual';
  * const str = isEmpty(''); // => true
  * const num = isEmpty(0); // => true
  */
-const isEmpty = x => x !== null && isEqual(x, _empty(x));
-
-export default isEmpty;
+export default x => x !== null && isEqual(x, _empty(x));

@@ -1,6 +1,7 @@
 import curry from '../curry';
 
 /**
+ * @name removeAtIndex
  * @since v0.1.0
  * @sig Number -> [a] -> [b]
  * @description Remove an item from a certain point in the index
@@ -16,7 +17,5 @@ import curry from '../curry';
  * const remover = removeAtIndex(2);
  * const test = remover([1, 2, 3, 4]); // => [1, 2, 4]
  */
-const removeAtIndex = curry((i, x) =>
+export default curry((i, x) =>
   [...x.slice(0, i), ...x.slice(i + 1)]);
-
-export default removeAtIndex;

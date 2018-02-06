@@ -2,6 +2,7 @@ import clone from '../clone';
 import curry from '../curry';
 
 /**
+ * @name defaults
  * @since v0.5.0
  * @sig {a} -> {b} -> {c}
  * @param {Object} a The default object to reference
@@ -13,7 +14,7 @@ import curry from '../curry';
  *
  * defaults({ test: 1, thing: 2 }, data); // => { test: 1, thing: 4 }
  */
-const defaults = curry((a, b) => {
+export default curry((a, b) => {
   const results = clone(b);
 
   for (const prop in a) {
@@ -24,5 +25,3 @@ const defaults = curry((a, b) => {
 
   return results;
 });
-
-export default defaults;

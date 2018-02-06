@@ -1,4 +1,5 @@
 /**
+ * @name isNull
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Checks if the value is a null value
@@ -8,6 +9,4 @@
  * @example
  * const nu = isNull(null); // => true
  */
-const isNull = x => x === null;
-
-export default isNull;
+export default x => x === null;

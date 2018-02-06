@@ -29,6 +29,7 @@ const findKeys = (f, x) => {
 };
 
 /**
+ * @name find
  * @since v0.2.0
  * @sig (a -> Boolean) -> [a] -> a | Boolean
  * @description Find an item based on the function sent in and its list
@@ -47,12 +48,10 @@ const findKeys = (f, x) => {
  * finder({val: 'test'}); // => 'test'
  * finder([{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
  */
-const find = curry((f, x) => {
+export default curry((f, x) => {
   if (isObject(x)) {
     return findKeys(f, x);
   }
 
   return findIndex(f, x);
 });
-
-export default find;

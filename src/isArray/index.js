@@ -1,4 +1,5 @@
 /**
+ * @name isArray
  * @since v0.1.0
  * @sig a -> Boolean
  * @description Verifies if the value is of type array
@@ -8,8 +9,6 @@
  * @example
  * const arr = isArray([]); // => true
  */
-const isArray = Array.isArray || function isArray(x) {
+export default Array.isArray || function isArray(x) {
   return Object.prototype.toString.call(x) === '[object Array]';
 };
-
-export default isArray;

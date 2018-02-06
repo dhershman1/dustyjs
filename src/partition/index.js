@@ -28,10 +28,8 @@ import reject from '../reject';
  * part(['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
  * part({ a: 'foo', b: 'bar', c: 100 }); // => [ { a: 'foo', b: 'bar' }, { c: 100 } ]
  */
-const partition = curry((fn, a) => {
+export default curry((fn, a) => {
   const part = juxt(filter, reject);
 
   return part(fn, a);
 });
-
-export default partition;

@@ -8,6 +8,7 @@ const findKey = (key, prop) => isArray(key) && key.indexOf(prop) === -1;
 const compareKey = (key, prop) => !isArray(key) && key !== prop;
 
 /**
+ * @name omit
  * @since v0.4.0
  * @sig
  * [String] -> {String: *} -> {String: *}
@@ -29,7 +30,7 @@ const compareKey = (key, prop) => !isArray(key) && key !== prop;
  *
  * omitKeys({ test: '3432', thing: 123 }); // => { thing: 123 }
  */
-const omit = curry((key, x) => {
+export default curry((key, x) => {
   if (isArray(x)) {
     const keysAreArr = isArray(key);
 
@@ -58,5 +59,3 @@ const omit = curry((key, x) => {
     return acc;
   }, {});
 });
-
-export default omit;
