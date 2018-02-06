@@ -12,7 +12,7 @@ You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/mast
 
 ## Why
 
-Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. This small library is about 5KB (4.31KB) in size, but it also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own.
+Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. It also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own.
 
 You can pull specific functionality from the module to use where it's needed so you limit the amount of code you bring in from a library thanks to tree shaking, and code splitting the library down.
 
