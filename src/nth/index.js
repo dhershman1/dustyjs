@@ -1,5 +1,5 @@
 import curry from '../curry';
-import isString from '../isString';
+import isString from '../_internals/isString';
 
 /**
  * @name nth

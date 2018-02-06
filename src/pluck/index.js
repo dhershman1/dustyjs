@@ -12,6 +12,8 @@ const pluckObj = (a, list) =>
     return acc;
   }, []);
 
+// Can be changed to better support array list types
+// Don't forget the documentation block
 export default curry((a, list) => {
   if (Array.isArray(first(list))) {
     return list.reduce((acc, v) => {
