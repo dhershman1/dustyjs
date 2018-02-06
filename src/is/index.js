@@ -10,5 +10,6 @@ import curry from '../curry';
  * @param {*} x The value to test
  * @return {Boolean}
  */
-export default curry((Ctor, x) =>
-  (x !== null && x.constructor === Ctor) || x instanceof Ctor);
+const is = curry((Ctor, x) => (x != null && x.constructor === Ctor) || x instanceof Ctor); // eslint-disable-line eqeqeq
+
+export default is;

@@ -1,32 +1,22 @@
-import isArguments from '../isArguments';
-import isArray from '../../isArray';
-import isFunction from '../../isFunction';
+import is from '../../is';
 import isNull from '../../isNull';
-import isObject from '../../isObject';
-import isString from '../../isString';
 
 export default x => { // eslint-disable-line complexity
   if (!isNull(x)) {
-    if (isFunction(x.empty)) {
+    if (is(Function, x.empty)) {
       return x.empty();
     }
 
-    if (isArray(x)) {
+    if (is(Array, x)) {
       return [];
     }
 
-    if (isString(x)) {
+    if (is(String, x)) {
       return '';
     }
 
-    if (isObject(x)) {
+    if (is(Object, x)) {
       return {};
-    }
-
-    if (isArguments(x)) {
-      (function emptyArgs(...args) {
-        return args;
-      }());
     }
   }
 

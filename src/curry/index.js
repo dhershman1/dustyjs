@@ -12,4 +12,6 @@
  * add(1)(2); // => 3
  * add(1, 2); // => 3
  */
-export default (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more); // eslint-disable-line
+const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more); // eslint-disable-line
+
+export default curry;

@@ -2,11 +2,11 @@
   "name": "dusty-fns",
   "version": "0.4.1",
   "description": "A small library of functional operators inspired by Ramda",
-  "main": "./index.js",
+  "main": "./dist/dusty.min.js",
   "devDependencies": {
     "ava": "0.25.0",
     "babel": "6.23.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
     "babel-register": "6.26.0",
     "buble-loader": "0.4.1",
@@ -14,10 +14,13 @@
     "eslint": "4.17.0",
     "globby": "7.1.1",
     "jsdoc-to-markdown": "4.0.1",
+    "uglifyjs-webpack-plugin": "1.1.8",
     "webpack": "3.10.0"
   },
   "scripts": {
     "prepack": "webpack && node scripts/create-export.js && node scripts/docs.js",
+    "build": "webpack ",
+    "postbuild": "webpack --config webpack.dist.js",
     "clean": "node scripts/clean.js",
     "postpublish": "npm run clean",
     "test:watch": "ava --watch",

@@ -1,6 +1,7 @@
 const path = require('path');
 const globby = require('globby');
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const findEntries = () => {
   const results = {};
@@ -33,14 +34,14 @@ module.exports = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+    new UglifyJSPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'curry',
+      minChunks: 3,
+      children: true
     })
   ],
   module: {
