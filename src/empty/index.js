@@ -1,6 +1,8 @@
 import _empty from '../_internals/empty';
 
 /**
+ * @since v0.1.0
+ * @sig a -> a
  * @description Empties out the items of the sent value
  * @param  {*} x The item to empty
  * @return {*} Returns the empty item

@@ -1,6 +1,8 @@
 import curry from '../curry';
 
 /**
+ * @since v0.1.0
+ * @sig Number -> [a] -> [b]
  * @description Remove an item from a certain point in the index
  * @param  {Number} i   The index number to remove from
  * @param  {Array} x The array in question

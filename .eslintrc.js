@@ -8,7 +8,7 @@ module.exports = {
 
 		/* Possible Errors */
 		'getter-return': ['error'],
-		'no-extra-parens': ['error'],
+		'no-extra-parens': [0],
 		'no-prototype-builtins': ['error'],
 		'no-template-curly-in-string': ['error'],
 

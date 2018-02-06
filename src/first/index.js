@@ -1,6 +1,8 @@
 import nth from '../nth';
 
 /**
+ * @since v0.4.0
+ * @sig [a] -> a | Undefined
  * @description Grabs the first index of a passed array or string
  * @param  {Array|String} x The list or string we want to use
  * @return {Any} Returns whatever was the first piece of our array

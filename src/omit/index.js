@@ -8,6 +8,12 @@ const findKey = (key, prop) => isArray(key) && key.indexOf(prop) === -1;
 const compareKey = (key, prop) => !isArray(key) && key !== prop;
 
 /**
+ * @since v0.4.0
+ * @sig
+ * [String] -> {String: *} -> {String: *}
+ * [String] -> [String] -> [String]
+ * String -> {String: *} -> {String: *}
+ * String -> [String] -> [String]
  * @description Create a new Array/Object by omitting the requested values
  * @param  {String} key The key(s) in which to omit from the data
  * @param  {Object} x The array or object to search through

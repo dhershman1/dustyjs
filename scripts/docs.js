@@ -28,7 +28,7 @@ const generateUsage = name => ({
   },
   'browser': {
     title: 'Browser',
-    code: `<script src="path/to/node_modules/dusty-fns/${name}/index.js"></script>`
+    code: `<script src="path/to/dusty-fns/${name}/index.js"></script>`
   }
 });
 
@@ -47,23 +47,27 @@ const generateSourceDocs = () => listFns().map(fn => jsDocParser.getTemplateData
   'no-cache': true
 })[0])
   .map(d => ({
+    since: d.since,
     title: d.name,
     description: d.description,
     examples: d.examples,
     returns: d.returns,
-    params: d.params
+    params: d.params,
+    sig: d.customTags ? d.customTags[0].value : []
   }));
 
 let generated = generateSourceDocs();
 
 generated = generated.map(doc => ({
   title: doc.title,
+  since: doc.since,
   syntax: generateSyntax(doc.title, doc.params),
   usage: generateUsage(doc.title),
   desc: doc.description,
   examples: doc.examples,
   params: doc.params,
-  returns: doc.returns
+  returns: doc.returns,
+  sig: doc.sig
 }));
 
 writeDocs(generated);

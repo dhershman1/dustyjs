@@ -4,6 +4,8 @@ import isObject from '../isObject';
 
 /**
  * @name clone
+ * @since v0.1.0
+ * @sig {*} -> {*}
  * @description Shallow clone an object or array
  * @param  {Object} x The object that should be cloned
  * @return {Object}     Returns the shallow clone of the object

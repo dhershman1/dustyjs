@@ -1,6 +1,8 @@
 import curry from '../curry';
 
 /**
+ * @since v0.2.0
+ * @sig s -> {s: x} -> Boolean
  * @description Determines if the object has a property
  * @param  {String} prop The prop to look for
  * @param  {Object} obj The Object we are searching

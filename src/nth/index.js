@@ -2,6 +2,10 @@ import curry from '../curry';
 import isString from '../isString';
 
 /**
+ * @since v0.1.0
+ * @sig
+ * Number -> [a] -> a | Undefined
+ * Number -> String -> String
  * @description Returns the nth element of the given list or string.
  * @param  {Number} o How much to offset the value
  * @param  {String|Array} x   The Array or list to crawl through

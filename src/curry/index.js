@@ -1,4 +1,6 @@
 /**
+ * @since v0.1.0
+ * @sig (* -> a) -> (* -> a)
  * @description Create a curried function
  * @param  {Function} f The function we will be running
  * @param  {Any} args extra args to apply if needed

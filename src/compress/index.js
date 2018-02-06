@@ -1,6 +1,8 @@
 import isEmpty from '../isEmpty';
 
 /**
+ * @since v0.3.0
+ * @sig {a} -> {b}
  * @description Takes an object and compresses it down removing falsy and empty values
  * @param  {Object} x The Object to compress
  * @return {Object} Returns a new object without the unwanted values

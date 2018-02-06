@@ -1,6 +1,10 @@
 import nth from '../nth';
 
 /**
+ * @since v0.1.0
+ * @sig
+ * [a] -> a | Undefined
+ * String -> String
  * @description Grabs the last index of an array
  * @param  {Array|String} x The list or string we want to use
  * @return {Any} Returns whatever was the last piece of our array

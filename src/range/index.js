@@ -1,4 +1,6 @@
 /**
+ * @since v0.1.0
+ * @sig Number -> Number -> [Number]
  * @description Create an array range from start to end
  * @param  {Number} from Starting number for the range
  * @param  {Number} to   Number to end on for the range

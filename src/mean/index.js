@@ -1,6 +1,10 @@
 import isArray from '../isArray';
 
 /**
+ * @since v0.1.0
+ * @sig
+ * (...Number) -> Number
+ * [Number] -> Number
  * @description Get the mean of a set of numbers
  * @param  {Number|Array} x An amount of numbers or array of numbers
  * @return {Number}   Returns the mean avg of the numbers

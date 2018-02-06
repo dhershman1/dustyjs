@@ -1,6 +1,8 @@
 import curry from '../curry';
 
 /**
+ * @since v0.1.0
+ * @sig Number -> a -> [b] -> [c]
  * @description Add an item to an array within a certain index of the array
  * @param  {Number} i The index number to add at
  * @param  {Any} t What we want to add to our array

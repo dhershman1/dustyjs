@@ -1,6 +1,8 @@
 import isNull from '../isNull';
 
 /**
+ * @since v0.1.0
+ * @sig a -> Boolean
  * @description Finds the type of the sent value
  * @param  {Any} x The value to test
  * @return {String}   Returns the string of the value type

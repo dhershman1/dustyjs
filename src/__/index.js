@@ -1,5 +1,6 @@
 /**
  * @name __
+ * @since  v0.1.0
  * @description Placeholder value, used to set placeholder in arguments
  * @type {Object}
  * @example

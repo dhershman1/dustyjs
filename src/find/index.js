@@ -29,6 +29,8 @@ const findKeys = (f, x) => {
 };
 
 /**
+ * @since v0.2.0
+ * @sig (a -> Boolean) -> [a] -> a | Boolean
  * @description Find an item based on the function sent in and its list
  * @param  {Function} f The function used/called during the find
  * @param  {Object} x The list we want to search through
