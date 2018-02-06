@@ -6,6 +6,30 @@ import type from '../../type';
 
 const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b);
 
+const typeCheck = a => {
+  const allTypes = {
+    complex: ['Arguments', 'Array', 'Object'],
+    simple: ['Boolean', 'Number', 'String'],
+    date: ['Date'],
+    err: ['Error'],
+    regex: ['RegExp'],
+    map: ['Map', 'Set'],
+    other: ['Int8Array', 'Uint8Array', 'Uint8ClampedArray',
+      'Int16Array', 'Uint16Array', 'Int32Array',
+      'Uint32Array', 'Float32Array', 'Float64Array', 'ArrayBuffer']
+  };
+
+  for (const prop in allTypes) {
+    const currType = allTypes[prop];
+
+    if (currType.indexOf(a) !== -1) {
+      return prop;
+    }
+  }
+
+  return '';
+};
+
 const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
   if (identical(a, b)) {
     return true;
@@ -15,31 +39,27 @@ const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
     return false;
   }
 
-  switch (type(a)) {
-  case 'Arguments':
-  case 'Array':
-  case 'Object':
+  switch (typeCheck(type(a))) {
+  case 'complex':
     if (typeof a.constructor === 'function' &&
       functionName(a.constructor) === 'Promise') {
 
       return a === b;
     }
     break;
-  case 'Boolean':
-  case 'Number':
-  case 'String':
+  case 'simple':
     if (!(typeof a === typeof b && identical(a.valueOf(), b.valueOf()))) {
       return false;
     }
     break;
-  case 'Date':
+  case 'date':
     if (!identical(a.valueOf(), b.valueOf())) {
       return false;
     }
     break;
-  case 'Error':
+  case 'err':
     return a.name === b.name && a.message === b.message;
-  case 'RegExp':
+  case 'regex':
     if (!(a.source === b.source &&
           a.global === b.global &&
           a.ignoreCase === b.ignoreCase &&
@@ -49,23 +69,12 @@ const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
       return false;
     }
     break;
-  case 'Map':
-  case 'Set':
+  case 'map':
     if (!equal(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
       return false;
     }
     break;
-  case 'Int8Array':
-  case 'Uint8Array':
-  case 'Uint8ClampedArray':
-  case 'Int16Array':
-  case 'Uint16Array':
-  case 'Int32Array':
-  case 'Uint32Array':
-  case 'Float32Array':
-  case 'Float64Array':
-    break;
-  case 'ArrayBuffer':
+  case 'other':
     break;
   default:
     return false;
