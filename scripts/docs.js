@@ -46,19 +46,15 @@ const generateSourceDocs = () => listFns().map(fn => jsDocParser.getTemplateData
   'files': fn.fullPath,
   'no-cache': true
 })[0])
-  .map(d => {
-    console.log(d);
-
-    return {
-      since: d.since ? d.since : 'Unknown',
-      title: d.name,
-      description: d.description,
-      examples: d.examples,
-      returns: d.returns,
-      params: d.params,
-      sig: d.customTags ? d.customTags[0].value : []
-    };
-  });
+  .map(d => ({
+    since: d.since ? d.since : 'Unknown',
+    title: d.name,
+    description: d.description,
+    examples: d.examples,
+    returns: d.returns,
+    params: d.params,
+    sig: d.customTags ? d.customTags[0].value : []
+  }));
 
 let generated = generateSourceDocs();
 
