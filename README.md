@@ -4,7 +4,6 @@
 
 A lightweight simple library that takes **heavy** influence from [Ramda](http://ramdajs.com/)
 
-Supports Modern browsers and IE 9+
 
 ## Changelog
 
@@ -12,13 +11,12 @@ You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/mast
 
 ## Why
 
-Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. It also lacks the vast number of different functional helper methods that libraries like Ramda, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own.
+Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. It also lacks the vast number of different functional helper methods that libraries like Ramda, Lodash, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own, this was mainly to have fun with a functional library that I will probably use in the future and wanted to share to get input, suggestions, etc. From the general public.
 
-You can pull specific functionality from the module to use where it's needed so you limit the amount of code you bring in from a library thanks to tree shaking, and code splitting the library down.
 
-## Unit Tests
+## Contribution
 
-Each function has a set of `Basic Functionality` tests, these MUST be passing in order for the functionality to be determined working and before we add any more tests to work with additional functionality.
+The wireframe for the `v1.0.0` release is laid out and waiting to be filled with suggestions, bug reports, and more feel free to post any issues you are facing or idea you may have to the github for [dusty.js](https://github.com/dhershman1/dustyjs/projects/1) All ideas are welcome so don't hesitate to post an issue about it there on the github.
 
 ## How To
 
@@ -82,4 +80,4 @@ Through your browser
 
 You can find the documentation on each method here:
 
-http://dusty-demos.herokuapp.com/dusty-fns
+http://www.dusty.codes/dusty-fns
