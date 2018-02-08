@@ -41,7 +41,7 @@ dusty.isObject({});
 Through the browser
 
 ```html
-<script src="path/to/node_modules/dusty-fns/main/index.js"></script>
+<script src="path/to/dusty-fns/dusty.min.js"></script>
 <script>
   dusty.isObject({});
 </script>
@@ -72,7 +72,7 @@ isObject({});
 Through your browser
 
 ```html
-<script src="path/to/node_modules/dusty-fns/isObject/index.js"></script>
+<script src="path/to/dusty-fns/isObject/index.js"></script>
 <script>
   isObject({});
 </script>

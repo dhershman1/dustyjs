@@ -20,6 +20,8 @@
 - Changed: `omit` is now curried
 - Changed: `removeAtIndex` is now curried
 - Changed: `replaceAtIndex` is now curried
+- Fixed: Browser grabbing the entire library is now possible
+- Fixed: Build process & automation scripts which is now shrinking the distro file considerbly
 
 ## v0.4.1
 

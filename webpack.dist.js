@@ -3,10 +3,10 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname),
-    filename: 'dist/dusty.min.js',
+    filename: 'dusty.min.js',
     library: 'dusty',
     libraryTarget: 'umd'
   },

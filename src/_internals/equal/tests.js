@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import isEqual from './index';
 import test from 'ava';
 

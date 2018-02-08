@@ -6,6 +6,22 @@ import type from '../../type';
 
 const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b);
 
+// Contain the bulk of basic regex logic
+const regexCheck = (a, b) => {
+  const vals = ['source', 'global', 'ignoreCase', 'multiline', 'sticky', 'unicode'];
+
+  for (let i = 0; i < vals.length; i++) {
+    const p = vals[i];
+
+    if (a[p] !== b[p]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+// Try to simplify our switch with a function narrowing down our options
 const typeCheck = a => {
   const allTypes = {
     complex: ['Arguments', 'Array', 'Object'],
@@ -30,7 +46,8 @@ const typeCheck = a => {
   return '';
 };
 
-const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
+// The vast functionality of the extremely strict equals functionality
+const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line complexity
   if (identical(a, b)) {
     return true;
   }
@@ -40,44 +57,39 @@ const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
   }
 
   switch (typeCheck(type(a))) {
-  case 'complex':
-    if (typeof a.constructor === 'function' &&
+    case 'complex':
+      if (typeof a.constructor === 'function' &&
       functionName(a.constructor) === 'Promise') {
 
-      return a === b;
-    }
-    break;
-  case 'simple':
-    if (!(typeof a === typeof b && identical(a.valueOf(), b.valueOf()))) {
+        return a === b;
+      }
+      break;
+    case 'simple':
+      if (!(typeof a === typeof b && identical(a.valueOf(), b.valueOf()))) {
+        return false;
+      }
+      break;
+    case 'date':
+      if (!identical(a.valueOf(), b.valueOf())) {
+        return false;
+      }
+      break;
+    case 'err':
+      return a.name === b.name && a.message === b.message;
+    case 'regex':
+      if (!regexCheck(a, b)) {
+        return false;
+      }
+      break;
+    case 'map':
+      if (!equal(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
+        return false;
+      }
+      break;
+    case 'other':
+      break;
+    default:
       return false;
-    }
-    break;
-  case 'date':
-    if (!identical(a.valueOf(), b.valueOf())) {
-      return false;
-    }
-    break;
-  case 'err':
-    return a.name === b.name && a.message === b.message;
-  case 'regex':
-    if (!(a.source === b.source &&
-          a.global === b.global &&
-          a.ignoreCase === b.ignoreCase &&
-          a.multiline === b.multiline &&
-          a.sticky === b.sticky &&
-          a.unicode === b.unicode)) {
-      return false;
-    }
-    break;
-  case 'map':
-    if (!equal(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
-      return false;
-    }
-    break;
-  case 'other':
-    break;
-  default:
-    return false;
   }
 
   const keysA = Object.keys(a);
@@ -87,6 +99,7 @@ const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
   }
 
   let idx = stackA.length - 1;
+  let idy = keysA.length - 1;
 
   while (idx >= 0) {
     if (stackA[idx] === a) {
@@ -97,15 +110,14 @@ const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line
 
   stackA.push(a);
   stackB.push(b);
-  idx = keysA.length - 1;
 
-  while (idx >= 0) {
-    const key = keysA[idx];
+  while (idy >= 0) {
+    const key = keysA[idy];
 
     if (!(has(key, b) && equal(b[key], a[key], stackA, stackB))) {
       return false;
     }
-    idx -= 1;
+    idy -= 1;
   }
   stackA.pop();
   stackB.pop();

@@ -111,7 +111,7 @@ module.exports = {
 		'func-name-matching': ['error'],
 		'func-names': ['error'],
 		'func-style': ['error'],
-		'indent': ['error', 2],
+		'indent': ['error', 2, { 'SwitchCase': 1 }],
 		'key-spacing': ['error'],
 		'keyword-spacing': ['error', {
 			'before': true,
@@ -124,7 +124,7 @@ module.exports = {
 			'code': 120
 		}],
 		'max-params': ['error', {
-			'max': 3
+			'max': 4
 		}],
 		'multiline-ternary': ['error', 'never'],
 		'new-cap': ['error'],

@@ -1,8 +1,8 @@
 {
   "name": "dusty-fns",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A small library of functional operators inspired by Ramda",
-  "main": "./dist/dusty.min.js",
+  "main": "./dusty.min.js",
   "devDependencies": {
     "ava": "0.25.0",
     "babel": "6.23.0",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "prepack": "webpack && node scripts/create-export.js && node scripts/docs.js",
-    "build": "webpack ",
+    "build": "webpack --display-modules",
     "postbuild": "webpack --config webpack.dist.js",
     "clean": "node scripts/clean.js",
     "postpublish": "npm run clean",
