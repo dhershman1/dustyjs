@@ -1,6 +1,8 @@
 # Changelog
 
-## v1.0.0
+## v0.5.0
+
+**The next few 0.x.x versions are going to be the roadmap beta builds into v1.0.0 please report any and all issues asap.**
 
 - Added: `is` function which is curried
   - **NOTE** This is meant to replace the `isX` simple functions see issue [#9](https://github.com/dhershman1/dustyjs/issues/9) for more info
