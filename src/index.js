@@ -30,7 +30,6 @@ export { default as not } from './not';
 export { default as nth } from './nth';
 export { default as omit } from './omit';
 export { default as partition } from './partition';
-export { default as pluck } from './pluck';
 export { default as prepend } from './prepend';
 export { default as range } from './range';
 export { default as reject } from './reject';
