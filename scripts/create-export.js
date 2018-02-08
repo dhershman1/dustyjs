@@ -10,7 +10,7 @@ const listFns = () => {
     .map(file => ({
       name: file,
       path: `./${file}`,
-      fullPath: `./src/${file}/indexn.js`
+      fullPath: `./src/${file}/index.js`
     }));
 };
 
