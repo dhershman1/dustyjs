@@ -16,8 +16,6 @@ import reject from '../reject';
  * And a second that did not
  *
  * @example
- * import is from 'dusty-fns/is';
- *
  * partition(is(String), ['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
  * partition(is(String), { a: 'foo', b: 'bar', c: 100 }); // => [ { a: 'foo', b: 'bar' }, { c: 100 } ]
  *

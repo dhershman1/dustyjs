@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsDocParser = require('jsdoc-to-markdown');
-const ignoredFiles = ['_internals', 'esm'];
+const ignoredFiles = ['_internals', 'esm', 'index.js'];
 
 const listFns = () => {
   const files = fs.readdirSync(path.join(process.cwd(), 'src'));
@@ -46,15 +46,19 @@ const generateSourceDocs = () => listFns().map(fn => jsDocParser.getTemplateData
   'files': fn.fullPath,
   'no-cache': true
 })[0])
-  .map(d => ({
-    since: d.since,
-    title: d.name,
-    description: d.description,
-    examples: d.examples,
-    returns: d.returns,
-    params: d.params,
-    sig: d.customTags ? d.customTags[0].value : []
-  }));
+  .map(d => {
+    console.log(d);
+
+    return {
+      since: d.since ? d.since : 'Unknown',
+      title: d.name,
+      description: d.description,
+      examples: d.examples,
+      returns: d.returns,
+      params: d.params,
+      sig: d.customTags ? d.customTags[0].value : []
+    };
+  });
 
 let generated = generateSourceDocs();
 

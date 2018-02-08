@@ -1,8 +1,6 @@
 # Changelog
 
-## v0.5.0
-
-**Please Note: The next `0.x.x` versions are contributing to the full `v1.0.0` release of dusty-fns please report any issues ASAP! Thanks!**
+## v1.0.0
 
 - Added: `is` function which is curried
   - **NOTE** This is meant to replace the `isX` simple functions see issue [#9](https://github.com/dhershman1/dustyjs/issues/9) for more info
@@ -10,8 +8,12 @@
 - Added: `prepend` function which is curried
 - Added: `defaults` function which is curried
 - Added: `juxt` function which is technically curried (Required curry)
+- Added: `partition` function which is curried
+- Added: `reject` function which is curried
+- Added: `contains` function which is curried
+- Added: `filter` function which is curried
 - Added: `since` to jsdoc blocks
-- Added `sig` to jsdoc blocks
+- Added: `sig` to jsdoc blocks
 - Changed: `fuzzySearch` is now curried
 - Changed: `find` is now curried
 - Changed: `has` is now curried
