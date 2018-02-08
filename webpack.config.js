@@ -11,15 +11,17 @@ const findEntries = () => {
     const { name, dir } = path.parse(p);
     let [, moduleName] = dir.split('/');
 
+    if (dir.includes('pluck')) {
+      return false;
+    }
+
     if (name !== 'index') {
       moduleName = name;
     }
 
-    if (moduleName === 'esm') {
-      moduleName = 'main';
-    }
-
     results[moduleName] = path.resolve(__dirname, p);
+
+    return true;
   });
 
   return results;

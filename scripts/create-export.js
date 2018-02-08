@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const ignoredFiles = ['_internals', 'esm', 'index.js'];
+const ignoredFiles = ['_internals', 'esm', 'index.js', 'pluck'];
 
 const listFns = () => {
   const files = fs.readdirSync(path.join(process.cwd(), 'src'));
@@ -10,7 +10,7 @@ const listFns = () => {
     .map(file => ({
       name: file,
       path: `./${file}`,
-      fullPath: `./src/${file}/index.js`
+      fullPath: `./src/${file}/indexn.js`
     }));
 };
 
