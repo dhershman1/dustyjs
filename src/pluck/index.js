@@ -1,6 +1,6 @@
-import _prop from '../_internals/prop';
 import curry from '../curry';
 import map from '../map';
+import prop from '../prop';
 
 /**
  * @name pluck
@@ -21,4 +21,4 @@ import map from '../map';
  *
  * plucker([{ a: 1 }, { a: 2 }]); // => [1, 2]
  */
-export default curry((p, list) => map(_prop(p), list));
+export default curry((p, list) => map(prop(p), list));
