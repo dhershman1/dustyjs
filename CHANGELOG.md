@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.6.0
+
+- Added: `map` function which is curried
+- Added: `pluck` function which is curried
+- Fixed: `filter` functionality to make more sense and not use a makeshift (bad) reduce
+
 ## v0.5.0
 
 **The next few 0.x.x versions are going to be the roadmap beta builds into v1.0.0 please report any and all issues asap.**

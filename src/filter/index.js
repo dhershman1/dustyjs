@@ -1,5 +1,20 @@
+import _isObject from '../_internals/isObject';
 import curry from '../curry';
-import reduce from '../_internals/reduce';
+
+const objFilter = (fn, list) => {
+  const entries = Object.entries(list);
+
+  return entries.reduce((a, v) => {
+    const [prop, val] = v;
+
+    if (fn(val)) {
+      a[prop] = val;
+    }
+
+    return a;
+  }, {});
+};
+
 
 /**
  * @name filter
@@ -23,4 +38,16 @@ import reduce from '../_internals/reduce';
  * filterer([1, 2, 3, 4]); // => [2, 4]
  * filterer({ a: 1, b: 2, c: 3, d: 4 }); // => { b: 2, d: 4 }
  */
-export default curry((fn, list) => reduce(fn, list));
+export default curry((fn, list) => {
+  if (_isObject(list)) {
+    return objFilter(fn, list);
+  }
+
+  return list.reduce((a, v) => {
+    if (fn(v)) {
+      a.push(v);
+    }
+
+    return a;
+  }, []);
+});
