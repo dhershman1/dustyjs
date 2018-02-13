@@ -35,7 +35,7 @@
   },
   "ava": {
     "files": [
-      "src/pluck/tests.js"
+      "src/**/tests.js"
     ],
     "source": [
       "src/**/*.js"

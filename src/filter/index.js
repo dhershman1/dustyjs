@@ -43,11 +43,5 @@ export default curry((fn, list) => {
     return objFilter(fn, list);
   }
 
-  return list.reduce((a, v) => {
-    if (fn(v)) {
-      a.push(v);
-    }
-
-    return a;
-  }, []);
+  return list.filter(v => fn(v));
 });

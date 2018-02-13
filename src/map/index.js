@@ -1,25 +1,42 @@
-import _map from '../_internals/map';
+import _isObject from '../_internals/isObject';
 import curry from '../curry';
-import type from '../type';
 
-export default curry((fn, functor) => {
-  const functorType = type(functor);
+/**
+ * @name map
+ * @since v0.6.0
+ * @sig (a -> b) -> f a -> f b
+ * @description
+ * Takes a function and applies it to all of the values within the provided list,
+ * and brings back a new list of the same type.
+ * @param {Function} fn The function to run against the values in our functor
+ * @param {Array|Object} list The list to iterate through
+ * @return {Array|Object} The new Array or Object that was created
+ *
+ * @example
+ * const dbl = n => n * 2;
+ *
+ * map(dbl, [1, 2, 3]); // => [2, 4, 6]
+ * map(dbl, { a: 1, b: 2, c: 3 }); // => { a: 2, b: 4, c: 6 }
+ *
+ * // It's also curried
+ *
+ * const dbler = map(dbl);
+ *
+ * dbler([1, 2, 3]); // => [2, 4, 6]
+ */
+export default curry((fn, list) => {
 
-  if (functorType === 'Function') {
-    return (...args) => fn.call(functor.apply(args));
-  }
-
-  if (functorType === 'Object') {
-    const keys = Object.keys(functor);
+  if (_isObject(list)) {
+    const keys = Object.keys(list);
     const results = {};
 
     keys.forEach(key => {
-      results[key] = fn(functor[key]);
+      results[key] = fn(list[key]);
     });
 
     return results;
   }
 
-  return _map(fn, functor);
+  return list.map(v => fn(v));
 });
 
