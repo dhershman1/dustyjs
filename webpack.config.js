@@ -11,10 +11,6 @@ const findEntries = () => {
     const { name, dir } = path.parse(p);
     let [, moduleName] = dir.split('/');
 
-    if (dir.includes('pluck')) {
-      return false;
-    }
-
     if (name !== 'index') {
       moduleName = name;
     }
@@ -39,11 +35,6 @@ module.exports = {
     new UglifyJSPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'curry',
-      minChunks: 3,
-      children: true
     })
   ],
   module: {
@@ -54,7 +45,13 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-env']
+            presets: [['babel-preset-env', {
+              'targets': {
+                'browsers': ['last 2 versions', 'ie >= 9']
+              },
+              'modules': 'umd',
+              'useBuiltIns': false
+            }]]
           }
         }
       }
