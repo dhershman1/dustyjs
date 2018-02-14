@@ -1,6 +1,9 @@
 import _empty from '../_internals/empty';
 import isEqual from '../isEqual';
 
+// To keep checks strict we sadly have to use this
+/* eslint-disable no-undefined */
+
 /**
  * @name isEmpty
  * @since v0.1.0
@@ -15,4 +18,4 @@ import isEqual from '../isEqual';
  * const str = isEmpty(''); // => true
  * const num = isEmpty(0); // => true
  */
-export default x => x !== null && isEqual(x, _empty(x));
+export default x => x !== null && x !== undefined && isEqual(x, _empty(x));

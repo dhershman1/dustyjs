@@ -1,5 +1,8 @@
 import curry from '../curry';
 
+// To keep checks strict we sadly have to use this
+/* eslint-disable no-undefined */
+
 /**
  * @name is
  * @since v0.5.0
@@ -31,6 +34,6 @@ import curry from '../curry';
  * is(Object, {}); // => true
  * is(Object, []); // => true
  */
-const is = curry((Ctor, x) => (x != null && x.constructor === Ctor) || x instanceof Ctor); // eslint-disable-line eqeqeq
+const is = curry((Ctor, x) => (x !== null && x !== undefined && x.constructor === Ctor) || x instanceof Ctor);
 
 export default is;
