@@ -31,30 +31,21 @@ module.exports = {
     library: 'dusty',
     libraryTarget: 'umd'
   },
-  plugins: [
-    new UglifyJSPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ],
   module: {
     rules: [
       {
         test: /.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [['babel-preset-env', {
-              'targets': {
-                'browsers': ['last 2 versions', 'ie >= 9']
-              },
-              'modules': 'umd',
-              'useBuiltIns': false
-            }]]
-          }
+          loader: 'babel-loader'
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new UglifyJSPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    })
+  ]
 };
