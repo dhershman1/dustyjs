@@ -2,13 +2,13 @@ import _isObject from '../_internals/isObject';
 import curry from '../curry';
 
 const objFilter = (fn, list) => {
-  const entries = Object.entries(list);
+  const entries = Object.keys(list);
 
-  return entries.reduce((a, v) => {
-    const [prop, val] = v;
+  return entries.reduce((a, p) => {
+    const val = list[p];
 
     if (fn(val)) {
-      a[prop] = val;
+      a[p] = val;
     }
 
     return a;
