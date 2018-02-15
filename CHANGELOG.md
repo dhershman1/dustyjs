@@ -5,6 +5,7 @@
 - Added: `map` function which is curried
 - Added: `pluck` function which is curried
 - Fixed: `filter` functionality to make more sense and not use a makeshift (bad) reduce
+- Fixed: removed `Object.entries` from `filter` didn't realize babel wasn't able to transpile it like I hoped
 
 ## v0.5.0
 
