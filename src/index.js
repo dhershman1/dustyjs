@@ -1,3 +1,4 @@
+export { default as any } from './any';
 export { default as clone } from './clone';
 export { default as compress } from './compress';
 export { default as contains } from './contains';
@@ -5,6 +6,7 @@ export { default as curry } from './curry';
 export { default as deepClone } from './deepClone';
 export { default as defaults } from './defaults';
 export { default as empty } from './empty';
+export { default as every } from './every';
 export { default as extend } from './extend';
 export { default as filter } from './filter';
 export { default as find } from './find';
