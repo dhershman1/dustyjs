@@ -1,8 +1,8 @@
 import is from '../../is';
-import isNull from '../../isNull';
+import isNil from '../../isNil';
 
 export default x => { // eslint-disable-line complexity
-  if (!isNull(x)) {
+  if (!isNil(x)) {
     if (is(Function, x.empty)) {
       return x.empty();
     }

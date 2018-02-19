@@ -1,10 +1,7 @@
+import contains from '../contains';
 import curry from '../curry';
-
-// Check if the key is an array and find the current prop within it if so
-const findKey = (key, prop) => Array.isArray(key) && key.indexOf(prop) === -1;
-
-// Check if the key is NOT an array and make sure it isn't equal to our current prop
-const compareKey = (key, prop) => !Array.isArray(key) && key !== prop;
+import ensureArray from '../ensureArray';
+import not from '../not';
 
 /**
  * @name omit
@@ -30,29 +27,17 @@ const compareKey = (key, prop) => !Array.isArray(key) && key !== prop;
  * omitKeys({ test: '3432', thing: 123 }); // => { thing: 123 }
  */
 export default curry((key, x) => {
+  const keyArr = ensureArray(key);
+
   if (Array.isArray(x)) {
-    const keysAreArr = Array.isArray(key);
-
-    return x.filter(val => {
-      if (keysAreArr) {
-        return key.indexOf(val) === -1;
-      }
-
-      return key !== val;
-    });
+    return x.filter(val => keyArr.indexOf(val) === -1);
   }
 
-  const keys = Object.keys(x);
-
-  return keys.reduce((acc, prop) => {
-    if (findKey(key, prop)) {
+  return Object.keys(x).reduce((acc, prop) => {
+    if (not(contains(prop, keyArr))) {
       acc[prop] = x[prop];
 
       return acc;
-    }
-
-    if (compareKey(key, prop)) {
-      acc[prop] = x[prop];
     }
 
     return acc;

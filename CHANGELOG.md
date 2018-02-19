@@ -4,6 +4,21 @@
 
 - Added: `max` function
 - Added: `min` function
+- Added: `ensureArray` function - just ensures that a value passed in will always be an array
+- Improved: `omit` function so it functions better by itself
+- Improved: `prop` function to easily rely on it's own functionality instead of a path system
+
+### **BREAKING CHANGES**
+
+- Changed: `prop` function to accept arrays instead of strings
+- Changed: `mean` function to accept a long list of number params instead only
+- Replaced: `isNull` with `isNil` so it does a light check for null or undefined values
+- Removed: `isNumber` function to be replaced with `is`
+- Removed: `isString` function to be replaced with `is`
+- Removed: `isFunction` function to be replaced with `is`
+- Removed: `isRegExp` function to be replaced with `is`
+- Removed: `isArray` function to be replaced with `is`
+- Removed: `isObject` function to be replaced with `is`
 
 
 ## v0.6.0

@@ -1,5 +1,6 @@
-import _path from '../_internals/path';
 import curry from '../curry';
+import isEmpty from '../isEmpty';
+import isNil from '../isNil';
 
 /**
  * @name prop
@@ -7,7 +8,7 @@ import curry from '../curry';
  * @sig k -> {k: v} -> v | Undefined
  * @description
  * Brings back the indicated property of an object if it exists
- * @param {String} p The property we want to look for
+ * @param {Array} p The array path of the property we are looking for
  * @param {Object} obj The object to search through
  * @return {Any} The value that exists at 'obj.p'
  *
@@ -21,4 +22,12 @@ import curry from '../curry';
  *
  * proper({ a: 1, b: 2 }); // => 1
  */
-export default curry((p, obj) => _path([p], obj));
+const prop = curry(([p, ...rest], obj) => {
+  if (isEmpty(rest) || isNil(obj[p])) {
+    return obj[p];
+  }
+
+  return prop(rest, obj[p]);
+});
+
+export default prop;

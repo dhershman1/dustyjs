@@ -21,4 +21,4 @@ import prop from '../prop';
  *
  * plucker([{ a: 1 }, { a: 2 }]); // => [1, 2]
  */
-export default curry((p, list) => map(prop(p), list));
+export default curry((p, list) => map(prop([p]), list));

@@ -1,5 +1,3 @@
-import isNull from '../isNull';
-
 /**
  * @name type
  * @since v0.1.0
@@ -20,7 +18,7 @@ import isNull from '../isNull';
  * type(true); // => 'Boolean'
  */
 export default x => {
-  if (isNull(x)) {
+  if (x === null) {
     return 'Null';
   }
   if (x === undefined) { // eslint-disable-line no-undefined

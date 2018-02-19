@@ -1,6 +1,5 @@
 import extend from '../extend';
-import isArray from '../isArray';
-import isObject from '../isObject';
+import is from '../is';
 
 /**
  * @name clone
@@ -14,12 +13,12 @@ import isObject from '../isObject';
  * const arr = clone([1, 2, 3]); // => [1, 2, 3]
  */
 export default x => {
-  if (isObject(x)) {
-    return extend(x);
+  if (Array.isArray(x)) {
+    return x.slice();
   }
 
-  if (isArray(x)) {
-    return x.slice();
+  if (is(Object, x)) {
+    return extend(x);
   }
 
   return x;

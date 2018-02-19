@@ -1,4 +1,5 @@
 import curry from '../curry';
+import isNil from '../isNil';
 
 // To keep checks strict we sadly have to use this
 /* eslint-disable no-undefined */
@@ -24,16 +25,15 @@ import curry from '../curry';
  *
  * // It is curried as well
  *
- * const isArray = is(Array);
+ * const isObject = is(Object);
  *
- * isArray([]); // => true
- * isArray({}); // => false
+ * isObject({}); // => true
  *
  * // Gotchas
  * // Since it is a light check you need to watch how you run into sitatuions like this
  * is(Object, {}); // => true
  * is(Object, []); // => true
  */
-const is = curry((Ctor, x) => (x !== null && x !== undefined && x.constructor === Ctor) || x instanceof Ctor);
+const is = curry((Ctor, x) => (!isNil(x) && x.constructor === Ctor) || x instanceof Ctor);
 
 export default is;

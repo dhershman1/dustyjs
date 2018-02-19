@@ -1,5 +1,5 @@
+import _isObject from '../_internals/isObject';
 import curry from '../curry';
-import isObject from '../isObject';
 
 const findIndex = (f, x) => {
   const l = x.length;
@@ -17,11 +17,15 @@ const findIndex = (f, x) => {
 };
 
 const findKeys = (f, x) => {
-  let prop = '';
+  let i = 0;
+  const objKeys = Object.keys(x);
+  const len = objKeys.length;
 
-  for (prop in x) {
-    if (f(x[prop])) {
-      return x[prop];
+  for (i; i < len; i++) {
+    const val = x[objKeys[i]];
+
+    if (f(val)) {
+      return val;
     }
   }
 
@@ -49,7 +53,7 @@ const findKeys = (f, x) => {
  * finder([{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
  */
 export default curry((f, x) => {
-  if (isObject(x)) {
+  if (_isObject(x)) {
     return findKeys(f, x);
   }
 
