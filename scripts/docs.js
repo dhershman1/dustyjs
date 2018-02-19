@@ -52,8 +52,7 @@ const generateSourceDocs = () => listFns().map(fn => jsDocParser.getTemplateData
     description: d.description,
     examples: d.examples,
     returns: d.returns,
-    params: d.params,
-    sig: d.customTags ? d.customTags[0].value : []
+    params: d.params
   }));
 
 let generated = generateSourceDocs();
@@ -66,8 +65,7 @@ generated = generated.map(doc => ({
   desc: doc.description,
   examples: doc.examples,
   params: doc.params,
-  returns: doc.returns,
-  sig: doc.sig
+  returns: doc.returns
 }));
 
 writeDocs(generated);

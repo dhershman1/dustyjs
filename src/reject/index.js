@@ -1,4 +1,4 @@
-import complement from '../_internals/complement';
+import complement from '../complement';
 import curry from '../curry';
 import filter from '../filter';
 
