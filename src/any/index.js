@@ -5,7 +5,7 @@ import curry from '../curry';
  * @since v0.6.0
  * @sig (a -> Boolean) -> [a] -> Boolean
  * @description
- * Loops through a provided list verifying that any value 1aluates to a truthy value.
+ * Loops through a provided list verifying that any value evaluates to a truthy value.
  * @param {Function} fn The function to send our values to for validation
  * @param {Array} x The list we are to loop through
  * @return {Boolean} If any values passed will return true else false

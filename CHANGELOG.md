@@ -5,8 +5,10 @@
 - Added: `max` function
 - Added: `min` function
 - Added: `ensureArray` function - just ensures that a value passed in will always be an array
+- Added: A description onto the `defaults` function
 - Improved: `omit` function so it functions better by itself
 - Improved: `prop` function to easily rely on it's own functionality instead of a path system
+- Fixed: Some typos in function descriptions
 
 ### **BREAKING CHANGES**
 

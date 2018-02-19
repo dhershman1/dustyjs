@@ -9,7 +9,7 @@ import not from '../not';
  * what was passed in.
  * @param {Function} pred The function we want to apply the complement of
  * @param {Any} a The value our functionality is being ran against
- * @return {Function}
+ * @return {Function} Returns the opposite function back
  *
  * @example
  * const isNot = complement(is(String));
