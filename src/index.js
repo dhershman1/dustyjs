@@ -1,5 +1,6 @@
 export { default as any } from './any';
 export { default as clone } from './clone';
+export { default as complement } from './complement';
 export { default as compress } from './compress';
 export { default as contains } from './contains';
 export { default as curry } from './curry';
@@ -28,7 +29,9 @@ export { default as isString } from './isString';
 export { default as juxt } from './juxt';
 export { default as last } from './last';
 export { default as map } from './map';
+export { default as max } from './max';
 export { default as mean } from './mean';
+export { default as min } from './min';
 export { default as not } from './not';
 export { default as nth } from './nth';
 export { default as omit } from './omit';
