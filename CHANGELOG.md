@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0
+
+- Added: `max` function
+- Added: `min` function
+
+
 ## v0.6.0
 
 - Added: `map` function which is curried
