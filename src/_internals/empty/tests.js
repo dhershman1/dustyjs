@@ -10,7 +10,7 @@ test('Empty String', t => {
 test('Return 0 for a null value', t => {
   const results = empty(null);
 
-  t.is(results, 0, 'The results came back as 0');
+  t.false(results);
 });
 
 test('Empty an array', t => {

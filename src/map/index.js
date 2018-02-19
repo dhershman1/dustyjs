@@ -27,10 +27,9 @@ import curry from '../curry';
 export default curry((fn, list) => {
 
   if (_isObject(list)) {
-    const keys = Object.keys(list);
     const results = {};
 
-    keys.forEach(key => {
+    Object.keys(list).forEach(key => {
       results[key] = fn(list[key]);
     });
 

@@ -63,3 +63,10 @@ test('Test curried find', t => {
     thing: 2
   });
 });
+
+test('Stops at the first element that passes our function', t => {
+  const runner = x => x > 100;
+
+  t.is(find(runner, [1, 101, 3, 200, 4]), 101);
+  t.is(find(runner, [1, 3, 200, 4]), 200);
+});

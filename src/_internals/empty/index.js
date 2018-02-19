@@ -20,5 +20,5 @@ export default x => { // eslint-disable-line complexity
     }
   }
 
-  return 0;
+  return false;
 };

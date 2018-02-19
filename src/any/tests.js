@@ -16,3 +16,10 @@ test('Basic curried functionality', t => {
   t.truthy(a(['foo', 'bar', 1]));
   t.falsy(a([1, 2, 3]));
 });
+
+test('Run against objects', t => {
+  const runner = ({ val }) => val === 'test';
+
+  t.truthy(any(runner, [{ val: 'thing' }, { val: 'test' }]));
+  t.falsy(any(runner, [{ val: 'thing' }, { val: 100 }]));
+});

@@ -8,12 +8,14 @@
 - Added: A description onto the `defaults` function
 - Improved: `omit` function so it functions better by itself
 - Improved: `prop` function to easily rely on it's own functionality instead of a path system
+- Improved: Overall testing level
 - Fixed: Some typos in function descriptions
 
 ### **BREAKING CHANGES**
 
 - Changed: `prop` function to accept arrays instead of strings
 - Changed: `mean` function to accept a long list of number params instead only
+- Changed: `complement` function to be more lightweight, it can handle single param functions
 - Replaced: `isNull` with `isNil` so it does a light check for null or undefined values
 - Removed: `isNumber` function to be replaced with `is`
 - Removed: `isString` function to be replaced with `is`
@@ -21,6 +23,7 @@
 - Removed: `isRegExp` function to be replaced with `is`
 - Removed: `isArray` function to be replaced with `is`
 - Removed: `isObject` function to be replaced with `is`
+- Removed: `__` placeholder because I don't feel like it really is needed
 
 
 ## v0.6.0

@@ -27,3 +27,13 @@ test('Test Multi level of arrays', t => {
   t.truthy(results);
   t.deepEqual(results, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
 });
+
+test('It is not destructive', t => {
+  const nest = [1, [2], [3, [4, 5], 6, [[[7], 8]]], 9, 10];
+
+  t.notDeepEqual(flatten(nest), nest);
+});
+
+test('Flattens an array of empty arrays', t => {
+  t.deepEqual(flatten([[], [], []]), []);
+});

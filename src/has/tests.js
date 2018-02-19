@@ -12,3 +12,14 @@ test('Test curried has', t => {
   t.truthy(hasProp({ test: 1 }));
   t.falsy(hasProp({ cool: 1 }));
 });
+
+test('It does not check props from the prototype chain', t => {
+  const Person = () => {
+    Array.isArray([]);
+  };
+
+  Person.prototype.age = 10;
+  const bob = new Person();
+
+  t.false(has('age', bob));
+});
