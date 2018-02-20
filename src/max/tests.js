@@ -1,7 +1,22 @@
 import max from './index';
 import test from 'ava';
 
-test('Basic functionality', t => {
+test('Returns max for numbers', t => {
   t.is(max([1, 3, 2, 5, 4]), 5);
+});
+
+test('Returns max for string numbers', t => {
+  t.is(max(['1', '3', '2', '5', '4']), '5');
+});
+
+test('Returns max for letter strings', t => {
   t.is(max(['c', 'a', 'b', 'f']), 'f');
+});
+
+test('Returns the max of a date list', t => {
+  const d1 = new Date('2018-01-01');
+  const d2 = new Date('2018-02-01');
+
+  t.is(max([d1, d2]), d2);
+  t.is(max([d2, d1]), d2);
 });

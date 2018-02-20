@@ -1,3 +1,6 @@
+
+const valid = (a, b) => !isNaN(a) || (b && !isNaN(b));
+
 /**
  * @name range
  * @since v0.1.0
@@ -12,6 +15,10 @@
  * const test = range(3); // => [0, 1, 2];
  */
 export default (from, to) => {
+  if (!valid(from, to)) {
+    throw new TypeError('Both Arguments should be a number type');
+  }
+
   const r = [];
   let t = to;
   let n = from;
