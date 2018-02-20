@@ -1,5 +1,4 @@
 import extend from '../extend';
-import is from '../is';
 
 /**
  * @name clone
@@ -17,9 +16,5 @@ export default x => {
     return x.slice();
   }
 
-  if (is(Object, x)) {
-    return extend(x);
-  }
-
-  return x;
+  return extend({}, x);
 };

@@ -28,7 +28,7 @@
   },
   "ava": {
     "files": [
-      "src/omit/tests.js"
+      "src/**/tests.js"
     ],
     "source": [
       "src/**/*.js"

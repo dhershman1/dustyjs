@@ -1,4 +1,3 @@
-import isNil from '../isNil';
 import not from '../not';
 
 // To keep checks strict we sadly have to use this
@@ -18,4 +17,4 @@ import not from '../not';
  * const str = isEmpty(''); // => true
  * const num = isEmpty(0); // => true
  */
-export default x => !isNil(x) && not(Boolean(Object.keys(x).length));
+export default x => not(Boolean(Object.keys(x).length));

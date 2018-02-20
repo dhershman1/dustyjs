@@ -6,15 +6,16 @@
 - Added: `min` function
 - Added: `ensureArray` function - just ensures that a value passed in will always be an array
 - Added: A description onto the `defaults` function
-- Improved: `omit` function so it functions better by itself
+- Improved: `omit` function so it functions better by itself and is smaller by itself
 - Improved: `prop` function to easily rely on it's own functionality instead of a path system
 - Improved: Overall testing level
 - Fixed: Some typos in function descriptions
+- Removed: `empty` internal and just had the empty function do its leg work
 
 ### **BREAKING CHANGES**
 
 - Changed: `prop` function to accept arrays instead of strings
-- Changed: `mean` function to accept a long list of number params instead only
+- Changed: `mean` function to accept an array of numbers instead of list of parameters
 - Changed: `complement` function to be more lightweight, it can handle single param functions
 - Replaced: `isNull` with `isNil` so it does a light check for null or undefined values
 - Removed: `isNumber` function to be replaced with `is`

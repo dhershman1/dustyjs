@@ -1,4 +1,5 @@
 import curry from '../curry';
+import ensureArray from '../ensureArray';
 import map from '../map';
 import prop from '../prop';
 
@@ -21,4 +22,12 @@ import prop from '../prop';
  *
  * plucker([{ a: 1 }, { a: 2 }]); // => [1, 2]
  */
-export default curry((p, list) => map(prop([p]), list));
+export default curry((p, list) => {
+  const arr = ensureArray(list);
+  // const mapped = map(prop([p]), list);
+
+  console.log(arr);
+  console.log(map(prop([p]), arr));
+
+  return map(prop([p]), list);
+});

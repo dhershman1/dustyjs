@@ -13,22 +13,16 @@ test('Basic functionality', t => {
 test('Works along with objects', t => {
   const check = is(String);
 
-  t.deepEqual(partition(check, {}), [{}, {}]);
+  t.deepEqual(partition(check, {}), [[], []]);
   t.deepEqual(partition(check, {
     a: 'foo',
     b: 'bar',
     c: 100
-  }), [{
-    a: 'foo',
-    b: 'bar'
-  }, { c: 100 }]);
+  }), [['foo', 'bar'], [100]]);
   t.deepEqual(partition(check, {
     a: 'foo',
     b: 'bar'
-  }), [{
-    a: 'foo',
-    b: 'bar'
-  }, {}]);
+  }), [['foo', 'bar'], []]);
 });
 
 test('Is curried', t => {
@@ -39,8 +33,5 @@ test('Is curried', t => {
     a: 'foo',
     b: 'bar',
     c: 100
-  }), [{
-    a: 'foo',
-    b: 'bar'
-  }, { c: 100 }]);
+  }), [['foo', 'bar'], [100]]);
 });

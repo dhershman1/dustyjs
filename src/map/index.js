@@ -1,4 +1,3 @@
-import _isObject from '../_internals/isObject';
 import curry from '../curry';
 
 /**
@@ -16,7 +15,6 @@ import curry from '../curry';
  * const dbl = n => n * 2;
  *
  * map(dbl, [1, 2, 3]); // => [2, 4, 6]
- * map(dbl, { a: 1, b: 2, c: 3 }); // => { a: 2, b: 4, c: 6 }
  *
  * // It's also curried
  *
@@ -24,18 +22,5 @@ import curry from '../curry';
  *
  * dbler([1, 2, 3]); // => [2, 4, 6]
  */
-export default curry((fn, list) => {
-
-  if (_isObject(list)) {
-    const results = {};
-
-    Object.keys(list).forEach(key => {
-      results[key] = fn(list[key]);
-    });
-
-    return results;
-  }
-
-  return list.map(v => fn(v));
-});
+export default curry((fn, list) => list.map(fn));
 

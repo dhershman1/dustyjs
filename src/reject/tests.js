@@ -24,9 +24,6 @@ test('Filters objects', t => {
     d: 4
   };
 
-  t.deepEqual(reject(isOdd, {}), {});
-  t.deepEqual(reject(isOdd, obj), {
-    b: 2,
-    d: 4
-  });
+  t.deepEqual(reject(isOdd, {}), []);
+  t.deepEqual(reject(isOdd, obj), [2, 4]);
 });

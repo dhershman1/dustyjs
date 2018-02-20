@@ -14,14 +14,6 @@ test('Returns false when not empty', t => {
   t.false(isEmpty(['']));
 });
 
-test('Returns false for null values', t => {
-  t.false(isEmpty(null));
-});
-
-test('Returns false for undefined', t => {
-  t.false(isEmpty(undefined));
-});
-
 test('Returns true for empty strings', t => {
   t.true(isEmpty(''));
   t.false(isEmpty(' '));

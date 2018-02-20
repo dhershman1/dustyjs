@@ -1,20 +1,4 @@
-import _isObject from '../_internals/isObject';
 import curry from '../curry';
-
-const objFilter = (fn, list) => {
-  const entries = Object.keys(list);
-
-  return entries.reduce((a, p) => {
-    const val = list[p];
-
-    if (fn(val)) {
-      a[p] = val;
-    }
-
-    return a;
-  }, {});
-};
-
 
 /**
  * @name filter
@@ -29,19 +13,11 @@ const objFilter = (fn, list) => {
  * const isEven = n => n % 2 === 0;
  *
  * filter(isEven, [1, 2, 3, 4]); // => [2, 4]
- * filter(isEven, { a: 1, b: 2, c: 3, d: 4 }); // => { b: 2, d: 4 }
  *
  * // Is also curried
  *
  * const filterer = filter(isEven);
  *
  * filterer([1, 2, 3, 4]); // => [2, 4]
- * filterer({ a: 1, b: 2, c: 3, d: 4 }); // => { b: 2, d: 4 }
  */
-export default curry((fn, list) => {
-  if (_isObject(list)) {
-    return objFilter(fn, list);
-  }
-
-  return list.filter(v => fn(v));
-});
+export default curry((fn, list) => list.filter(fn));

@@ -1,7 +1,4 @@
 import curry from '../curry';
-import filter from '../filter';
-import juxt from '../juxt';
-import reject from '../reject';
 
 /**
  * @name partition
@@ -17,17 +14,29 @@ import reject from '../reject';
  *
  * @example
  * partition(is(String), ['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
- * partition(is(String), { a: 'foo', b: 'bar', c: 100 }); // => [ { a: 'foo', b: 'bar' }, { c: 100 } ]
+ * partition(is(String), { a: 'foo', b: 'bar', c: 100 }); // => [ ['foo', 'bar'], [100] ]
  *
  * // Is curried as well
  *
  * const part = partition(is(String));
  *
  * part(['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
- * part({ a: 'foo', b: 'bar', c: 100 }); // => [ { a: 'foo', b: 'bar' }, { c: 100 } ]
+ * part({ a: 'foo', b: 'bar', c: 100 }); // => [ ['foo', 'bar'], [100] ]
  */
 export default curry((fn, a) => {
-  const part = juxt(filter, reject);
+  const keys = Object.keys(a);
+  const first = [];
+  const second = [];
 
-  return part(fn, a);
+  keys.forEach(k => {
+    const val = a[k];
+
+    if (fn(val)) {
+      first.push(val);
+    } else {
+      second.push(val);
+    }
+  });
+
+  return [first, second];
 });

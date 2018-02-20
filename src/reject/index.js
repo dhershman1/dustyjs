@@ -1,6 +1,6 @@
-import complement from '../complement';
 import curry from '../curry';
-import filter from '../filter';
+import last from '../last';
+import partition from '../partition';
 
 /**
  * @name reject
@@ -16,13 +16,11 @@ import filter from '../filter';
  * const isEven = n => n % 2 === 0;
  *
  * reject(isEven, [1, 2, 3, 4]); // => [1, 3]
- * reject(isEven, { a: 1, b: 2, c: 3, d: 4 }); // => { a: 1, c: 3 }
  *
  * // Is also curried
  *
  * const rejecter = reject(isEven);
  *
  * rejecter([1, 2, 3, 4]); // => [1, 3]
- * rejecter({ a: 1, b: 2, c: 3, d: 4 }); // => { a: 1, c: 3 }
  */
-export default curry((fn, list) => filter(complement(fn), list));
+export default curry((fn, list) => last(partition(fn, list)));
