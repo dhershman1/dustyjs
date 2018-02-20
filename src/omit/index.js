@@ -1,7 +1,5 @@
-import contains from '../contains';
 import curry from '../curry';
 import ensureArray from '../ensureArray';
-import not from '../not';
 
 /**
  * @name omit
@@ -34,7 +32,7 @@ export default curry((key, x) => {
   }
 
   return Object.keys(x).reduce((acc, prop) => {
-    if (not(contains(prop, keyArr))) {
+    if (keyArr.indexOf(prop) === -1) {
       acc[prop] = x[prop];
 
       return acc;

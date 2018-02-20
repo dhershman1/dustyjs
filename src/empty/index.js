@@ -1,4 +1,5 @@
-import _empty from '../_internals/empty';
+import is from '../is';
+import isNil from '../isNil';
 
 /**
  * @name empty
@@ -13,4 +14,25 @@ import _empty from '../_internals/empty';
  * const arr = empty([1, 2, 3]); // => []
  * const str = empty('test'); // => ''
  */
-export default x => _empty(x);
+export default x => { // eslint-disable-line complexity
+  if (!isNil(x)) {
+    if (is(Function, x.empty)) {
+      return x.empty();
+    }
+
+    if (is(Array, x)) {
+      return [];
+    }
+
+    if (is(String, x)) {
+      return '';
+    }
+
+    if (is(Object, x)) {
+      return {};
+    }
+  }
+
+  return false;
+};
+

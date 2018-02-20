@@ -1,6 +1,5 @@
-import _empty from '../_internals/empty';
-import isEqual from '../isEqual';
 import isNil from '../isNil';
+import not from '../not';
 
 // To keep checks strict we sadly have to use this
 /* eslint-disable no-undefined */
@@ -19,4 +18,4 @@ import isNil from '../isNil';
  * const str = isEmpty(''); // => true
  * const num = isEmpty(0); // => true
  */
-export default x => !isNil(x) && isEqual(x, _empty(x));
+export default x => !isNil(x) && not(Boolean(Object.keys(x).length));

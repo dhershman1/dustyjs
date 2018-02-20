@@ -10,9 +10,7 @@ prefer-arrow-callback,
 no-undefined,
 no-empty-function */
 
-test('Test isEmpty()', t => {
-  t.false(isEmpty(0));
-  t.false(isEmpty(NaN));
+test('Returns false when not empty', t => {
   t.false(isEmpty(['']));
 });
 
@@ -37,4 +35,12 @@ test('Returns true for empty arrays', t => {
 test('Returns true for empty objects', t => {
   t.true(isEmpty({}));
   t.false(isEmpty({ x: 0 }));
+});
+
+test('Returns true for 0 numeric value', t => {
+  t.true(isEmpty(0));
+});
+
+test('Returns true for NaN values', t => {
+  t.true(isEmpty(NaN));
 });

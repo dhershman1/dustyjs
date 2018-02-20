@@ -10,11 +10,11 @@
     "babel-preset-env": "1.6.1",
     "babel-register": "6.26.0",
     "del": "3.0.0",
-    "eslint": "4.17.0",
-    "globby": "7.1.1",
+    "eslint": "4.18.0",
+    "globby": "8.0.1",
     "jsdoc-to-markdown": "4.0.1",
-    "uglifyjs-webpack-plugin": "1.1.8",
-    "webpack": "3.10.0"
+    "uglifyjs-webpack-plugin": "1.2.0",
+    "webpack": "3.11.0"
   },
   "scripts": {
     "prepack": "webpack && node scripts/create-export.js && webpack --config webpack.dist.js && node scripts/docs.js",
@@ -28,7 +28,7 @@
   },
   "ava": {
     "files": [
-      "src/**/tests.js"
+      "src/omit/tests.js"
     ],
     "source": [
       "src/**/*.js"
