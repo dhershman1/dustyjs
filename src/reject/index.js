@@ -1,6 +1,4 @@
 import curry from '../curry';
-import last from '../last';
-import partition from '../partition';
 
 /**
  * @name reject
@@ -23,4 +21,13 @@ import partition from '../partition';
  *
  * rejecter([1, 2, 3, 4]); // => [1, 3]
  */
-export default curry((fn, list) => last(partition(fn, list)));
+export default curry((fn, list) =>
+  Object.keys(list).reduce((acc, prop) => {
+    const val = list[prop];
+
+    if (!fn(val)) {
+      acc.push(val);
+    }
+
+    return acc;
+  }, []));

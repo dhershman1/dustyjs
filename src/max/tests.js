@@ -5,6 +5,10 @@ test('Returns max for numbers', t => {
   t.is(max([1, 3, 2, 5, 4]), 5);
 });
 
+test('Returns sorted list of double digit numbers', t => {
+  t.is(max([11, 9, 32, 16, 27]), 32);
+});
+
 test('Returns max for string numbers', t => {
   t.is(max(['1', '3', '2', '5', '4']), '5');
 });

@@ -1,5 +1,5 @@
+import _equal from '../_internals/equal';
 import curry from '../curry';
-import isEqual from '../isEqual';
 
 /**
  * @name contains
@@ -23,15 +23,13 @@ import isEqual from '../isEqual';
  * checker([1, 2, 3]); // => true
  */
 export default curry((a, list) => {
-  let idx = 0;
+  let i = 0;
   const len = list.length;
 
-  while (idx < len) {
-    if (isEqual(list[idx], a)) {
+  for (i; i < len; i++) {
+    if (_equal(list[i], a)) {
       return true;
     }
-
-    idx += 1;
   }
 
   return false;

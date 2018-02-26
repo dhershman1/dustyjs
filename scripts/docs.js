@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsDocParser = require('jsdoc-to-markdown');
-const ignoredFiles = ['_internals', 'esm', 'index.js', 'pluck'];
+const ignoredFiles = ['_internals', 'esm', 'index.js'];
 
 const listFns = () => {
   const files = fs.readdirSync(path.join(process.cwd(), 'src'));

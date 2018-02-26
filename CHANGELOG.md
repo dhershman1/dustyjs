@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.1
+
+### Improved
+
+- Improved size of `reject` function to be smaller
+- Improved size of `pluck` function to be smaller
+- Improved size of `find` function to be smaller and simpler
+
+### Fixed
+
+- `max` & `min` sorting to do actual sorting
+
 ## v1.0.0
 
 ### BREAKING CHANGES

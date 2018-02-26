@@ -1,4 +1,4 @@
-import first from '../first';
+import nth from '../nth';
 
 /**
  * @name min
@@ -12,4 +12,4 @@ import first from '../first';
  * min([1, 3, 2, 5, 4]); // => 1
  * min(['c', 'a', 'b', 'f']); // => 'a'
  */
-export default x => first(x.sort());
+export default x => nth(0, x.sort((a, b) => a > b));

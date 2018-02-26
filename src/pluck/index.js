@@ -1,7 +1,5 @@
 import curry from '../curry';
 import isObject from '../_internals/isObject';
-import map from '../map';
-import prop from '../prop';
 
 /**
  * @name pluck
@@ -22,23 +20,19 @@ import prop from '../prop';
  *
  * plucker([{ a: 1 }, { a: 2 }]); // => [1, 2]
  */
-const pluck = curry((p, list) => {
+const pluck = curry((p, list) =>
+  Object.keys(list).reduce((acc, v) => {
+    if (isObject(list[v]) || Array.isArray(list[v])) {
+      acc.push(...pluck(p, list[v]));
 
-  if (Array.isArray(list)) {
-    return map(prop([p]), list);
-  }
+      return acc;
+    }
 
-  return Object.keys(list).reduce((acc, v) => {
-    if (v === p) {
+    if (String(v) === String(p)) {
       acc.push(list[v]);
     }
 
-    if (isObject(list[v])) {
-      acc.push(...pluck(p, list[v]));
-    }
-
     return acc;
-  }, []);
-});
+  }, []));
 
 export default pluck;
