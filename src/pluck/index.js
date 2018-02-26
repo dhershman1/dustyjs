@@ -1,5 +1,4 @@
 import curry from '../curry';
-import ensureArray from '../ensureArray';
 import isObject from '../_internals/isObject';
 import map from '../map';
 import prop from '../prop';
@@ -24,24 +23,18 @@ import prop from '../prop';
  * plucker([{ a: 1 }, { a: 2 }]); // => [1, 2]
  */
 const pluck = curry((p, list) => {
-  const arr = ensureArray(list);
-  // const mapped = map(prop([p]), list);
-
-  console.log(map(prop([p]), arr));
 
   if (Array.isArray(list)) {
     return map(prop([p]), list);
   }
 
-  const keys = Object.keys(list);
-
-  return keys.reduce((acc, v) => {
+  return Object.keys(list).reduce((acc, v) => {
     if (v === p) {
       acc.push(list[v]);
     }
 
     if (isObject(list[v])) {
-      acc.push(pluck(p, list[v]));
+      acc.push(...pluck(p, list[v]));
     }
 
     return acc;
