@@ -11,7 +11,9 @@ You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/mast
 
 ## Why
 
-The idea for dusty-fns is to not just be another library but to introduce a pure single task functional experience. This is to keep things light, and optimal in terms of size and performance. This library isn't here to compete with libraries like [Ramdajs](http://ramdajs.com/), [lodash](https://lodash.com/), or [underscore](http://underscorejs.org/). It is simply here because I wanted something I could use in my projects I built myself. Then I decided that maybe I'd share those functions, this is how dusty-fns came about and I'd love it if you find ways of improvement within the code that you open an issue and point things out!
+The idea for dusty-fns is to not just be another library but to introduce a pure single task functional experience. This is to keep things light, and optimal in terms of size and performance. (Note that some of the functionality isn't there yet, but I didn't want to change things after 1.0.0 released that would require a major version bump)
+
+This library isn't here to compete with libraries like [Ramdajs](http://ramdajs.com/), [lodash](https://lodash.com/), or [underscore](http://underscorejs.org/). It is simply here because I wanted something I could use in my projects I built myself. Then I decided that maybe I'd share those functions, this is how dusty-fns came about and I'd love it if you find ways of improvement within the code that you open an issue and point things out!
 
 ## How To
 
@@ -76,3 +78,10 @@ Through your browser
   isObject({});
 </script>
 ```
+
+## Currenty Functions To Fix
+
+- `partition` to drop support for objects to keep it single type
+- `reject` to drop support for objects to keep it single type
+- `contains` make it a single type focused function
+- `pluck` make it object focused keeping it single type

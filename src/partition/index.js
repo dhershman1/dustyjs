@@ -3,7 +3,7 @@ import curry from '../curry';
 /**
  * @name partition
  * @since v0.5.0
- * @category Array
+ * @category Function
  * @sig Filterable f => (a -> Boolean) -> f a -> [f a, f a]
  * @description
  * Takes a predicate function and a list or filterable data object and returns the pair.
@@ -24,20 +24,9 @@ import curry from '../curry';
  * part(['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
  * part({ a: 'foo', b: 'bar', c: 100 }); // => [ ['foo', 'bar'], [100] ]
  */
-export default curry((fn, a) => {
-  const keys = Object.keys(a);
-  const first = [];
-  const second = [];
-
-  keys.forEach(k => {
+export default curry((fn, a) =>
+  Object.keys(a).reduce(([pass, fail], k) => {
     const val = a[k];
 
-    if (fn(val)) {
-      first.push(val);
-    } else {
-      second.push(val);
-    }
-  });
-
-  return [first, second];
-});
+    return fn(val) ? [[...pass, val], fail] : [pass, [...fail, val]];
+  }, [[], []]));

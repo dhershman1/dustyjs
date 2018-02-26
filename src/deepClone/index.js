@@ -1,7 +1,7 @@
 /**
  * @name deepClone
  * @since v0.1.0
- * @category Object
+ * @category Function
  * @sig {*} -> {*}
  * @description Clones the object sent in (Hard Clone)
  * @param  {Object} x The object we want to get cloned

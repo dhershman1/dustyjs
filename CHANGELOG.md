@@ -11,6 +11,7 @@
 - Improved size of `reject` function to be smaller
 - Improved size of `pluck` function to be smaller
 - Improved size of `find` function to be smaller and simpler
+- Improved `partition` to take advantage of es6 and make it smaller
 
 ### Fixed
 
