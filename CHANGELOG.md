@@ -2,17 +2,7 @@
 
 ## v1.0.0
 
-- Added: `max` function
-- Added: `min` function
-- Added: `ensureArray` function - just ensures that a value passed in will always be an array
-- Added: A description onto the `defaults` function
-- Improved: `omit` function so it functions better by itself and is smaller by itself
-- Improved: `prop` function to easily rely on it's own functionality instead of a path system
-- Improved: Overall testing level
-- Fixed: Some typos in function descriptions
-- Removed: `empty` internal and just had the empty function do its leg work
-
-### **BREAKING CHANGES**
+### BREAKING CHANGES
 
 - Changed: `prop` function to accept arrays instead of strings
 - Changed: `mean` function to accept an array of numbers instead of list of parameters
@@ -26,6 +16,23 @@
 - Removed: `isObject` function to be replaced with `is`
 - Removed: `__` placeholder because I don't feel like it really is needed
 
+### New
+
+- Added: `max` function
+- Added: `min` function
+- Added: `ensureArray` function - just ensures that a value passed in will always be an array
+- Added: A description onto the `defaults` function
+
+### Changed
+
+- Improved: `omit` function so it functions better by itself and is smaller by itself
+- Improved: `prop` function to easily rely on it's own functionality instead of a path system
+- Improved: Overall testing level
+- Removed: `empty` internal and just had the empty function do its leg work
+
+### Fixed
+
+- Fixed: Some typos in function descriptions
 
 ## v0.6.0
 
