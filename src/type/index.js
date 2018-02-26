@@ -1,6 +1,7 @@
 /**
  * @name type
  * @since v0.1.0
+ * @category Function
  * @sig a -> Boolean
  * @description Finds the type of the sent value
  * @param  {Any} x The value to test

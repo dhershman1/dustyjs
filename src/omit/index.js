@@ -4,6 +4,7 @@ import ensureArray from '../ensureArray';
 /**
  * @name omit
  * @since v0.4.0
+ * @category Object
  * @sig
  * [String] -> {String: *} -> {String: *}
  * [String] -> [String] -> [String]

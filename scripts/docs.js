@@ -48,6 +48,7 @@ const generateSourceDocs = () => listFns().map(fn => jsDocParser.getTemplateData
 })[0])
   .map(d => ({
     since: d.since ? d.since : 'Unknown',
+    category: d.category,
     title: d.name,
     description: d.description,
     examples: d.examples,
@@ -60,6 +61,7 @@ let generated = generateSourceDocs();
 generated = generated.map(doc => ({
   title: doc.title,
   since: doc.since,
+  category: doc.category,
   syntax: generateSyntax(doc.title, doc.params),
   usage: generateUsage(doc.title),
   desc: doc.description,

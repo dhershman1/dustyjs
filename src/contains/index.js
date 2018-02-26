@@ -4,6 +4,7 @@ import curry from '../curry';
 /**
  * @name contains
  * @since v0.5.0
+ * @category Array
  * @sig a → [a] → Boolean
  * @description
  * Checks to see if the provided list contains at at least 1 of the provided value within it

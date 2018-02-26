@@ -4,6 +4,7 @@ import isNil from '../isNil';
 /**
  * @name empty
  * @since v0.1.0
+ * @category Function
  * @sig a -> a
  * @description Empties out the items of the sent value
  * @param  {*} x The item to empty

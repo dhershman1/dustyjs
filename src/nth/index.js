@@ -4,6 +4,7 @@ import isString from '../_internals/isString';
 /**
  * @name nth
  * @since v0.1.0
+ * @category Array
  * @sig
  * Number -> [a] -> a | Undefined
  * Number -> String -> String

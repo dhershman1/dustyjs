@@ -3,6 +3,7 @@ import curry from '../curry';
 /**
  * @name reject
  * @since v0.5.0
+ * @category Object
  * @sig Filterable f => (a → Boolean) → f a → f a
  * @description
  * Filter through a filterable data piece using the provided function returns only those that fail the function test

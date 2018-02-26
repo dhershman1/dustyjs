@@ -3,6 +3,7 @@ import nth from '../nth';
 /**
  * @name first
  * @since v0.4.0
+ * @category Array
  * @sig [a] -> a | Undefined
  * @description Grabs the first index of a passed array or string
  * @param  {Array|String} x The list or string we want to use

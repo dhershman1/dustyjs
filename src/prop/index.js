@@ -5,6 +5,7 @@ import isNil from '../isNil';
 /**
  * @name prop
  * @since v0.6.0
+ * @category Object
  * @sig k -> {k: v} -> v | Undefined
  * @description
  * Brings back the indicated property of an object if it exists

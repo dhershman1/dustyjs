@@ -3,6 +3,7 @@ import nth from '../nth';
 /**
  * @name max
  * @since v1.0.0
+ * @category Array
  * @description
  * Goes through an array of values and grabs the last value of the array when it's been sorted
  * @param {Array} x The Array to sort and grab from

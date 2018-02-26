@@ -3,6 +3,7 @@ import nth from '../nth';
 /**
  * @name last
  * @since v0.1.0
+ * @category Array
  * @sig
  * [a] -> a | Undefined
  * String -> String

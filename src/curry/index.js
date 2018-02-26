@@ -1,6 +1,7 @@
 /**
  * @name curry
  * @since v0.1.0
+ * @category Function
  * @sig (* -> a) -> (* -> a)
  * @description Create a curried function
  * @param  {Function} f The function we will be running

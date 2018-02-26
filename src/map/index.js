@@ -3,6 +3,7 @@ import curry from '../curry';
 /**
  * @name map
  * @since v0.6.0
+ * @category Array
  * @sig (a -> b) -> f a -> f b
  * @description
  * Takes a function and applies it to all of the values within the provided list,

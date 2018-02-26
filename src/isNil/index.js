@@ -1,6 +1,7 @@
 /**
  * @name isNil
  * @since v1.0.0
+ * @category Relation
  * @sig a -> Boolean
  * @description Checks if the value is a null value
  * @param  {Any}  x The value to run our test against

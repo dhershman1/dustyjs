@@ -3,6 +3,7 @@ import curry from '../curry';
 /**
  * @name partition
  * @since v0.5.0
+ * @category Array
  * @sig Filterable f => (a -> Boolean) -> f a -> [f a, f a]
  * @description
  * Takes a predicate function and a list or filterable data object and returns the pair.

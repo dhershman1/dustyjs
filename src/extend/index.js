@@ -1,6 +1,7 @@
 /**
  * @name extend
  * @since v0.1.0
+ * @category Object
  * @sig {k: v} -> {k: v} -> {k: v}
  * @description Create a new object from the provided objects in the parameters
  * @param  {Object} args The object(s) we want to combine

@@ -3,6 +3,7 @@ import curry from '../curry';
 /**
  * @name removeAtIndex
  * @since v0.1.0
+ * @category Array
  * @sig Number -> [a] -> [b]
  * @description Remove an item from a certain point in the index
  * @param  {Number} i   The index number to remove from

@@ -3,6 +3,7 @@ import curry from '../curry';
 /**
  * @name prepend
  * @since v0.5.0
+ * @category Array
  * @sig a -> [a] -> [a]
  * @description Returns a new list with the provided value at the front of the given list
  * @param  {Any} x The value we want to put at the front of our list

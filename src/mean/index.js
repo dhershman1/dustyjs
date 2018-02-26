@@ -1,7 +1,8 @@
 /**
  * @name mean
  * @since v0.1.0
- * [Number] -> Number
+ * @category Array
+ * @sig [Number] -> Number
  * @description Get the mean of a set of numbers
  * @param  {Array} x An amount of numbers to get the mean from
  * @return {Number} Returns the mean avg of the numbers

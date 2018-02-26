@@ -7,6 +7,7 @@ import isNil from '../isNil';
 /**
  * @name is
  * @since v0.5.0
+ * @category Function
  * @sig (* -> {*}) -> a -> Boolean
  * @description
  * See if an object is an instance of the supplied constructor, this will also check up the inheritence chain

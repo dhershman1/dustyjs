@@ -3,6 +3,7 @@ import isEmpty from '../isEmpty';
 /**
  * @name compress
  * @since v0.3.0
+ * @category Object
  * @sig {a} -> {b}
  * @description Takes an object and compresses it down removing falsy and empty values
  * @param  {Object} x The Object to compress

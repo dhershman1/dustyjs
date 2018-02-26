@@ -4,6 +4,7 @@ import isObject from '../_internals/isObject';
 /**
  * @name pluck
  * @since v0.6.0
+ * @category Function
  * @sig k -> f {k: v} -> f v
  * @description
  * Returns a new list by finding and grabbing the same named properties off all objects supplied

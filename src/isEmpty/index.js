@@ -6,6 +6,7 @@ import not from '../not';
 /**
  * @name isEmpty
  * @since v0.1.0
+ * @category Function
  * @sig a -> Boolean
  * @description Determines if the entered value is empty or not
  * @param  {Any} x Value to check against
