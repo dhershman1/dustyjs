@@ -79,7 +79,7 @@ Through your browser
 </script>
 ```
 
-## Currenty Functions To Fix
+## Current Functions to remove Collection type from
 
 - `partition` to drop support for objects to keep it single type
 - `reject` to drop support for objects to keep it single type
