@@ -2,7 +2,7 @@
 
 # Dusty.js (dusty-fns)
 
-A lightweight simple library that takes **heavy** influence from [Ramda](http://ramdajs.com/)
+A light weight pure functional library with single type helper functions
 
 
 ## Changelog
@@ -11,12 +11,7 @@ You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/mast
 
 ## Why
 
-Dusty.js came about because I wanted to mess around with some functional helpers of my own that I use in my everyday or could use. It also lacks the vast number of different functional helper methods that libraries like Ramda, Lodash, or Underscore have. This isn't me creating a library I want to use to disuade you from using one of those others, those guys are awesome and a lot of the inspiration behind my own, this was mainly to have fun with a functional library that I will probably use in the future and wanted to share to get input, suggestions, etc. From the general public.
-
-
-## Contribution
-
-The wireframe for the `v1.0.0` release is laid out and waiting to be filled with suggestions, bug reports, and more feel free to post any issues you are facing or idea you may have to the github for [dusty.js](https://github.com/dhershman1/dustyjs/projects/1) All ideas are welcome so don't hesitate to post an issue about it there on the github.
+The idea for dusty-fns is to not just be another library but to introduce a pure single task functional experience. This is to keep things light, and optimal in terms of size and performance. This library isn't here to compete with libraries like [Ramdajs](http://ramdajs.com/), [lodash](https://lodash.com/), or [underscore](http://underscorejs.org/). It is simply here because I wanted something I could use in my projects I built myself. Then I decided that maybe I'd share those functions, this is how dusty-fns came about and I'd love it if you find ways of improvement within the code that you open an issue and point things out!
 
 ## How To
 
@@ -44,6 +39,12 @@ Through the browser
   dusty.isObject({});
 </script>
 ```
+
+## Documentation
+
+You can find the documentation on each method here:
+
+http://www.dusty.codes/dusty-fns
 
 ## Split Methods
 
@@ -75,9 +76,3 @@ Through your browser
   isObject({});
 </script>
 ```
-
-## Documentation
-
-You can find the documentation on each method here:
-
-http://www.dusty.codes/dusty-fns
