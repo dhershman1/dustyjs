@@ -2,6 +2,10 @@
 
 ## v1.0.1
 
+### New
+
+- Added @category section to each of the functions for documentation purposes
+
 ### Improved
 
 - Improved size of `reject` function to be smaller
