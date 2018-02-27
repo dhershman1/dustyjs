@@ -4,6 +4,7 @@
 
 A light weight pure functional library with single type helper functions
 
+**This is v2.0.0 README for continued progress towards completeing the 2.0.0 project (already I know). Checkout the [project page](https://github.com/dhershman1/dustyjs/projects/2) to see what's going on.**
 
 ## Changelog
 
@@ -78,10 +79,3 @@ Through your browser
   isObject({});
 </script>
 ```
-
-## Current Functions to remove Collection type from
-
-- `partition` to drop support for objects to keep it single type
-- `reject` to drop support for objects to keep it single type
-- `contains` make it a single type focused function
-- `pluck` make it object focused keeping it single type
