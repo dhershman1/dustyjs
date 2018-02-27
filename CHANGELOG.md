@@ -11,6 +11,7 @@
 - `find` now only accepts array types
 - `nth` technically can work with strings, but is only array focused
 - `omit` Only accepts an object to run against now
+- `prop` now only accepts a string (as documentation mentioned) as it's first param
 
 ### New
 
