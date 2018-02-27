@@ -38,7 +38,8 @@
     "require": [
       "babel-register"
     ],
-    "babel": "inherit"
+    "babel": "inherit",
+    "failFast": true
   },
   "repository": {
     "type": "git",

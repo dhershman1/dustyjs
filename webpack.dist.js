@@ -1,6 +1,5 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -12,9 +11,6 @@ module.exports = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    }),
     new UglifyJSPlugin()
   ],
   module: {
@@ -23,10 +19,7 @@ module.exports = {
         test: /.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['babel-preset-env']
-          }
+          loader: 'babel-loader'
         }
       }
     ]
