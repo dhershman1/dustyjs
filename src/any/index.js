@@ -4,7 +4,7 @@ import curry from '../curry';
  * @name any
  * @since v0.6.0
  * @category Array
- * @sig (a -> Boolean) -> Array a -> Boolean
+ * @sig (a -> Boolean) -> [a] -> Boolean
  * @description
  * Loops through a provided list verifying that any value evaluates to a truthy value.
  * @param {Function} fn The function to send our values to for validation

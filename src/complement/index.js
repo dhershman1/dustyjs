@@ -4,8 +4,7 @@ import not from '../not';
 /**
  * @name complement
  * @since v0.6.0
- * @category Function
- * @sig (a -> Boolean) -> a -> Boolean
+ * @category Logic
  * @description
  * Takes a function and returns a new function that when called returns the opposite truthy/falsy value of
  * what was passed in.
