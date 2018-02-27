@@ -1,5 +1,6 @@
-import clone from '../clone';
 import curry from '../curry';
+import extend from '../extend';
+import isNil from '../isNil';
 
 /**
  * @name defaults
@@ -18,10 +19,10 @@ import curry from '../curry';
  * defaults({ test: 1, thing: 2 }, data); // => { test: 1, thing: 4 }
  */
 export default curry((a, b) => {
-  const results = clone(b);
+  const results = extend({}, b);
 
   for (const prop in a) {
-    if (!b[prop]) {
+    if (isNil(b[prop])) {
       results[prop] = a[prop];
     }
   }
