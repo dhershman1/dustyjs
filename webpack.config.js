@@ -25,6 +25,7 @@ const findEntries = () => {
 
 module.exports = {
   entry: findEntries(),
+  mode: 'production',
   output: {
     path: path.resolve(__dirname),
     filename: '[name]/index.js',
