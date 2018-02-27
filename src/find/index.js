@@ -11,23 +11,20 @@ import curry from '../curry';
  * @return {Any} Returns either the found item, or false if nothing is found
  *
  * @example
- * const obj = find(v => v.val === 'test', {val: 'test'}); // => 'test'
- * const arr = find(v => v.val === 'test', [{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
+ * find(v => v.val === 'test', [{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
  *
  * // find is also curried
  *
  * const finder = find(v => v.val === 'test');
  *
- * finder({val: 'test'}); // => 'test'
  * finder([{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
  */
 export default curry((fn, x) => {
   let i = 0;
-  const objKeys = Object.keys(x);
-  const len = objKeys.length;
+  const len = x.length;
 
   for (i; i < len; i++) {
-    const val = x[objKeys[i]];
+    const val = x[i];
 
     if (fn(val)) {
       return val;

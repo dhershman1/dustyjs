@@ -1,6 +1,8 @@
 import nth from './index';
 import test from 'ava';
 
+/* eslint-disable no-undefined */
+
 test('Test base functionality', t => {
   const list = ['foo', 'bar', 'baz', 'quux'];
 
@@ -11,8 +13,12 @@ test('Test base functionality', t => {
 
 test('Test string functionality', t => {
   t.is(nth(1, 'abc'), 'b');
-  t.is(nth(3, 'abc'), '');
   t.is(nth(0, 'abc'), 'a');
+});
+
+test('Returns undfined when value not found', t => {
+  t.is(nth(3, 'abc'), undefined);
+  t.is(nth(3, []), undefined);
 });
 
 test('Test curried nth', t => {

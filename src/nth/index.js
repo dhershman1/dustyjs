@@ -1,5 +1,4 @@
 import curry from '../curry';
-import isString from '../_internals/isString';
 
 /**
  * @name nth
@@ -13,7 +12,7 @@ import isString from '../_internals/isString';
  * @return {Number} Returns the value of the found index
  *
  * @example
- * const i = nth(3, [1, 2, 3, 4, 5, 6, 7]); // => 4
+ * nth(3, [1, 2, 3, 4, 5, 6, 7]); // => 4
  *
  * // nth is curried
  *
@@ -24,5 +23,5 @@ import isString from '../_internals/isString';
 export default curry((o, x) => {
   const idx = o < 0 ? x.length + o : o;
 
-  return isString(x) ? x.charAt(idx) : x[idx];
+  return x[idx];
 });
