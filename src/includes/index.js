@@ -4,6 +4,7 @@ import curry from '../curry';
  * @name includes
  * @since v2.0.0
  * @category String
+ * @sig String -> String -> Boolean
  * @description
  * Goes through a provided string and attempts to find the provided value within it
  * @param {String} str The string we want to search through

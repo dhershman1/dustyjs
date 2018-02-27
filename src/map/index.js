@@ -4,7 +4,7 @@ import curry from '../curry';
  * @name map
  * @since v0.6.0
  * @category Array
- * @sig (a -> b) -> f a -> f b
+ * @sig (a -> b) -> Array a -> Array b
  * @description
  * Takes a function and applies it to all of the values within the provided list,
  * and brings back a new list of the same type.

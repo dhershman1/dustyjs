@@ -4,7 +4,7 @@ import curry from '../curry';
  * @name has
  * @since v0.2.0
  * @category Object
- * @sig s -> {s: x} -> Boolean
+ * @sig String -> Object {k: v} -> Boolean
  * @description Determines if the object has a property
  * @param  {String} prop The prop to look for
  * @param  {Object} obj The Object we are searching

@@ -4,7 +4,7 @@ import curry from '../curry';
  * @name find
  * @since v0.2.0
  * @category Array
- * @sig (a -> Boolean) -> [a] -> a | Boolean
+ * @sig (a -> Boolean) -> Array a -> Maybe a
  * @description Find an item based on the function sent in and its list
  * @param  {Function} f The function used/called during the find
  * @param  {Object} x The list we want to search through

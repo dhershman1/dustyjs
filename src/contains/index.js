@@ -5,7 +5,7 @@ import find from '../find';
  * @name contains
  * @since v0.5.0
  * @category Array
- * @sig a → [a] → Boolean
+ * @sig a → Array a → Boolean
  * @description
  * Checks to see if the provided list contains at at least 1 of the provided value within it
  * @param {Any} a The value we want to search the list for

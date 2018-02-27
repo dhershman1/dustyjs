@@ -5,7 +5,7 @@ import curry from '../curry';
  * @name defaults
  * @since v0.5.0
  * @category Object
- * @sig {a} -> {b} -> {c}
+ * @sig Object a -> Object b -> Maybe Object c
  * @description
  * Applies default properties to an object that does not contain the smae or contains falsey values on those properties
  * @param {Object} a The default object to reference

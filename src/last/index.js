@@ -5,7 +5,7 @@ import nth from '../nth';
  * @since v0.1.0
  * @category Array
  * @sig
- * [a] -> a | Undefined
+ * Array a -> Maybe a
  * String -> String
  * @description Grabs the last index of an array
  * @param  {Array|String} x The list or string we want to use

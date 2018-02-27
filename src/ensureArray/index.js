@@ -6,6 +6,7 @@ import isNil from '../isNil';
  * @name ensureArray
  * @since v1.0.0
  * @category Array
+ * @sig a -> Array a
  * @description
  * Ensures that the value passed in is an array, if not it will make it an array or
  * pass back an empty array if the value if undefined/null

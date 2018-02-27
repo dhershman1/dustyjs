@@ -2,7 +2,7 @@
  * @name juxt
  * @since v0.5.0
  * @category Function
- * @sig (a, b, …, m) → n → ((a, b, …, m) → [n])
+ * @sig (a, b, …, m) → n → ((a, b, …, m) → Array n)
  * @description Applies the provided function and turns them into a single function you can use on a value
  * @param {Function} fns The functions to apply
  * @return {Function} The function you can use on your data value

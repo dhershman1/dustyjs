@@ -6,7 +6,7 @@ import isNil from '../isNil';
  * @name prop
  * @since v0.6.0
  * @category Object
- * @sig k -> {k: v} -> v | Undefined
+ * @sig k -> Object k v -> Maybe v
  * @description
  * Brings back the indicated property of an object if it exists
  * @param {Array} p The array path of the property we are looking for

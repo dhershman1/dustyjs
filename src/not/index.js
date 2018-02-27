@@ -1,8 +1,8 @@
 /**
  * @name not
  * @since v0.1.0
- * @category Logic
- * @sig * -> Boolean
+ * @category Function
+ * @sig Boolean -> Boolean
  * @description Returns boolean based on if the value is not
  * @param  {Boolean} x The values to compare against
  * @return {Boolean}   Returns boolean back based on the results
