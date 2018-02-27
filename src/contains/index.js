@@ -1,10 +1,10 @@
-import _equal from '../_internals/equal';
 import curry from '../curry';
+import find from '../find';
 
 /**
  * @name contains
  * @since v0.5.0
- * @category Collection
+ * @category Array
  * @sig a → [a] → Boolean
  * @description
  * Checks to see if the provided list contains at at least 1 of the provided value within it
@@ -14,8 +14,6 @@ import curry from '../curry';
  *
  * @example
  * contains(3, [1, 2, 3]); // => true
- * contains({ value: 1 }, [{ value: 1 }, { value: 2 }]); // => true
- * contains([42], [[42]]); // => true
  *
  * // It is also curried
  *
@@ -23,15 +21,5 @@ import curry from '../curry';
  *
  * checker([1, 2, 3]); // => true
  */
-export default curry((a, list) => {
-  let i = 0;
-  const len = list.length;
-
-  for (i; i < len; i++) {
-    if (_equal(list[i], a)) {
-      return true;
-    }
-  }
-
-  return false;
-});
+export default curry((a, list) =>
+  Boolean(find(val => val === a, list)));
