@@ -1,5 +1,32 @@
 # Changelog
 
+## v2.0.0
+
+### BREAKING CHANGES
+
+- `contains` is array focused and should only be working with arrays
+- `partition` is array focused and should only be working with arrays
+- `reject` is array focused and should only be working with arrays
+- `pluck` is Object focused however technically can still work with arrays
+- `find` now only accepts array types
+- `nth` technically can work with strings, but is only array focused
+- `omit` Only accepts an object to run against now
+
+### New
+
+- Added `words` function which breaks down a string based on whitespace
+- Added `includes` function which looks through string to find the requested value
+- Added `reduce` function which reduces an array down (is Curried)
+- Added `trim` function which removes the whitespace on either side of a string
+- Added `add` function to generate a sum of two numbers
+- Added `sub` function to generate a difference of two numbers
+- Added `mul` function to generate a product of two numbers
+- Added `div` function to generate a quotient of two numbers
+
+### Improved
+
+- The `curry` function is a little more optimized for space saving
+
 ## v1.0.1
 
 ### New
