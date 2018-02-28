@@ -13,7 +13,6 @@ import isObject from '../_internals/isObject';
  * @return {Object} The new list which will be the same type as the list provided
  *
  * @example
- * pluck(0, [[1, 2], [3, 4]]); // => [1, 3]
  * pluck('val', { a: { val: 3 }, b: { val: 5 } }); // => { a: 3, b: 5 }
  *
  * // It is also curried
@@ -23,13 +22,13 @@ import isObject from '../_internals/isObject';
  */
 const pluck = curry((p, list) =>
   Object.keys(list).reduce((acc, v) => {
-    if (isObject(list[v]) || Array.isArray(list[v])) {
+    if (isObject(list[v])) {
       acc.push(...pluck(p, list[v]));
 
       return acc;
     }
 
-    if (String(v) === String(p)) {
+    if (v === p) {
       acc.push(list[v]);
     }
 

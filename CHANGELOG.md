@@ -4,14 +4,15 @@
 
 ### BREAKING CHANGES
 
-- `contains` is array focused and should only be working with arrays
-- `partition` is array focused and should only be working with arrays
-- `reject` is array focused and should only be working with arrays
-- `pluck` is Object focused however technically can still work with arrays
+- `contains` now only runs on Arrays
+- `partition` now only runs on Arrays
+- `reject` now only runs on Arrays
+- `pluck` now only runs on Objects
 - `find` now only accepts array types
 - `nth` technically can work with strings, but is only array focused
-- `omit` Only accepts an object to run against now
+- `omit` now only runs on Objects
 - `prop` now only accepts a string (as documentation mentioned) as it's first param
+- `empty` throws a type error when given an invalid type when not given a String, Array, or Object
 
 ### New
 

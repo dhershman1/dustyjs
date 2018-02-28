@@ -27,12 +27,6 @@ test('Empty String', t => {
   t.is(results, '', 'The string is empty');
 });
 
-test('Return 0 for a null value', t => {
-  const results = empty(null);
-
-  t.false(results);
-});
-
 test('Empty an array', t => {
   const results = empty([1, 2, 3]);
 
@@ -50,4 +44,28 @@ test('Empty an object', t => {
 
   t.truthy(results, 'Got back results');
   t.deepEqual(results, {}, 'Results are an empty object');
+});
+
+test('Throws type error when passed undefined', t => {
+  const err = t.throws(() => {
+    empty(undefined); // eslint-disable-line
+  });
+
+  t.is(err.message, 'Empty requires an emptyable type, like a String or Array');
+});
+
+test('Throws type error when passed null', t => {
+  const err = t.throws(() => {
+    empty(null); // eslint-disable-line
+  });
+
+  t.is(err.message, 'Empty requires an emptyable type, like a String or Array');
+});
+
+test('Throws type error when passed number', t => {
+  const err = t.throws(() => {
+    empty(5);
+  });
+
+  t.is(err.message, 'Empty requires an emptyable type, like a String or Array');
 });

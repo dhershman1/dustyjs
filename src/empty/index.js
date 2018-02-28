@@ -1,5 +1,4 @@
 import is from '../is';
-import isNil from '../isNil';
 
 /**
  * @name empty
@@ -15,25 +14,19 @@ import isNil from '../isNil';
  * const arr = empty([1, 2, 3]); // => []
  * const str = empty('test'); // => ''
  */
-export default x => { // eslint-disable-line complexity
-  if (!isNil(x)) {
-    if (is(Function, x.empty)) {
-      return x.empty();
-    }
-
-    if (is(Array, x)) {
-      return [];
-    }
-
-    if (is(String, x)) {
-      return '';
-    }
-
-    if (is(Object, x)) {
-      return {};
-    }
+export default x => {
+  if (is(Array, x)) {
+    return [];
   }
 
-  return false;
+  if (is(String, x)) {
+    return '';
+  }
+
+  if (is(Object, x)) {
+    return {};
+  }
+
+  throw new TypeError('Empty requires an emptyable type, like a String or Array');
 };
 
