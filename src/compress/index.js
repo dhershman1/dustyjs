@@ -1,4 +1,5 @@
 import isEmpty from '../isEmpty';
+import isNil from '../isNil';
 
 /**
  * @name compress
@@ -12,16 +13,16 @@ import isEmpty from '../isEmpty';
  * @example
  * const obj = compress({ thing: '', test: 1 }); // => { test: 1 }
  */
-export default x => {
-  const r = {};
+export default obj => {
+  const results = {};
 
-  for (const p in x) {
-    const y = x[p];
+  for (const prop in obj) {
+    const val = obj[prop];
 
-    if (!isEmpty(y)) {
-      r[p] = y;
+    if (!isEmpty(val) || isNil(val)) {
+      results[prop] = val;
     }
   }
 
-  return r;
+  return results;
 };
