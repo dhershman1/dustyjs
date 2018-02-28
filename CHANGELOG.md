@@ -24,10 +24,18 @@
 - Added `sub` function to generate a difference of two numbers
 - Added `mul` function to generate a product of two numbers
 - Added `div` function to generate a quotient of two numbers
+- Added `length` function which returns the length of a passed array
+- Added `reverse` function which creates a new array based on the one pased in and reverses it
+- Added `and` function which checks if two Booleans passed in are true
+- Added `or` function which checks if at least one of two Booleans passed in are true
+- Added `slice` function which returns a subset of an array based on the provided indexes
 
 ### Improved
 
 - The `curry` function is a little more optimized for space saving
+- Updated all dev dependencies for better testing and builds
+- Improved `defaults` function for size and hopefully performance
+- Tiny (like super tiny) code adjustments for more optimal sizes (super small size benefits)
 
 ## v1.0.1
 
