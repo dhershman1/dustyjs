@@ -1,10 +1,11 @@
 import isEmpty from '../isEmpty';
+import isNil from '../isNil';
 
 /**
  * @name compress
  * @since v0.3.0
  * @category Object
- * @sig {a} -> {b}
+ * @sig Object a -> Object b
  * @description Takes an object and compresses it down removing falsy and empty values
  * @param  {Object} x The Object to compress
  * @return {Object} Returns a new object without the unwanted values
@@ -12,16 +13,16 @@ import isEmpty from '../isEmpty';
  * @example
  * const obj = compress({ thing: '', test: 1 }); // => { test: 1 }
  */
-export default x => {
-  const r = {};
+export default obj => {
+  const results = {};
 
-  for (const p in x) {
-    const y = x[p];
+  for (const prop in obj) {
+    const val = obj[prop];
 
-    if (!isEmpty(y)) {
-      r[p] = y;
+    if (!isNil(val) && !isEmpty(val)) {
+      results[prop] = val;
     }
   }
 
-  return r;
+  return results;
 };
