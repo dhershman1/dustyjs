@@ -19,7 +19,7 @@ export default obj => {
   for (const prop in obj) {
     const val = obj[prop];
 
-    if (!isEmpty(val) || isNil(val)) {
+    if (!isNil(val) && !isEmpty(val)) {
       results[prop] = val;
     }
   }
