@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.0.2
+
+### Improved
+
+- Made `compress` a little more verbose in its source (Since it's uglified and minified anyway)
+
+### Fixed
+
+- `compress` so it removes null or undefined values as well as empty ones like it should (in v2.0.0 removal of empty values will be optional)
+- Documentation for the `prop` function (examples were incorrect)
+
 ## v1.0.1
 
 ### New

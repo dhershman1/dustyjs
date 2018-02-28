@@ -14,12 +14,12 @@ import isNil from '../isNil';
  * @return {Any} The value that exists at 'obj.p'
  *
  * @example
- * prop('thing', { thing: 'test' }); // => 'test'
- * prop('thing', {}); // => undefined
+ * prop(['thing'], { thing: 'test' }); // => 'test'
+ * prop(['thing'], {}); // => undefined
  *
  * // It is also curried
  *
- * const proper = prop('a');
+ * const proper = prop(['a']);
  *
  * proper({ a: 1, b: 2 }); // => 1
  */
