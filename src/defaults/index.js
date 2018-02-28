@@ -6,7 +6,7 @@ import isNil from '../isNil';
  * @name defaults
  * @since v0.5.0
  * @category Object
- * @sig Object a -> Object b -> Maybe Object c
+ * @sig {a} -> {b} -> {c}
  * @description
  * Applies default properties to an object that does not contain the smae or contains falsey values on those properties
  * @param {Object} a The default object to reference

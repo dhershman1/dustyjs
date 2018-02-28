@@ -4,7 +4,7 @@ import curry from '../curry';
  * @name prop
  * @since v0.6.0
  * @category Object
- * @sig k -> Object k v -> Maybe v
+ * @sig k -> {k: v} -> v | Undefined
  * @description
  * Brings back the indicated property of an object if it exists
  * @param {Array} p The array path of the property we are looking for
@@ -18,7 +18,7 @@ import curry from '../curry';
  *
  * // It is also curried
  *
- * const proper = prop('a');
+ * const proper = prop(['a']);
  *
  * proper({ a: 1, b: 2 }); // => 1
  */

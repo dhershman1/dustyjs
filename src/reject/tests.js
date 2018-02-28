@@ -15,8 +15,15 @@ test('Returns an empty array when an empty array is passed in', t => {
   t.deepEqual(reject(even, []), []);
 });
 
-test('Is curried', t => {
-  const rejecter = reject(even);
+test('Filters objects', t => {
+  const isOdd = n => n % 2 === 1;
+  const obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4
+  };
 
-  t.deepEqual(rejecter([1, 2, 3, 4, 5]), [1, 3, 5]);
+  t.deepEqual(reject(isOdd, {}), []);
+  t.deepEqual(reject(isOdd, obj), [2, 4]);
 });

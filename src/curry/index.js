@@ -2,7 +2,7 @@
  * @name curry
  * @since v0.1.0
  * @category Function
- * @sig ((a, b) -> c) -> a -> b -> c
+ * @sig (* -> a) -> (* -> a)
  * @description Create a curried function
  * @param  {Function} f The function we will be running
  * @param  {Any} args extra args to apply if needed
@@ -13,12 +13,6 @@
  * add(1)(2); // => 3
  * add(1, 2); // => 3
  */
-const curry = (f, ...args) => {
-  if (f.length <= args.length) {
-    return f(...args);
-  }
-
-  return (...rest) => curry(f, ...args, ...rest);
-};
+const curry = (f, ...args) => f.length <= args.length ? f(...args) : (...more) => curry(f, ...args, ...more); // eslint-disable-line
 
 export default curry;

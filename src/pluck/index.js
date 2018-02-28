@@ -4,13 +4,13 @@ import isObject from '../_internals/isObject';
 /**
  * @name pluck
  * @since v0.6.0
- * @category Object
+ * @category Collection
  * @sig k -> f {k: v} -> f v
  * @description
- * Returns a new list of values based on the provided property name and provided object
+ * Returns a new list by finding and grabbing the same named properties off all objects supplied
  * @param {String} p The property to look for
- * @param {Object} list The list to iterate through
- * @return {Object} The new list which will be the same type as the list provided
+ * @param {Array|Object} list The list to iterate through
+ * @return {Array|Object} The new list which will be the same type as the list provided
  *
  * @example
  * pluck('val', { a: { val: 3 }, b: { val: 5 } }); // => { a: 3, b: 5 }
