@@ -31,6 +31,7 @@
 - Added `slice` function which returns a subset of an array based on the provided indexes
 - Added `identity` function which just returns itself
 - Added `pipe` function which applies a sequence of transformations over a value
+- Added `sort` function which sorts a supplied array with the supplied comparison function
 
 ### Improved
 
