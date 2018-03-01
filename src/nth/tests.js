@@ -11,7 +11,7 @@ test('Test base functionality', t => {
 
 test('Test string functionality', t => {
   t.is(nth(1, 'abc'), 'b');
-  t.is(nth(3, 'abc'), '');
+  t.is(nth(3, 'abc'), undefined); // eslint-disable-line no-undefined
   t.is(nth(0, 'abc'), 'a');
 });
 

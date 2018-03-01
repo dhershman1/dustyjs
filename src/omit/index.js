@@ -5,13 +5,9 @@ import ensureArray from '../ensureArray';
  * @name omit
  * @since v0.4.0
  * @category Object
- * @sig
- * [String] -> {String: *} -> {String: *}
- * [String] -> [String] -> [String]
- * String -> {String: *} -> {String: *}
- * String -> [String] -> [String]
+ * @sig [String] -> {String: *} → {String: *}
  * @description Create a new Array/Object by omitting the requested values
- * @param  {String} key The key(s) in which to omit from the data
+ * @param  {Array} key The key(s) in which to omit from the data
  * @param  {Object} x The array or object to search through
  * @return {Object} Returns the newly created data without the omitted values
  *
@@ -27,10 +23,6 @@ import ensureArray from '../ensureArray';
  */
 export default curry((key, x) => {
   const keyArr = ensureArray(key);
-
-  if (Array.isArray(x)) {
-    return x.filter(val => keyArr.indexOf(val) === -1);
-  }
 
   return Object.keys(x).reduce((acc, prop) => {
     if (keyArr.indexOf(prop) === -1) {

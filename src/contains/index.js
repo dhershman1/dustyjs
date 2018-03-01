@@ -14,8 +14,6 @@ import curry from '../curry';
  *
  * @example
  * contains(3, [1, 2, 3]); // => true
- * contains({ value: 1 }, [{ value: 1 }, { value: 2 }]); // => true
- * contains([42], [[42]]); // => true
  *
  * // It is also curried
  *

@@ -22,14 +22,16 @@ import isObject from '../_internals/isObject';
  */
 const pluck = curry((p, list) =>
   Object.keys(list).reduce((acc, v) => {
-    if (isObject(list[v])) {
-      acc.push(...pluck(p, list[v]));
+    const val = list[v];
+
+    if (isObject(val)) {
+      acc.push(...pluck(p, val));
 
       return acc;
     }
 
     if (v === p) {
-      acc.push(list[v]);
+      acc.push(val);
     }
 
     return acc;

@@ -1,5 +1,4 @@
 import curry from '../curry';
-import isString from '../_internals/isString';
 
 /**
  * @name nth
@@ -25,5 +24,5 @@ import isString from '../_internals/isString';
 export default curry((o, x) => {
   const idx = o < 0 ? x.length + o : o;
 
-  return isString(x) ? x.charAt(idx) : x[idx];
+  return x[idx];
 });

@@ -9,7 +9,7 @@
 - `reject` now only runs on Arrays
 - `pluck` now only runs on Objects
 - `find` now only accepts array types
-- `nth` technically can work with strings, but is only array focused
+- `nth` technically can work with strings, but is only array focused now returns `undefined` if used on a string that doesn't have a character at the desired index
 - `omit` now only runs on Objects
 - `prop` now only accepts a string (as documentation mentioned) as it's first param
 - `empty` throws a type error when given an invalid type when not given a String, Array, or Object
