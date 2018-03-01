@@ -29,6 +29,8 @@
 - Added `and` function which checks if two Booleans passed in are true
 - Added `or` function which checks if at least one of two Booleans passed in are true
 - Added `slice` function which returns a subset of an array based on the provided indexes
+- Added `identity` function which just returns itself
+- Added `pipe` function which applies a sequence of transformations over a value
 
 ### Improved
 
