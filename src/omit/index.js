@@ -8,7 +8,7 @@ import ensureArray from '../ensureArray';
  * @sig [String] -> {String: *} → {String: *}
  * @description Create a new Array/Object by omitting the requested values
  * @param  {Array} key The key(s) in which to omit from the data
- * @param  {Object} x The array or object to search through
+ * @param  {Object} x The object to search through and filter
  * @return {Object} Returns the newly created data without the omitted values
  *
  * @example

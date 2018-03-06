@@ -1,11 +1,11 @@
-import _equal from '../_internals/equal';
 import curry from '../curry';
+import find from '../find';
 
 /**
  * @name contains
  * @since v0.5.0
- * @category Collection
- * @sig a → [a] → Boolean
+ * @category Array
+ * @sig a → Array a → Boolean
  * @description
  * Checks to see if the provided list contains at at least 1 of the provided value within it
  * @param {Any} a The value we want to search the list for
@@ -21,15 +21,5 @@ import curry from '../curry';
  *
  * checker([1, 2, 3]); // => true
  */
-export default curry((a, list) => {
-  let i = 0;
-  const len = list.length;
-
-  for (i; i < len; i++) {
-    if (_equal(list[i], a)) {
-      return true;
-    }
-  }
-
-  return false;
-});
+export default curry((a, list) =>
+  Boolean(find(val => val === a, list)));

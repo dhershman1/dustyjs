@@ -23,11 +23,10 @@ import curry from '../curry';
  */
 export default curry((fn, x) => {
   let i = 0;
-  const objKeys = Object.keys(x);
-  const len = objKeys.length;
+  const len = x.length;
 
   for (i; i < len; i++) {
-    const val = x[objKeys[i]];
+    const val = x[i];
 
     if (fn(val)) {
       return val;

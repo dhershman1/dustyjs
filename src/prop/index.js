@@ -18,7 +18,7 @@ import curry from '../curry';
  *
  * // It is also curried
  *
- * const proper = prop(['a']);
+ * const proper = prop('a');
  *
  * proper({ a: 1, b: 2 }); // => 1
  */
