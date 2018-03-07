@@ -1,4 +1,3 @@
-import contains from '../contains';
 import curry from '../curry';
 import flatten from '../flatten';
 
@@ -19,5 +18,5 @@ import flatten from '../flatten';
 export default curry((a, [...rest]) => {
   const flatRest = flatten(rest);
 
-  return a.filter(x => !contains(x, flatRest));
+  return a.filter(x => flatRest.indexOf(x) === -1);
 });

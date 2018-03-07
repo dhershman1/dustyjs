@@ -1,4 +1,4 @@
-import is from '../is';
+import type from '../type';
 
 /**
  * @name empty
@@ -15,15 +15,15 @@ import is from '../is';
  * const str = empty('test'); // => ''
  */
 export default x => {
-  if (is(Array, x)) {
+  if (type(x) === 'Array') {
     return [];
   }
 
-  if (is(String, x)) {
+  if (type(x) === 'String') {
     return '';
   }
 
-  if (is(Object, x)) {
+  if (type(x) === 'Object') {
     return {};
   }
 

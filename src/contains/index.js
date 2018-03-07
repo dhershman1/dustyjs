@@ -1,5 +1,4 @@
 import curry from '../curry';
-import find from '../find';
 
 /**
  * @name contains
@@ -22,4 +21,4 @@ import find from '../find';
  * checker([1, 2, 3]); // => true
  */
 export default curry((a, list) =>
-  Boolean(find(val => val === a, list)));
+  list.indexOf(a) !== -1);

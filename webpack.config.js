@@ -29,7 +29,8 @@ module.exports = {
     path: path.resolve(__dirname),
     filename: '[name]/index.js',
     library: 'dusty',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'typeof self !== \'undefined\' ? self : this'
   },
   plugins: [
     new UglifyJSPlugin()

@@ -1,4 +1,3 @@
-import contains from '../contains';
 import curry from '../curry';
 import flatten from '../flatten';
 
@@ -30,7 +29,7 @@ export default curry((a, [...rest]) => {
   const flatRest = flatten(rest);
 
   return a.concat(flatRest).reduce((acc, v) => {
-    if (!contains(v, acc)) {
+    if (acc.indexOf(v) === -1) {
       return acc.concat(v);
     }
 

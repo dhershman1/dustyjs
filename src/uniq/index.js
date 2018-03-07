@@ -1,4 +1,3 @@
-import contains from '../contains';
 import curry from '../curry';
 
 /**
@@ -23,7 +22,7 @@ import curry from '../curry';
  */
 export default curry((fn, list) =>
   list.reduce((acc, a) => {
-    if (!contains(fn(a), acc.map(fn))) {
+    if (acc.map(fn).indexOf(fn(a)) === -1) {
       return acc.concat(a);
     }
 

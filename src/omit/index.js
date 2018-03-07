@@ -27,8 +27,6 @@ export default curry((key, x) => {
   return Object.keys(x).reduce((acc, prop) => {
     if (keyArr.indexOf(prop) === -1) {
       acc[prop] = x[prop];
-
-      return acc;
     }
 
     return acc;

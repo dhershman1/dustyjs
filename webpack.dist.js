@@ -8,7 +8,8 @@ module.exports = {
     path: path.resolve(__dirname),
     filename: 'dusty.min.js',
     library: 'dusty',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'typeof self !== \'undefined\' ? self : this'
   },
   plugins: [
     new UglifyJSPlugin()
