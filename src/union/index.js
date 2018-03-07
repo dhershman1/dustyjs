@@ -25,14 +25,5 @@ import flatten from '../flatten';
  * un([3, 4, 5]); // => [1, 2, 3, 4, 5]
  * un([[3, 4, 5], [4, 5, 6]]); // => [1, 2, 3, 4, 5, 6]
  */
-export default curry((a, [...rest]) => {
-  const flatRest = flatten(rest);
-
-  return a.concat(flatRest).reduce((acc, v) => {
-    if (acc.indexOf(v) === -1) {
-      return acc.concat(v);
-    }
-
-    return acc;
-  }, []);
-});
+export default curry((a, [...rest]) =>
+  a.concat(flatten(rest)).reduce((acc, v) => acc.indexOf(v) === -1 ? acc.concat(v) : acc, []));
