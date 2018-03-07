@@ -32,6 +32,9 @@
 - Added `identity` function which just returns itself
 - Added `pipe` function which applies a sequence of transformations over a value
 - Added `sort` function which sorts a supplied array with the supplied comparison function
+- Added `gcd` function which gets the greatest common denominator of two numbers passed in
+- Added `lcm` function which gets the least common multiple of two numbers passed in
+- Added `capitalize` function which capitalizes the first letter of the string passed in
 
 ### Improved
 
