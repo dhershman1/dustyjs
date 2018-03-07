@@ -13,6 +13,9 @@
 - `omit` now only runs on Objects
 - `prop` now only accepts a string (as documentation mentioned) as it's first param
 - `empty` throws a type error when given an invalid type when not given a String, Array, or Object
+- Renamed `extend` to `assign` (to go hand in hand with `Object.assign` so to speak)
+- Renamed `removeAtIndex` to `removeAt` to make it a little shorter to use
+- Renamed `replaceAtIndex` to `replaceAt` to mkae it a little shorter to use
 
 ### New
 
