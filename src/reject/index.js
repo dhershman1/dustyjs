@@ -23,11 +23,4 @@ import curry from '../curry';
  * rejecter([1, 2, 3, 4]); // => [1, 3]
  */
 export default curry((fn, list) =>
-  list.reduce((acc, v) => {
-
-    if (!fn(v)) {
-      acc.push(v);
-    }
-
-    return acc;
-  }, []));
+  list.filter(v => !fn(v)));
