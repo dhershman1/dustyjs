@@ -23,10 +23,5 @@ import curry from '../curry';
  * part(['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
  */
 export default curry((fn, list) =>
-  list.reduce(([pass, fail], v) => {
-    if (fn(v)) {
-      return [[...pass, v], fail];
-    }
-
-    return [pass, [...fail, v]];
-  }, [[], []]));
+  list.reduce(([pass, fail], v) =>
+    fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)], [[], []]));
