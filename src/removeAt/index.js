@@ -1,7 +1,7 @@
 import curry from '../curry';
 
 /**
- * @name removeAtIndex
+ * @name removeAt
  * @since v0.1.0
  * @category Array
  * @sig Number -> [a] -> [b]
@@ -11,12 +11,13 @@ import curry from '../curry';
  * @return {Array}     returns the modified array back
  *
  * @example
- * const test = removeAtIndex(2, [1, 2, 3, 4]); // => [1, 2, 4]
+ * const test = removeAt(2, [1, 2, 3, 4]); // => [1, 2, 4]
  *
  * // This is also a curried method
  *
- * const remover = removeAtIndex(2);
+ * const remover = removeAt(2);
  * const test = remover([1, 2, 3, 4]); // => [1, 2, 4]
  */
 export default curry((i, x) =>
-  [...x.slice(0, i), ...x.slice(i + 1)]);
+  x.slice(0, i).concat(x.slice(i + 1))
+);
