@@ -1,5 +1,5 @@
 import curry from './index';
-import replaceAtIndex from '../replaceAtIndex';
+import replaceAt from '../replaceAt';
 import test from 'ava';
 
 test('Basic Curry test', t => {
@@ -12,7 +12,7 @@ test('Basic Curry test', t => {
 });
 
 test('Testing curry with another function', t => {
-  const first = curry(replaceAtIndex)(0);
+  const first = curry(replaceAt)(0);
   const results = first('brown', [1, 2, 3, 4]);
 
   t.truthy(results);
@@ -20,7 +20,7 @@ test('Testing curry with another function', t => {
 });
 
 test('Testing curry with another function again', t => {
-  const second = curry(replaceAtIndex)(1)('brown');
+  const second = curry(replaceAt)(1)('brown');
   const results = second([1, 2, 3, 4]);
 
   t.truthy(results);
