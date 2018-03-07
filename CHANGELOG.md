@@ -39,6 +39,7 @@
 - Added `lcm` function which gets the least common multiple of two numbers passed in
 - Added `capitalize` function which capitalizes the first letter of the string passed in
 - Added `difference` function which compares two arrays to create a new array of different values
+- Added `uniq` function which takes a function and builds an array of unique values with it
 
 ### Improved
 
