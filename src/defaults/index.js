@@ -1,5 +1,5 @@
+import assign from '../assign';
 import curry from '../curry';
-import extend from '../extend';
 import isNil from '../isNil';
 
 /**
@@ -19,7 +19,7 @@ import isNil from '../isNil';
  * defaults({ test: 1, thing: 2 }, data); // => { test: 1, thing: 4 }
  */
 export default curry((a, b) => {
-  const results = extend({}, b);
+  const results = assign({}, b);
 
   for (const prop in a) {
     if (isNil(b[prop])) {

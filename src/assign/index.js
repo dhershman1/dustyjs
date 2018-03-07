@@ -1,5 +1,5 @@
 /**
- * @name extend
+ * @name assign
  * @since v0.1.0
  * @category Object
  * @sig {k: v} -> {k: v} -> {k: v}
@@ -8,7 +8,7 @@
  * @return {Object} A new Object
  *
  * @example
- * const obj = extend({ test: 1 }, { thing: 2 }); // => { test: 1, thing: 2 }
+ * const obj = assign({ test: 1 }, { thing: 2 }); // => { test: 1, thing: 2 }
  */
 export default (...args) =>
   args.reduce((acc, x) => {

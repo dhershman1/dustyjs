@@ -1,4 +1,4 @@
-import extend from './index';
+import assign from './index';
 import test from 'ava';
 
 test('Test base functionality', t => {
@@ -6,7 +6,7 @@ test('Test base functionality', t => {
     test: 1,
     again: 2
   };
-  const result = extend({ test: 1 }, { again: 2 });
+  const result = assign({ test: 1 }, { again: 2 });
 
   t.deepEqual(compare, result);
 });
@@ -17,7 +17,7 @@ test('Test with more complex objects', t => {
     again: 2,
     anotherOne: 3
   };
-  const result = extend({ test: 1 }, {
+  const result = assign({ test: 1 }, {
     again: 2,
     anotherOne: 3
   });
@@ -35,7 +35,7 @@ test('Test with nested objects', t => {
       forecast: 23
     }
   };
-  const result = extend({ test: 1 }, {
+  const result = assign({ test: 1 }, {
     again: 2,
     anotherOne: 3
   }, {

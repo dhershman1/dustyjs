@@ -1,4 +1,4 @@
-import extend from '../extend';
+import assign from '../assign';
 
 /**
  * @name clone
@@ -12,4 +12,4 @@ import extend from '../extend';
  * const obj = clone({things: 1}); // => { things: 1 }
  * const arr = clone([1, 2, 3]); // => [1, 2, 3]
  */
-export default x => extend({}, x);
+export default x => assign({}, x);
