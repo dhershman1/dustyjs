@@ -40,6 +40,7 @@
 - Added `capitalize` function which capitalizes the first letter of the string passed in
 - Added `difference` function which compares two arrays to create a new array of different values
 - Added `uniq` function which takes a function and builds an array of unique values with it
+- Added `union` function which combines a series of passed in arrays
 
 ### Improved
 
