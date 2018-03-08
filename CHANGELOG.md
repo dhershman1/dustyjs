@@ -52,6 +52,8 @@
 - Tiny (like super tiny) code adjustments for more optimal sizes (super small size benefits)
 - Made `every` use the method instead of reinventing the wheel
 - Made `some` (any) use the method instead of reinventing the wheel
+- Overall code improvements taking more advantage of newer js rules that we can transpile with babel
+- Thanks to babel we can take advantage of new functionality IF it is there, otherwise we use our own
 
 ## v1.0.2
 
