@@ -20,25 +20,18 @@ Standard module system
 
 ```js
 import dusty from 'dusty-fns';
-
-dusty.isObject({});
 ```
 
 Common JS
 
 ```js
 const dusty = require('dusty-fns');
-
-dusty.isObject({});
 ```
 
 Through the browser
 
 ```html
 <script src="path/to/dusty-fns/dusty.min.js"></script>
-<script>
-  dusty.isObject({});
-</script>
 ```
 
 ## Documentation
@@ -56,24 +49,24 @@ Examples:
 Standard module system
 
 ```js
-import isObject from 'dusty-fns/isObject';
+import isEmpty from 'dusty-fns/isEmpty';
 
-isObject({});
+isEmpty({});
 ```
 
 Common JS
 
 ```js
-const isObject = require('dusty-fns/isObject');
+const isEmpty = require('dusty-fns/isEmpty');
 
-isObject({});
+isEmpty({});
 ```
 
 Through your browser
 
 ```html
-<script src="path/to/dusty-fns/isObject/index.js"></script>
+<script src="path/to/dusty-fns/isEmpty/index.js"></script>
 <script>
-  isObject({});
+  isEmpty({});
 </script>
 ```
