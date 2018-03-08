@@ -3,7 +3,7 @@ import curry from '../curry';
 /**
  * @name partition
  * @since v0.5.0
- * @category Collection
+ * @category Array
  * @sig Filterable f => (a -> Boolean) -> f a -> [f a, f a]
  * @description
  * Takes a predicate function and a list or filterable data object and returns the pair.
@@ -15,18 +15,13 @@ import curry from '../curry';
  *
  * @example
  * partition(is(String), ['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
- * partition(is(String), { a: 'foo', b: 'bar', c: 100 }); // => [ ['foo', 'bar'], [100] ]
  *
  * // Is curried as well
  *
  * const part = partition(is(String));
  *
  * part(['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
- * part({ a: 'foo', b: 'bar', c: 100 }); // => [ ['foo', 'bar'], [100] ]
  */
-export default curry((fn, a) =>
-  Object.keys(a).reduce(([pass, fail], k) => {
-    const val = a[k];
-
-    return fn(val) ? [[...pass, val], fail] : [pass, [...fail, val]];
-  }, [[], []]));
+export default curry((fn, list) =>
+  list.reduce(([pass, fail], v) =>
+    fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)], [[], []]));

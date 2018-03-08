@@ -4,10 +4,16 @@
  * @category Function
  * @sig {*} -> {*}
  * @description Clones the object sent in (Hard Clone)
- * @param  {Object} x The object we want to get cloned
- * @return {Object}     Returns the cloned object back
+ * @param  {Any} x The value we want to get cloned
+ * @return {Any} The newly cloned value
  *
  * @example
- * const cloned = deepClone({ test: 1 }) // => { test: 1 }
+ * const data = { test: 1 }
+ * const cloned = deepClone(data); // => { test: 1 }
+ *
+ * cloned.test = 2;
+ *
+ * console.log(data); // => { test: 1 }
+ * console.log(cloned); // => { test: 2 }
  */
 export default x => JSON.parse(JSON.stringify(x));

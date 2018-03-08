@@ -1,8 +1,11 @@
 module.exports = {
 	'extends': 'eslint:recommended',
 	'parserOptions': {
-		'ecmaVersion': 6,
-		'sourceType': 'module'
+		'ecmaVersion': 8,
+		'sourceType': 'module',
+		'ecmaFeatures': {
+			"experimentalObjectRestSpread": true
+		}
 	},
 	'rules': {
 
@@ -74,7 +77,7 @@ module.exports = {
 			'before': false,
 			'after': true
 		}],
-		'no-confusing-arrow': ['error'],
+		'no-confusing-arrow': ['off'],
 		'no-duplicate-imports': ['error'],
 		'no-useless-constructor': ['error'],
 		'no-useless-rename': ['error'],

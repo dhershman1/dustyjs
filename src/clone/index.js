@@ -1,4 +1,4 @@
-import extend from '../extend';
+import isObject from '../_internals/isObject';
 
 /**
  * @name clone
@@ -12,10 +12,4 @@ import extend from '../extend';
  * const obj = clone({things: 1}); // => { things: 1 }
  * const arr = clone([1, 2, 3]); // => [1, 2, 3]
  */
-export default x => {
-  if (Array.isArray(x)) {
-    return x.slice();
-  }
-
-  return extend({}, x);
-};
+export default x => isObject(x) ? { ...x } : x;

@@ -1,6 +1,5 @@
 const path = require('path');
 const globby = require('globby');
-const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const findEntries = () => {
@@ -25,12 +24,17 @@ const findEntries = () => {
 
 module.exports = {
   entry: findEntries(),
+  mode: 'production',
   output: {
     path: path.resolve(__dirname),
     filename: '[name]/index.js',
     library: 'dusty',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'typeof self !== \'undefined\' ? self : this'
   },
+  plugins: [
+    new UglifyJSPlugin()
+  ],
   module: {
     rules: [
       {
@@ -41,11 +45,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [
-    new UglifyJSPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ]
+  }
 };

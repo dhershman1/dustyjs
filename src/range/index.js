@@ -20,19 +20,19 @@ export default (from, to) => {
     throw new TypeError('Both Arguments should be a number type');
   }
 
-  const r = [];
-  let t = to;
-  let n = from;
+  const result = [];
+  let stop = to;
+  let start = from;
 
   if (!to) {
-    n = 0;
-    t = from;
+    start = 0;
+    stop = from;
   }
 
-  while (n < t) {
-    r.push(n);
-    n += 1;
+  while (start < stop) {
+    result.push(start);
+    start += 1;
   }
 
-  return r;
+  return result;
 };

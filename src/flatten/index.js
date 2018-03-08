@@ -13,6 +13,7 @@
  * // => [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
  */
 const flatten = list =>
-  list.reduce((acc, x) => acc.concat(Array.isArray(x) ? flatten(x) : x), []);
+  list.reduce((acc, x) =>
+    acc.concat(Array.isArray(x) ? flatten(x) : x), []);
 
 export default flatten;

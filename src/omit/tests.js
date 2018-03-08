@@ -18,9 +18,6 @@ test('Test omit()', t => {
   }), {
     cat: 'Mew!'
   });
-
-  t.deepEqual(omit('cool', ['cool', 'cat', 'cool']), ['cat']);
-  t.deepEqual(omit(['cool', 'test'], ['cool', 'cat', 'cool', 'test', 'bobby']), ['cat', 'bobby']);
 });
 
 test('Test curried omit single key', t => {
@@ -47,18 +44,4 @@ test('Test curried omit array of keys', t => {
   });
 
   t.deepEqual(results, { cat: 'Mew!' });
-});
-
-test('Test curried omit array values with single key', t => {
-  const omiter = omit('cool');
-  const results = omiter(['cool', 'cat', 'cool']);
-
-  t.deepEqual(results, ['cat']);
-});
-
-test('Test curried omit array values and keys', t => {
-  const omiter = omit(['cool', 'test']);
-  const results = omiter(['cool', 'cat', 'cool', 'test', 'bobby']);
-
-  t.deepEqual(results, ['cat', 'bobby']);
 });

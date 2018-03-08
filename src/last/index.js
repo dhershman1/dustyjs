@@ -1,4 +1,3 @@
-import nth from '../nth';
 
 /**
  * @name last
@@ -15,4 +14,4 @@ import nth from '../nth';
  * const arr = last([1, 3]); // => 3
  * const str = last('abc'); // => 'c'
  */
-export default x => nth(-1, x);
+export default x => x[x.length - 1];

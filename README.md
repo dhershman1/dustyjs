@@ -2,8 +2,7 @@
 
 # Dusty.js (dusty-fns)
 
-A light weight pure functional library with single type helper functions
-
+A light weight pure functional library with single type utility functions
 
 ## Changelog
 
@@ -78,10 +77,3 @@ Through your browser
   isObject({});
 </script>
 ```
-
-## Current Functions to remove Collection type from
-
-- `partition` to drop support for objects to keep it single type
-- `reject` to drop support for objects to keep it single type
-- `contains` make it a single type focused function
-- `pluck` make it object focused keeping it single type

@@ -15,7 +15,7 @@ import curry from '../curry';
  * const data = [1, 2, 3, 4];
  *
  * every(x => x > 0, data); // => true
- * every(x => x < 3); // => false
+ * every(x => x < 3, data); // => false
  *
  * // It is also curried
  *
@@ -24,15 +24,4 @@ import curry from '../curry';
  * run([1, 2, 3]); // => true
  * run([-1, 0, 1]); // => false
  */
-export default curry((fn, x) => {
-  const len = x.length;
-  let i = 0;
-
-  for (i; i < len; i++) {
-    if (!fn(x[i])) {
-      return false;
-    }
-  }
-
-  return true;
-});
+export default curry((fn, x) => x.every(fn));

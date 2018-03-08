@@ -1,20 +1,17 @@
 import curry from '../curry';
-import isString from '../_internals/isString';
 
 /**
  * @name nth
  * @since v0.1.0
  * @category Array
- * @sig
- * Number -> [a] -> a | Undefined
- * Number -> String -> String
+ * @sig Number -> Array a -> Maybe a
  * @description Returns the nth element of the given list or string.
  * @param  {Number} o How much to offset the value
- * @param  {String|Array} x   The Array or list to crawl through
- * @return {String|Number}        Returns the value of the found index
+ * @param  {Array} x   The Array or list to crawl through
+ * @return {Number} Returns the value of the found index
  *
  * @example
- * const i = nth(3, [1, 2, 3, 4, 5, 6, 7]); // => 4
+ * nth(3, [1, 2, 3, 4, 5, 6, 7]); // => 4
  *
  * // nth is curried
  *
@@ -25,5 +22,5 @@ import isString from '../_internals/isString';
 export default curry((o, x) => {
   const idx = o < 0 ? x.length + o : o;
 
-  return isString(x) ? x.charAt(idx) : x[idx];
+  return x[idx];
 });

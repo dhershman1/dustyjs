@@ -1,6 +1,4 @@
 import curry from '../curry';
-import isEmpty from '../isEmpty';
-import isNil from '../isNil';
 
 /**
  * @name prop
@@ -14,21 +12,16 @@ import isNil from '../isNil';
  * @return {Any} The value that exists at 'obj.p'
  *
  * @example
- * prop(['thing'], { thing: 'test' }); // => 'test'
- * prop(['thing'], {}); // => undefined
+ * prop('thing', { thing: 'test' }); // => 'test'
+ * prop('thing', {}); // => undefined
+ * map(prop('a'), [{ a: 1 }, { a: 2 }, { a: 3 }]); // => [1, 2, 3]
  *
  * // It is also curried
  *
- * const proper = prop(['a']);
+ * const proper = prop('a');
  *
  * proper({ a: 1, b: 2 }); // => 1
  */
-const prop = curry(([p, ...rest], obj) => {
-  if (isEmpty(rest) || isNil(obj[p])) {
-    return obj[p];
-  }
-
-  return prop(rest, obj[p]);
-});
+const prop = curry((p, obj) => obj[p]);
 
 export default prop;

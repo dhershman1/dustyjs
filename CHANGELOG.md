@@ -1,5 +1,60 @@
 # Changelog
 
+## v2.0.0
+
+### BREAKING CHANGES
+
+- `contains` now only runs on Arrays
+- `partition` now only runs on Arrays
+- `reject` now only runs on Arrays
+- `pluck` now only runs on Objects
+- `find` now only accepts array types
+- `nth` technically can work with strings, but is only array focused now returns `undefined` if used on a string that doesn't have a character at the desired index
+- `omit` now only runs on Objects
+- `prop` now only accepts a string (as documentation mentioned) as it's first param
+- `empty` throws a type error when given an invalid type if not given a String, Array, or Object
+- Renamed `extend` to `assign` (to go hand in hand with `Object.assign` so to speak)
+- Renamed `removeAtIndex` to `removeAt` to make it a little shorter to use
+- Renamed `replaceAtIndex` to `replaceAt` to make it a little shorter to use
+- `compress` now only removes undefined and null values and skips over falsey ones
+- Renamed `any` to `some`
+
+### New
+
+- Added `words` function which breaks down a string based on whitespace
+- Added `includes` function which looks through string to find the requested value
+- Added `reduce` function which reduces an array down (is Curried)
+- Added `trim` function which removes the whitespace on either side of a string
+- Added `add` function to generate a sum of two numbers
+- Added `sub` function to generate a difference of two numbers
+- Added `mul` function to generate a product of two numbers
+- Added `div` function to generate a quotient of two numbers
+- Added `length` function which returns the length of a passed array
+- Added `reverse` function which creates a new array based on the one pased in and reverses it
+- Added `and` function which checks if two Booleans passed in are true
+- Added `or` function which checks if at least one of two Booleans passed in are true
+- Added `slice` function which returns a subset of an array based on the provided indexes
+- Added `identity` function which just returns itself
+- Added `pipe` function which applies a sequence of transformations over a value
+- Added `sort` function which sorts a supplied array with the supplied comparison function
+- Added `gcd` function which gets the greatest common denominator of two numbers passed in
+- Added `lcm` function which gets the least common multiple of two numbers passed in
+- Added `capitalize` function which capitalizes the first letter of the string passed in
+- Added `difference` function which compares two arrays to create a new array of different values
+- Added `uniq` function which takes a function and builds an array of unique values with it
+- Added `union` function which combines a series of passed in arrays
+
+### Improved
+
+- The `curry` function is a little more optimized for space saving
+- Updated all dev dependencies for better testing and builds
+- Improved `defaults` function for size and hopefully performance
+- Tiny (like super tiny) code adjustments for more optimal sizes (super small size benefits)
+- Made `every` use the method instead of reinventing the wheel
+- Made `some` (any) use the method instead of reinventing the wheel
+- Overall code improvements taking more advantage of newer js rules that we can transpile with babel
+- Thanks to babel we can take advantage of new functionality IF it is there, otherwise we use our own
+
 ## v1.0.2
 
 ### Improved

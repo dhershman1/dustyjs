@@ -1,12 +1,6 @@
 import clone from './index';
 import test from 'ava';
 
-test('Test array functionality', t => {
-  const val = [1, 2, 3, 4];
-
-  t.deepEqual(clone(val), val);
-});
-
 test('Test object functionality', t => {
   const val = {
     test: 1,
@@ -16,3 +10,8 @@ test('Test object functionality', t => {
 
   t.deepEqual(clone(val), val);
 });
+
+test('Returns value back if not an object', t => {
+  t.is(clone('val'), 'val');
+});
+

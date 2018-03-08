@@ -24,4 +24,4 @@ import curry from '../curry';
  *
  * checker('small brown cow'); // => true
  */
-export default curry((str, a) => Boolean(str.toLowerCase().indexOf(a.toLowerCase())));
+export default curry((a, str) => str.indexOf(a) !== -1);

@@ -4,16 +4,15 @@ import isObject from '../_internals/isObject';
 /**
  * @name pluck
  * @since v0.6.0
- * @category Collection
+ * @category Object
  * @sig k -> f {k: v} -> f v
  * @description
- * Returns a new list by finding and grabbing the same named properties off all objects supplied
+ * Returns a new list of values based on the provided property name and provided object
  * @param {String} p The property to look for
- * @param {Array|Object} list The list to iterate through
- * @return {Array|Object} The new list which will be the same type as the list provided
+ * @param {Object} list The list to iterate through
+ * @return {Object} The new list which will be the same type as the list provided
  *
  * @example
- * pluck(0, [[1, 2], [3, 4]]); // => [1, 3]
  * pluck('val', { a: { val: 3 }, b: { val: 5 } }); // => { a: 3, b: 5 }
  *
  * // It is also curried
@@ -23,14 +22,16 @@ import isObject from '../_internals/isObject';
  */
 const pluck = curry((p, list) =>
   Object.keys(list).reduce((acc, v) => {
-    if (isObject(list[v]) || Array.isArray(list[v])) {
-      acc.push(...pluck(p, list[v]));
+    const val = list[v];
+
+    if (isObject(val)) {
+      acc.push(...pluck(p, val));
 
       return acc;
     }
 
-    if (String(v) === String(p)) {
-      acc.push(list[v]);
+    if (v === p) {
+      acc.push(val);
     }
 
     return acc;
