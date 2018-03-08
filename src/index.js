@@ -1,6 +1,5 @@
 export { default as add } from './add';
 export { default as and } from './and';
-export { default as any } from './any';
 export { default as assign } from './assign';
 export { default as capitalize } from './capitalize';
 export { default as clone } from './clone';
@@ -54,6 +53,7 @@ export { default as removeAt } from './removeAt';
 export { default as replaceAt } from './replaceAt';
 export { default as reverse } from './reverse';
 export { default as slice } from './slice';
+export { default as some } from './some';
 export { default as sort } from './sort';
 export { default as sub } from './sub';
 export { default as trim } from './trim';

@@ -16,6 +16,8 @@
 - Renamed `extend` to `assign` (to go hand in hand with `Object.assign` so to speak)
 - Renamed `removeAtIndex` to `removeAt` to make it a little shorter to use
 - Renamed `replaceAtIndex` to `replaceAt` to mkae it a little shorter to use
+- `compress` now only removes undefined and null values and skips over falsey ones
+- Renamed `any` to `some`
 
 ### New
 
@@ -48,6 +50,8 @@
 - Updated all dev dependencies for better testing and builds
 - Improved `defaults` function for size and hopefully performance
 - Tiny (like super tiny) code adjustments for more optimal sizes (super small size benefits)
+- Made `every` use the method instead of reinventing the wheel
+- Made `some` (any) use the method instead of reinventing the wheel
 
 ## v1.0.2
 
