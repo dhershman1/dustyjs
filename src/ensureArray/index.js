@@ -1,5 +1,3 @@
-/* eslint-disable no-undefined */
-
 import isNil from '../isNil';
 
 /**

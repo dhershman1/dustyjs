@@ -8,23 +8,28 @@ import isNil from '../isNil';
  * @sig {a} -> {b} -> {c}
  * @description
  * Applies default properties to an object that does not contain the smae or contains falsey values on those properties
- * @param {Object} a The default object to reference
- * @param {Object} b The data object to loop through
+ * @param {Object} def The default object to reference
+ * @param {Object} data The data object to loop through
  * @return {Object} A New object
  *
  * @example
- * const data = { thing: 4 };
  *
- * defaults({ test: 1, thing: 2 }, data); // => { test: 1, thing: 4 }
+ * defaults({ test: 1, thing: 2 }, { thing: 4 }); // => { test: 1, thing: 4 }
+ *
+ * // It's also curried
+ *
+ * const def = defaults({ test: 1, thing: 2 });
+ *
+ * def({ thing: 4 }); // => { test: 1, thing: 4 }
  */
-export default curry((a, b) => {
-  const keys = Object.keys(a);
+export default curry((def, data) => {
+  const keys = Object.keys(def);
 
   return keys.reduce((acc, prop) => {
     if (isNil(acc[prop])) {
-      acc[prop] = a[prop];
+      acc[prop] = def[prop];
     }
 
     return acc;
-  }, b);
+  }, data);
 });
