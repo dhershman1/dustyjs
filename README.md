@@ -2,9 +2,7 @@
 
 # Dusty.js (dusty-fns)
 
-A light weight pure functional library with single type helper functions
-
-**This is v2.0.0 README for continued progress towards completeing the 2.0.0 project (already I know). Checkout the [project page](https://github.com/dhershman1/dustyjs/projects/2) to see what's going on.**
+A light weight pure functional library with single type utility functions
 
 ## Changelog
 

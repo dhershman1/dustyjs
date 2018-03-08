@@ -12,10 +12,10 @@
 - `nth` technically can work with strings, but is only array focused now returns `undefined` if used on a string that doesn't have a character at the desired index
 - `omit` now only runs on Objects
 - `prop` now only accepts a string (as documentation mentioned) as it's first param
-- `empty` throws a type error when given an invalid type when not given a String, Array, or Object
+- `empty` throws a type error when given an invalid type if not given a String, Array, or Object
 - Renamed `extend` to `assign` (to go hand in hand with `Object.assign` so to speak)
 - Renamed `removeAtIndex` to `removeAt` to make it a little shorter to use
-- Renamed `replaceAtIndex` to `replaceAt` to mkae it a little shorter to use
+- Renamed `replaceAtIndex` to `replaceAt` to make it a little shorter to use
 - `compress` now only removes undefined and null values and skips over falsey ones
 - Renamed `any` to `some`
 
