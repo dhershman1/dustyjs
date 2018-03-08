@@ -12,20 +12,19 @@ import curry from '../curry';
  * @return {Array} Returns the modified array
  *
  * @example
- * const test = replaceAt(2, 10, [1, 2, 3]); // => [1, 2, 10]
+ * replaceAt(2, 10, [1, 2, 3]); // => [1, 2, 10]
  *
  * // You can also use it as a curried method
  *
  * const replacer = replaceAt(2, 10);
  *
- * const test = replacer([1, 2, 3]); // => [1, 2, 10]
+ * replacer([1, 2, 3]); // => [1, 2, 10]
  *
  * // This can be taken further like so
  *
  * const index = replaceAt(2);
  * const val = index(10);
- * const test = val([1, 2, 3]); // => [1, 2, 10]
+ * val([1, 2, 3]); // => [1, 2, 10]
  */
 export default curry((i, t, x) =>
-  x.slice(0, i).concat(t, x.slice(i + 1))
-);
+  [...x.slice(0, i), t, ...x.slice(i + 1)]);

@@ -11,6 +11,24 @@ test('Test base functionality', t => {
   t.deepEqual(compare, result);
 });
 
+test('Overwrite matching properties', t => {
+  const results = assign({
+    a: 1,
+    b: 2,
+    c: 3
+  }, {
+    c: 5,
+    d: 3
+  });
+
+  t.deepEqual(results, {
+    a: 1,
+    b: 2,
+    c: 5,
+    d: 3
+  });
+});
+
 test('Test with more complex objects', t => {
   const compare = {
     test: 1,
@@ -46,4 +64,15 @@ test('Test with nested objects', t => {
   });
 
   t.deepEqual(compare, result);
+});
+
+test('Handles any number of objects passed in', t => {
+  const results = assign({ a: 1 }, { b: 2 }, { c: 5 }, { c: 3 }, { d: 4 });
+
+  t.deepEqual(results, {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4
+  });
 });

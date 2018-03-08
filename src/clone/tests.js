@@ -10,3 +10,8 @@ test('Test object functionality', t => {
 
   t.deepEqual(clone(val), val);
 });
+
+test('Returns value back if not an object', t => {
+  t.is(clone('val'), 'val');
+});
+
