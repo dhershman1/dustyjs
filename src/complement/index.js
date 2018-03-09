@@ -8,7 +8,7 @@ import not from '../not';
  * @description
  * Takes a function and returns a new function that when called returns the opposite truthy/falsy value of
  * what was passed in.
- * @param {Function} pred The function we want to apply the complement of
+ * @param {Function} fn The function we want to apply the complement of
  * @param {Any} a The value our functionality is being ran against
  * @return {Function} Returns the opposite function back
  *
@@ -18,4 +18,4 @@ import not from '../not';
  * isNot(1); // => true
  * isNot('test'); // => false
  */
-export default curry((pred, a) => not(pred(a)));
+export default curry((fn, a) => not(fn(a)));

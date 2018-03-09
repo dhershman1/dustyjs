@@ -21,16 +21,16 @@ import curry from '../curry';
  * finder({val: 'test'}); // => 'test'
  * finder([{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
  */
-export default curry((fn, x) => {
-  let i = 0;
-  const len = x.length;
+export default curry((fn, list) => {
+  let idx = 0;
+  const len = list.length;
 
-  for (i; i < len; i++) {
-    const val = x[i];
-
-    if (fn(val)) {
-      return val;
+  while (idx < len) {
+    if (fn(list[idx])) {
+      return list[idx];
     }
+
+    idx += 1;
   }
 
   return false;

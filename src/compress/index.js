@@ -13,16 +13,11 @@ import isNil from '../isNil';
  * compress({ thing: '', test: 1 }, true); // => { test: 1 }
  * compress({ thing: '', test: 1 }, false); // => { thing: '', test: 1 }
  */
-export default obj => {
-  const results = {};
-
-  for (const prop in obj) {
-    const val = obj[prop];
-
-    if (!isNil(val)) {
-      results[prop] = val;
+export default obj =>
+  Object.keys(obj).reduce((acc, k) => {
+    if (!isNil(obj[k])) {
+      acc[k] = obj[k];
     }
-  }
 
-  return results;
-};
+    return acc;
+  }, {});
