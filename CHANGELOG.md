@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.0.1
+
+### New
+
+- Added a `intersection` function which goes through 2 arrays to create a new one of common values
+
+### Improved
+
+- Tweaked `assign` function to be a little bit smaller
+- Verbage changes to some functions params or variables
+- Tweaked `compress` function to be a little bit smaller and easier to follow
+- Tweaked `find` function to use a while loop and small verbage changes
+
 ## v2.0.0
 
 ### BREAKING CHANGES

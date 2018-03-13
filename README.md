@@ -42,7 +42,7 @@ http://www.dusty.codes/dusty-fns
 
 ## Split Methods
 
-Each method is importable by itself or desturctured from the main object. The benefit to being split up and importable individually is this helps out with tree shaking and only using the functionality you need at that time.
+Like [lodash](https://lodash.com/) each method is importable by itself or desturctured from the main object. The benefit to being split up and importable individually is this helps out with tree shaking and only using the functionality you need at that time. Keeping builds smaller.
 
 Examples:
 
