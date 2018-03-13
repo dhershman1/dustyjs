@@ -24,6 +24,7 @@ export { default as has } from './has';
 export { default as identical } from './identical';
 export { default as identity } from './identity';
 export { default as includes } from './includes';
+export { default as intersection } from './intersection';
 export { default as is } from './is';
 export { default as isEmpty } from './isEmpty';
 export { default as isEqual } from './isEqual';
