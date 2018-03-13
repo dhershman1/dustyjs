@@ -16,6 +16,6 @@ test('Returns NaN for empty lists', t => {
   t.is(mean([]), NaN);
 });
 
-test('Returns NaN for empty lists', t => {
+test('Returns NaN when nothing is passed', t => {
   t.is(mean(), NaN);
 });

@@ -9,7 +9,7 @@
             "ie >= 9"
           ]
         },
-        "modules": false
+        "modules": "commonjs"
       }
     ],
     "@babel/preset-stage-2"

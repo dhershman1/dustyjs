@@ -36,6 +36,7 @@
       "@babel/register"
     ],
     "failFast": true,
+    "concurrency": 5,
     "babel": {
       "testOptions": {
         "presets": [
