@@ -16,7 +16,7 @@ const listFns = () => {
 
 const generateIndex = files => {
   const propertyRequireLines = files
-    .map(fn => `export { default as ${fn.name} } from './${fn.name}'`);
+    .map(fn => `export { default as ${fn.name} } from './${fn.name}/index.js'`);
 
   const indexLines = []
     .concat(propertyRequireLines.join(';\n'))

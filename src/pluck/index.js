@@ -1,5 +1,5 @@
-import curry from '../curry';
-import isObject from '../_internals/isObject';
+import curry from '../curry/index.js';
+import isObject from '../_internals/isObject/index.js';
 
 /**
  * @name pluck

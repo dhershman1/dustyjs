@@ -1,4 +1,4 @@
-import nth from '../nth';
+import nth from '../nth/index.js';
 
 /**
  * @name max

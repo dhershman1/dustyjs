@@ -1,4 +1,4 @@
-import not from '../not';
+import not from '../not/index.js';
 
 // To keep checks strict we sadly have to use this
 /* eslint-disable no-undefined */

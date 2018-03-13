@@ -1,5 +1,5 @@
-import curry from '../curry';
-import not from '../not';
+import curry from '../curry/index.js';
+import not from '../not/index.js';
 
 /**
  * @name complement

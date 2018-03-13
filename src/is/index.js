@@ -1,5 +1,5 @@
-import curry from '../curry';
-import isNil from '../isNil';
+import curry from '../curry/index.js';
+import isNil from '../isNil/index.js';
 
 // To keep checks strict we sadly have to use this
 /* eslint-disable no-undefined */

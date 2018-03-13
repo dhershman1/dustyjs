@@ -1,5 +1,5 @@
-import curry from '../curry';
-import gcd from '../gcd';
+import curry from '../curry/index.js';
+import gcd from '../gcd/index.js';
 
 /**
  * @name lcm

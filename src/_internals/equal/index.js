@@ -1,8 +1,8 @@
-import arrayFromIterator from '../array-from-iterator';
-import functionName from '../function-name';
-import has from '../../has';
-import identical from '../../identical';
-import type from '../../type';
+import arrayFromIterator from '../array-from-iterator/index.js';
+import functionName from '../function-name/index.js';
+import has from '../../has/index.js';
+import identical from '../../identical/index.js';
+import type from '../../type/index.js';
 
 const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b);
 

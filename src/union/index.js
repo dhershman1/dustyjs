@@ -1,5 +1,5 @@
-import curry from '../curry';
-import flatten from '../flatten';
+import curry from '../curry/index.js';
+import flatten from '../flatten/index.js';
 
 /**
  * @name union

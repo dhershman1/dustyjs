@@ -1,4 +1,4 @@
-import _equal from '../_internals/equal';
+import _equal from '../_internals/equal/index.js';
 
 /**
  * @name isEqual

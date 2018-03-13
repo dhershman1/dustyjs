@@ -1,4 +1,4 @@
-import isObject from '../_internals/isObject';
+import isObject from '../_internals/isObject/index.js';
 
 /**
  * @name clone

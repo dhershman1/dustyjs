@@ -1,4 +1,4 @@
-import curry from '../curry';
+import curry from '../curry/index.js';
 
 const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
   outer: for (let i = 0, j = 0; i < nLen; i++) {

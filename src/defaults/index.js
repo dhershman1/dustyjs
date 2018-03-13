@@ -1,5 +1,5 @@
-import curry from '../curry';
-import isNil from '../isNil';
+import curry from '../curry/index.js';
+import isNil from '../isNil/index.js';
 
 /**
  * @name defaults

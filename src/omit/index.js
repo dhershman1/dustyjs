@@ -1,5 +1,5 @@
-import curry from '../curry';
-import ensureArray from '../ensureArray';
+import curry from '../curry/index.js';
+import ensureArray from '../ensureArray/index.js';
 
 /**
  * @name omit
