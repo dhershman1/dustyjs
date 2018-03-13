@@ -5,7 +5,7 @@ export default {
   input: './src/index.js',
   plugins: [
     babel({
-      plugins: ['external-helpers'],
+      plugins: ['@babel/plugin-external-helpers'],
       exclude: 'node_modules/**',
       runtimeHelpers: true
     }),

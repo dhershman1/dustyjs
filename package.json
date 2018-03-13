@@ -1,26 +1,25 @@
 {
   "name": "dusty-fns",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A small library of functional operators inspired by Ramda",
   "main": "./dusty.min.js",
   "devDependencies": {
-    "ava": "0.25.0",
-    "babel-core": "6.26.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "6.26.0",
+    "@babel/plugin-external-helpers": "7.0.0-beta.40",
+    "@babel/preset-env": "7.0.0-beta.40",
+    "@babel/preset-stage-0": "^7.0.0-beta.40",
+    "@babel/preset-stage-2": "7.0.0-beta.40",
+    "@babel/register": "7.0.0-beta.40",
+    "ava": "1.0.0-beta.3",
     "del": "3.0.0",
     "eslint": "4.18.0",
     "globby": "8.0.1",
     "jsdoc-to-markdown": "4.0.1",
-    "rollup": "^0.56.5",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-uglify": "^3.0.0"
+    "rollup": "0.56.5",
+    "rollup-plugin-babel": "4.0.0-beta.2",
+    "rollup-plugin-uglify": "3.0.0"
   },
   "scripts": {
-    "prepack": "webpack && node scripts/create-export.js && webpack --config webpack.dist.js && node scripts/docs.js",
-    "stats": "webpack --display-modules && npm run clean && webpack --config webpack.dist.js --display-modules",
+    "prepack": "rollup -c rollup.split.js && node scripts/create-export.js && rollup -c && node scripts/docs.js",
     "postpack": "npm run clean",
     "build": "rollup -c",
     "split": "rollup -c rollup.split.js",
@@ -33,15 +32,18 @@
     "files": [
       "src/**/tests.js"
     ],
-    "source": [
-      "src/**/*.js"
-    ],
-    "concurrency": 5,
     "require": [
-      "babel-register"
+      "@babel/register"
     ],
-    "babel": "inherit",
-    "failFast": true
+    "failFast": true,
+    "babel": {
+      "testOptions": {
+        "presets": [
+          "@ava/transform-test-files",
+          "@ava/stage-4"
+        ]
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -62,5 +64,8 @@
   "bugs": {
     "url": "https://github.com/dhershman1/dustyjs/issues"
   },
-  "homepage": "https://github.com/dhershman1/dustyjs#readme"
+  "homepage": "https://github.com/dhershman1/dustyjs#readme",
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.40"
+  }
 }

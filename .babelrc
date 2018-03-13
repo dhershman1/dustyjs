@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
           "browsers": [
@@ -9,10 +9,9 @@
             "ie >= 9"
           ]
         },
-        "modules": false,
-        "loose": true
+        "modules": false
       }
     ],
-    "stage-2"
+    "@babel/preset-stage-2"
   ]
 }
