@@ -7,6 +7,7 @@
 - Added a `intersection` function which goes through 2 arrays to create a new one of common values
 - Dropped webpack build system in favor of rollup, this has provided extremely improved builds with much smaller files and faster builds
     - This won't have any effect on how the library is used, only on size and performance
+    - The main file size is now only 8kb! Compared to the 22.5kb from before
 
 ### Improved
 
