@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsDocParser = require('jsdoc-to-markdown');
+const { version } = require('../package.json');
 const ignoredFiles = ['_internals', 'esm', 'index.js'];
 
 const listFns = () => {
@@ -26,9 +27,13 @@ const generateUsage = name => ({
     title: 'Standard',
     code: `import ${name} from 'dusty-fns/${name}';`
   },
+  'cdn': {
+    title: 'CDN',
+    code: `<script src="https://cdn.jsdelivr.net/npm/dusty-fns@${version}/${name}/index.js"></script>`
+  },
   'browser': {
     title: 'Browser',
-    code: `<script src="path/to/dusty-fns/${name}/index.js"></script>`
+    code: `<script src="path/to/modules/dusty-fns/${name}/index.js"></script>`
   }
 });
 
