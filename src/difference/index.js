@@ -14,6 +14,11 @@ import flatten from '../flatten/index.js';
  * @example
  *
  * difference([1, 2, 3], [1]); // => [2, 3];
+ *
+ * // It's also curried
+ * const diff = difference([1, 2, 3]);
+ *
+ * diff([1]); // => [2, 3]
  */
 export default curry((a, [...rest]) => {
   const flatRest = flatten(rest);
