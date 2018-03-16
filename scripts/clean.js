@@ -8,6 +8,7 @@ const ignoredFiles = [
   '.git',
   '.gitignore',
   '.npmignore',
+  '.github',
   'node_modules',
   'src',
   'scripts',

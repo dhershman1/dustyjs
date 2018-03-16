@@ -21,7 +21,6 @@ export default {
         ],
         '@babel/preset-stage-2'
       ],
-      plugins: ['@babel/plugin-external-helpers'],
       exclude: 'node_modules/**',
       runtimeHelpers: true
     }),
