@@ -4,11 +4,12 @@
   "description": "A small library of functional operators inspired by Ramda",
   "main": "./dusty.min.js",
   "devDependencies": {
-    "@babel/plugin-external-helpers": "7.0.0-beta.40",
-    "@babel/preset-env": "7.0.0-beta.40",
-    "@babel/preset-stage-0": "^7.0.0-beta.40",
-    "@babel/preset-stage-2": "7.0.0-beta.40",
-    "@babel/register": "7.0.0-beta.40",
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/plugin-external-helpers": "7.0.0-beta.42",
+    "@babel/preset-env": "7.0.0-beta.42",
+    "@babel/preset-stage-0": "7.0.0-beta.42",
+    "@babel/preset-stage-2": "7.0.0-beta.42",
+    "@babel/register": "7.0.0-beta.42",
     "ava": "1.0.0-beta.3",
     "del": "3.0.0",
     "eslint": "4.18.0",
@@ -65,8 +66,5 @@
   "bugs": {
     "url": "https://github.com/dhershman1/dustyjs/issues"
   },
-  "homepage": "https://github.com/dhershman1/dustyjs#readme",
-  "dependencies": {
-    "@babel/core": "^7.0.0-beta.40"
-  }
+  "homepage": "https://github.com/dhershman1/dustyjs#readme"
 }

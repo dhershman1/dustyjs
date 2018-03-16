@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.2
+
+- I accidentally appeared to have put babel core as a dependency, this is fixed now
+
 ## v2.0.1
 
 ### New
