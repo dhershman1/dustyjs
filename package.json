@@ -24,6 +24,7 @@
     "postpack": "npm run clean",
     "build": "rollup -c",
     "split": "rollup -c rollup.split.js",
+    "scripts": "node scripts/create-export.js && node scripts/docs.js",
     "clean": "node scripts/clean.js",
     "postpublish": "npm run clean",
     "test:watch": "ava --watch",

@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.3 (Unreleased)
+
+- Added `values` function which acts like `Object.values` but with IE9+ support
+
 ## v2.0.2
 
 - I accidentally appeared to have put babel core as a dependency, this is fixed now

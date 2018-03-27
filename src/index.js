@@ -61,4 +61,5 @@ export { default as trim } from './trim/index.js';
 export { default as type } from './type/index.js';
 export { default as union } from './union/index.js';
 export { default as uniq } from './uniq/index.js';
+export { default as values } from './values/index.js';
 export { default as words } from './words/index.js';
