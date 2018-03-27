@@ -13,6 +13,7 @@ export { default as difference } from './difference/index.js';
 export { default as div } from './div/index.js';
 export { default as empty } from './empty/index.js';
 export { default as ensureArray } from './ensureArray/index.js';
+export { default as entries } from './entries/index.js';
 export { default as every } from './every/index.js';
 export { default as filter } from './filter/index.js';
 export { default as find } from './find/index.js';
