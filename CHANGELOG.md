@@ -2,6 +2,8 @@
 
 ## v2.1.0 (Unreleased)
 
+### New
+
 - Added `values` function which acts like `Object.values` but with IE9+ support
 - Added `entries` function which acts like `Object.entries` but with IE9+ support
 
