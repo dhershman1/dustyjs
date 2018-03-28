@@ -13,7 +13,8 @@ const ignoredFiles = [
   'src',
   'scripts',
   '.babelrc',
-  '.eslintignore'
+  '.eslintignore',
+  'LICENSE'
 ];
 const results = fileList.filter(f => {
   const { ext, name } = path.parse(f);
