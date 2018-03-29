@@ -7,6 +7,7 @@ export { default as complement } from './complement/index.js';
 export { default as compress } from './compress/index.js';
 export { default as contains } from './contains/index.js';
 export { default as curry } from './curry/index.js';
+export { default as curryN } from './curryN/index.js';
 export { default as deepClone } from './deepClone/index.js';
 export { default as defaults } from './defaults/index.js';
 export { default as difference } from './difference/index.js';

@@ -10,6 +10,7 @@
  *
  * @example
  * const add = curry((a, b) => a + b);
+ *
  * add(1)(2); // => 3
  * add(1, 2); // => 3
  */
