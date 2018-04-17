@@ -11,6 +11,7 @@ const ignoredFiles = [
   '.github',
   'node_modules',
   'src',
+  'test',
   'scripts',
   '.babelrc',
   '.eslintignore',
