@@ -8,7 +8,7 @@ const listFns = () => {
   return files
     .filter(file => (/^[^._]/).test(file) && !ignoredFiles.includes(file))
     .map(file => ({
-      name: file,
+      name: file.replace('.js', ''),
       path: `./${file}`,
       fullPath: `./src/${file}/index.js`
     }));
@@ -16,7 +16,7 @@ const listFns = () => {
 
 const generateIndex = files => {
   const propertyRequireLines = files
-    .map(fn => `export { default as ${fn.name} } from './${fn.name}/index.js'`);
+    .map(fn => `export { default as ${fn.name} } from './${fn.name}'`);
 
   const indexLines = []
     .concat(propertyRequireLines.join(';\n'))

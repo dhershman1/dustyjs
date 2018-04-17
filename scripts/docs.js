@@ -29,7 +29,7 @@ const generateUsage = name => ({
   },
   'cdn': {
     title: 'CDN',
-    code: `<script src="https://cdn.jsdelivr.net/npm/dusty-fns@${version}/${name}/index.js"></script>`
+    code: `<script src="https://cdn.jsdelivr.net/npm/dusty-fns@${version}/${name}.js"></script>`
   },
   'browser': {
     title: 'Browser',

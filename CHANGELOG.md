@@ -6,6 +6,11 @@
 
 - Added `curryN` function which works a lot like `curry` but requires you tell it how many arguments to expect. Which helps it work with default and rest params
 
+## Improved
+
+- Moved all functionality to a flat level (they no longer live inside their own folders)
+  - This changes how CDNs work slightly but only by deleting the index.js so `path/to/dusty-fns/name/index.js` would become `path/to/dusty-fns/name.js`
+
 ## v2.1.0
 
 ### New

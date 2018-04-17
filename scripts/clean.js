@@ -14,12 +14,17 @@ const ignoredFiles = [
   'scripts',
   '.babelrc',
   '.eslintignore',
-  'LICENSE'
+  'LICENSE',
+  'dusty.min',
+  'docs',
+  '.eslintrc',
+  'rollup.config',
+  'rollup.split'
 ];
 const results = fileList.filter(f => {
   const { ext, name } = path.parse(f);
 
-  return !ext && ignoredFiles.indexOf(name) === -1;
+  return ignoredFiles.indexOf(name) === -1 && (!ext || ext === '.js');
 });
 
 del(results).then(() => {
