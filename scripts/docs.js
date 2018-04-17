@@ -9,11 +9,15 @@ const listFns = () => {
 
   return files
     .filter(file => (/^[^._]/).test(file) && !ignoredFiles.includes(file))
-    .map(file => ({
-      name: file,
-      path: `./${file}`,
-      fullPath: `./src/${file}/index.js`
-    }));
+    .map(file => {
+      const cleanName = file.replace('.js', '');
+
+      return {
+        name: cleanName,
+        path: `./${cleanName}`,
+        fullPath: `./src/${cleanName}.js`
+      }
+    });
 };
 
 const writeDocs = fileObj => fs.writeFileSync('docs.js', `module.exports = ${JSON.stringify(fileObj)}`);

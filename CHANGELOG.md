@@ -12,6 +12,10 @@
   - This changes how CDNs work slightly but only by deleting the index.js so `path/to/dusty-fns/name/index.js` would become `path/to/dusty-fns/name.js`
   - This change will NOT affect anything about how the module is used, this will only apply to those using CDN or pathing to the module
 
+## Updated
+
+- All Dev Dependencies have been brought up to date
+
 ## v2.1.0
 
 ### New
