@@ -20,12 +20,13 @@ const ignoredFiles = [
   'docs',
   '.eslintrc',
   'rollup.config',
-  'rollup.split'
+  'rollup.split',
+  'dusty.min.js'
 ];
 const results = fileList.filter(f => {
   const { ext, name } = path.parse(f);
 
-  return ignoredFiles.indexOf(name) === -1 && (!ext || ext === '.js');
+  return ignoredFiles.indexOf(name) === -1 && (!ext || ['.js', '.map'].indexOf(ext) !== -1);
 });
 
 del(results).then(() => {

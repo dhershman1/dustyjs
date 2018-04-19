@@ -55,6 +55,7 @@ export { default as reject } from './reject';
 export { default as removeAt } from './removeAt';
 export { default as replaceAt } from './replaceAt';
 export { default as reverse } from './reverse';
+export { default as round } from './round';
 export { default as slice } from './slice';
 export { default as some } from './some';
 export { default as sort } from './sort';

@@ -29,6 +29,7 @@ export default {
   output: {
     file: 'dusty.min.js',
     format: 'umd',
-    name: 'dustyFns'
+    name: 'dustyFns',
+    sourcemap: true
   }
 };

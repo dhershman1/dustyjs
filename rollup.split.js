@@ -49,7 +49,8 @@ const buildEntry = () => {
         dir,
         file: `${moduleName}.js`,
         format: 'umd',
-        name: moduleName
+        name: moduleName,
+        sourcemap: true
       }
     };
 
