@@ -14,8 +14,8 @@ const listFns = () => {
     }));
 };
 
-const generateIndex = files => {
-  const propertyRequireLines = files
+const generateIndex = () => {
+  const propertyRequireLines = listFns()
     .map(fn => `export { default as ${fn.name} } from './${fn.name}'`);
 
   const indexLines = []
@@ -25,4 +25,4 @@ const generateIndex = files => {
   return `${indexLines};\n`;
 };
 
-fs.writeFileSync('src/index.js', generateIndex(listFns()));
+fs.writeFileSync('src/index.js', generateIndex());

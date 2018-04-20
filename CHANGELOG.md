@@ -12,6 +12,8 @@
 - Moved all functionality to a flat level (they no longer live inside their own folders)
   - This changes how CDNs work slightly but only by deleting the index.js so `path/to/dusty-fns/name/index.js` would become `path/to/dusty-fns/name.js`
   - This change will NOT affect anything about how the module is used, this will only apply to those using CDN or pathing to the module
+- Drastically improved internal docs generation script speed
+- Slight Tweaks to other internal scripts
 
 ## Updated
 
