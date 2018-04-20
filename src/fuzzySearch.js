@@ -1,13 +1,25 @@
 import curry from './curry';
 
-const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
-  outer: for (let i = 0, j = 0; i < nLen; i++) {
-    const nch = n.charCodeAt(i);
+const innerSearch = (start, haystack, nChar) => {
+  let j = start;
+  const len = haystack.length;
 
-    while (j < hLen) {
-      if (h.charCodeAt(j++) === nch) {
-        continue outer;
-      }
+  while (j < len) {
+    if (haystack.charCodeAt(j++) === nChar) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const newSearch = (haystack, needle) => {
+  const len = needle.length;
+  const j = 0;
+
+  for (let i = 0; i < len; i++) {
+    if (innerSearch(j, haystack, needle.charCodeAt(i))) {
+      continue;
     }
 
     return false;
@@ -15,6 +27,22 @@ const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
 
   return true;
 };
+
+// const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
+//   outer: for (let i = 0, j = 0; i < nLen; i++) {
+//     const nch = n.charCodeAt(i);
+
+//     while (j < hLen) {
+//       if (h.charCodeAt(j++) === nch) {
+//         continue outer;
+//       }
+//     }
+
+//     return false;
+//   }
+
+//   return true;
+// };
 
 /**
  * @name fuzzySearch
@@ -32,8 +60,8 @@ const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
  *
  * // search is also curried
  *
- * const searcher = fuzzySearch('test');
- * const results = searcher('te'); // => true
+ * const search = fuzzySearch('test');
+ * const results = search('te'); // => true
  */
 export default curry((h, n) => {
   const hLen = h.length;
@@ -47,8 +75,5 @@ export default curry((h, n) => {
     return n === h;
   }
 
-  return search(h, n, {
-    nLen,
-    hLen
-  });
+  return newSearch(h, n);
 });

@@ -19,7 +19,8 @@
     "rollup-plugin-babel": "4.0.0-beta.4",
     "rollup-plugin-cleanup": "2.0.1",
     "rollup-plugin-filesize": "1.5.0",
-    "rollup-plugin-uglify": "3.0.0"
+    "rollup-plugin-uglify": "3.0.0",
+    "standard": "^11.0.1"
   },
   "scripts": {
     "prepack": "rollup -c rollup.split.js && node scripts/create-export.js && rollup -c && node scripts/docs.js",
@@ -31,11 +32,12 @@
     "clean": "node scripts/clean.js",
     "postpublish": "npm run clean",
     "test:watch": "ava --watch",
-    "test": "ava"
+    "test": "ava",
+    "lint": "standard src"
   },
   "ava": {
     "files": [
-      "test/*.js"
+      "test/fuzzySearch.js"
     ],
     "require": [
       "@babel/register"

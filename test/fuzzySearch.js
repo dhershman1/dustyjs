@@ -8,6 +8,11 @@ test('Basic Functionality', t => {
   t.truthy(fuzzySearch('cast', 'ca'));
 });
 
+test('Little more advanced search', t => {
+  t.true(fuzzySearch('curry', 'cu'));
+  t.true(fuzzySearch('curryN', 'cu'));
+});
+
 test('Test curried functionality', t => {
   const searcher = fuzzySearch('cartwheel');
 

@@ -29,4 +29,3 @@ export default x => {
 
   throw new TypeError('Empty requires an emptyable type, like a String or Array');
 };
-
