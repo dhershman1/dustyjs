@@ -4,11 +4,6 @@ import globby from 'globby';
 import path from 'path';
 import uglify from 'rollup-plugin-uglify';
 
-// const babel = require('rollup-plugin-babel');
-// const globby = require('globby');
-// const path = require('path');
-// const uglify = require('rollup-plugin-uglify');
-
 const buildEntry = () => {
   const results = [];
   const paths = globby.sync(['src/*.js', '!src/index.js', '!src/_internals']);
