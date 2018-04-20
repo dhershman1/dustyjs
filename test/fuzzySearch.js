@@ -13,6 +13,10 @@ test('Little more advanced search', t => {
   t.true(fuzzySearch('curryN', 'cu'));
 });
 
+test('search with cu for chuck', t => {
+  t.true(fuzzySearch('chuck', 'cu'));
+});
+
 test('Test curried functionality', t => {
   const searcher = fuzzySearch('cartwheel');
 
