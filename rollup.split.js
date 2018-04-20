@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel';
+import filesize from 'rollup-plugin-filesize';
 import globby from 'globby';
 import path from 'path';
 import uglify from 'rollup-plugin-uglify';
@@ -43,14 +44,14 @@ const buildEntry = () => {
           exclude: 'node_modules/**',
           runtimeHelpers: true
         }),
-        uglify()
+        uglify(),
+        filesize()
       ],
       output: {
         dir,
         file: `${moduleName}.js`,
         format: 'umd',
-        name: moduleName,
-        sourcemap: true
+        name: moduleName
       }
     };
 

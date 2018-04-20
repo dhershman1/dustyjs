@@ -20,9 +20,5 @@ import curry from './curry';
  * rounder(122.4456); // => 112.446
  * rounder(122.332); // => 122.332
  */
-export default curry((precision, num) => {
-  const roundedNum = (Math.round(`${num}e${precision}`));
-
-  return Number(`${roundedNum}e-${precision}`);
-});
+export default curry((precision, num) => Number(`${Math.round(`${num}e${precision}`)}e-${precision}`));
 

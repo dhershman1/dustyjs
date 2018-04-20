@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel';
+import filesize from 'rollup-plugin-filesize';
 import uglify from 'rollup-plugin-uglify';
 
 export default {
@@ -24,12 +25,12 @@ export default {
       exclude: 'node_modules/**',
       runtimeHelpers: true
     }),
-    uglify()
+    uglify(),
+    filesize()
   ],
   output: {
     file: 'dusty.min.js',
     format: 'umd',
-    name: 'dustyFns',
-    sourcemap: true
+    name: 'dusty'
   }
 };
