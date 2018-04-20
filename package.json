@@ -2,7 +2,7 @@
   "name": "dusty-fns",
   "version": "2.2.0",
   "description": "A small library of functional operators inspired by Ramda",
-  "main": "./dusty.min.js",
+  "main": "dist/dusty.min.js",
   "devDependencies": {
     "@babel/core": "7.0.0-beta.44",
     "@babel/plugin-external-helpers": "7.0.0-beta.44",
@@ -17,6 +17,7 @@
     "jsdoc-to-markdown": "4.0.1",
     "rollup": "0.58.1",
     "rollup-plugin-babel": "4.0.0-beta.4",
+    "rollup-plugin-cleanup": "2.0.1",
     "rollup-plugin-filesize": "1.5.0",
     "rollup-plugin-uglify": "3.0.0"
   },
