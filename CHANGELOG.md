@@ -16,6 +16,7 @@
 ## Updated
 
 - All Dev Dependencies have been brought up to date
+- Much needed README update
 
 ## v2.1.0
 
