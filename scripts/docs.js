@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsDocParser = require('jsdoc-to-markdown');
+const doctrine = require('doctrine');
 const { version } = require('../package.json');
 const ignoredFiles = ['_internals', 'esm', 'index.js'];
 
@@ -9,18 +10,8 @@ const listFns = () => {
 
   return files
     .filter(file => (/^[^._]/).test(file) && !ignoredFiles.includes(file))
-    .map(file => {
-      const cleanName = file.replace('.js', '');
-
-      return {
-        name: cleanName,
-        path: `./${cleanName}`,
-        fullPath: `./src/${cleanName}.js`
-      }
-    });
+    .map(file => `./src/${file.replace('.js', '')}.js`);
 };
-
-const writeDocs = fileObj => fs.writeFileSync('docs.js', `module.exports = ${JSON.stringify(fileObj)}`);
 
 const generateUsage = name => ({
   'commonjs': {
@@ -51,32 +42,22 @@ const generateSyntax = (name, args) => {
   return `${name}(${argsStr})`;
 };
 
-const generateSourceDocs = () => listFns().map(fn => jsDocParser.getTemplateDataSync({
-  'files': fn.fullPath,
+jsDocParser.getTemplateData({
+  'files': listFns(),
   'no-cache': true
-})[0])
-  .map(d => ({
+}).then((data) => {
+  const results = data.map(d => ({
     since: d.since ? d.since : 'Unknown',
     category: d.category,
     title: d.name,
-    description: d.description,
+    desc: d.description,
     examples: d.examples,
     returns: d.returns,
-    params: d.params
+    params: d.params,
+    syntax: generateSyntax(d.name, d.params),
+    usage: generateUsage(d.name)
   }));
 
-let generated = generateSourceDocs();
-
-generated = generated.map(doc => ({
-  title: doc.title,
-  since: doc.since,
-  category: doc.category,
-  syntax: generateSyntax(doc.title, doc.params),
-  usage: generateUsage(doc.title),
-  desc: doc.description,
-  examples: doc.examples,
-  params: doc.params,
-  returns: doc.returns
-}));
-
-writeDocs(generated);
+  console.log(results.length);
+  fs.writeFileSync('docs.js', `module.exports = ${JSON.stringify(results)}`);
+});

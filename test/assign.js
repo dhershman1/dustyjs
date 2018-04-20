@@ -1,6 +1,10 @@
 import assign from '../src/assign';
 import test from 'ava';
 
+test('Handle single level object', t => {
+  t.deepEqual(assign({ a: 1 }), { a: 1 });
+});
+
 test('Test base functionality', t => {
   const compare = {
     test: 1,
