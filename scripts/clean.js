@@ -16,8 +16,6 @@ const ignoredFiles = [
   '.babelrc',
   '.eslintignore',
   'LICENSE',
-  'dusty.min',
-  'dusty',
   'docs',
   '.eslintrc',
   'rollup.config',
