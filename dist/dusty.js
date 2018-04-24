@@ -296,15 +296,22 @@
     return x[0];
   });
 
-  var search = function search(h, n, _ref) {
-    var nLen = _ref.nLen,
-        hLen = _ref.hLen;
-    outer: for (var i = 0, j = 0; i < nLen; i++) {
-      var nch = n.charCodeAt(i);
-      while (j < hLen) {
-        if (h.charCodeAt(j++) === nch) {
-          continue outer;
-        }
+  var innerSearch = function innerSearch(start, haystack, nChar) {
+    var j = start;
+    var len = haystack.length;
+    while (j < len) {
+      if (haystack.charCodeAt(j++) === nChar) {
+        return true;
+      }
+    }
+    return false;
+  };
+  var search = function search(haystack, needle) {
+    var len = needle.length;
+    var j = 0;
+    for (var i = 0; i < len; i++) {
+      if (innerSearch(j, haystack, needle.charCodeAt(i))) {
+        continue;
       }
       return false;
     }
@@ -319,10 +326,7 @@
     if (nLen === hLen) {
       return n === h;
     }
-    return search(h, n, {
-      nLen: nLen,
-      hLen: hLen
-    });
+    return search(h, n);
   });
 
   var gcd = curry(function (a, b) {
