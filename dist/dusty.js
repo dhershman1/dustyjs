@@ -384,7 +384,7 @@
   });
 
   var nullTypeCheck = function nullTypeCheck(a, b) {
-    return a === null || b === null || type(a) !== type(b);
+    return a === null || b === null || Object.prototype.toString.call(a).slice(8, -1) !== Object.prototype.toString.call(b).slice(8, -1);
   };
   var regexCheck = function regexCheck(a, b) {
     var vals = ['source', 'global', 'ignoreCase', 'multiline', 'sticky', 'unicode'];
@@ -396,7 +396,7 @@
     }
     return true;
   };
-  var typeCheck = function typeCheck(a) {
+  var typeConvert = function typeConvert(a) {
     var allTypes = {
       complex: ['Arguments', 'Array', 'Object'],
       simple: ['Boolean', 'Number', 'String'],
@@ -414,28 +414,35 @@
     }
     return '';
   };
+  var identical$1 = function identical(a, b) {
+    if (a === b) {
+      return a !== 0 || 1 / a === 1 / b;
+    }
+    return a !== a && b !== b;
+  };
   var equal = function equal(a, b) {
     var stackA = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
     var stackB = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
-    if (identical(a, b)) {
+    var aType = typeConvert(Object.prototype.toString.call(a).slice(8, -1));
+    if (identical$1(a, b)) {
       return true;
     }
     if (nullTypeCheck(a, b)) {
       return false;
     }
-    switch (typeCheck(type(a))) {
+    switch (aType) {
       case 'complex':
         if (typeof a.constructor === 'function' && functionName(a.constructor) === 'Promise') {
           return a === b;
         }
         break;
       case 'simple':
-        if (!(_typeof(a) === _typeof(b) && identical(a.valueOf(), b.valueOf()))) {
+        if (!(_typeof(a) === _typeof(b) && identical$1(a.valueOf(), b.valueOf()))) {
           return false;
         }
         break;
       case 'date':
-        if (!identical(a.valueOf(), b.valueOf())) {
+        if (!identical$1(a.valueOf(), b.valueOf())) {
           return false;
         }
         break;
@@ -472,7 +479,7 @@
     stackB.push(b);
     while (idy >= 0) {
       var key = keysA[idy];
-      if (!(has(key, b) && equal(b[key], a[key], stackA, stackB))) {
+      if (!(Object.prototype.hasOwnProperty.call(b, key) && equal(b[key], a[key], stackA, stackB))) {
         return false;
       }
       idy -= 1;
