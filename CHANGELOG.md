@@ -8,7 +8,7 @@
 - Added `round` function which uses exponents to accuratly round numbers based on a provided precision
 - Replaced `eslint` with `standardjs` linting
 
-## Improved
+### Improved
 
 - Moved all functionality to a flat level (they no longer live inside their own folders)
   - This changes how CDNs work slightly but only by deleting the index.js so `path/to/dusty-fns/name/index.js` would become `path/to/dusty-fns/name.js`
@@ -18,7 +18,7 @@
 - Improved the flow and readability of `fuzzySearch`
 - Slight tweak to slightly lower `isEqual` file size
 
-## Updated
+### Updated
 
 - All Dev Dependencies have been brought up to date
 - Much needed README update
