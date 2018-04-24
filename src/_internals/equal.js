@@ -1,25 +1,25 @@
-import arrayFromIterator from './array-from-iterator';
-import functionName from './function-name';
-import has from '../has';
-import identical from '../identical';
-import type from '../type';
+import arrayFromIterator from './array-from-iterator'
+import functionName from './function-name'
+import has from '../has'
+import identical from '../identical'
+import type from '../type'
 
-const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b);
+const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b)
 
 // Contain the bulk of basic regex logic
 const regexCheck = (a, b) => {
-  const vals = ['source', 'global', 'ignoreCase', 'multiline', 'sticky', 'unicode'];
+  const vals = ['source', 'global', 'ignoreCase', 'multiline', 'sticky', 'unicode']
 
   for (let i = 0; i < vals.length; i++) {
-    const p = vals[i];
+    const p = vals[i]
 
     if (a[p] !== b[p]) {
-      return false;
+      return false
     }
   }
 
-  return true;
-};
+  return true
+}
 
 // Try to simplify our switch with a function narrowing down our options
 const typeCheck = a => {
@@ -33,96 +33,95 @@ const typeCheck = a => {
     other: ['Int8Array', 'Uint8Array', 'Uint8ClampedArray',
       'Int16Array', 'Uint16Array', 'Int32Array',
       'Uint32Array', 'Float32Array', 'Float64Array', 'ArrayBuffer']
-  };
+  }
 
   for (const prop in allTypes) {
-    const currType = allTypes[prop];
+    const currType = allTypes[prop]
 
     if (currType.indexOf(a) !== -1) {
-      return prop;
+      return prop
     }
   }
 
-  return '';
-};
+  return ''
+}
 
 // The vast functionality of the extremely strict equals functionality
-const equal = (a, b, stackA = [], stackB = []) => { // eslint-disable-line complexity
+const equal = (a, b, stackA = [], stackB = []) => {
   if (identical(a, b)) {
-    return true;
+    return true
   }
 
   if (nullTypeCheck(a, b)) {
-    return false;
+    return false
   }
 
   switch (typeCheck(type(a))) {
     case 'complex':
       if (typeof a.constructor === 'function' &&
       functionName(a.constructor) === 'Promise') {
-
-        return a === b;
+        return a === b
       }
-      break;
+      break
     case 'simple':
       if (!(typeof a === typeof b && identical(a.valueOf(), b.valueOf()))) {
-        return false;
+        return false
       }
-      break;
+      break
     case 'date':
       if (!identical(a.valueOf(), b.valueOf())) {
-        return false;
+        return false
       }
-      break;
+      break
     case 'err':
-      return a.name === b.name && a.message === b.message;
+      return a.name === b.name && a.message === b.message
     case 'regex':
       if (!regexCheck(a, b)) {
-        return false;
+        return false
       }
-      break;
+      break
     case 'map':
       if (!equal(arrayFromIterator(a.entries()), arrayFromIterator(b.entries()), stackA, stackB)) {
-        return false;
+        return false
       }
-      break;
+      break
     case 'other':
-      break;
+      break
     default:
-      return false;
+      return false
   }
 
-  const keysA = Object.keys(a);
+  const keysA = Object.keys(a)
 
   if (keysA.length !== Object.keys(b).length) {
-    return false;
+    return false
   }
 
-  let idx = stackA.length - 1;
-  let idy = keysA.length - 1;
+  let idx = stackA.length - 1
+  let idy = keysA.length - 1
 
   while (idx >= 0) {
     if (stackA[idx] === a) {
-      return stackB[idx] === b;
+      return stackB[idx] === b
     }
-    idx -= 1;
+    idx -= 1
   }
 
-  stackA.push(a);
-  stackB.push(b);
+  stackA.push(a)
+  stackB.push(b)
 
   while (idy >= 0) {
-    const key = keysA[idy];
+    const key = keysA[idy]
 
     if (!(has(key, b) && equal(b[key], a[key], stackA, stackB))) {
-      return false;
+      return false
     }
-    idy -= 1;
+    idy -= 1
   }
-  stackA.pop();
-  stackB.pop();
+  stackA.pop()
+  stackB.pop()
 
-  return true;
-};
+  return true
+}
 
-export default equal;
+export default equal
