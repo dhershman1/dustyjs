@@ -1,8 +1,8 @@
-const path = require('path');
-const fs = require('fs');
-const del = require('del');
+const path = require('path')
+const fs = require('fs')
+const del = require('del')
 
-const fileList = fs.readdirSync(path.join(__dirname, '..'));
+const fileList = fs.readdirSync(path.join(__dirname, '..'))
 
 const ignoredFiles = [
   '.git',
@@ -20,13 +20,13 @@ const ignoredFiles = [
   '.eslintrc',
   'rollup.config',
   'rollup.split'
-];
+]
 const results = fileList.filter(f => {
-  const { ext, name } = path.parse(f);
+  const { ext, name } = path.parse(f)
 
-  return ignoredFiles.indexOf(name) === -1 && (!ext || ext === '.js');
-});
+  return ignoredFiles.indexOf(name) === -1 && (!ext || ext === '.js')
+})
 
 del(results).then(() => {
-  console.info('Finished Cleaning Up');
-});
+  console.info('Finished Cleaning Up')
+})

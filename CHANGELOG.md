@@ -6,6 +6,7 @@
 
 - Added `curryN` function which works a lot like `curry` but requires you tell it how many arguments to expect. Which helps it work with default and rest params
 - Added `round` function which uses exponents to accuratly round numbers based on a provided precision
+- Replaced `eslint` with `standardjs` linting
 
 ## Improved
 
