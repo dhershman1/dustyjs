@@ -1,14 +1,14 @@
-import complement from '../src/complement';
-import test from 'ava';
+import complement from '../src/complement'
+import test from 'ava'
 
 test('Basic functionality', t => {
-  t.false(complement(Array.isArray, []));
-  t.true(complement(Array.isArray, 10));
-});
+  t.false(complement(Array.isArray, []))
+  t.true(complement(Array.isArray, 10))
+})
 
 test('Curried functionality', t => {
-  const isNot = complement(Array.isArray);
+  const isNot = complement(Array.isArray)
 
-  t.false(isNot([]));
-  t.true(isNot(10));
-});
+  t.false(isNot([]))
+  t.true(isNot(10))
+})

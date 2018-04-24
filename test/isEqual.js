@@ -1,5 +1,5 @@
-import isEqual from '../src/isEqual';
-import test from 'ava';
+import isEqual from '../src/isEqual'
+import test from 'ava'
 
 /* eslint-disable */
 

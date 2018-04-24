@@ -1,5 +1,5 @@
-import isEmpty from '../src/isEmpty';
-import test from 'ava';
+import isEmpty from '../src/isEmpty'
+import test from 'ava'
 
 /* eslint-disable
 func-names,
@@ -11,28 +11,28 @@ no-undefined,
 no-empty-function */
 
 test('Returns false when not empty', t => {
-  t.false(isEmpty(['']));
-});
+  t.false(isEmpty(['']))
+})
 
 test('Returns true for empty strings', t => {
-  t.true(isEmpty(''));
-  t.false(isEmpty(' '));
-});
+  t.true(isEmpty(''))
+  t.false(isEmpty(' '))
+})
 
 test('Returns true for empty arrays', t => {
-  t.true(isEmpty([]));
-  t.false(isEmpty([[]]));
-});
+  t.true(isEmpty([]))
+  t.false(isEmpty([[]]))
+})
 
 test('Returns true for empty objects', t => {
-  t.true(isEmpty({}));
-  t.false(isEmpty({ x: 0 }));
-});
+  t.true(isEmpty({}))
+  t.false(isEmpty({ x: 0 }))
+})
 
 test('Returns true for 0 numeric value', t => {
-  t.true(isEmpty(0));
-});
+  t.true(isEmpty(0))
+})
 
 test('Returns true for NaN values', t => {
-  t.true(isEmpty(NaN));
-});
+  t.true(isEmpty(NaN))
+})
