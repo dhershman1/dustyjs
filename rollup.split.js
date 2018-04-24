@@ -1,19 +1,19 @@
-import babel from 'rollup-plugin-babel';
-import filesize from 'rollup-plugin-filesize';
-import globby from 'globby';
-import path from 'path';
-import uglify from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel'
+import filesize from 'rollup-plugin-filesize'
+import globby from 'globby'
+import path from 'path'
+import uglify from 'rollup-plugin-uglify'
 
 const buildEntry = () => {
-  const results = [];
-  const paths = globby.sync(['src/*.js', '!src/index.js', '!src/_internals']);
+  const results = []
+  const paths = globby.sync(['src/*.js', '!src/index.js', '!src/_internals'])
 
   paths.forEach(p => {
-    const { name, dir } = path.parse(p);
-    let [, moduleName] = dir.split('/');
+    const { name, dir } = path.parse(p)
+    let [, moduleName] = dir.split('/')
 
     if (name !== 'index') {
-      moduleName = name;
+      moduleName = name
     }
 
     const config = {
@@ -48,14 +48,14 @@ const buildEntry = () => {
         format: 'umd',
         name: moduleName
       }
-    };
+    }
 
-    results.push(config);
+    results.push(config)
 
-    return true;
-  });
+    return true
+  })
 
-  return results;
-};
+  return results
+}
 
-export default buildEntry();
+export default buildEntry()

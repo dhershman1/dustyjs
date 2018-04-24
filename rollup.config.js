@@ -1,7 +1,7 @@
-import babel from 'rollup-plugin-babel';
-import cleanup from 'rollup-plugin-cleanup';
-import filesize from 'rollup-plugin-filesize';
-import uglify from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel'
+import cleanup from 'rollup-plugin-cleanup'
+import filesize from 'rollup-plugin-filesize'
+import uglify from 'rollup-plugin-uglify'
 
 export default [{
   input: './src/index.js',
@@ -65,4 +65,4 @@ export default [{
     format: 'umd',
     name: 'dusty'
   }
-}];
+}]
