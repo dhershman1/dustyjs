@@ -51,6 +51,11 @@
       }
     }
   },
+  "standard": {
+    "ignore": [
+      "dist/*"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dhershman1/dustyjs.git"

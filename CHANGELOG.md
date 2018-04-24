@@ -16,6 +16,7 @@
 - Drastically improved internal docs generation script speed
 - Slight Tweaks to other internal scripts
 - Improved the flow and readability of `fuzzySearch`
+- Slight tweak to slightly lower `isEqual` file size
 
 ## Updated
 

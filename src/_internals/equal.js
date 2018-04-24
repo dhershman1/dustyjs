@@ -1,10 +1,10 @@
 import arrayFromIterator from './array-from-iterator'
 import functionName from './function-name'
-import has from '../has'
-import identical from '../identical'
-import type from '../type'
 
-const nullTypeCheck = (a, b) => a === null || b === null || type(a) !== type(b)
+const nullTypeCheck = (a, b) =>
+  a === null ||
+  b === null ||
+  Object.prototype.toString.call(a).slice(8, -1) !== Object.prototype.toString.call(b).slice(8, -1)
 
 // Contain the bulk of basic regex logic
 const regexCheck = (a, b) => {
@@ -22,7 +22,7 @@ const regexCheck = (a, b) => {
 }
 
 // Try to simplify our switch with a function narrowing down our options
-const typeCheck = a => {
+const typeConvert = a => {
   const allTypes = {
     complex: ['Arguments', 'Array', 'Object'],
     simple: ['Boolean', 'Number', 'String'],
@@ -46,8 +46,20 @@ const typeCheck = a => {
   return ''
 }
 
+const identical = (a, b) => {
+  if (a === b) {
+    // +0 !== -0
+    return a !== 0 || 1 / a === 1 / b
+  }
+
+  // NaN === NaN
+  return a !== a && b !== b // eslint-disable-line no-self-compare
+}
+
 // The vast functionality of the extremely strict equals functionality
 const equal = (a, b, stackA = [], stackB = []) => {
+  const aType = typeConvert(Object.prototype.toString.call(a).slice(8, -1))
+
   if (identical(a, b)) {
     return true
   }
@@ -56,10 +68,11 @@ const equal = (a, b, stackA = [], stackB = []) => {
     return false
   }
 
-  switch (typeCheck(type(a))) {
+  // Using the types certain logic should be called and addressed
+  switch (aType) {
     case 'complex':
       if (typeof a.constructor === 'function' &&
-      functionName(a.constructor) === 'Promise') {
+        functionName(a.constructor) === 'Promise') {
         return a === b
       }
       break
@@ -113,7 +126,7 @@ const equal = (a, b, stackA = [], stackB = []) => {
   while (idy >= 0) {
     const key = keysA[idy]
 
-    if (!(has(key, b) && equal(b[key], a[key], stackA, stackB))) {
+    if (!(Object.prototype.hasOwnProperty.call(b, key) && equal(b[key], a[key], stackA, stackB))) {
       return false
     }
     idy -= 1
