@@ -1,5 +1,5 @@
-import curry from './curry';
-import not from './not';
+import curry from './curry'
+import not from './not'
 
 /**
  * @name complement
@@ -18,4 +18,4 @@ import not from './not';
  * isNot(1); // => true
  * isNot('test'); // => false
  */
-export default curry((fn, a) => not(fn(a)));
+export default curry((fn, a) => not(fn(a)))

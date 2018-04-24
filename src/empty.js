@@ -1,4 +1,4 @@
-import type from './type';
+import type from './type'
 
 /**
  * @name empty
@@ -16,16 +16,16 @@ import type from './type';
  */
 export default x => {
   if (type(x) === 'Array') {
-    return [];
+    return []
   }
 
   if (type(x) === 'String') {
-    return '';
+    return ''
   }
 
   if (type(x) === 'Object') {
-    return {};
+    return {}
   }
 
-  throw new TypeError('Empty requires an emptyable type, like a String or Array');
-};
+  throw new TypeError('Empty requires an emptyable type, like a String or Array')
+}

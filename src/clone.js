@@ -1,4 +1,4 @@
-import isObject from './_internals/isObject';
+import isObject from './_internals/isObject'
 
 /**
  * @name clone
@@ -12,4 +12,4 @@ import isObject from './_internals/isObject';
  * const obj = clone({things: 1}); // => { things: 1 }
  * const arr = clone([1, 2, 3]); // => [1, 2, 3]
  */
-export default x => isObject(x) ? { ...x } : x;
+export default x => isObject(x) ? { ...x } : x

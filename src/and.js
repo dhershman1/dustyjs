@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name and
@@ -16,4 +16,4 @@ import curry from './curry';
  * and(true, false); // => false
  * and(false, false); // => false
  */
-export default curry((a, b) => a && b);
+export default curry((a, b) => a && b)

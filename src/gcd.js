@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name gcd
@@ -24,10 +24,10 @@ import curry from './curry';
 */
 const gcd = curry((a, b) => {
   if (!b) {
-    return a;
+    return a
   }
 
-  return gcd(b, a % b);
-});
+  return gcd(b, a % b)
+})
 
-export default gcd;
+export default gcd

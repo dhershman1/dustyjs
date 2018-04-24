@@ -16,10 +16,10 @@
  */
 const curry = (f, ...args) => {
   if (f.length <= args.length) {
-    return f(...args);
+    return f(...args)
   }
 
-  return (...rest) => curry(f, ...args, ...rest);
-};
+  return (...rest) => curry(f, ...args, ...rest)
+}
 
-export default curry;
+export default curry

@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name replaceAt
@@ -27,4 +27,4 @@ import curry from './curry';
  * val([1, 2, 3]); // => [1, 2, 10]
  */
 export default curry((i, t, x) =>
-  [...x.slice(0, i), t, ...x.slice(i + 1)]);
+  [...x.slice(0, i), t, ...x.slice(i + 1)])

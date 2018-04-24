@@ -1,4 +1,4 @@
-import isNil from './isNil';
+import isNil from './isNil'
 
 /**
  * @name compress
@@ -16,8 +16,8 @@ import isNil from './isNil';
 export default obj =>
   Object.keys(obj).reduce((acc, k) => {
     if (!isNil(obj[k])) {
-      acc[k] = obj[k];
+      acc[k] = obj[k]
     }
 
-    return acc;
-  }, {});
+    return acc
+  }, {})

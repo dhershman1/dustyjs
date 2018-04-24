@@ -14,4 +14,4 @@
  * const arr = last([1, 3]); // => 3
  * const str = last('abc'); // => 'c'
  */
-export default x => x[x.length - 1];
+export default x => x[x.length - 1]

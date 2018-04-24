@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name div
@@ -20,4 +20,4 @@ import curry from './curry';
  * divide(3); // => 5
  * divide(5); // => 3
  */
-export default curry((a, b) => a / b);
+export default curry((a, b) => a / b)

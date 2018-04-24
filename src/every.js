@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name every
@@ -24,4 +24,4 @@ import curry from './curry';
  * run([1, 2, 3]); // => true
  * run([-1, 0, 1]); // => false
  */
-export default curry((fn, x) => x.every(fn));
+export default curry((fn, x) => x.every(fn))

@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name add
@@ -20,4 +20,4 @@ import curry from './curry';
  * adder(3); // => 5
  * adder(2); // => 4
  */
-export default curry((a, b) => a + b);
+export default curry((a, b) => a + b)

@@ -1,4 +1,4 @@
-import isNil from './isNil';
+import isNil from './isNil'
 
 /**
  * @name ensureArray
@@ -18,12 +18,12 @@ import isNil from './isNil';
  */
 export default x => {
   if (Array.isArray(x)) {
-    return x;
+    return x
   }
 
   if (isNil(x)) {
-    return [];
+    return []
   }
 
-  return [x];
-};
+  return [x]
+}

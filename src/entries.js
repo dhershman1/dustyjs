@@ -12,4 +12,4 @@
  * entries({ a: 1, b: 2, c: 3 }); // => [['a', 1], ['b', 2], ['c', 3]]
  */
 export default obj =>
-  Object.keys(obj).map(k => [k, obj[k]]);
+  Object.keys(obj).map(k => [k, obj[k]])

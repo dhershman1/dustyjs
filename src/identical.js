@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name identical
@@ -21,9 +21,9 @@ import curry from './curry';
 export default curry((a, b) => {
   if (a === b) {
     // +0 !== -0
-    return a !== 0 || 1 / a === 1 / b;
+    return a !== 0 || 1 / a === 1 / b
   }
 
   // NaN === NaN
-  return a !== a && b !== b; // eslint-disable-line no-self-compare
-});
+  return a !== a && b !== b // eslint-disable-line no-self-compare
+})

@@ -14,6 +14,7 @@
   - This change will NOT affect anything about how the module is used, this will only apply to those using CDN or pathing to the module
 - Drastically improved internal docs generation script speed
 - Slight Tweaks to other internal scripts
+- Improved the flow and readability of `fuzzySearch`
 
 ## Updated
 

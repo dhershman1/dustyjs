@@ -20,11 +20,11 @@
  */
 export default x => {
   if (x === null) {
-    return 'Null';
+    return 'Null'
   }
   if (x === undefined) { // eslint-disable-line no-undefined
-    return 'Undefined';
+    return 'Undefined'
   }
 
-  return Object.prototype.toString.call(x).slice(8, -1);
-};
+  return Object.prototype.toString.call(x).slice(8, -1)
+}

@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name sort
@@ -20,4 +20,4 @@ import curry from './curry';
  * sorter([99, 23, 10, 53, 1]); // => [1, 10, 23, 53, 99]
  * sorter([5, 3, 4, 6, 2, 1]); // => [1, 2, 3, 4, 5, 6]
  */
-export default curry((fn, a) => a.slice().sort(fn));
+export default curry((fn, a) => a.slice().sort(fn))

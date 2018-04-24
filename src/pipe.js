@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name pipe
@@ -20,4 +20,4 @@ import curry from './curry';
  * piper(10); // => 24
  */
 export default curry((list, a) =>
-  list.reduce((acc, fn) => fn(acc), a));
+  list.reduce((acc, fn) => fn(acc), a))

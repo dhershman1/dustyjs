@@ -12,4 +12,4 @@
  * mean([]); // => NaN
  * mean(); // => NaN
  */
-export default (x = []) => x.reduce((a, v) => a + v, 0) / x.length;
+export default (x = []) => x.reduce((a, v) => a + v, 0) / x.length

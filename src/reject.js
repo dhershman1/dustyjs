@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name reject
@@ -23,4 +23,4 @@ import curry from './curry';
  * rejecter([1, 2, 3, 4]); // => [1, 3]
  */
 export default curry((fn, list) =>
-  list.filter(v => !fn(v)));
+  list.filter(v => !fn(v)))

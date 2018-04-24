@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name prepend
@@ -19,4 +19,4 @@ import curry from './curry';
  *
  * third([1, 2, 3, 4, 5]); // => 3
  */
-export default curry((x, list) => [x, ...list]);
+export default curry((x, list) => [x, ...list])

@@ -1,5 +1,5 @@
 
-const valid = (a, b) => !isNaN(a) || (b && !isNaN(b));
+const valid = (a, b) => !isNaN(a) || (b && !isNaN(b))
 
 /**
  * @name range
@@ -17,22 +17,22 @@ const valid = (a, b) => !isNaN(a) || (b && !isNaN(b));
  */
 export default (from, to) => {
   if (!valid(from, to)) {
-    throw new TypeError('Both Arguments should be a number type');
+    throw new TypeError('Both Arguments should be a number type')
   }
 
-  const result = [];
-  let stop = to;
-  let start = from;
+  const result = []
+  let stop = to
+  let start = from
 
   if (!to) {
-    start = 0;
-    stop = from;
+    start = 0
+    stop = from
   }
 
   while (start < stop) {
-    result.push(start);
-    start += 1;
+    result.push(start)
+    start += 1
   }
 
-  return result;
-};
+  return result
+}

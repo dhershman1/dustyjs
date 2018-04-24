@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name has
@@ -20,4 +20,4 @@ import curry from './curry';
  * propSet({ test: 1, thing: 2 }); // => true
  */
 export default curry((prop, obj) =>
-  Object.prototype.hasOwnProperty.call(obj, prop));
+  Object.prototype.hasOwnProperty.call(obj, prop))

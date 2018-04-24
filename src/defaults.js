@@ -1,5 +1,5 @@
-import curry from './curry';
-import isNil from './isNil';
+import curry from './curry'
+import isNil from './isNil'
 
 /**
  * @name defaults
@@ -23,13 +23,13 @@ import isNil from './isNil';
  * def({ thing: 4 }); // => { test: 1, thing: 4 }
  */
 export default curry((def, data) => {
-  const keys = Object.keys(def);
+  const keys = Object.keys(def)
 
   return keys.reduce((acc, prop) => {
     if (isNil(acc[prop])) {
-      acc[prop] = def[prop];
+      acc[prop] = def[prop]
     }
 
-    return acc;
-  }, data);
-});
+    return acc
+  }, data)
+})

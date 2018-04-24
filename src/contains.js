@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name contains
@@ -21,4 +21,4 @@ import curry from './curry';
  * checker([1, 2, 3]); // => true
  */
 export default curry((a, list) =>
-  list.indexOf(a) !== -1);
+  list.indexOf(a) !== -1)

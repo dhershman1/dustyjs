@@ -1,4 +1,4 @@
-import _equal from './_internals/equal';
+import _equal from './_internals/equal'
 
 /**
  * @name isEqual
@@ -14,4 +14,4 @@ import _equal from './_internals/equal';
  * const obj = isEqual({}, {}); // => true
  * const arr = isEqual([], []); // => true
  */
-export default (a, b) => _equal(a, b, [], []);
+export default (a, b) => _equal(a, b, [], [])

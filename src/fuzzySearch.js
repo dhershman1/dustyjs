@@ -1,48 +1,34 @@
-import curry from './curry';
+import curry from './curry'
 
+// Our inner layer search
 const innerSearch = (start, haystack, nChar) => {
-  let j = start;
-  const len = haystack.length;
+  let j = start
+  const len = haystack.length
 
   while (j < len) {
     if (haystack.charCodeAt(j++) === nChar) {
-      return true;
+      return true
     }
   }
 
-  return false;
-};
+  return false
+}
 
-const newSearch = (haystack, needle) => {
-  const len = needle.length;
-  const j = 0;
+// Our outer layer search
+const search = (haystack, needle) => {
+  const len = needle.length
+  const j = 0
 
   for (let i = 0; i < len; i++) {
     if (innerSearch(j, haystack, needle.charCodeAt(i))) {
-      continue;
+      continue
     }
 
-    return false;
+    return false
   }
 
-  return true;
-};
-
-// const search = (h, n, { nLen, hLen }) => { // eslint-disable-line complexity
-//   outer: for (let i = 0, j = 0; i < nLen; i++) {
-//     const nch = n.charCodeAt(i);
-
-//     while (j < hLen) {
-//       if (h.charCodeAt(j++) === nch) {
-//         continue outer;
-//       }
-//     }
-
-//     return false;
-//   }
-
-//   return true;
-// };
+  return true
+}
 
 /**
  * @name fuzzySearch
@@ -64,16 +50,16 @@ const newSearch = (haystack, needle) => {
  * const results = search('te'); // => true
  */
 export default curry((h, n) => {
-  const hLen = h.length;
-  const nLen = n.length;
+  const hLen = h.length
+  const nLen = n.length
 
   if (nLen > hLen) {
-    return false;
+    return false
   }
 
   if (nLen === hLen) {
-    return n === h;
+    return n === h
   }
 
-  return newSearch(h, n);
-});
+  return search(h, n)
+})

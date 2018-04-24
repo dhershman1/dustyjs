@@ -18,4 +18,4 @@ export default (...args) =>
     ({
       ...acc,
       ...x
-    }), {});
+    }), {})

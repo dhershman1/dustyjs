@@ -13,4 +13,4 @@
  * getRange(3, 4, 9, -3); // => [-3, 9]
  */
 export default (...fns) =>
-  (...x) => fns.map(f => f(...x));
+  (...x) => fns.map(f => f(...x))

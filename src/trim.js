@@ -12,4 +12,4 @@
  * trim('my new cow   '); // => 'my new cow'
  * trim('   new things   '); // => 'new things'
  */
-export default str => str.trim();
+export default str => str.trim()

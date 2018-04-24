@@ -1,5 +1,5 @@
-import curry from './curry';
-import isNil from './isNil';
+import curry from './curry'
+import isNil from './isNil'
 
 // To keep checks strict we sadly have to use this
 /* eslint-disable no-undefined */
@@ -35,4 +35,4 @@ import isNil from './isNil';
  * is(Object, {}); // => true
  * is(Object, []); // => true
  */
-export default curry((Ctor, x) => (!isNil(x) && x.constructor === Ctor) || x instanceof Ctor);
+export default curry((Ctor, x) => (!isNil(x) && x.constructor === Ctor) || x instanceof Ctor)

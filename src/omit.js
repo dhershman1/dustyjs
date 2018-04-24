@@ -1,5 +1,5 @@
-import curry from './curry';
-import ensureArray from './ensureArray';
+import curry from './curry'
+import ensureArray from './ensureArray'
 
 /**
  * @name omit
@@ -22,13 +22,13 @@ import ensureArray from './ensureArray';
  * omitKeys({ test: '3432', thing: 123 }); // => { thing: 123 }
  */
 export default curry((key, x) => {
-  const keyArr = ensureArray(key);
+  const keyArr = ensureArray(key)
 
   return Object.keys(x).reduce((acc, prop) => {
     if (keyArr.indexOf(prop) === -1) {
-      acc[prop] = x[prop];
+      acc[prop] = x[prop]
     }
 
-    return acc;
-  }, {});
-});
+    return acc
+  }, {})
+})

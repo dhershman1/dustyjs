@@ -1,5 +1,5 @@
-import curry from './curry';
-import isObject from './_internals/isObject';
+import curry from './curry'
+import isObject from './_internals/isObject'
 
 /**
  * @name pluck
@@ -22,19 +22,19 @@ import isObject from './_internals/isObject';
  */
 const pluck = curry((p, list) =>
   Object.keys(list).reduce((acc, v) => {
-    const val = list[v];
+    const val = list[v]
 
     if (isObject(val)) {
-      acc.push(...pluck(p, val));
+      acc.push(...pluck(p, val))
 
-      return acc;
+      return acc
     }
 
     if (v === p) {
-      acc.push(val);
+      acc.push(val)
     }
 
-    return acc;
-  }, []));
+    return acc
+  }, []))
 
-export default pluck;
+export default pluck

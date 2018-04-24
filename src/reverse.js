@@ -12,4 +12,4 @@
  * reverse([1, 2, 3]); // => [3, 2, 1]
  * reverse([]); // => []
  */
-export default arr => arr.slice().reverse();
+export default arr => arr.slice().reverse()

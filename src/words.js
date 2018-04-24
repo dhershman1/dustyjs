@@ -1,4 +1,4 @@
-import trim from './trim';
+import trim from './trim'
 
 /**
  * @name words
@@ -13,4 +13,4 @@ import trim from './trim';
  * @example
  * words('my brown cow'); // => ['my', 'brown', 'cow']
  */
-export default str => trim(str).split(/\s+/);
+export default str => trim(str).split(/\s+/)

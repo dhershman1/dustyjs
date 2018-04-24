@@ -30,10 +30,10 @@
  */
 const curryN = (n = 0, f, ...args) => {
   if (n <= 0) {
-    return f(...args);
+    return f(...args)
   }
 
-  return (...rest) => curryN(n - rest.length, f, ...args, ...rest);
-};
+  return (...rest) => curryN(n - rest.length, f, ...args, ...rest)
+}
 
-export default curryN;
+export default curryN

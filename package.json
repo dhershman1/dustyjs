@@ -12,7 +12,6 @@
     "@babel/register": "7.0.0-beta.44",
     "ava": "1.0.0-beta.4",
     "del": "3.0.0",
-    "eslint": "4.18.0",
     "globby": "8.0.1",
     "jsdoc-to-markdown": "4.0.1",
     "rollup": "0.58.1",
@@ -20,7 +19,7 @@
     "rollup-plugin-cleanup": "2.0.1",
     "rollup-plugin-filesize": "1.5.0",
     "rollup-plugin-uglify": "3.0.0",
-    "standard": "^11.0.1"
+    "standard": "11.0.1"
   },
   "scripts": {
     "prepack": "rollup -c rollup.split.js && node scripts/create-export.js && rollup -c && node scripts/docs.js",
@@ -33,11 +32,11 @@
     "postpublish": "npm run clean",
     "test:watch": "ava --watch",
     "test": "ava",
-    "lint": "standard src"
+    "lint": "standard src/*.js"
   },
   "ava": {
     "files": [
-      "test/fuzzySearch.js"
+      "test/*.js"
     ],
     "require": [
       "@babel/register"
@@ -61,11 +60,13 @@
     "dusty",
     "functional",
     "library",
+    "pure",
     "operators",
     "helpers",
     "utils",
     "utilities",
-    "utility"
+    "utility",
+    "single type"
   ],
   "author": "Dustin Hershman",
   "license": "MIT",

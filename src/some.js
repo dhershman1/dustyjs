@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name some
@@ -26,4 +26,4 @@ import curry from './curry';
  * run([-1, 0, 1]); // => true
  * run([-3, -2, -1]); // => false
  */
-export default curry((fn, x) => x.some(fn));
+export default curry((fn, x) => x.some(fn))

@@ -14,6 +14,6 @@
  */
 const flatten = list =>
   list.reduce((acc, x) =>
-    acc.concat(Array.isArray(x) ? flatten(x) : x), []);
+    acc.concat(Array.isArray(x) ? flatten(x) : x), [])
 
-export default flatten;
+export default flatten

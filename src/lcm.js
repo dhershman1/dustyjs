@@ -1,5 +1,5 @@
-import curry from './curry';
-import gcd from './gcd';
+import curry from './curry'
+import gcd from './gcd'
 
 /**
  * @name lcm
@@ -25,4 +25,4 @@ import gcd from './gcd';
  */
 export default curry((a, b) =>
   Math.abs(Math.floor(a / gcd(a, b) * b))
-);
+)

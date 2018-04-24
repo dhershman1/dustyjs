@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name partition
@@ -24,4 +24,4 @@ import curry from './curry';
  */
 export default curry((fn, list) =>
   list.reduce(([pass, fail], v) =>
-    fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)], [[], []]));
+    fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)], [[], []]))

@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name map
@@ -23,4 +23,4 @@ import curry from './curry';
  *
  * dbler([1, 2, 3]); // => [2, 4, 6]
  */
-export default curry((fn, list) => list.map(fn));
+export default curry((fn, list) => list.map(fn))

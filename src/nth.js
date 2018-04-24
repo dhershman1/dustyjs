@@ -1,4 +1,4 @@
-import curry from './curry';
+import curry from './curry'
 
 /**
  * @name nth
@@ -20,7 +20,7 @@ import curry from './curry';
  * third([1, 2, 3, 4, 5]); // => 3
  */
 export default curry((o, x) => {
-  const idx = o < 0 ? x.length + o : o;
+  const idx = o < 0 ? x.length + o : o
 
-  return x[idx];
-});
+  return x[idx]
+})

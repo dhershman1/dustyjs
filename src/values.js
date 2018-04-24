@@ -12,4 +12,4 @@
  * value({ a: 1, b: 2, c: 3 }); // => [1, 2, 3]
  */
 export default obj =>
-  Object.keys(obj).map(k => obj[k]);
+  Object.keys(obj).map(k => obj[k])
