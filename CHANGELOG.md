@@ -1,6 +1,10 @@
 # Changelog
 
-## v2.3.0 (Unreleased)
+## v3.0.0 (Unreleased)
+
+## BREAKING CHANGES
+
+- None applied just yet
 
 ### New
 
@@ -8,6 +12,7 @@
 - Added `sift` function which works a lot like `filter` but with `Object` data types
 - Added `whole` function which works a lot like `every` but with `Object` data types
 - Added `any` function which works a lot like `some` but with `Object` data types
+- Added `insert` function which inserts a data value into a specified index of an array
 
 ### Improved
 
