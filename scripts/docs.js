@@ -9,7 +9,7 @@ const listFns = () => {
 
   return files
     .filter(file => (/^[^._]/).test(file) && !ignoredFiles.includes(file))
-    .map(file => `./src/${file.replace('.js', '')}.js`)
+    .map(file => `./src/${file}`)
 }
 
 const generateUsage = name => ({
@@ -27,7 +27,7 @@ const generateUsage = name => ({
   },
   'browser': {
     title: 'Browser',
-    code: `<script src="path/to/modules/dusty-fns/${name}/index.js"></script>`
+    code: `<script src="path/to/modules/dusty-fns/${name}.js"></script>`
   }
 })
 
@@ -36,7 +36,7 @@ const generateSyntax = (name, args) => {
     return ''
   }
 
-  const argsStr = args.map(a => a.optional ? `[${a.name}]` : a.name).join(', ') // eslint-disable-line
+  const argsStr = args.map(a => a.optional ? `[${a.name}]` : a.name).join(', ')
 
   return `${name}(${argsStr})`
 }
