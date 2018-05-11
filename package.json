@@ -1,7 +1,7 @@
 {
   "name": "dusty-fns",
   "version": "2.2.0",
-  "description": "A small library of functional operators inspired by Ramda",
+  "description": "A small library of functional operators inspired by Abstract Tools foreward",
   "main": "dist/dusty.min.js",
   "devDependencies": {
     "@babel/core": "7.0.0-beta.46",
