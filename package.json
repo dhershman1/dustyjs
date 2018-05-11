@@ -1,6 +1,6 @@
 {
   "name": "dusty-fns",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "A small library of functional operators inspired by Abstract Tools foreward",
   "main": "dist/dusty.min.js",
   "devDependencies": {
@@ -35,7 +35,7 @@
   },
   "ava": {
     "files": [
-      "test/*.js"
+      "test/fuzzySearch.js"
     ],
     "require": [
       "@babel/register"

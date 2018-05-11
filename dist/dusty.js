@@ -324,7 +324,7 @@
     }
     return true;
   };
-  var fuzzySearch = curry(function (h, n) {
+  var fuzzySearch = curry(function (n, h) {
     var hLen = h.length;
     var nLen = n.length;
     if (nLen > hLen) {
@@ -361,6 +361,14 @@
   var includes = curry(function (a, str) {
     return str.indexOf(a) !== -1;
   });
+
+  var insert = function insert(i, d, arr) {
+    var idx = i < arr.length && i >= 0 ? i : arr.length;
+    var result = arr.slice(0);
+    result.splice(idx, 0, d);
+    return result;
+  };
+  var insert$1 = curry(insert);
 
   var intersection = curry(function (a, b) {
     return a.filter(function (x) {
@@ -654,11 +662,11 @@
     });
   });
 
-  var removeAt = curry(function (i, x) {
+  var remove = curry(function (i, x) {
     return _toConsumableArray(x.slice(0, i)).concat(_toConsumableArray(x.slice(i + 1)));
   });
 
-  var replaceAt = curry(function (i, t, x) {
+  var replace = curry(function (i, t, x) {
     return _toConsumableArray(x.slice(0, i)).concat([t], _toConsumableArray(x.slice(i + 1)));
   });
 
@@ -760,6 +768,7 @@
   exports.identical = identical;
   exports.identity = identity;
   exports.includes = includes;
+  exports.insert = insert$1;
   exports.intersection = intersection;
   exports.is = is;
   exports.isEmpty = isEmpty;
@@ -787,8 +796,8 @@
   exports.range = range;
   exports.reduce = reduce;
   exports.reject = reject;
-  exports.removeAt = removeAt;
-  exports.replaceAt = replaceAt;
+  exports.remove = remove;
+  exports.replace = replace;
   exports.reverse = reverse;
   exports.round = round;
   exports.sift = sift$1;
