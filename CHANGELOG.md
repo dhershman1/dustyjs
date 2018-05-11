@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.3.0 (Unreleased)
+
+### New
+
+- Added `path` function to safely navigate objects that may or may not have properties
+- Added `sift` function which works a lot like `filter` but with `Object` data types
+- Added `whole` function which works a lot like `every` but with `Object` data types
+- Added `any` function which works a lot like `some` but with `Object` data types
+
+### Improved
+
+- Some more tweaks to internal documentation scripts
+
 ## v2.2.0
 
 ### New
