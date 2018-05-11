@@ -3,7 +3,7 @@ import curry from './curry'
 
 /**
  * @name sift
- * @since v2.3.0
+ * @since v3.0.0
  * @category Object
  * @sig Array -> Object -> Object
  * @description Works a lot like an array filter, but for the object data type

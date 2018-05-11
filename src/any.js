@@ -2,7 +2,7 @@ import curry from './curry'
 
 /**
  * @name any
- * @since v2.3.0
+ * @since v3.0.0
  * @category Object
  * @sig Object k (v -> Boolean) -> Object -> Boolean
  * @description Works a lot like every for array, but for the object data type. Returns whether every key matches the predicate or not
