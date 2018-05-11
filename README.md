@@ -27,6 +27,8 @@ This library isn't here to compete with libraries like [Ramdajs](http://ramdajs.
 
 ## Philosophy
 
+A lot of the inspiration came from [Abstract Tools](https://github.com/abstract-tools/foreword) A lightweight very speedy library which inspired most of the single type pure functional data structure (and a lot of the functionality)
+
 The idea for Dusty.js(dusty-fns) is to not just be another library but to introduce a pure single task functional experience. This is to keep things light, and optimal in terms of size and performance.
 
 Working with the functional experience is working with immutable data, with this library I wanted to keep that as true as I could with using pure functions, but also in using single type data structures through out the library.
