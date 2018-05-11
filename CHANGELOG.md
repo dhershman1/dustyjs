@@ -4,7 +4,9 @@
 
 ## BREAKING CHANGES
 
-- None applied just yet
+- `fuzzySearch` params have been swapped, so now its `fuzzySearch(needle, haystack)` instead
+- Renamed `removeAt` to just  `remove`
+- Renamed `replaceAt` to just `replace`
 
 ### New
 

@@ -3,24 +3,16 @@ import test from 'ava'
 
 test('Basic Functionality', t => {
   t.truthy(fuzzySearch)
-  t.truthy(fuzzySearch('cartwheel', 'twl'))
-  t.falsy(fuzzySearch('testing', 'dog'))
-  t.truthy(fuzzySearch('cast', 'ca'))
+  t.truthy(fuzzySearch('twl', 'cartwheel'))
+  t.falsy(fuzzySearch('dog', 'testing'))
+  t.truthy(fuzzySearch('ca', 'cast'))
 })
 
 test('Little more advanced search', t => {
-  t.true(fuzzySearch('curry', 'cu'))
-  t.true(fuzzySearch('curryN', 'cu'))
+  t.true(fuzzySearch('cu', 'curry'))
+  t.true(fuzzySearch('cu', 'curryN'))
 })
 
 test('search with cu for chuck', t => {
-  t.true(fuzzySearch('chuck', 'cu'))
-})
-
-test('Test curried functionality', t => {
-  const searcher = fuzzySearch('cartwheel')
-
-  t.truthy(searcher('twl'))
-  t.falsy(searcher('dog'))
-  t.truthy(searcher('cat'))
+  t.true(fuzzySearch('cu', 'chuck'))
 })

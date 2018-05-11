@@ -36,20 +36,20 @@ const search = (haystack, needle) => {
  * @sig a -> Boolean
  * @category Function
  * @description Fuzzy search setup to look find things fast and effective
- * @param  {String} h The value to search for
  * @param  {String} n The Item to search
+ * @param  {String} h The value to search for
  * @return {Boolean} Returns a boolean determined by if the value is found or not by the search
  *
  * @example
- * const results = fuzzySearch('test', 'te'); // => true
- * const results = fuzzySearch('testing', 'dog'); // => false
+ * const results = fuzzySearch('te', 'test'); // => true
+ * const results = fuzzySearch('dog', 'testing'); // => false
  *
  * // search is also curried
  *
- * const search = fuzzySearch('test');
- * const results = search('te'); // => true
+ * const search = fuzzySearch('te');
+ * const results = search('test'); // => true
  */
-export default curry((h, n) => {
+export default curry((n, h) => {
   const hLen = h.length
   const nLen = n.length
 
