@@ -27,6 +27,13 @@
     return a && b;
   });
 
+  var any = function any(schema, obj) {
+    return Object.keys(schema).some(function (key) {
+      return schema[key](obj[key]);
+    });
+  };
+  var any$1 = curry(any);
+
   function _typeof(obj) {
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
       _typeof = function (obj) {
@@ -574,6 +581,20 @@
     }, [[], []]);
   });
 
+  var path = function path(_ref, obj) {
+    var _ref2 = _toArray(_ref),
+        p = _ref2[0],
+        keys = _ref2.slice(1);
+    if (!keys.length) {
+      return obj[p];
+    }
+    if (isNil(obj[p])) {
+      return undefined;
+    }
+    return path(keys, obj[p]);
+  };
+  var path$1 = curryN(2, path);
+
   var pipe = curry(function (list, a) {
     return list.reduce(function (acc, fn) {
       return fn(acc);
@@ -649,6 +670,13 @@
     return Number("".concat(Math.round("".concat(num, "e").concat(precision)), "e-").concat(precision));
   });
 
+  var sift = function sift(arr, obj) {
+    return arr.reduce(function (acc, v) {
+      return assign(acc, _defineProperty({}, v, obj[v]));
+    }, {});
+  };
+  var sift$1 = curry(sift);
+
   var slice = curry(function (a, b, list) {
     return list.slice(a, b);
   });
@@ -692,12 +720,20 @@
     });
   });
 
+  var whole = function whole(schema, obj) {
+    return Object.keys(schema).every(function (key) {
+      return schema[key](obj[key]);
+    });
+  };
+  var whole$1 = curry(whole);
+
   var words = (function (str) {
     return trim(str).split(/\s+/);
   });
 
   exports.add = add;
   exports.and = and;
+  exports.any = any$1;
   exports.assign = assign;
   exports.capitalize = capitalize;
   exports.clone = clone;
@@ -743,6 +779,7 @@
   exports.omit = omit;
   exports.or = or;
   exports.partition = partition;
+  exports.path = path$1;
   exports.pipe = pipe;
   exports.pluck = pluck;
   exports.prepend = prepend;
@@ -754,6 +791,7 @@
   exports.replaceAt = replaceAt;
   exports.reverse = reverse;
   exports.round = round;
+  exports.sift = sift$1;
   exports.slice = slice;
   exports.some = some;
   exports.sort = sort;
@@ -763,6 +801,7 @@
   exports.union = union;
   exports.uniq = uniq;
   exports.values = values;
+  exports.whole = whole$1;
   exports.words = words;
 
   Object.defineProperty(exports, '__esModule', { value: true });
