@@ -21,6 +21,7 @@
 - Added `gt` function which compares the passed in values to determine if one is greater than the other
 - Added `gte` function which compares the passed in values to determine if one is greater than or equal to the other
 - Added `lt` function which compares the passed in values to determine if one is less than the other
+- Added `lte` function which compares the passed in values to determine if one is less than or equal to the other
 
 ### Improved
 
