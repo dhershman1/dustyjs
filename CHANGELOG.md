@@ -17,6 +17,7 @@
 - Added `insert` function which inserts a data value into a specified index of an array
 - Added `height` function which works like length, however it handles object data types
 - Added `gets` function which goes through an object to pull values requested in an array
+- Added `plan` function which takes a schema object of functions to apply to a matching object of data
 
 ### Improved
 
