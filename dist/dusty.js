@@ -555,6 +555,16 @@
     return a.length;
   });
 
+  var lt = function lt(a, b) {
+    return a < b;
+  };
+  var lt$1 = curry(lt);
+
+  var lte = function lte(a, b) {
+    return a <= b;
+  };
+  var lte$1 = curry(lte);
+
   var map = curry(function (fn, list) {
     return list.map(fn);
   });
@@ -813,6 +823,8 @@
   exports.last = last;
   exports.lcm = lcm;
   exports.length = length;
+  exports.lt = lt$1;
+  exports.lte = lte$1;
   exports.map = map;
   exports.max = max;
   exports.mean = mean;
