@@ -769,6 +769,17 @@
     });
   });
 
+  var when = function when(fn, act) {
+    for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      args[_key - 2] = arguments[_key];
+    }
+    if (fn.apply(void 0, args)) {
+      return act.apply(void 0, args);
+    }
+    return undefined;
+  };
+  var when$1 = curryN(3, when);
+
   var whole = function whole(schema, obj) {
     return Object.keys(schema).every(function (key) {
       return schema[key](obj[key]);
@@ -858,6 +869,7 @@
   exports.uniq = uniq;
   exports.update = update;
   exports.values = values;
+  exports.when = when$1;
   exports.whole = whole$1;
   exports.words = words;
 
