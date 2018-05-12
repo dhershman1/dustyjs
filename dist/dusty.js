@@ -350,6 +350,16 @@
   };
   var gets$1 = curry(gets);
 
+  var gt = function gt(a, b) {
+    return a > b;
+  };
+  var gt$1 = curry(gt);
+
+  var gte = function gte(a, b) {
+    return a >= b;
+  };
+  var gte$1 = curry(gte);
+
   var has = curry(function (prop, obj) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
   });
@@ -687,10 +697,6 @@
     return _toConsumableArray(x.slice(0, i)).concat(_toConsumableArray(x.slice(i + 1)));
   });
 
-  var replace = curry(function (i, t, x) {
-    return _toConsumableArray(x.slice(0, i)).concat([t], _toConsumableArray(x.slice(i + 1)));
-  });
-
   var reverse = (function (arr) {
     return arr.slice().reverse();
   });
@@ -743,6 +749,10 @@
     }, []);
   });
 
+  var update = curry(function (i, t, x) {
+    return _toConsumableArray(x.slice(0, i)).concat([t], _toConsumableArray(x.slice(i + 1)));
+  });
+
   var values = (function (obj) {
     return Object.keys(obj).map(function (k) {
       return obj[k];
@@ -786,6 +796,8 @@
   exports.fuzzySearch = fuzzySearch;
   exports.gcd = gcd;
   exports.gets = gets$1;
+  exports.gt = gt$1;
+  exports.gte = gte$1;
   exports.has = has;
   exports.height = height;
   exports.identical = identical;
@@ -821,7 +833,6 @@
   exports.reduce = reduce;
   exports.reject = reject;
   exports.remove = remove;
-  exports.replace = replace;
   exports.reverse = reverse;
   exports.round = round;
   exports.sift = sift$1;
@@ -833,6 +844,7 @@
   exports.type = type;
   exports.union = union;
   exports.uniq = uniq;
+  exports.update = update;
   exports.values = values;
   exports.whole = whole$1;
   exports.words = words;
