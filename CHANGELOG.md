@@ -16,6 +16,7 @@
 - Added `any` function which works a lot like `some` but with `Object` data types
 - Added `insert` function which inserts a data value into a specified index of an array
 - Added `height` function which works like length, however it handles object data types
+- Added `gets` function which goes through an object to pull values requested in an array
 
 ### Improved
 
