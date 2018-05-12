@@ -18,6 +18,7 @@
 - Added `height` function which works like length, however it handles object data types
 - Added `gets` function which goes through an object to pull values requested in an array
 - Added `plan` function which takes a schema object of functions to apply to a matching object of data
+- Added `gt` function which compares the passed in values to determine if one is greater than the other
 
 ### Improved
 
