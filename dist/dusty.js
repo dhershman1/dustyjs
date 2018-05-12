@@ -343,9 +343,20 @@
     return gcd(b, a % b);
   });
 
+  var gets = function gets(keys, obj) {
+    return keys.map(function (k) {
+      return obj[k];
+    });
+  };
+  var gets$1 = curry(gets);
+
   var has = curry(function (prop, obj) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
   });
+
+  var height = function height(obj) {
+    return Object.keys(obj).length;
+  };
 
   var identical = curry(function (a, b) {
     if (a === b) {
@@ -609,6 +620,16 @@
     }, a);
   });
 
+  var plan = function plan(schema, obj) {
+    return assign({}, obj, Object.keys(obj).reduce(function (acc, k) {
+      if (!obj.hasOwnProperty(k)) {
+        return acc;
+      }
+      return assign(acc, _defineProperty({}, k, schema[k](obj[k])));
+    }, {}));
+  };
+  var plan$1 = curry(plan);
+
   var pluck = curry(function (p, list) {
     return Object.keys(list).reduce(function (acc, v) {
       var val = list[v];
@@ -764,7 +785,9 @@
   exports.flatten = flatten;
   exports.fuzzySearch = fuzzySearch;
   exports.gcd = gcd;
+  exports.gets = gets$1;
   exports.has = has;
+  exports.height = height;
   exports.identical = identical;
   exports.identity = identity;
   exports.includes = includes;
@@ -790,6 +813,7 @@
   exports.partition = partition;
   exports.path = path$1;
   exports.pipe = pipe;
+  exports.plan = plan$1;
   exports.pluck = pluck;
   exports.prepend = prepend;
   exports.prop = prop;
