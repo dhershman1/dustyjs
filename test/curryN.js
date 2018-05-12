@@ -1,8 +1,6 @@
 import curryN from '../src/curryN'
 import test from 'ava'
 
-/* eslint-disable no-undefined */
-
 test('Curries as expected', t => {
   const add = curryN(2, (a, b) => a + b)
   const sum = add(2)
