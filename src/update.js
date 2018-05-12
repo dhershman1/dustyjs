@@ -1,7 +1,7 @@
 import curry from './curry'
 
 /**
- * @name replace
+ * @name update
  * @since v0.1.0
  * @category Array
  * @sig Number -> a -> [b] -> [c]
@@ -12,17 +12,17 @@ import curry from './curry'
  * @return {Array} Returns the modified array
  *
  * @example
- * replace(2, 10, [1, 2, 3]); // => [1, 2, 10]
+ * update(2, 10, [1, 2, 3]); // => [1, 2, 10]
  *
  * // You can also use it as a curried method
  *
- * const replacer = replace(2, 10);
+ * const updater = update(2, 10);
  *
- * replacer([1, 2, 3]); // => [1, 2, 10]
+ * updater([1, 2, 3]); // => [1, 2, 10]
  *
  * // This can be taken further like so
  *
- * const index = replace(2);
+ * const index = update(2);
  * const val = index(10);
  * val([1, 2, 3]); // => [1, 2, 10]
  */

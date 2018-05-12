@@ -6,7 +6,7 @@
 
 - `fuzzySearch` params have been swapped, so now its `fuzzySearch(needle, haystack)` instead
 - Renamed `removeAt` to just  `remove`
-- Renamed `replaceAt` to just `replace`
+- Renamed `replaceAt` to just `update`
 
 ### New
 
