@@ -7,7 +7,7 @@ import curry from './curry'
  * @sig a -> a -> Boolean
  * @param {Any} a Value to determine if it is greater than the other
  * @param {Any} b Value to compare to see if it is less than the other
- * @return {Boolean} Based on the out come of the logic a Boolean
+ * @return {Boolean} Based on the outcome of the logic a Boolean
  * @example
  * gt(2, 1) // => true
  * gt('b', 'a') // => true
