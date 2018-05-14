@@ -23,6 +23,8 @@
 - Added `lt` function which compares the passed in values to determine if one is less than the other
 - Added `lte` function which compares the passed in values to determine if one is less than or equal to the other
 - Added `when` function which uses a logic function to trigger an action function if the arguments are true
+- Added `concat` function which concats the values of an array to a new array
+- Added `concatMap` function which applies a function to the values of an array and concats them
 
 ### Improved
 

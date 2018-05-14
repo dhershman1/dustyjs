@@ -186,6 +186,19 @@
     }, {});
   });
 
+  var concat = function concat(arr) {
+    return arr.reduce(function (acc, v) {
+      return acc.concat(v);
+    });
+  };
+
+  var concatMap = function concatMap(fn, arr) {
+    return arr.reduce(function (acc, v) {
+      return acc.concat(fn(v));
+    }, []);
+  };
+  var concatMap$1 = curry(concatMap);
+
   var contains = curry(function (a, list) {
     return list.indexOf(a) !== -1;
   });
@@ -799,6 +812,8 @@
   exports.clone = clone;
   exports.complement = complement;
   exports.compress = compress;
+  exports.concat = concat;
+  exports.concatMap = concatMap$1;
   exports.contains = contains;
   exports.curry = curry;
   exports.curryN = curryN;
