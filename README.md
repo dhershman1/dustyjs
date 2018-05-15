@@ -1,7 +1,7 @@
-[![npm](https://img.shields.io/npm/v/dusty-fns.svg?style=for-the-badge)](https://www.npmjs.com/package/dusty-fns)
-[![David](https://img.shields.io/david/dhershman1/dustyjs.svg?style=for-the-badge)](https://david-dm.org/dhershman1/dustyjs)
-[![David](https://img.shields.io/david/dev/dhershman1/dustyjs.svg?style=for-the-badge)](https://david-dm.org/dhershman1/dustyjs?type=dev)
-[![Travis](https://img.shields.io/travis/dhershman1/dustyjs.svg?style=for-the-badge)](https://travis-ci.org/dhershman1/dustyjs)
+[![npm](https://img.shields.io/npm/v/dusty-fns.svg?style=flat-square)](https://www.npmjs.com/package/dusty-fns)
+[![David](https://img.shields.io/david/dhershman1/dustyjs.svg?style=flat-square)](https://david-dm.org/dhershman1/dustyjs)
+[![David](https://img.shields.io/david/dev/dhershman1/dustyjs.svg?style=flat-square)](https://david-dm.org/dhershman1/dustyjs?type=dev)
+[![Travis](https://img.shields.io/travis/dhershman1/dustyjs.svg?style=flat-square)](https://travis-ci.org/dhershman1/dustyjs)
 
 # Dusty.js (dusty-fns)
 
