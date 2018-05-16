@@ -165,6 +165,12 @@
     return isObject(x) ? _objectSpread({}, x) : x;
   });
 
+  var compact = function compact(arr) {
+    return arr.filter(function (v) {
+      return Boolean(v);
+    });
+  };
+
   var not = (function (x) {
     return !x;
   });
@@ -810,6 +816,7 @@
   exports.assign = assign;
   exports.capitalize = capitalize;
   exports.clone = clone;
+  exports.compact = compact;
   exports.complement = complement;
   exports.compress = compress;
   exports.concat = concat;
