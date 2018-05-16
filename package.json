@@ -1,7 +1,7 @@
 {
   "name": "dusty-fns",
   "version": "3.0.0",
-  "description": "A small library of functional operators inspired by Abstract Tools foreward",
+  "description": "A small library of functional operators inspired by Abstract Tools foreword",
   "main": "dist/dusty.min.js",
   "devDependencies": {
     "@babel/core": "7.0.0-beta.46",
@@ -31,7 +31,7 @@
     "postpublish": "npm run clean",
     "test:watch": "ava --watch",
     "test": "ava",
-    "lint": "standard src/**/*.js"
+    "lint": "standard src/*.js"
   },
   "ava": {
     "files": [
