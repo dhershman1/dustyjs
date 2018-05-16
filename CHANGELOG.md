@@ -26,6 +26,7 @@
 - Added `when` function which uses a logic function to trigger an action function if the arguments are true
 - Added `concat` function which concats the values of an array to a new array
 - Added `concatMap` function which applies a function to the values of an array and concats them
+- Added `compact` function which takes an array and removes all falsy values from it
 
 ### Improved
 
