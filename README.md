@@ -10,7 +10,6 @@ A light weight pure functional library with single type utility functions and it
 ## Contents
 
 - [Changelog](#changelog)
-- [Why](#why)
 - [Credit](#credit)
 - [Philosophy](#philosophy)
 - [Key Features](#key-features)
@@ -21,10 +20,6 @@ A light weight pure functional library with single type utility functions and it
 ## Changelog
 
 You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/master/CHANGELOG.md
-
-## Why
-
-This library isn't here to compete with libraries like [Ramdajs](http://ramdajs.com/), [lodash](https://lodash.com/), or [underscore](http://underscorejs.org/). It is simply here because I wanted something I could use in my projects I built myself. Then I decided that maybe I'd share those functions, this is how dusty-fns came about and I'd love it if you find ways of improvement within the code that you open an issue and point things out!
 
 ## Credit
 
