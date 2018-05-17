@@ -195,7 +195,7 @@
   var concat = function concat(arr) {
     return arr.reduce(function (acc, v) {
       return acc.concat(v);
-    });
+    }, []);
   };
 
   var concatMap = function concatMap(fn, arr) {
@@ -240,16 +240,10 @@
     }, data);
   });
 
-  var flatten = function flatten(list) {
-    return list.reduce(function (acc, x) {
-      return acc.concat(Array.isArray(x) ? flatten(x) : x);
-    }, []);
-  };
-
   var difference = curry(function (a, _ref) {
     var _ref2 = _toArray(_ref),
         rest = _ref2.slice(0);
-    var flatRest = flatten(rest);
+    var flatRest = concat(rest);
     return a.filter(function (x) {
       return flatRest.indexOf(x) === -1;
     });
@@ -764,7 +758,7 @@
   var union = curry(function (a, _ref) {
     var _ref2 = _toArray(_ref),
         rest = _ref2.slice(0);
-    return a.concat(flatten(rest)).reduce(function (acc, v) {
+    return a.concat(concat(rest)).reduce(function (acc, v) {
       return acc.indexOf(v) === -1 ? acc.concat(v) : acc;
     }, []);
   });
@@ -835,7 +829,6 @@
   exports.filter = filter;
   exports.find = find;
   exports.first = first;
-  exports.flatten = flatten;
   exports.fuzzySearch = fuzzySearch;
   exports.gcd = gcd;
   exports.gets = gets$1;

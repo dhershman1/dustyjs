@@ -7,7 +7,7 @@
 - `fuzzySearch` params have been swapped, so now its `fuzzySearch(needle, haystack)` instead
 - Renamed `removeAt` to just  `remove`
 - Renamed `replaceAt` to just `update`
-- `flatten` has been marked as `deprecated` and may be removed in future versions, consider using `concat` and `concatMap` instead
+- `flatten` has been removed, consider using `concat` and `concatMap` instead
 
 ### New
 

@@ -10,6 +10,6 @@
  * concat([[1, 2], [3, 4], [5, 6]]) // => [1, 2, 3, 4, 5, 6]
  */
 const concat = arr =>
-  arr.reduce((acc, v) => acc.concat(v))
+  arr.reduce((acc, v) => acc.concat(v), [])
 
 export default concat

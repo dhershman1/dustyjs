@@ -1,5 +1,5 @@
 import curry from './curry'
-import flatten from './flatten'
+import concat from './concat'
 
 /**
  * @name difference
@@ -21,7 +21,7 @@ import flatten from './flatten'
  * diff([1]); // => [2, 3]
  */
 export default curry((a, [...rest]) => {
-  const flatRest = flatten(rest)
+  const flatRest = concat(rest)
 
   return a.filter(x => flatRest.indexOf(x) === -1)
 })

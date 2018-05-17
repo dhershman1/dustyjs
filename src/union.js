@@ -1,5 +1,5 @@
 import curry from './curry'
-import flatten from './flatten'
+import concat from './concat'
 
 /**
  * @name union
@@ -26,4 +26,4 @@ import flatten from './flatten'
  * un([[3, 4, 5], [4, 5, 6]]); // => [1, 2, 3, 4, 5, 6]
  */
 export default curry((a, [...rest]) =>
-  a.concat(flatten(rest)).reduce((acc, v) => acc.indexOf(v) === -1 ? acc.concat(v) : acc, []))
+  a.concat(concat(rest)).reduce((acc, v) => acc.indexOf(v) === -1 ? acc.concat(v) : acc, []))
