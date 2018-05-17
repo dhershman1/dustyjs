@@ -11,6 +11,7 @@ A light weight pure functional library with single type utility functions and it
 
 - [Changelog](#changelog)
 - [Why](#why)
+- [Credit](#credit)
 - [Philosophy](#philosophy)
 - [Key Features](#key-features)
 - [How To](#how-to)
@@ -25,9 +26,14 @@ You can view the changelog here: https://github.com/dhershman1/dustyjs/blob/mast
 
 This library isn't here to compete with libraries like [Ramdajs](http://ramdajs.com/), [lodash](https://lodash.com/), or [underscore](http://underscorejs.org/). It is simply here because I wanted something I could use in my projects I built myself. Then I decided that maybe I'd share those functions, this is how dusty-fns came about and I'd love it if you find ways of improvement within the code that you open an issue and point things out!
 
-## Philosophy
+## Credit
 
-A lot of the inspiration came from [Abstract Tools](https://github.com/abstract-tools/foreword) A lightweight very speedy library which inspired most of the single type pure functional data structure (and a lot of the functionality)
+A lot of the if not most of the inpiration for this library came from 2 libraries I follow closely, Primarily most of it stems from:
+
+- [foreword](https://github.com/abstract-tools/foreword) by [Abstract Tools](https://github.com/abstract-tools) which is a very nice and easy to use library developed by a close friend. This is where a lot of functionality, AND the idea of a pure single data type system came from I can't recommend it enough.
+- [Ramdajs](http://ramdajs.com/) by [Ramda](https://github.com/ramda) a large and fairly handy library where the original idea sparked
+
+## Philosophy
 
 The idea for Dusty.js(dusty-fns) is to not just be another library but to introduce a pure single task functional experience. This is to keep things light, and optimal in terms of size and performance.
 
