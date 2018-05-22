@@ -20,4 +20,6 @@ import curry from './curry'
  * subtract(3); // => 2
  * subtract(2); // => 3
  */
-export default curry((a, b) => a - b)
+const sub = (a, b) => a - b
+
+export default curry(sub)

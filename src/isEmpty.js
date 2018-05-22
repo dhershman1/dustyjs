@@ -16,6 +16,5 @@ import not from './not'
  * const arr = isEmpty([]); // => true
  * const obj = isEmpty({}); // => true
  * const str = isEmpty(''); // => true
- * const num = isEmpty(0); // => true
  */
 export default x => not(Boolean(Object.keys(x).length))

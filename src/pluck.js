@@ -20,7 +20,7 @@ import isObject from './_internals/isObject'
  *
  * plucker([{ a: 1 }, { a: 2 }]); // => [1, 2]
  */
-const pluck = curry((p, list) =>
+const pluck = (p, list) =>
   Object.keys(list).reduce((acc, v) => {
     const val = list[v]
 
@@ -33,6 +33,6 @@ const pluck = curry((p, list) =>
     }
 
     return acc
-  }, []))
+  }, [])
 
-export default pluck
+export default curry(pluck)

@@ -19,5 +19,7 @@ import curry from './curry'
  *
  * piper(10); // => 24
  */
-export default curry((list, a) =>
-  list.reduce((acc, fn) => fn(acc), a))
+const pipe = (list, a) =>
+  list.reduce((acc, fn) => fn(acc), a)
+
+export default curry(pipe)

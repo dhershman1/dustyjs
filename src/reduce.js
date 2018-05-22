@@ -22,4 +22,6 @@ import curry from './curry'
     return acc;
   }, [], ['', 1, 2, '0', 3]); // => [1, 2, 3]
  */
-export default curry((fn, init, list) => list.reduce(fn, init))
+const reduce = (fn, init, list) => list.reduce(fn, init)
+
+export default curry(reduce)

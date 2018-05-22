@@ -20,4 +20,6 @@ import curry from './curry'
  *
  * slicer([1, 2, 3, 4, 5]); // => [2, 3]
  */
-export default curry((a, b, list) => list.slice(a, b))
+const slice = (a, b, list) => list.slice(a, b)
+
+export default curry(slice)

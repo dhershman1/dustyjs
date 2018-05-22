@@ -22,6 +22,8 @@ import curry from './curry'
  *
  * part(['foo', 'bar', 100]); // => [ ['foo', 'bar'], [100] ]
  */
-export default curry((fn, list) =>
+const partition = (fn, list) =>
   list.reduce(([pass, fail], v) =>
-    fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)], [[], []]))
+    fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)], [[], []])
+
+export default curry(partition)

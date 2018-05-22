@@ -21,7 +21,7 @@ import ensureArray from './ensureArray'
  *
  * omitKeys({ test: '3432', thing: 123 }); // => { thing: 123 }
  */
-export default curry((key, x) => {
+const omit = (key, x) => {
   const keyArr = ensureArray(key)
 
   return Object.keys(x).reduce((acc, prop) => {
@@ -31,4 +31,6 @@ export default curry((key, x) => {
 
     return acc
   }, {})
-})
+}
+
+export default curry(omit)
