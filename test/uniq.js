@@ -1,14 +1,10 @@
 import test from 'ava'
 import uniq from '../src/uniq'
 
-test('Creates a unique array', t => {
-  const results = uniq(x => x.length, ['and', 'here', 'are', 'some', 'words'])
-
-  t.deepEqual(results, ['and', 'here', 'words'])
+test('Removes duplicates', t => {
+  t.deepEqual(uniq([1, 2, 2, 3, 3, 4, 5]), [1, 2, 3, 4, 5])
 })
 
-test('Is curried', t => {
-  const uq = uniq(x => x.length)
-
-  t.deepEqual(uq(['and', 'here', 'are', 'some', 'words']), ['and', 'here', 'words'])
+test('Removes duplicate strings', t => {
+  t.deepEqual(uniq(['test', 'test', 'thing', 'other', 'other']), ['test', 'thing', 'other'])
 })

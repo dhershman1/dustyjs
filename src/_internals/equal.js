@@ -57,7 +57,7 @@ const identical = (a, b) => {
 }
 
 // The vast functionality of the extremely strict equals functionality
-const equal = (a, b, stackA = [], stackB = []) => {
+const equal = (a, b, stackA, stackB) => {
   const aType = typeConvert(Object.prototype.toString.call(a).slice(8, -1))
 
   if (identical(a, b)) {

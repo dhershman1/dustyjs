@@ -25,9 +25,7 @@ const pluck = curry((p, list) =>
     const val = list[v]
 
     if (isObject(val)) {
-      acc.push(...pluck(p, val))
-
-      return acc
+      return acc.concat(pluck(p, val))
     }
 
     if (v === p) {

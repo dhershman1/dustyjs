@@ -8,6 +8,10 @@
 - Renamed `removeAt` to just  `remove`
 - Renamed `replaceAt` to just `update`
 - `flatten` has been removed, consider using `concat` and `concatMap` instead
+- `uniq` now only looks for an array, use `uniqBy` in order to use the old functionality
+- Removed `clone` since `assign` is essentially the same thing with more capabilities
+- Removed `deepClone` since it isn't really needed or very simple for a user to throw together
+- Function params passed to `juxt` should now be contained within a single array
 
 ### New
 
@@ -27,10 +31,12 @@
 - Added `concat` function which concats the values of an array to a new array
 - Added `concatMap` function which applies a function to the values of an array and concats them
 - Added `compact` function which takes an array and removes all falsy values from it
+- Added `uniqBy` function which does what the original `uniq` was built to do
 
 ### Improved
 
 - Some more tweaks to internal documentation scripts
+- Addressed copy and paste errors for `prepend` docs
 
 ## v2.2.0
 

@@ -6,7 +6,17 @@ import { uglify } from 'rollup-plugin-uglify'
 
 const buildEntry = () => {
   const results = []
-  const paths = globby.sync(['src/*.js', '!src/index.js', '!src/_internals'])
+  const paths = globby.sync([
+    'src/union.js',
+    'src/update.js',
+    'src/uniq.js',
+    'src/uniqBy.js',
+    'src/prepend.js',
+    'src/pluck.js',
+    'src/path.js',
+    'src/partition.js',
+    'src/juxt.js'
+  ])
 
   paths.forEach(p => {
     const { name, dir } = path.parse(p)

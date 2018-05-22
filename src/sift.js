@@ -1,4 +1,3 @@
-import assign from './assign'
 import curry from './curry'
 
 /**
@@ -21,9 +20,12 @@ import curry from './curry'
  * sifter({ id: 44, thing: 'test', other: 'cool' }) // => { id: 44, thing: 'test' }
  */
 const sift = (arr, obj) =>
-  arr.reduce((acc, v) =>
-    assign(acc, {
-      [v]: obj[v]
-    }), {})
+  Object.keys(obj).reduce((acc, k) => {
+    if (arr.indexOf(k) !== -1) {
+      acc[k] = obj[k]
+    }
+
+    return acc
+  }, {})
 
 export default curry(sift)

@@ -6,7 +6,7 @@ test('Returns the difference in arrays', t => {
 })
 
 test('Handles multiple arrays being passed in to it', t => {
-  t.deepEqual(difference([1, 2, 3, 4, 5], [1, 2], [3]), [3, 4, 5])
+  t.deepEqual(difference([1, 2, 3, 4, 5], [1, 2]), [3, 4, 5])
 })
 
 test('Is curried', t => {

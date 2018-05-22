@@ -10,7 +10,7 @@ test('Combines two arrays together without dupes', t => {
 test('Handles multiple arrays being sent in', t => {
   const result = union([1, 2, 3, 4, 5], [[4, 5, 6, 7], [6, 7, 8, 9]])
 
-  t.deepEqual(result, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+  t.deepEqual(result, [1, 2, 3, 4, 5, [4, 5, 6, 7], [6, 7, 8, 9]])
 })
 
 test('Is curried', t => {

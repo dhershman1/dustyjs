@@ -22,6 +22,6 @@ import curry from './curry'
  *
  * proper({ a: 1, b: 2 }); // => 1
  */
-const prop = curry((p, obj) => obj[p])
+const prop = (p, obj) => obj[p]
 
-export default prop
+export default curry(prop)

@@ -90,18 +90,6 @@
     return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest();
   }
 
-  function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-  }
-
-  function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-      return arr2;
-    }
-  }
-
   function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr;
   }
@@ -136,10 +124,6 @@
     return _arr;
   }
 
-  function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
-  }
-
   function _nonIterableRest() {
     throw new TypeError("Invalid attempt to destructure non-iterable instance");
   }
@@ -155,14 +139,6 @@
 
   var capitalize = (function (str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  });
-
-  var isObject = (function (x) {
-    return Object.prototype.toString.call(x) === '[object Object]';
-  });
-
-  var clone = (function (x) {
-    return isObject(x) ? _objectSpread({}, x) : x;
   });
 
   var compact = function compact(arr) {
@@ -230,24 +206,22 @@
     return JSON.parse(JSON.stringify(x));
   });
 
-  var defaults = curry(function (def, data) {
-    var keys = Object.keys(def);
-    return keys.reduce(function (acc, prop) {
-      if (isNil(acc[prop])) {
+  var defaults = function defaults(def, data) {
+    return Object.keys(def).reduce(function (acc, prop) {
+      if (acc[prop] == null) {
         acc[prop] = def[prop];
       }
       return acc;
     }, data);
-  });
+  };
+  var defaults$1 = curry(defaults);
 
-  var difference = curry(function (a, _ref) {
-    var _ref2 = _toArray(_ref),
-        rest = _ref2.slice(0);
-    var flatRest = concat(rest);
-    return a.filter(function (x) {
-      return flatRest.indexOf(x) === -1;
+  var difference = function difference(first, second) {
+    return first.filter(function (x) {
+      return second.indexOf(x) === -1;
     });
-  });
+  };
+  var difference$1 = curry(difference);
 
   var div = curry(function (a, b) {
     return a / b;
@@ -349,12 +323,13 @@
     return search(h, n);
   });
 
-  var gcd = curry(function (a, b) {
+  var gcd = function gcd(a, b) {
     if (!b) {
       return a;
     }
     return gcd(b, a % b);
-  });
+  };
+  var gcd$1 = curry(gcd);
 
   var gets = function gets(keys, obj) {
     return keys.map(function (k) {
@@ -469,9 +444,7 @@
     }
     return a !== a && b !== b;
   };
-  var equal = function equal(a, b) {
-    var stackA = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-    var stackB = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
+  var equal = function equal(a, b, stackA, stackB) {
     var aType = typeConvert(Object.prototype.toString.call(a).slice(8, -1));
     if (identical$1(a, b)) {
       return true;
@@ -542,16 +515,13 @@
     return equal(a, b, [], []);
   });
 
-  var juxt = (function () {
-    for (var _len = arguments.length, fns = new Array(_len), _key = 0; _key < _len; _key++) {
-      fns[_key] = arguments[_key];
-    }
+  var juxt = (function (fns) {
     return function () {
-      for (var _len2 = arguments.length, x = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        x[_key2] = arguments[_key2];
+      for (var _len = arguments.length, x = new Array(_len), _key = 0; _key < _len; _key++) {
+        x[_key] = arguments[_key];
       }
       return fns.map(function (f) {
-        return f.apply(void 0, x);
+        return f([].concat(x));
       });
     };
   });
@@ -561,7 +531,7 @@
   });
 
   var lcm = curry(function (a, b) {
-    return Math.abs(Math.floor(a / gcd(a, b) * b));
+    return Math.abs(Math.floor(a / gcd$1(a, b) * b));
   });
 
   var length = (function (a) {
@@ -654,21 +624,25 @@
   });
 
   var plan = function plan(schema, obj) {
-    return assign({}, obj, Object.keys(obj).reduce(function (acc, k) {
+    return Object.keys(obj).reduce(function (acc, k) {
       if (!obj.hasOwnProperty(k)) {
         return acc;
       }
-      return assign(acc, _defineProperty({}, k, schema[k](obj[k])));
-    }, {}));
+      acc[k] = schema[k](obj[k]);
+      return acc;
+    }, {});
   };
   var plan$1 = curry(plan);
+
+  var isObject = (function (x) {
+    return Object.prototype.toString.call(x) === '[object Object]';
+  });
 
   var pluck = curry(function (p, list) {
     return Object.keys(list).reduce(function (acc, v) {
       var val = list[v];
       if (isObject(val)) {
-        acc.push.apply(acc, _toConsumableArray(pluck(p, val)));
-        return acc;
+        return acc.concat(pluck(p, val));
       }
       if (v === p) {
         acc.push(val);
@@ -677,13 +651,15 @@
     }, []);
   });
 
-  var prepend = curry(function (x, list) {
-    return [x].concat(_toConsumableArray(list));
-  });
+  var prepend = function prepend(x, list) {
+    return [].concat(x, list);
+  };
+  var prepend$1 = curry(prepend);
 
-  var prop = curry(function (p, obj) {
+  var prop = function prop(p, obj) {
     return obj[p];
-  });
+  };
+  var prop$1 = curry(prop);
 
   var valid = function valid(a, b) {
     return !isNaN(a) || b && !isNaN(b);
@@ -717,7 +693,7 @@
   });
 
   var remove = curry(function (i, x) {
-    return _toConsumableArray(x.slice(0, i)).concat(_toConsumableArray(x.slice(i + 1)));
+    return [].concat(x.slice(0, i), x.slice(i + 1));
   });
 
   var reverse = (function (arr) {
@@ -729,8 +705,11 @@
   });
 
   var sift = function sift(arr, obj) {
-    return arr.reduce(function (acc, v) {
-      return assign(acc, _defineProperty({}, v, obj[v]));
+    return Object.keys(obj).reduce(function (acc, k) {
+      if (arr.indexOf(k) !== -1) {
+        acc[k] = obj[k];
+      }
+      return acc;
     }, {});
   };
   var sift$1 = curry(sift);
@@ -755,26 +734,27 @@
     return str.trim();
   });
 
-  var union = curry(function (a, _ref) {
-    var _ref2 = _toArray(_ref),
-        rest = _ref2.slice(0);
-    return a.concat(concat(rest)).reduce(function (acc, v) {
-      return acc.indexOf(v) === -1 ? acc.concat(v) : acc;
-    }, []);
-  });
-
-  var uniq = curry(function (fn, list) {
+  var uniqBy = function uniqBy(fn, list) {
     return list.reduce(function (acc, a) {
       if (acc.map(fn).indexOf(fn(a)) === -1) {
-        return acc.concat(a);
+        acc.push(a);
       }
       return acc;
     }, []);
-  });
+  };
+  var uniqBy$1 = curry(uniqBy);
 
-  var update = curry(function (i, t, x) {
-    return _toConsumableArray(x.slice(0, i)).concat([t], _toConsumableArray(x.slice(i + 1)));
-  });
+  var uniq = uniqBy$1(identity);
+
+  var union = function union(list, other) {
+    return uniq(list.concat(other));
+  };
+  var union$1 = curry(union);
+
+  var update = function update(index, val, list) {
+    return [].concat(list.slice(0, index), val, list.slice(index + 1));
+  };
+  var update$1 = curry(update);
 
   var values = (function (obj) {
     return Object.keys(obj).map(function (k) {
@@ -809,7 +789,6 @@
   exports.any = any$1;
   exports.assign = assign;
   exports.capitalize = capitalize;
-  exports.clone = clone;
   exports.compact = compact;
   exports.complement = complement;
   exports.compress = compress;
@@ -819,8 +798,8 @@
   exports.curry = curry;
   exports.curryN = curryN;
   exports.deepClone = deepClone;
-  exports.defaults = defaults;
-  exports.difference = difference;
+  exports.defaults = defaults$1;
+  exports.difference = difference$1;
   exports.div = div;
   exports.empty = empty;
   exports.ensureArray = ensureArray;
@@ -830,7 +809,7 @@
   exports.find = find;
   exports.first = first;
   exports.fuzzySearch = fuzzySearch;
-  exports.gcd = gcd;
+  exports.gcd = gcd$1;
   exports.gets = gets$1;
   exports.gt = gt$1;
   exports.gte = gte$1;
@@ -865,8 +844,8 @@
   exports.pipe = pipe;
   exports.plan = plan$1;
   exports.pluck = pluck;
-  exports.prepend = prepend;
-  exports.prop = prop;
+  exports.prepend = prepend$1;
+  exports.prop = prop$1;
   exports.range = range;
   exports.reduce = reduce;
   exports.reject = reject;
@@ -880,9 +859,10 @@
   exports.sub = sub;
   exports.trim = trim;
   exports.type = type;
-  exports.union = union;
+  exports.union = union$1;
   exports.uniq = uniq;
-  exports.update = update;
+  exports.uniqBy = uniqBy$1;
+  exports.update = update$1;
   exports.values = values;
   exports.when = when$1;
   exports.whole = whole$1;

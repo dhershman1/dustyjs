@@ -11,12 +11,14 @@ import curry from './curry'
  * @return {Array} A new array
  *
  * @example
- * const i = nth(3, [1, 2, 3, 4, 5, 6, 7]); // => 4
+ * prepend('testing', ['is', 'cool']) // => ['testing', 'is', 'cool']
  *
- * // nth is curried
+ * // It's curried
  *
- * const third = nth(2);
+ * const pender = prepend('testing')
  *
- * third([1, 2, 3, 4, 5]); // => 3
+ * pender(['is', 'cool']); // => ['testing', 'is', 'cool']
  */
-export default curry((x, list) => [x, ...list])
+const prepend = (x, list) => [].concat(x, list)
+
+export default curry(prepend)

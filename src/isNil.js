@@ -12,4 +12,4 @@
  * isNill(); // => true
  * isNill(1); // => false
  */
-export default x => x == null // eslint-disable-line eqeqeq
+export default x => x == null

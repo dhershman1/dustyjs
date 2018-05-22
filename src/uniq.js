@@ -1,4 +1,5 @@
-import curry from './curry'
+import identity from './identity'
+import uniqBy from './uniqBy'
 
 /**
  * @name uniq
@@ -6,25 +7,13 @@ import curry from './curry'
  * @category Array
  * @sig (a -> b) -> Array a -> Array a
  * @description Returns an array of unique values from the applied function
- * @param {Function} fn The function to apply
  * @param {Array} list The list to sift through
  * @return {Array} An array of uniq values from the provided function
  *
  * @example
  *
- * uniq(x => x > 2, [1, 2, 3, 4, 5]); // => [3, 4, 5]
- *
- * // It is also curried
- *
- * const uq = uniq(x => x > 2);
- *
- * uq([1, 2, 3, 4, 5]); // => [3, 4, 5]
+ * uniq([1, 2, 2, 3, 3, 4, 5]); // => [1, 2, 3, 4, 5]
  */
-export default curry((fn, list) =>
-  list.reduce((acc, a) => {
-    if (acc.map(fn).indexOf(fn(a)) === -1) {
-      return acc.concat(a)
-    }
+const uniq = uniqBy(identity)
 
-    return acc
-  }, []))
+export default uniq

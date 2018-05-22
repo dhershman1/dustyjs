@@ -19,4 +19,4 @@ import curry from './curry'
  * const test = remover([1, 2, 3, 4]); // => [1, 2, 4]
  */
 export default curry((i, x) =>
-  [...x.slice(0, i), ...x.slice(i + 1)])
+  [].concat(x.slice(0, i), x.slice(i + 1)))

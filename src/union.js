@@ -1,14 +1,12 @@
 import curry from './curry'
-import concat from './concat'
+import uniq from './uniq'
 
 /**
  * @name union
  * @since v2.0.0
  * @category Array
  * @sig Array a -> Array a -> Array a
- * @description
- * Computes the union of the passed-in arrays: the list of unique items,
- * in order, that are present in one or more of the arrays.
+ * @description Creates a union between two arrays, removing duplicates from each
  * @param {Array} a An array to put through combining
  * @param {Array} rest The rest of the arrays
  * @return {Array} A new array of unique values from each of the passed in arrays
@@ -25,5 +23,6 @@ import concat from './concat'
  * un([3, 4, 5]); // => [1, 2, 3, 4, 5]
  * un([[3, 4, 5], [4, 5, 6]]); // => [1, 2, 3, 4, 5, 6]
  */
-export default curry((a, [...rest]) =>
-  a.concat(concat(rest)).reduce((acc, v) => acc.indexOf(v) === -1 ? acc.concat(v) : acc, []))
+const union = (list, other) => uniq(list.concat(other))
+
+export default curry(union)

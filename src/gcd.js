@@ -22,12 +22,12 @@ import curry from './curry'
  * a(90); // => 10
  * a(93); // => 1
 */
-const gcd = curry((a, b) => {
+const gcd = (a, b) => {
   if (!b) {
     return a
   }
 
   return gcd(b, a % b)
-})
+}
 
-export default gcd
+export default curry(gcd)
