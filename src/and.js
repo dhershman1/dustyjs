@@ -16,4 +16,6 @@ import curry from './curry'
  * and(true, false); // => false
  * and(false, false); // => false
  */
-export default curry((a, b) => a && b)
+const and = (a, b) => a && b
+
+export default curry(and)

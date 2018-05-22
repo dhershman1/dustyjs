@@ -49,7 +49,7 @@ const search = (haystack, needle) => {
  * const search = fuzzySearch('te');
  * const results = search('test'); // => true
  */
-export default curry((n, h) => {
+const fuzzySearch = (n, h) => {
   const hLen = h.length
   const nLen = n.length
 
@@ -62,4 +62,6 @@ export default curry((n, h) => {
   }
 
   return search(h, n)
-})
+}
+
+export default curry(fuzzySearch)

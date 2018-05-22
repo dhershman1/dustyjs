@@ -18,4 +18,6 @@ import not from './not'
  * isNot(1); // => true
  * isNot('test'); // => false
  */
-export default curry((fn, a) => not(fn(a)))
+const complement = (fn, a) => not(fn(a))
+
+export default curry(complement)

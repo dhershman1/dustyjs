@@ -20,4 +20,6 @@ import curry from './curry'
  * divide(3); // => 5
  * divide(5); // => 3
  */
-export default curry((a, b) => a / b)
+const div = (a, b) => a / b
+
+export default curry(div)

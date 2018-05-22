@@ -24,4 +24,6 @@ import curry from './curry'
  * run([1, 2, 3]); // => true
  * run([-1, 0, 1]); // => false
  */
-export default curry((fn, x) => x.every(fn))
+const every = (fn, x) => x.every(fn)
+
+export default curry(every)

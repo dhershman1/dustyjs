@@ -21,4 +21,6 @@ import curry from './curry'
  *
  * filterer([1, 2, 3, 4]); // => [2, 4]
  */
-export default curry((fn, list) => list.filter(fn))
+const filter = (fn, list) => list.filter(fn)
+
+export default curry(filter)
