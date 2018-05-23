@@ -19,5 +19,7 @@ import curry from './curry'
  *
  * propSet({ test: 1, thing: 2 }); // => true
  */
-export default curry((prop, obj) =>
-  Object.prototype.hasOwnProperty.call(obj, prop))
+const has = (prop, obj) =>
+  Object.prototype.hasOwnProperty.call(obj, prop)
+
+export default curry(has)

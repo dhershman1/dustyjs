@@ -10,4 +10,6 @@
  * @example
  * const reverse = not(true); // => false
  */
-export default x => !x
+const not = x => !x
+
+export default not

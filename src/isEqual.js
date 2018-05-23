@@ -14,4 +14,6 @@ import _equal from './_internals/equal'
  * const obj = isEqual({}, {}); // => true
  * const arr = isEqual([], []); // => true
  */
-export default (a, b) => _equal(a, b, [], [])
+const isEqual = (a, b) => _equal(a, b, [], [])
+
+export default isEqual

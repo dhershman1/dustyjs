@@ -13,4 +13,6 @@ import trim from './trim'
  * @example
  * words('my brown cow'); // => ['my', 'brown', 'cow']
  */
-export default str => trim(str).split(/\s+/)
+const words = str => trim(str).split(/\s+/)
+
+export default words

@@ -13,7 +13,7 @@ import isNil from './isNil'
  * compress({ thing: '', test: 1, other: undefined }); // => { thing: '', test: 1 }
  * compress({ thing: '', test: 1, other: null }); // => { thing: '', test: 1 }
  */
-export default obj =>
+const compress = obj =>
   Object.keys(obj).reduce((acc, k) => {
     if (!isNil(obj[k])) {
       acc[k] = obj[k]
@@ -21,3 +21,5 @@ export default obj =>
 
     return acc
   }, {})
+
+export default compress

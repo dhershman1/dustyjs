@@ -17,4 +17,6 @@ import not from './not'
  * const obj = isEmpty({}); // => true
  * const str = isEmpty(''); // => true
  */
-export default x => not(Boolean(Object.keys(x).length))
+const isEmpty = x => not(Boolean(Object.keys(x).length))
+
+export default isEmpty

@@ -11,5 +11,7 @@
  *
  * value({ a: 1, b: 2, c: 3 }); // => [1, 2, 3]
  */
-export default obj =>
+const values = obj =>
   Object.keys(obj).map(k => obj[k])
+
+export default values

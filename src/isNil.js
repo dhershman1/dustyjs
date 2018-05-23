@@ -12,4 +12,6 @@
  * isNill(); // => true
  * isNill(1); // => false
  */
-export default x => x == null
+const isNil = x => x == null
+
+export default isNil

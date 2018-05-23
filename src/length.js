@@ -12,4 +12,6 @@
  * length([1, 2, 3, 4]); // => 4
  * length([]); // => 0
  */
-export default a => a.length
+const length = a => a.length
+
+export default length

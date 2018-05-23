@@ -18,7 +18,7 @@
  * type(new Date()); // => 'Date'
  * type(true); // => 'Boolean'
  */
-export default x => {
+const type = x => {
   if (x === null) {
     return 'Null'
   }
@@ -28,3 +28,5 @@ export default x => {
 
   return Object.prototype.toString.call(x).slice(8, -1)
 }
+
+export default type

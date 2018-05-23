@@ -18,4 +18,6 @@
  *
  * filter(identity, [0, 'cool', null, 1]); // => ['cool', 1]
  */
-export default a => a
+const identity = a => a
+
+export default identity

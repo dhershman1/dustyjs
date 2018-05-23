@@ -18,7 +18,7 @@ import curry from './curry'
  * const test = identical(NaN); // => Gives back a function
  * test(NaN); // => true
  */
-export default curry((a, b) => {
+const identical = (a, b) => {
   if (a === b) {
     // +0 !== -0
     return a !== 0 || 1 / a === 1 / b
@@ -26,4 +26,6 @@ export default curry((a, b) => {
 
   // NaN === NaN
   return a !== a && b !== b // eslint-disable-line no-self-compare
-})
+}
+
+export default curry(identical)

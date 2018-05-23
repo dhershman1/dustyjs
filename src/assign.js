@@ -13,9 +13,11 @@
  * assign({ a: 1, b: 2, c: 3 }, { c: 5, d: 3 }); // => { a: 1, b: 2, c: 5, d: 3 }
  * assign({ a: 1 }, { b: 2 }, { c: 5 }, { c: 3 }, { d: 4 }); // => { a: 1, b: 2, c: 3, d: 4 }
  */
-export default (...args) =>
+const assign = (...args) =>
   args.reduce((acc, x) =>
     ({
       ...acc,
       ...x
     }), {})
+
+export default assign

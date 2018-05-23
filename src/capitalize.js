@@ -13,4 +13,6 @@
  * capitalize('test'); // => 'Test'
  * capitalize('small brown cow'); // => 'Small brown cow'
  */
-export default str => str.charAt(0).toUpperCase() + str.slice(1)
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
+
+export default capitalize

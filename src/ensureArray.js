@@ -16,7 +16,7 @@ import isNil from './isNil'
  * ensureArray(null); // => []
  * ensureArray('test'); // => ['test']
  */
-export default x => {
+const ensureArray = x => {
   if (Array.isArray(x)) {
     return x
   }
@@ -27,3 +27,5 @@ export default x => {
 
   return [x]
 }
+
+export default ensureArray

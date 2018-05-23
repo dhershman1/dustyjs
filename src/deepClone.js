@@ -16,4 +16,6 @@
  * console.log(data); // => { test: 1 }
  * console.log(cloned); // => { test: 2 }
  */
-export default x => JSON.parse(JSON.stringify(x))
+const deepClone = x => JSON.parse(JSON.stringify(x))
+
+export default deepClone

@@ -12,5 +12,7 @@
  *
  * getRange(3, 4, 9, -3); // => [-3, 9]
  */
-export default (fns = []) =>
+const juxt = (fns = []) =>
   (...x) => fns.map(f => f(...x))
+
+export default juxt

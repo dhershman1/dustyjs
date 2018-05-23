@@ -14,7 +14,7 @@ import type from './type'
  * const arr = empty([1, 2, 3]); // => []
  * const str = empty('test'); // => ''
  */
-export default x => {
+const empty = x => {
   if (type(x) === 'Array') {
     return []
   }
@@ -29,3 +29,5 @@ export default x => {
 
   throw new TypeError('Empty requires an emptyable type, like a String or Array')
 }
+
+export default empty

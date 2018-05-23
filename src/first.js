@@ -11,4 +11,6 @@
  * const arr = first([1, 3]); // => 1
  * const str = first('abc'); // => 'a'
  */
-export default x => x[0]
+const first = x => x[0]
+
+export default first
