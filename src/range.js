@@ -13,7 +13,7 @@
  * const test = range(3); // => [0, 1, 2];
  */
 const range = (from, to) => {
-  if (!isNaN(from) || (to && !isNaN(to))) {
+  if (isNaN(from) || (to && isNaN(to))) {
     throw new TypeError('Both Arguments should be a number type')
   }
 

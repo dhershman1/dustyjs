@@ -12,6 +12,12 @@
  * mean([]); // => NaN
  * mean(); // => NaN
  */
-const mean = (x = []) => x.reduce((a, v) => a + v, 0) / x.length
+const mean = (x = []) => {
+  if (!x.length) {
+    return 0
+  }
+
+  return x.reduce((a, v) => a + v, 0) / x.length
+}
 
 export default mean

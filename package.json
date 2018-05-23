@@ -8,17 +8,19 @@
     "@babel/preset-env": "7.0.0-beta.44",
     "@babel/preset-stage-0": "7.0.0-beta.44",
     "@babel/preset-stage-2": "7.0.0-beta.44",
-    "ava": "1.0.0-beta.4",
     "del": "3.0.0",
     "esm": "3.0.36",
     "globby": "8.0.1",
     "jsdoc-to-markdown": "4.0.1",
+    "nyc": "11.8.0",
     "rollup": "0.59.2",
     "rollup-plugin-babel": "4.0.0-beta.4",
-    "rollup-plugin-cleanup": "2.0.1",
+    "rollup-plugin-cleanup": "3.0.0-beta.1",
     "rollup-plugin-filesize": "1.5.0",
     "rollup-plugin-uglify": "4.0.0",
-    "standard": "11.0.1"
+    "standard": "11.0.1",
+    "tap-spec": "4.1.1",
+    "tape": "4.9.0"
   },
   "scripts": {
     "prepack": "rollup -c rollup.split.js && node scripts/create-export.js && rollup -c && node scripts/docs.js",
@@ -30,28 +32,13 @@
     "stats": "rollup -c rollup.split.js && node scripts/clean.js",
     "clean": "node scripts/clean.js",
     "postpublish": "npm run clean",
-    "test:watch": "ava --watch",
-    "test": "ava",
+    "test": "tape -r esm tests/*.js | tap-spec",
+    "coverage": "nyc npm test",
     "lint": "standard src/*.js"
   },
-  "ava": {
-    "files": [
-      "test/*.js"
-    ],
-    "require": [
-      "esm"
-    ],
-    "failFast": true,
-    "concurrency": 5,
-    "babel": {
-      "testOptions": {
-        "sourceMaps": "inline",
-        "presets": [
-          "@ava/transform-test-files",
-          "@ava/stage-4"
-        ]
-      }
-    }
+  "nyc": {
+    "include": ["src/**"],
+    "exclude": ["tests/**"]
   },
   "standard": {
     "ignore": [

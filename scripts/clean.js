@@ -7,8 +7,7 @@ const fileList = fs.readdirSync(path.join(__dirname, '..'))
 const ignoredFiles = [
   'docs',
   'rollup.config',
-  'rollup.split',
-  'rollup.bench'
+  'rollup.split'
 ]
 const results = fileList.filter(f => {
   const { ext, name } = path.parse(f)

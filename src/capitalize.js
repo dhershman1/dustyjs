@@ -1,4 +1,3 @@
-
 /**
  * @name capitalize
  * @since v2.0.0

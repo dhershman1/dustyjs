@@ -11,6 +11,7 @@
 - `uniq` now only looks for an array, use `uniqBy` in order to use the old functionality
 - Removed `clone` since `assign` is essentially the same thing with more capabilities
 - Function params passed to `juxt` should now be contained within a single array
+- Changed the return of `mean` so it returns 0 instead of `NaN` for bad arguments passed in
 
 ### New
 
@@ -37,6 +38,7 @@
 - Some more tweaks to internal documentation scripts
 - Addressed copy and paste errors for `prepend` docs
 - Overall clean up and optimizations
+- Replaced `ava` and converted back to `tape` (Yay!)
 
 ## v2.2.0
 

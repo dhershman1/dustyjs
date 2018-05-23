@@ -10,7 +10,5 @@
  * @example
  * compact([1, '', 0, 2]) // => [1, 2]
  */
-const compact = arr =>
+export default arr =>
   arr.filter(v => Boolean(v))
-
-export default compact
