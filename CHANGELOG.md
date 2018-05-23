@@ -10,7 +10,6 @@
 - `flatten` has been removed, consider using `concat` and `concatMap` instead
 - `uniq` now only looks for an array, use `uniqBy` in order to use the old functionality
 - Removed `clone` since `assign` is essentially the same thing with more capabilities
-- Removed `deepClone` since it isn't really needed or very simple for a user to throw together
 - Function params passed to `juxt` should now be contained within a single array
 
 ### New
@@ -37,6 +36,7 @@
 
 - Some more tweaks to internal documentation scripts
 - Addressed copy and paste errors for `prepend` docs
+- Overall clean up and optimizations
 
 ## v2.2.0
 

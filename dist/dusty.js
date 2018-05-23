@@ -19,13 +19,15 @@
     };
   };
 
-  var add = curry(function (a, b) {
+  var add = function add(a, b) {
     return a + b;
-  });
+  };
+  var add$1 = curry(add);
 
-  var and = curry(function (a, b) {
+  var and = function and(a, b) {
     return a && b;
-  });
+  };
+  var and$1 = curry(and);
 
   var any = function any(schema, obj) {
     return Object.keys(schema).some(function (key) {
@@ -128,18 +130,18 @@
     throw new TypeError("Invalid attempt to destructure non-iterable instance");
   }
 
-  var assign = (function () {
+  var assign = function assign() {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
     return args.reduce(function (acc, x) {
       return _objectSpread({}, acc, x);
     }, {});
-  });
+  };
 
-  var capitalize = (function (str) {
+  var capitalize = function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  });
+  };
 
   var compact = function compact(arr) {
     return arr.filter(function (v) {
@@ -147,26 +149,27 @@
     });
   };
 
-  var not = (function (x) {
+  var not = function not(x) {
     return !x;
-  });
+  };
 
-  var complement = curry(function (fn, a) {
+  var complement = function complement(fn, a) {
     return not(fn(a));
-  });
+  };
+  var complement$1 = curry(complement);
 
-  var isNil = (function (x) {
+  var isNil = function isNil(x) {
     return x == null;
-  });
+  };
 
-  var compress = (function (obj) {
+  var compress = function compress(obj) {
     return Object.keys(obj).reduce(function (acc, k) {
       if (!isNil(obj[k])) {
         acc[k] = obj[k];
       }
       return acc;
     }, {});
-  });
+  };
 
   var concat = function concat(arr) {
     return arr.reduce(function (acc, v) {
@@ -181,9 +184,10 @@
   };
   var concatMap$1 = curry(concatMap);
 
-  var contains = curry(function (a, list) {
+  var contains = function contains(a, list) {
     return list.indexOf(a) !== -1;
-  });
+  };
+  var contains$1 = curry(contains);
 
   var curryN = function curryN() {
     var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
@@ -202,9 +206,9 @@
     };
   };
 
-  var deepClone = (function (x) {
+  var deepClone = function deepClone(x) {
     return JSON.parse(JSON.stringify(x));
-  });
+  };
 
   var defaults = function defaults(def, data) {
     return Object.keys(def).reduce(function (acc, prop) {
@@ -223,11 +227,12 @@
   };
   var difference$1 = curry(difference);
 
-  var div = curry(function (a, b) {
+  var div = function div(a, b) {
     return a / b;
-  });
+  };
+  var div$1 = curry(div);
 
-  var type = (function (x) {
+  var type = function type(x) {
     if (x === null) {
       return 'Null';
     }
@@ -235,9 +240,9 @@
       return 'Undefined';
     }
     return Object.prototype.toString.call(x).slice(8, -1);
-  });
+  };
 
-  var empty = (function (x) {
+  var empty = function empty(x) {
     if (type(x) === 'Array') {
       return [];
     }
@@ -248,9 +253,9 @@
       return {};
     }
     throw new TypeError('Empty requires an emptyable type, like a String or Array');
-  });
+  };
 
-  var ensureArray = (function (x) {
+  var ensureArray = function ensureArray(x) {
     if (Array.isArray(x)) {
       return x;
     }
@@ -258,23 +263,25 @@
       return [];
     }
     return [x];
-  });
+  };
 
-  var entries = (function (obj) {
+  var entries = function entries(obj) {
     return Object.keys(obj).map(function (k) {
       return [k, obj[k]];
     });
-  });
+  };
 
-  var every = curry(function (fn, x) {
+  var every = function every(fn, x) {
     return x.every(fn);
-  });
+  };
+  var every$1 = curry(every);
 
-  var filter = curry(function (fn, list) {
+  var filter = function filter(fn, list) {
     return list.filter(fn);
-  });
+  };
+  var filter$1 = curry(filter);
 
-  var find = curry(function (fn, list) {
+  var find = function find(fn, list) {
     var idx = 0;
     var len = list.length;
     while (idx < len) {
@@ -284,11 +291,12 @@
       idx += 1;
     }
     return false;
-  });
+  };
+  var find$1 = curry(find);
 
-  var first = (function (x) {
+  var first = function first(x) {
     return x[0];
-  });
+  };
 
   var innerSearch = function innerSearch(start, haystack, nChar) {
     var j = start;
@@ -311,7 +319,7 @@
     }
     return true;
   };
-  var fuzzySearch = curry(function (n, h) {
+  var fuzzySearch = function fuzzySearch(n, h) {
     var hLen = h.length;
     var nLen = n.length;
     if (nLen > hLen) {
@@ -321,7 +329,8 @@
       return n === h;
     }
     return search(h, n);
-  });
+  };
+  var fuzzySearch$1 = curry(fuzzySearch);
 
   var gcd = function gcd(a, b) {
     if (!b) {
@@ -348,28 +357,31 @@
   };
   var gte$1 = curry(gte);
 
-  var has = curry(function (prop, obj) {
+  var has = function has(prop, obj) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
-  });
+  };
+  var has$1 = curry(has);
 
   var height = function height(obj) {
     return Object.keys(obj).length;
   };
 
-  var identical = curry(function (a, b) {
+  var identical = function identical(a, b) {
     if (a === b) {
       return a !== 0 || 1 / a === 1 / b;
     }
     return a !== a && b !== b;
-  });
+  };
+  var identical$1 = curry(identical);
 
-  var identity = (function (a) {
+  var identity = function identity(a) {
     return a;
-  });
+  };
 
-  var includes = curry(function (a, str) {
+  var includes = function includes(a, str) {
     return str.indexOf(a) !== -1;
-  });
+  };
+  var includes$1 = curry(includes);
 
   var insert = function insert(i, d, arr) {
     var idx = i < arr.length && i >= 0 ? i : arr.length;
@@ -379,19 +391,21 @@
   };
   var insert$1 = curry(insert);
 
-  var intersection = curry(function (a, b) {
+  var intersection = function intersection(a, b) {
     return a.filter(function (x) {
       return b.indexOf(x) !== -1;
     });
-  });
+  };
+  var intersection$1 = curry(intersection);
 
-  var is = curry(function (Ctor, x) {
+  var is = function is(Ctor, x) {
     return !isNil(x) && x.constructor === Ctor || x instanceof Ctor;
-  });
+  };
+  var is$1 = curry(is);
 
-  var isEmpty = (function (x) {
+  var isEmpty = function isEmpty(x) {
     return not(Boolean(Object.keys(x).length));
-  });
+  };
 
   var arrayFromIterator = (function (iter) {
     var list = [];
@@ -438,7 +452,7 @@
     }
     return '';
   };
-  var identical$1 = function identical(a, b) {
+  var identical$2 = function identical(a, b) {
     if (a === b) {
       return a !== 0 || 1 / a === 1 / b;
     }
@@ -446,7 +460,7 @@
   };
   var equal = function equal(a, b, stackA, stackB) {
     var aType = typeConvert(Object.prototype.toString.call(a).slice(8, -1));
-    if (identical$1(a, b)) {
+    if (identical$2(a, b)) {
       return true;
     }
     if (nullTypeCheck(a, b)) {
@@ -459,12 +473,12 @@
         }
         break;
       case 'simple':
-        if (!(_typeof(a) === _typeof(b) && identical$1(a.valueOf(), b.valueOf()))) {
+        if (!(_typeof(a) === _typeof(b) && identical$2(a.valueOf(), b.valueOf()))) {
           return false;
         }
         break;
       case 'date':
-        if (!identical$1(a.valueOf(), b.valueOf())) {
+        if (!identical$2(a.valueOf(), b.valueOf())) {
           return false;
         }
         break;
@@ -511,32 +525,34 @@
     return true;
   };
 
-  var isEqual = (function (a, b) {
+  var isEqual = function isEqual(a, b) {
     return equal(a, b, [], []);
-  });
+  };
 
-  var juxt = (function (fns) {
+  var juxt = function juxt() {
+    var fns = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     return function () {
       for (var _len = arguments.length, x = new Array(_len), _key = 0; _key < _len; _key++) {
         x[_key] = arguments[_key];
       }
       return fns.map(function (f) {
-        return f([].concat(x));
+        return f.apply(void 0, x);
       });
     };
-  });
+  };
 
-  var last = (function (x) {
+  var last = function last(x) {
     return x[x.length - 1];
-  });
+  };
 
-  var lcm = curry(function (a, b) {
+  var lcm = function lcm(a, b) {
     return Math.abs(Math.floor(a / gcd$1(a, b) * b));
-  });
+  };
+  var lcm$1 = curry(lcm);
 
-  var length = (function (a) {
+  var length = function length(a) {
     return a.length;
-  });
+  };
 
   var lt = function lt(a, b) {
     return a < b;
@@ -548,39 +564,42 @@
   };
   var lte$1 = curry(lte);
 
-  var map = curry(function (fn, list) {
+  var map = function map(fn, list) {
     return list.map(fn);
-  });
+  };
+  var map$1 = curry(map);
 
-  var nth = curry(function (o, x) {
+  var nth = function nth(o, x) {
     var idx = o < 0 ? x.length + o : o;
     return x[idx];
-  });
+  };
+  var nth$1 = curry(nth);
 
-  var max = (function (x) {
-    return nth(-1, x.sort(function (a, b) {
+  var max = function max(x) {
+    return nth$1(-1, x.sort(function (a, b) {
       return a > b;
     }));
-  });
+  };
 
-  var mean = (function () {
+  var mean = function mean() {
     var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     return x.reduce(function (a, v) {
       return a + v;
     }, 0) / x.length;
-  });
+  };
 
-  var min = (function (x) {
-    return nth(0, x.sort(function (a, b) {
+  var min = function min(x) {
+    return nth$1(0, x.sort(function (a, b) {
       return a > b;
     }));
-  });
+  };
 
-  var mul = curry(function (a, b) {
+  var mul = function mul(a, b) {
     return a * b;
-  });
+  };
+  var mul$1 = curry(mul);
 
-  var omit = curry(function (key, x) {
+  var omit = function omit(key, x) {
     var keyArr = ensureArray(key);
     return Object.keys(x).reduce(function (acc, prop) {
       if (keyArr.indexOf(prop) === -1) {
@@ -588,20 +607,23 @@
       }
       return acc;
     }, {});
-  });
+  };
+  var omit$1 = curry(omit);
 
-  var or = curry(function (a, b) {
+  var or = function or(a, b) {
     return a || b;
-  });
+  };
+  var or$1 = curry(or);
 
-  var partition = curry(function (fn, list) {
+  var partition = function partition(fn, list) {
     return list.reduce(function (_ref, v) {
       var _ref2 = _slicedToArray(_ref, 2),
           pass = _ref2[0],
           fail = _ref2[1];
       return fn(v) ? [pass.concat(v), fail] : [pass, fail.concat(v)];
     }, [[], []]);
-  });
+  };
+  var partition$1 = curry(partition);
 
   var path = function path(_ref, obj) {
     var _ref2 = _toArray(_ref),
@@ -617,11 +639,12 @@
   };
   var path$1 = curryN(2, path);
 
-  var pipe = curry(function (list, a) {
+  var pipe = function pipe(list, a) {
     return list.reduce(function (acc, fn) {
       return fn(acc);
     }, a);
-  });
+  };
+  var pipe$1 = curry(pipe);
 
   var plan = function plan(schema, obj) {
     return Object.keys(obj).reduce(function (acc, k) {
@@ -638,7 +661,7 @@
     return Object.prototype.toString.call(x) === '[object Object]';
   });
 
-  var pluck = curry(function (p, list) {
+  var pluck = function pluck(p, list) {
     return Object.keys(list).reduce(function (acc, v) {
       var val = list[v];
       if (isObject(val)) {
@@ -649,7 +672,8 @@
       }
       return acc;
     }, []);
-  });
+  };
+  var pluck$1 = curry(pluck);
 
   var prepend = function prepend(x, list) {
     return [].concat(x, list);
@@ -661,11 +685,8 @@
   };
   var prop$1 = curry(prop);
 
-  var valid = function valid(a, b) {
-    return !isNaN(a) || b && !isNaN(b);
-  };
-  var range = (function (from, to) {
-    if (!valid(from, to)) {
+  var range = function range(from, to) {
+    if (!isNaN(from) || to && !isNaN(to)) {
       throw new TypeError('Both Arguments should be a number type');
     }
     var result = [];
@@ -680,29 +701,33 @@
       start += 1;
     }
     return result;
-  });
+  };
 
-  var reduce = curry(function (fn, init, list) {
+  var reduce = function reduce(fn, init, list) {
     return list.reduce(fn, init);
-  });
+  };
+  var reduce$1 = curry(reduce);
 
-  var reject = curry(function (fn, list) {
+  var reject = function reject(fn, list) {
     return list.filter(function (v) {
       return !fn(v);
     });
-  });
+  };
+  var reject$1 = curry(reject);
 
-  var remove = curry(function (i, x) {
+  var remove = function remove(i, x) {
     return [].concat(x.slice(0, i), x.slice(i + 1));
-  });
+  };
+  var remove$1 = curry(remove);
 
-  var reverse = (function (arr) {
+  var reverse = function reverse(arr) {
     return arr.slice().reverse();
-  });
+  };
 
-  var round = curry(function (precision, num) {
+  var round = function round(precision, num) {
     return Number("".concat(Math.round("".concat(num, "e").concat(precision)), "e-").concat(precision));
-  });
+  };
+  var round$1 = curry(round);
 
   var sift = function sift(arr, obj) {
     return Object.keys(obj).reduce(function (acc, k) {
@@ -714,25 +739,29 @@
   };
   var sift$1 = curry(sift);
 
-  var slice = curry(function (a, b, list) {
+  var slice = function slice(a, b, list) {
     return list.slice(a, b);
-  });
+  };
+  var slice$1 = curry(slice);
 
-  var some = curry(function (fn, x) {
+  var some = function some(fn, x) {
     return x.some(fn);
-  });
+  };
+  var some$1 = curry(some);
 
-  var sort = curry(function (fn, a) {
+  var sort = function sort(fn, a) {
     return a.slice().sort(fn);
-  });
+  };
+  var sort$1 = curry(sort);
 
-  var sub = curry(function (a, b) {
+  var sub = function sub(a, b) {
     return a - b;
-  });
+  };
+  var sub$1 = curry(sub);
 
-  var trim = (function (str) {
+  var trim = function trim(str) {
     return str.trim();
-  });
+  };
 
   var uniqBy = function uniqBy(fn, list) {
     return list.reduce(function (acc, a) {
@@ -756,11 +785,11 @@
   };
   var update$1 = curry(update);
 
-  var values = (function (obj) {
+  var values = function values(obj) {
     return Object.keys(obj).map(function (k) {
       return obj[k];
     });
-  });
+  };
 
   var when = function when(fn, act) {
     for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
@@ -780,83 +809,83 @@
   };
   var whole$1 = curry(whole);
 
-  var words = (function (str) {
+  var words = function words(str) {
     return trim(str).split(/\s+/);
-  });
+  };
 
-  exports.add = add;
-  exports.and = and;
+  exports.add = add$1;
+  exports.and = and$1;
   exports.any = any$1;
   exports.assign = assign;
   exports.capitalize = capitalize;
   exports.compact = compact;
-  exports.complement = complement;
+  exports.complement = complement$1;
   exports.compress = compress;
   exports.concat = concat;
   exports.concatMap = concatMap$1;
-  exports.contains = contains;
+  exports.contains = contains$1;
   exports.curry = curry;
   exports.curryN = curryN;
   exports.deepClone = deepClone;
   exports.defaults = defaults$1;
   exports.difference = difference$1;
-  exports.div = div;
+  exports.div = div$1;
   exports.empty = empty;
   exports.ensureArray = ensureArray;
   exports.entries = entries;
-  exports.every = every;
-  exports.filter = filter;
-  exports.find = find;
+  exports.every = every$1;
+  exports.filter = filter$1;
+  exports.find = find$1;
   exports.first = first;
-  exports.fuzzySearch = fuzzySearch;
+  exports.fuzzySearch = fuzzySearch$1;
   exports.gcd = gcd$1;
   exports.gets = gets$1;
   exports.gt = gt$1;
   exports.gte = gte$1;
-  exports.has = has;
+  exports.has = has$1;
   exports.height = height;
-  exports.identical = identical;
+  exports.identical = identical$1;
   exports.identity = identity;
-  exports.includes = includes;
+  exports.includes = includes$1;
   exports.insert = insert$1;
-  exports.intersection = intersection;
-  exports.is = is;
+  exports.intersection = intersection$1;
+  exports.is = is$1;
   exports.isEmpty = isEmpty;
   exports.isEqual = isEqual;
   exports.isNil = isNil;
   exports.juxt = juxt;
   exports.last = last;
-  exports.lcm = lcm;
+  exports.lcm = lcm$1;
   exports.length = length;
   exports.lt = lt$1;
   exports.lte = lte$1;
-  exports.map = map;
+  exports.map = map$1;
   exports.max = max;
   exports.mean = mean;
   exports.min = min;
-  exports.mul = mul;
+  exports.mul = mul$1;
   exports.not = not;
-  exports.nth = nth;
-  exports.omit = omit;
-  exports.or = or;
-  exports.partition = partition;
+  exports.nth = nth$1;
+  exports.omit = omit$1;
+  exports.or = or$1;
+  exports.partition = partition$1;
   exports.path = path$1;
-  exports.pipe = pipe;
+  exports.pipe = pipe$1;
   exports.plan = plan$1;
-  exports.pluck = pluck;
+  exports.pluck = pluck$1;
   exports.prepend = prepend$1;
   exports.prop = prop$1;
   exports.range = range;
-  exports.reduce = reduce;
-  exports.reject = reject;
-  exports.remove = remove;
+  exports.reduce = reduce$1;
+  exports.reject = reject$1;
+  exports.remove = remove$1;
   exports.reverse = reverse;
-  exports.round = round;
+  exports.round = round$1;
   exports.sift = sift$1;
-  exports.slice = slice;
-  exports.some = some;
-  exports.sort = sort;
-  exports.sub = sub;
+  exports.slice = slice$1;
+  exports.some = some$1;
+  exports.sort = sort$1;
+  exports.sub = sub$1;
   exports.trim = trim;
   exports.type = type;
   exports.union = union$1;

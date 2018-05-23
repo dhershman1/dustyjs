@@ -1,8 +1,6 @@
 import pluck from '../src/pluck'
 import test from 'ava'
 
-/* eslint-disable object-property-newline */
-
 test('Works with Objects', t => {
   t.deepEqual(pluck('a', [{ a: 1 }, { a: 2 }]), [1, 2])
   t.deepEqual(pluck('val', { a: { val: 3 }, b: { val: 5 } }), [3, 5])

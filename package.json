@@ -1,16 +1,16 @@
 {
   "name": "dusty-fns",
   "version": "3.0.0",
-  "description": "A small library of functional operators inspired by Abstract Tools foreword",
+  "description": "A small library of functional operators inspired by Abstract Tools - foreword",
   "main": "dist/dusty.min.js",
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.47",
-    "@babel/preset-env": "7.0.0-beta.47",
-    "@babel/preset-stage-0": "7.0.0-beta.47",
-    "@babel/preset-stage-2": "7.0.0-beta.47",
-    "@babel/register": "7.0.0-beta.47",
+    "@babel/core": "7.0.0-beta.44",
+    "@babel/preset-env": "7.0.0-beta.44",
+    "@babel/preset-stage-0": "7.0.0-beta.44",
+    "@babel/preset-stage-2": "7.0.0-beta.44",
     "ava": "1.0.0-beta.4",
     "del": "3.0.0",
+    "esm": "3.0.36",
     "globby": "8.0.1",
     "jsdoc-to-markdown": "4.0.1",
     "rollup": "0.59.2",
@@ -39,12 +39,13 @@
       "test/*.js"
     ],
     "require": [
-      "@babel/register"
+      "esm"
     ],
     "failFast": true,
     "concurrency": 5,
     "babel": {
       "testOptions": {
+        "sourceMaps": "inline",
         "presets": [
           "@ava/transform-test-files",
           "@ava/stage-4"
