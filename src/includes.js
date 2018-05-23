@@ -24,4 +24,6 @@ import curry from './curry'
  *
  * checker('small brown cow'); // => true
  */
-export default curry((a, str) => str.indexOf(a) !== -1)
+const includes = (a, str) => str.indexOf(a) !== -1
+
+export default curry(includes)

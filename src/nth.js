@@ -19,8 +19,10 @@ import curry from './curry'
  *
  * third([1, 2, 3, 4, 5]); // => 3
  */
-export default curry((o, x) => {
+const nth = (o, x) => {
   const idx = o < 0 ? x.length + o : o
 
   return x[idx]
-})
+}
+
+export default curry(nth)

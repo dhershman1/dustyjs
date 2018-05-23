@@ -20,4 +20,6 @@ import curry from './curry'
  * multiply(3); // => 15
  * multiply(2); // => 10
  */
-export default curry((a, b) => a * b)
+const mul = (a, b) => a * b
+
+export default curry(mul)

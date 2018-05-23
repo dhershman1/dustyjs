@@ -23,6 +23,7 @@ import gcd from './gcd'
  * a(70); // => 630
  * a(4); // => 180
  */
-export default curry((a, b) =>
+const lcm = (a, b) =>
   Math.abs(Math.floor(a / gcd(a, b) * b))
-)
+
+export default curry(lcm)

@@ -21,7 +21,7 @@ import curry from './curry'
  * finder({val: 'test'}); // => 'test'
  * finder([{val: 'test'}, {val: 'none'}]); // => { val: 'test' }
  */
-export default curry((fn, list) => {
+const find = (fn, list) => {
   let idx = 0
   const len = list.length
 
@@ -34,4 +34,6 @@ export default curry((fn, list) => {
   }
 
   return false
-})
+}
+
+export default curry(find)

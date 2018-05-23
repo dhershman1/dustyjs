@@ -23,4 +23,6 @@ import curry from './curry'
  *
  * dbler([1, 2, 3]); // => [2, 4, 6]
  */
-export default curry((fn, list) => list.map(fn))
+const map = (fn, list) => list.map(fn)
+
+export default curry(map)

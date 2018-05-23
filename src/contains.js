@@ -20,5 +20,7 @@ import curry from './curry'
  *
  * checker([1, 2, 3]); // => true
  */
-export default curry((a, list) =>
-  list.indexOf(a) !== -1)
+const contains = (a, list) =>
+  list.indexOf(a) !== -1
+
+export default curry(contains)

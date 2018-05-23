@@ -35,4 +35,6 @@ import isNil from './isNil'
  * is(Object, {}); // => true
  * is(Object, []); // => true
  */
-export default curry((Ctor, x) => (!isNil(x) && x.constructor === Ctor) || x instanceof Ctor)
+const is = (Ctor, x) => (!isNil(x) && x.constructor === Ctor) || x instanceof Ctor
+
+export default curry(is)

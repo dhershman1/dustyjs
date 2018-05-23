@@ -19,4 +19,6 @@ import curry from './curry'
  *
  * inter([3, 4, 5, 6]); // => [3, 4]
  */
-export default curry((a, b) => a.filter(x => b.indexOf(x) !== -1))
+const intersection = (a, b) => a.filter(x => b.indexOf(x) !== -1)
+
+export default curry(intersection)
