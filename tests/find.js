@@ -46,3 +46,10 @@ test('Stops at the first element that passes our function', t => {
   t.is(find(runner, [1, 3, 200, 4]), 200)
   t.end()
 })
+
+test('Returns false if value not found', t => {
+  const runner = x => x > 100
+
+  t.notOk(find(runner, [1, 2, 3, 4]), 'Value not found')
+  t.end()
+})

@@ -32,13 +32,14 @@
     "stats": "rollup -c rollup.split.js && node scripts/clean.js",
     "clean": "node scripts/clean.js",
     "postpublish": "npm run clean",
-    "test": "tape -r esm tests/*.js | tap-spec",
+    "test": "tape -r esm tests/isEqual.js | tap-spec",
     "coverage": "nyc npm test",
     "lint": "standard src/*.js"
   },
   "nyc": {
     "include": ["src/**"],
-    "exclude": ["tests/**"]
+    "exclude": ["tests/**"],
+    "reporter": ["html"]
   },
   "standard": {
     "ignore": [

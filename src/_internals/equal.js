@@ -1,5 +1,6 @@
 import arrayFromIterator from './array-from-iterator'
 import functionName from './function-name'
+import identical from '../identical'
 
 const nullTypeCheck = (a, b) =>
   a === null ||
@@ -44,16 +45,6 @@ const typeConvert = a => {
   }
 
   return ''
-}
-
-const identical = (a, b) => {
-  if (a === b) {
-    // +0 !== -0
-    return a !== 0 || 1 / a === 1 / b
-  }
-
-  // NaN === NaN
-  return a !== a && b !== b // eslint-disable-line no-self-compare
 }
 
 // The vast functionality of the extremely strict equals functionality

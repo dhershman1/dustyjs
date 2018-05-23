@@ -216,3 +216,11 @@ test('Test compares map objects by value', t => {
   t.ok(isEqual(new Map([[1, 'a'], [2, new Map([[3, 'c']])]]), new Map([[1, 'a'], [2, new Map([[3, 'c']])]])), 'mapception')
   t.end()
 })
+
+test('Handles promise constructor comparison', t => {
+  const p1 = Promise.resolve(42)
+  const p2 = Promise.resolve(42)
+
+  t.notOk(isEqual(p1, p2), 'Promises should not equal')
+  t.end()
+})

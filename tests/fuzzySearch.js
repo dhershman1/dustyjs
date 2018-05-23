@@ -19,3 +19,13 @@ test('search with cu for chuck', t => {
   t.true(fuzzySearch('cu', 'chuck'))
   t.end()
 })
+
+test('Handles needle length being greater than haystack length', t => {
+  t.notOk(fuzzySearch('hello!', 'hi'), 'Needle is longer than haystack so returns false')
+  t.end()
+})
+
+test('Handles needle length being equal to haystack length', t => {
+  t.ok(fuzzySearch('hi', 'hi'), 'Needle is equal to haystack so returns true')
+  t.end()
+})

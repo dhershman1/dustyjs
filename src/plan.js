@@ -1,3 +1,4 @@
+import assign from './assign'
 import curry from './curry'
 
 /**
@@ -24,7 +25,7 @@ import curry from './curry'
  * p({ a: 5, b: 10 }) // => { a: 10, b: 20 }
  */
 const plan = (schema, obj) =>
-  Object.keys(obj).reduce((acc, k) => {
+  assign({}, obj, Object.keys(schema).reduce((acc, k) => {
     if (!obj.hasOwnProperty(k)) {
       return acc
     }
@@ -32,6 +33,6 @@ const plan = (schema, obj) =>
     acc[k] = schema[k](obj[k])
 
     return acc
-  }, {})
+  }, {}))
 
 export default curry(plan)

@@ -18,3 +18,8 @@ test('is Curried', t => {
   t.deepEqual(plucker([{ a: 1 }, { a: 2 }]), [1, 2])
   t.end()
 })
+
+test('Handles when a value is the same as the prop', t => {
+  t.deepEqual(pluck('a', { k: 'k' }), [])
+  t.end()
+})

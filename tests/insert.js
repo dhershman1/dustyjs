@@ -14,3 +14,8 @@ test('Is curried', t => {
   t.deepEqual(ins([1, 2, 3, 4]), [1, 2, 'x', 3, 4])
   t.end()
 })
+
+test('Sets the id to the current array length', t => {
+  t.deepEqual(insert(-1, 'b', ['a', 'c', 'd']), ['a', 'c', 'd', 'b'])
+  t.end()
+})

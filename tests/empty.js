@@ -51,3 +51,12 @@ test('Empty an object', t => {
   t.deepEqual(results, {}, 'Results are an empty object')
   t.end()
 })
+
+test('Test throws', t => {
+  try {
+    empty()
+  } catch (err) {
+    t.equal(err.message, 'Empty requires an emptyable type, like a String or Array', 'Throws an error')
+    t.end()
+  }
+})

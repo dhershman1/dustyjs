@@ -27,7 +27,7 @@
  * sum1(4); // => 5
  * sum1(undefined); // => 2
  */
-const curryN = (n = 0, f, ...args) => {
+const curryN = (n, f, ...args) => {
   if (n <= 0) {
     return f(...args)
   }

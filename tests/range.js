@@ -16,3 +16,12 @@ test('Creates range while missing the first argument', t => {
   t.deepEqual(results, [0, 1, 2, 3, 4])
   t.end()
 })
+
+test('Should throw an error when values are NaN', t => {
+  try {
+    range('h')
+  } catch (err) {
+    t.is(err.message, 'Both Arguments should be a number type')
+    t.end()
+  }
+})
