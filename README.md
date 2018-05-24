@@ -2,6 +2,7 @@
 [![David](https://img.shields.io/david/dhershman1/dustyjs.svg?style=flat-square)](https://david-dm.org/dhershman1/dustyjs)
 [![David](https://img.shields.io/david/dev/dhershman1/dustyjs.svg?style=flat-square)](https://david-dm.org/dhershman1/dustyjs?type=dev)
 [![Travis](https://img.shields.io/travis/dhershman1/dustyjs.svg?style=flat-square)](https://travis-ci.org/dhershman1/dustyjs)
+[![Coverage Status](https://coveralls.io/repos/github/dhershman1/dustyjs/badge.svg?branch=master)](https://coveralls.io/github/dhershman1/dustyjs?branch=master)
 
 # Dusty.js (dusty-fns)
 
