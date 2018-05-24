@@ -8,3 +8,8 @@ test('Test functionality', t => {
   t.is(functionName(myFunc), 'myFunc')
   t.end()
 })
+
+test('Returns empty string if match is null', t => {
+  t.is(functionName(() => { }), '', 'Got back an empty string')
+  t.end()
+})

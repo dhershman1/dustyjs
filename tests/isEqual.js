@@ -217,10 +217,11 @@ test('Test compares map objects by value', t => {
   t.end()
 })
 
-test('Handles promise constructor comparison', t => {
+test('Compares Promise objects by identity', t => {
   const p1 = Promise.resolve(42)
   const p2 = Promise.resolve(42)
 
-  t.notOk(isEqual(p1, p2), 'Promises should not equal')
+  t.notOk(isEqual(p1, p2), 'Different Promises should not equal')
+  t.ok(isEqual(p1, p1), 'Same Promise objects are equal by memory')
   t.end()
 })

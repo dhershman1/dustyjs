@@ -62,10 +62,6 @@ const equal = (a, b, stackA, stackB) => {
   // Using the types certain logic should be called and addressed
   switch (aType) {
     case 'complex':
-      if (typeof a.constructor === 'function' &&
-        functionName(a.constructor) === 'Promise') {
-        return a === b
-      }
       break
     case 'simple':
       if (!(typeof a === typeof b && identical(a.valueOf(), b.valueOf()))) {
