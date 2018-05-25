@@ -1,3 +1,4 @@
+import concat from './concat'
 import curry from './curry'
 
 /**
@@ -27,6 +28,6 @@ import curry from './curry'
  * val([1, 2, 3]); // => [1, 2, 10]
  */
 const update = (index, val, list) =>
-  [].concat(list.slice(0, index), val, list.slice(index + 1))
+  concat([list.slice(0, index), val, list.slice(index + 1)])
 
 export default curry(update)

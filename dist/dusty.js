@@ -36,106 +36,22 @@
   };
   var any$1 = curry(any);
 
-  function _typeof(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function (obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-    }
-
-    return _typeof(obj);
-  }
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
-
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
-      }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    }
-
-    return target;
-  }
-
-  function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-  }
-
-  function _toArray(arr) {
-    return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest();
-  }
-
-  function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-  }
-
-  function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-  }
-
-  function _iterableToArrayLimit(arr, i) {
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _e = undefined;
-
-    try {
-      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-        _arr.push(_s.value);
-
-        if (i && _arr.length === i) break;
-      }
-    } catch (err) {
-      _d = true;
-      _e = err;
-    } finally {
-      try {
-        if (!_n && _i["return"] != null) _i["return"]();
-      } finally {
-        if (_d) throw _e;
-      }
-    }
-
-    return _arr;
-  }
-
-  function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance");
-  }
+  var has = function has(prop, obj) {
+    return Object.prototype.hasOwnProperty.call(obj, prop);
+  };
+  var has$1 = curry(has);
 
   var assign = function assign() {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
     return args.reduce(function (acc, x) {
-      return _objectSpread({}, acc, x);
+      for (var key in x) {
+        if (has$1(key, x)) {
+          acc[key] = x[key];
+        }
+      }
+      return acc;
     }, {});
   };
 
@@ -143,11 +59,11 @@
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  var compact = function compact(arr) {
+  var compact = (function (arr) {
     return arr.filter(function (v) {
       return Boolean(v);
     });
-  };
+  });
 
   var not = function not(x) {
     return !x;
@@ -189,9 +105,7 @@
   };
   var contains$1 = curry(contains);
 
-  var curryN = function curryN() {
-    var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var f = arguments.length > 1 ? arguments[1] : undefined;
+  var curryN = function curryN(n, f) {
     for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
       args[_key - 2] = arguments[_key];
     }
@@ -357,11 +271,6 @@
   };
   var gte$1 = curry(gte);
 
-  var has = function has(prop, obj) {
-    return Object.prototype.hasOwnProperty.call(obj, prop);
-  };
-  var has$1 = curry(has);
-
   var height = function height(obj) {
     return Object.keys(obj).length;
   };
@@ -404,8 +313,68 @@
   var is$1 = curry(is);
 
   var isEmpty = function isEmpty(x) {
-    return not(Boolean(Object.keys(x).length));
+    return !x || !Object.keys(x).length;
   };
+
+  function _typeof(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function (obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof = function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
+    }
+
+    return _typeof(obj);
+  }
+
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+  }
+
+  function _toArray(arr) {
+    return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest();
+  }
+
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function _iterableToArray(iter) {
+    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+  }
+
+  function _iterableToArrayLimit(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance");
+  }
 
   var arrayFromIterator = (function (iter) {
     var list = [];
@@ -414,11 +383,6 @@
       list.push(next.value);
     }
     return list;
-  });
-
-  var functionName = (function (f) {
-    var match = String(f).match(/^function (\w*)/);
-    return match == null ? '' : match[1];
   });
 
   var nullTypeCheck = function nullTypeCheck(a, b) {
@@ -452,15 +416,9 @@
     }
     return '';
   };
-  var identical$2 = function identical(a, b) {
-    if (a === b) {
-      return a !== 0 || 1 / a === 1 / b;
-    }
-    return a !== a && b !== b;
-  };
   var equal = function equal(a, b, stackA, stackB) {
     var aType = typeConvert(Object.prototype.toString.call(a).slice(8, -1));
-    if (identical$2(a, b)) {
+    if (identical$1(a, b)) {
       return true;
     }
     if (nullTypeCheck(a, b)) {
@@ -468,17 +426,14 @@
     }
     switch (aType) {
       case 'complex':
-        if (typeof a.constructor === 'function' && functionName(a.constructor) === 'Promise') {
-          return a === b;
-        }
         break;
       case 'simple':
-        if (!(_typeof(a) === _typeof(b) && identical$2(a.valueOf(), b.valueOf()))) {
+        if (!(_typeof(a) === _typeof(b) && identical$1(a.valueOf(), b.valueOf()))) {
           return false;
         }
         break;
       case 'date':
-        if (!identical$2(a.valueOf(), b.valueOf())) {
+        if (!identical$1(a.valueOf(), b.valueOf())) {
           return false;
         }
         break;
@@ -569,27 +524,24 @@
   };
   var map$1 = curry(map);
 
-  var nth = function nth(o, x) {
-    var idx = o < 0 ? x.length + o : o;
-    return x[idx];
-  };
-  var nth$1 = curry(nth);
-
   var max = function max(x) {
-    return nth$1(-1, x.sort(function (a, b) {
+    return last(x.sort(function (a, b) {
       return a > b;
     }));
   };
 
   var mean = function mean() {
     var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    if (!x.length) {
+      return 0;
+    }
     return x.reduce(function (a, v) {
       return a + v;
     }, 0) / x.length;
   };
 
   var min = function min(x) {
-    return nth$1(0, x.sort(function (a, b) {
+    return first(x.sort(function (a, b) {
       return a > b;
     }));
   };
@@ -598,6 +550,12 @@
     return a * b;
   };
   var mul$1 = curry(mul);
+
+  var nth = function nth(o, x) {
+    var idx = o < 0 ? x.length + o : o;
+    return x[idx];
+  };
+  var nth$1 = curry(nth);
 
   var omit = function omit(key, x) {
     var keyArr = ensureArray(key);
@@ -647,13 +605,13 @@
   var pipe$1 = curry(pipe);
 
   var plan = function plan(schema, obj) {
-    return Object.keys(obj).reduce(function (acc, k) {
+    return assign({}, obj, Object.keys(schema).reduce(function (acc, k) {
       if (!obj.hasOwnProperty(k)) {
         return acc;
       }
       acc[k] = schema[k](obj[k]);
       return acc;
-    }, {});
+    }, {}));
   };
   var plan$1 = curry(plan);
 
@@ -686,7 +644,7 @@
   var prop$1 = curry(prop);
 
   var range = function range(from, to) {
-    if (!isNaN(from) || to && !isNaN(to)) {
+    if (isNaN(from) || to && isNaN(to)) {
       throw new TypeError('Both Arguments should be a number type');
     }
     var result = [];

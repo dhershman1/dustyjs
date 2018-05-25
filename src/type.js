@@ -5,7 +5,7 @@
  * @sig a -> Boolean
  * @description Finds the type of the sent value
  * @param  {Any} x The value to test
- * @return {String}   Returns the string of the value type
+ * @return {String} A string based on the type of the value passed in
  *
  * @example
  * type({}); // => 'Object'
@@ -22,7 +22,7 @@ const type = x => {
   if (x === null) {
     return 'Null'
   }
-  if (x === undefined) { // eslint-disable-line no-undefined
+  if (x === undefined) {
     return 'Undefined'
   }
 

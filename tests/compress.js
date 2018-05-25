@@ -1,7 +1,6 @@
 import compress from '../src/compress'
+import has from '../src/has'
 import test from 'tape'
-
-/* eslint-disable no-undefined */
 
 test('Removes undefined values', t => {
   const results = compress({
@@ -10,7 +9,7 @@ test('Removes undefined values', t => {
     not: 'removed'
   })
 
-  t.is(results.test, undefined)
+  t.false(has('test', results))
   t.is(results.cool, 'thing')
   t.is(results.not, 'removed')
   t.end()
@@ -23,7 +22,7 @@ test('Removes null values', t => {
     not: 'removed'
   })
 
-  t.is(results.test, undefined)
+  t.false(has('test', results))
   t.is(results.cool, 'thing')
   t.is(results.not, 'removed')
   t.end()
@@ -36,6 +35,7 @@ test('Skips falsy value like empty string', t => {
     not: 'removed'
   })
 
+  t.true(has('test', results))
   t.is(results.test, '')
   t.is(results.cool, 'thing')
   t.is(results.not, 'removed')
@@ -49,6 +49,7 @@ test('Skips falsy value like a number zero', t => {
     not: 'removed'
   })
 
+  t.true(has('test', results))
   t.is(results.test, 0)
   t.is(results.cool, 'thing')
   t.is(results.not, 'removed')

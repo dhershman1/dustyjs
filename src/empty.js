@@ -10,9 +10,9 @@ import type from './type'
  * @return {*} Returns the empty item
  *
  * @example
- * const obj = empty({ test: 1 }); // => {}
- * const arr = empty([1, 2, 3]); // => []
- * const str = empty('test'); // => ''
+ * empty({ test: 1 }) // => {}
+ * empty([1, 2, 3]) // => []
+ * empty('test') // => ''
  */
 const empty = x => {
   if (type(x) === 'Array') {
@@ -27,7 +27,7 @@ const empty = x => {
     return {}
   }
 
-  throw new TypeError('Empty requires an emptyable type, like a String or Array')
+  return void 0
 }
 
 export default empty

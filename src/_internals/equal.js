@@ -1,5 +1,4 @@
 import arrayFromIterator from './array-from-iterator'
-import functionName from './function-name'
 import identical from '../identical'
 
 const nullTypeCheck = (a, b) =>

@@ -11,14 +11,14 @@ import curry from './curry'
  * @return {Number} The quotient of the two numbers
  *
  * @example
- * div(2, 1); // => 2
+ * div(2, 1) // => 2
  *
  * // It's also curried
  *
- * const divide = div(15);
+ * const divide = div(15)
  *
- * divide(3); // => 5
- * divide(5); // => 3
+ * divide(3) // => 5
+ * divide(5) // => 3
  */
 const div = (a, b) => a / b
 

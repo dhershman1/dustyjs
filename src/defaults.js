@@ -13,13 +13,13 @@ import curry from './curry'
  *
  * @example
  *
- * defaults({ test: 1, thing: 2 }, { thing: 4 }); // => { test: 1, thing: 4 }
+ * defaults({ test: 1, thing: 2 }, { thing: 4 }) // => { test: 1, thing: 4 }
  *
  * // It's also curried
  *
- * const def = defaults({ test: 1, thing: 2 });
+ * const def = defaults({ test: 1, thing: 2 })
  *
- * def({ thing: 4 }); // => { test: 1, thing: 4 }
+ * def({ thing: 4 }) // => { test: 1, thing: 4 }
  */
 const defaults = (def, data) =>
   Object.keys(def).reduce((acc, prop) => {

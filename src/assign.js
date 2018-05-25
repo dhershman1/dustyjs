@@ -1,3 +1,5 @@
+import has from './has'
+
 /**
  * @name assign
  * @since v0.1.0
@@ -14,10 +16,14 @@
  * assign({ a: 1 }, { b: 2 }, { c: 5 }, { c: 3 }, { d: 4 }); // => { a: 1, b: 2, c: 3, d: 4 }
  */
 const assign = (...args) =>
-  args.reduce((acc, x) =>
-    ({
-      ...acc,
-      ...x
-    }), {})
+  args.reduce(function (acc, x) {
+    for (const key in x) {
+      if (has(key, x)) {
+        acc[key] = x[key]
+      }
+    }
+
+    return acc
+  }, {})
 
 export default assign

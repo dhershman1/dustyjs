@@ -9,6 +9,7 @@
  * @return {Array} The stripped array
  * @example
  * compact([1, '', 0, 2]) // => [1, 2]
+ * compact([1, '', false, 2, undefined, 3, null]) // => [1, 2, 3]
  */
 export default arr =>
   arr.filter(v => Boolean(v))

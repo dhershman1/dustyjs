@@ -11,12 +11,18 @@ import curry from './curry'
  * @return {Boolean}   Returns a boolean based on the check
  *
  * @example
- * const obj = identical(NaN, NaN); // => true
+ * identical(NaN, NaN) // => true
+ * identical([1], [1]) // => false
+ *
+ * const o = {}
+ *
+ * identical({}, {}) // => false
+ * identical(o, o) // => true
  *
  * // Identical is also curried
  *
- * const test = identical(NaN); // => Gives back a function
- * test(NaN); // => true
+ * const test = identical(NaN)
+ * test(NaN) // => true
  */
 const identical = (a, b) => {
   if (a === b) {

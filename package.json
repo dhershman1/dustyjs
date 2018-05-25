@@ -1,7 +1,7 @@
 {
   "name": "dusty-fns",
   "version": "3.0.0",
-  "description": "A small library of functional operators inspired by Abstract Tools - foreword",
+  "description": "A small library of pure functional utilities to make life easier and data better",
   "main": "dist/dusty.min.js",
   "devDependencies": {
     "@babel/core": "7.0.0-beta.44",
@@ -47,7 +47,8 @@
   },
   "standard": {
     "ignore": [
-      "dist/*"
+      "dist/*",
+      "docs.js"
     ]
   },
   "repository": {

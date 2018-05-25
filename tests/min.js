@@ -6,6 +6,11 @@ test('Returns min for numbers', t => {
   t.end()
 })
 
+test('Returns sorted list of double digit numbers', t => {
+  t.is(min([11, 9, 32, 16, 27]), 9)
+  t.end()
+})
+
 test('Returns min for string numbers', t => {
   t.is(min(['1', '3', '2', '5', '4']), '1')
   t.end()

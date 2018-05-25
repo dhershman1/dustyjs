@@ -1,3 +1,4 @@
+import concat from './concat'
 import curry from './curry'
 
 /**
@@ -19,6 +20,6 @@ import curry from './curry'
  * const test = remover([1, 2, 3, 4]); // => [1, 2, 4]
  */
 const remove = (i, x) =>
-  [].concat(x.slice(0, i), x.slice(i + 1))
+  concat([x.slice(0, i), x.slice(i + 1)])
 
 export default curry(remove)

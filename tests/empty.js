@@ -52,11 +52,7 @@ test('Empty an object', t => {
   t.end()
 })
 
-test('Test throws', t => {
-  try {
-    empty()
-  } catch (err) {
-    t.equal(err.message, 'Empty requires an emptyable type, like a String or Array', 'Throws an error')
-    t.end()
-  }
+test('Empty non complex', t => {
+  t.notOk(empty(0))
+  t.end()
 })

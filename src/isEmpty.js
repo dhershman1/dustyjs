@@ -1,8 +1,3 @@
-import not from './not'
-
-// To keep checks strict we sadly have to use this
-/* eslint-disable no-undefined */
-
 /**
  * @name isEmpty
  * @since v0.1.0
@@ -13,10 +8,15 @@ import not from './not'
  * @return {Boolean} Returns the boolean after running our check
  *
  * @example
- * const arr = isEmpty([]); // => true
- * const obj = isEmpty({}); // => true
- * const str = isEmpty(''); // => true
+ * isEmpty([]) // => true
+ * isEmpty({}) // => true
+ * isEmpty('') // => true
+ * isEmpty(NaN) // => true
+ * isEmpty(null) // => true
+ * isEmpty(undefined) // => true
+ * isEmpty(true) // => true
+ * isEmpty(false) // => true
  */
-const isEmpty = x => not(Boolean(Object.keys(x).length))
+const isEmpty = x => !x || !Object.keys(x).length
 
 export default isEmpty

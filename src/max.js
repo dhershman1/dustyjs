@@ -1,4 +1,4 @@
-import nth from './nth'
+import last from './last'
 
 /**
  * @name max
@@ -13,6 +13,6 @@ import nth from './nth'
  * max([1, 3, 2, 5, 4]); // => 5
  * max(['c', 'a', 'b', 'f']); // => 'f'
  */
-const max = x => nth(-1, x.sort((a, b) => a > b))
+const max = x => last(x.sort((a, b) => a > b))
 
 export default max

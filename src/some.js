@@ -12,19 +12,19 @@ import curry from './curry'
  * @return {Boolean} If any values passed will return true else false
  *
  * @example
- * const data = [1, 2, 3, 4];
+ * const data = [1, 2, 3, 4]
  *
- * some(x => x > 0, data); // => true
- * some(x => x < 3); // => true
- * some(x => x < 0, data); // => false
+ * some(x => x > 0, data) // => true
+ * some(x => x < 3) // => true
+ * some(x => x < 0, data) // => false
  *
  * // It is also curried
  *
- * const run = some(x => x > 0);
+ * const run = some(x => x > 0)
  *
- * run([1, 2, 3]); // => true
- * run([-1, 0, 1]); // => true
- * run([-3, -2, -1]); // => false
+ * run([1, 2, 3]) // => true
+ * run([-1, 0, 1]) // => true
+ * run([-3, -2, -1]) // => false
  */
 const some = (fn, x) => x.some(fn)
 

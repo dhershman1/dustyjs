@@ -17,6 +17,13 @@ test('Test array of objects functionality', t => {
   t.end()
 })
 
+test('Stops at the first value to pass the function', t => {
+  const results = find(x => x.val > 2, [{ val: 1 }, { val: 3 }, { val: 4 }])
+
+  t.deepEqual(results, { val: 3 })
+  t.end()
+})
+
 test('Test curried find', t => {
   const finder = find(({ val }) => val === 1)
   const result = finder([{ val: 2 }, { val: 32 }, { val: 1 }])
