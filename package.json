@@ -35,6 +35,7 @@
     "test": "tape -r esm tests/*.js | tap-spec",
     "test:cov": "nyc npm test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "cov": "nyc --reporter=html npm test",
     "lint": "standard src/*.js"
   },
   "nyc": {
