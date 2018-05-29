@@ -86,3 +86,19 @@ test('Handles any number of objects passed in', t => {
   })
   t.end()
 })
+
+test('Handles values that do not own the prop', t => {
+  const Person = function () {
+    Array.isArray([])
+  }
+
+  Person.prototype.age = 10
+  const bob = new Person()
+
+  const results = assign({ a: 1 }, bob)
+
+  t.deepEqual(results, {
+    a: 1
+  })
+  t.end()
+})
