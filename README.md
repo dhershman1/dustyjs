@@ -1,8 +1,5 @@
-[![npm](https://img.shields.io/npm/v/dusty-fns.svg?style=flat-square)](https://www.npmjs.com/package/dusty-fns)
-[![David](https://img.shields.io/david/dhershman1/dustyjs.svg?style=flat-square)](https://david-dm.org/dhershman1/dustyjs)
-[![David](https://img.shields.io/david/dev/dhershman1/dustyjs.svg?style=flat-square)](https://david-dm.org/dhershman1/dustyjs?type=dev)
-[![Travis](https://img.shields.io/travis/dhershman1/dustyjs.svg?style=flat-square)](https://travis-ci.org/dhershman1/dustyjs)
-[![Coverage Status](https://img.shields.io/coveralls/github/dhershman1/dustyjs.svg?style=flat-square)](https://coveralls.io/github/dhershman1/dustyjs?branch=master)
+
+**DO NOTE: The library was re branded to kyanite, you can find it here: https://github.com/dhershman1/kyanite this repo is archived and technically the dusty-fns package was marked as deprecated, thanks!**
 
 # Dusty.js (dusty-fns)
 
